@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Double Top / Double Bottom — M2K 2-Min Scalping Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #161a21;
+    --panel-2: #1c2129;
+    --ink: #e8e6e1;
+    --ink-dim: #9aa0a6;
+    --ink-faint: #5a6068;
+    --line: #2a2f38;
+    --line-strong: #3a4150;
+    --bull: #4ade80;
+    --bull-dim: #1f4a2e;
+    --bear: #f87171;
+    --bear-dim: #4a1f1f;
+    --gold: #d4a64a;
+    --warn: #e8b547;
+    --accent: #7dd3fc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 24px;
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1400px; margin: 0 auto; }
+
+  /* ============ HEADER ============ */
+  header {
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .title-block h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .title-block .subtitle {
+    color: var(--ink-dim);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .meta-block {
+    text-align: right;
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .meta-block .stat {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  /* ============ CONTROLS (screen only) ============ */
+  .controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+    padding: 8px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn:hover { background: var(--panel-2); border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .btn.primary:hover { opacity: 0.85; color: var(--bg); }
+
+  /* ============ MAIN GRID ============ */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .column {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 20px;
+    position: relative;
+  }
+
+  .column.short { border-top: 3px solid var(--bear); }
+  .column.long { border-top: 3px solid var(--bull); }
+
+  .column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .column-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .short .column-title { color: var(--bear); }
+  .long .column-title { color: var(--bull); }
+
+  .pattern-shape {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .short .pattern-shape { color: var(--bear); }
+  .long .pattern-shape { color: var(--bull); }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    margin-bottom: 18px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .section-label .gate-required {
+    color: var(--warn);
+    font-weight: 700;
+  }
+
+  /* ============ CHECKBOX ROWS ============ */
+  .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--line);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .check-row:last-child { border-bottom: none; }
+  .check-row:hover { padding-left: 4px; }
+
+  .check-row input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--line-strong);
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 3px;
+    position: relative;
+    transition: all 0.15s;
+  }
+
+  .check-row input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .check-row input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -3px;
+    left: 1px;
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .short .check-row input[type="checkbox"]:checked { background: var(--bear); border-color: var(--bear); }
+  .long .check-row input[type="checkbox"]:checked { background: var(--bull); border-color: var(--bull); }
+
+  .check-row label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--ink);
+  }
+
+  .check-row .hint {
+    display: block;
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  /* Plain-English teaching blocks (Arnie's "explain it to me" notes) */
+  .explain {
+    display: block;
+    background: rgba(125, 211, 252, 0.06);
+    border-left: 2px solid var(--accent);
+    padding: 6px 10px;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--ink);
+    font-style: normal;
+    line-height: 1.55;
+  }
+  .explain strong {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 9px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .short .explain { border-left-color: var(--bear); background: rgba(248, 113, 113, 0.06); }
+  .short .explain strong { color: var(--bear); }
+  .long .explain { border-left-color: var(--bull); background: rgba(74, 222, 128, 0.06); }
+  .long .explain strong { color: var(--bull); }
+
+  /* Explain block used inside red-flags and bottom-panel contexts */
+  .red-flags .explain {
+    background: rgba(255,255,255,0.04);
+    border-left-color: var(--bear);
+    color: var(--ink);
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding: 5px 9px;
+    font-size: 10.5px;
+  }
+  .red-flags .explain strong { color: var(--bear); }
+
+  .bottom-panel .explain {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding: 5px 9px;
+    font-size: 10.5px;
+    background: rgba(212, 166, 74, 0.06);
+    border-left-color: var(--gold);
+  }
+  .bottom-panel .explain strong { color: var(--gold); }
+
+  /* Print-friendly version */
+  @media print {
+    .explain {
+      background: #f7f7f7 !important;
+      border-left: 1.5px solid black !important;
+      color: black !important;
+      font-size: 8.5px !important;
+      padding: 4px 7px !important;
+    }
+    .explain strong { color: black !important; }
+    .red-flags .explain, .bottom-panel .explain {
+      background: #f7f7f7 !important;
+      border-left-color: black !important;
+    }
+  }
+
+  .check-row input:checked ~ label {
+    color: var(--ink-dim);
+    text-decoration: line-through;
+    text-decoration-color: var(--line-strong);
+  }
+
+  /* ============ SCORE BOX ============ */
+  .score-box {
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .score-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .score-value {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .score-value .denom {
+    color: var(--ink-faint);
+    font-weight: 400;
+  }
+
+  .score-verdict {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid;
+    font-weight: 700;
+  }
+
+  .verdict-go { color: var(--bull); border-color: var(--bull); }
+  .verdict-skip { color: var(--bear); border-color: var(--bear); }
+  .verdict-wait { color: var(--warn); border-color: var(--warn); }
+
+  /* ============ DATA BLOCKS ============ */
+  .data-block {
+    background: var(--panel-2);
+    border-left: 2px solid var(--accent);
+    padding: 10px 12px;
+    margin: 8px 0;
+    font-size: 11px;
+  }
+
+  .short .data-block { border-left-color: var(--bear); }
+  .long .data-block { border-left-color: var(--bull); }
+
+  .data-block .dlabel {
+    color: var(--ink-faint);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .data-block .dvalue {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .formula {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg);
+    padding: 6px 10px;
+    border: 1px dashed var(--line-strong);
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--gold);
+  }
+
+  /* ============ BOTTOM SECTIONS ============ */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .bottom-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 16px;
+  }
+
+  .bottom-panel h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    color: var(--gold);
+  }
+
+  .bottom-panel ul {
+    list-style: none;
+    font-size: 11px;
+  }
+
+  .bottom-panel li {
+    padding: 5px 0;
+    padding-left: 14px;
+    position: relative;
+    color: var(--ink);
+  }
+
+  .bottom-panel li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  .bottom-panel li strong { color: var(--accent); }
+
+  /* ============ FOUR PRINCIPLES FINAL GATE ============ */
+  .final-gate {
+    background: linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);
+    border: 1px solid var(--gold);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .final-gate::before {
+    content: 'FINAL GATE';
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    background: var(--bg);
+    padding: 0 10px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .final-gate h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: var(--gold);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .principle {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+  }
+
+  .principle input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--gold);
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+  }
+
+  .principle input[type="checkbox"]:checked { background: var(--gold); }
+
+  .principle input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -3px;
+    left: 2px;
+    color: var(--bg);
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .principle-text {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .principle-text strong {
+    display: block;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  /* ============ RED FLAGS ============ */
+  .red-flags {
+    background: var(--bear-dim);
+    border: 1px solid var(--bear);
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+
+  .red-flags h3 {
+    color: var(--bear);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .red-flags-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px 20px;
+    font-size: 11px;
+  }
+
+  .red-flags-list div {
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .red-flags-list div::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: var(--bear);
+    font-weight: 700;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
+
+  footer .brand {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--ink-dim);
+  }
+
+  /* ============ JOURNAL / LOG SECTION ============ */
+  .journal {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .journal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .journal-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+
+  .trade-counter {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .trade-counter .num {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .journal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .field label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .field input, .field select, .field textarea {
+    background: var(--bg);
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    padding: 8px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .field input[readonly] {
+    background: var(--panel-2);
+    color: var(--ink-dim);
+  }
+
+  .field.full { grid-column: 1 / -1; }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 60px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .journal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .journal-actions .left-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .journal-actions .right-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn-save {
+    background: var(--bull);
+    color: var(--bg);
+    border: 1px solid var(--bull);
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.15s;
+  }
+
+  .btn-save:hover { opacity: 0.85; }
+  .btn-save:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .btn-export {
+    background: var(--gold);
+    color: var(--bg);
+    border: 1px solid var(--gold);
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .btn-export:hover { opacity: 0.85; }
+
+  .btn-danger {
+    background: transparent;
+    color: var(--bear);
+    border: 1px solid var(--bear);
+    padding: 10px 16px;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .btn-danger:hover { background: var(--bear); color: var(--bg); }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bull);
+    color: var(--bg);
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .toast.error { background: var(--bear); }
+
+  .recent-trades {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .recent-trades-title {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+
+  .recent-row {
+    display: grid;
+    grid-template-columns: 60px 90px 80px 80px 1fr 80px;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 11px;
+    align-items: center;
+  }
+
+  .recent-row.header {
+    color: var(--ink-faint);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .recent-row .dir-long { color: var(--bull); font-weight: 700; }
+  .recent-row .dir-short { color: var(--bear); font-weight: 700; }
+  .recent-row .pnl-pos { color: var(--bull); font-weight: 700; }
+  .recent-row .pnl-neg { color: var(--bear); font-weight: 700; }
+  .recent-row .pnl-flat { color: var(--ink-dim); }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat-card {
+    background: var(--panel-2);
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+  }
+
+  .stat-card .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+
+  .stat-card .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-card .stat-sub {
+    font-size: 10px;
+    color: var(--ink-dim);
+    margin-top: 2px;
+  }
+
+  /* ============ PRINT STYLES ============ */
+  @media print {
+    @page { size: letter landscape; margin: 0.4in; }
+
+    body {
+      background: white !important;
+      color: black !important;
+      font-size: 9px;
+      padding: 0;
+      line-height: 1.3;
+    }
+
+    .container { max-width: 100%; }
+
+    .controls, .reset-btn, .journal, .toast { display: none !important; }
+
+    header {
+      border-bottom: 1.5px solid black;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+    }
+
+    .title-block h1 { font-size: 18px; color: black; }
+    .title-block .subtitle { color: #555; font-size: 8px; }
+    .meta-block { color: #555; font-size: 8px; }
+    .meta-block .stat { color: black; }
+
+    .main-grid { gap: 10px; margin-bottom: 10px; }
+
+    .column {
+      background: white !important;
+      border: 1px solid black;
+      padding: 10px;
+      page-break-inside: avoid;
+    }
+
+    .column.short { border-top: 2px solid black; }
+    .column.long { border-top: 2px solid black; }
+
+    .column-title, .pattern-shape, .short .column-title, .long .column-title,
+    .short .pattern-shape, .long .pattern-shape {
+      color: black !important;
+    }
+
+    .column-header {
+      border-bottom: 1px solid black;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+    }
+
+    .column-title { font-size: 14px; }
+    .pattern-shape { font-size: 18px; }
+
+    .section { margin-bottom: 8px; }
+    .section-label { color: #333; font-size: 8px; margin-bottom: 4px; }
+    .section-label .gate-required { color: black; font-weight: 700; }
+
+    .check-row {
+      padding: 3px 0;
+      border-bottom: 1px dotted #aaa;
+    }
+
+    .check-row label { font-size: 9px; color: black; }
+    .check-row .hint { color: #555; font-size: 8px; }
+
+    .check-row input[type="checkbox"] {
+      border: 1px solid black;
+      width: 10px;
+      height: 10px;
+      background: white !important;
+    }
+
+    .score-box {
+      background: #f0f0f0 !important;
+      border: 1px solid black;
+      padding: 6px 10px;
+      margin: 6px 0;
+    }
+
+    .score-label { color: #333; font-size: 8px; }
+    .score-value { font-size: 14px; color: black; }
+    .score-verdict { font-size: 8px; border-color: black !important; color: black !important; }
+
+    .data-block {
+      background: #f5f5f5 !important;
+      border-left: 2px solid black !important;
+      padding: 5px 8px;
+      font-size: 9px;
+    }
+
+    .data-block .dlabel { color: #333; font-size: 7px; }
+    .data-block .dvalue { color: black; }
+
+    .formula {
+      background: white !important;
+      border: 1px solid black;
+      color: black !important;
+      font-size: 9px;
+      padding: 3px 6px;
+    }
+
+    .bottom-grid { gap: 10px; margin-bottom: 10px; }
+
+    .bottom-panel {
+      background: white !important;
+      border: 1px solid black;
+      padding: 8px 10px;
+      page-break-inside: avoid;
+    }
+
+    .bottom-panel h3 {
+      font-size: 11px;
+      color: black;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid black;
+    }
+
+    .bottom-panel li { font-size: 8px; padding: 2px 0 2px 10px; color: black; }
+    .bottom-panel li::before { color: black; }
+    .bottom-panel li strong { color: black; }
+
+    .final-gate {
+      background: white !important;
+      border: 1.5px solid black;
+      padding: 10px;
+      page-break-inside: avoid;
+      margin-bottom: 10px;
+    }
+
+    .final-gate::before {
+      background: white;
+      color: black;
+      font-size: 8px;
+    }
+
+    .final-gate h3 { color: black; font-size: 12px; margin-bottom: 8px; }
+
+    .principle {
+      background: white !important;
+      border: 1px solid black;
+      padding: 6px;
+    }
+
+    .principle input[type="checkbox"] {
+      border: 1px solid black;
+      width: 11px;
+      height: 11px;
+      background: white !important;
+    }
+
+    .principle-text { font-size: 8px; }
+    .principle-text strong { color: black; font-size: 8px; }
+
+    .red-flags {
+      background: white !important;
+      border: 1.5px solid black;
+      padding: 8px 12px;
+      page-break-inside: avoid;
+    }
+
+    .red-flags h3 { color: black; font-size: 11px; }
+    .red-flags-list { font-size: 8px; gap: 3px 14px; }
+    .red-flags-list div { color: black; }
+    .red-flags-list div::before { color: black; }
+
+    footer { font-size: 7px; color: #555; padding-top: 6px; }
+    footer .brand { color: #555; }
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .main-grid { grid-template-columns: 1fr; }
+    .bottom-grid { grid-template-columns: 1fr; }
+    .principles-grid { grid-template-columns: repeat(2, 1fr); }
+    .red-flags-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="title-block">
+      <h1>Double Top / Double Bottom</h1>
+      <div class="subtitle">M2K · 2-Minute Scalping Reference · v1.1 — Teaching Edition</div>
+    </div>
+    <div class="meta-block">
+      <div>Base rates (intraday)</div>
+      <div class="stat">Double Bottom ≈ 78% · Double Top ≈ 65%</div>
+      <div style="margin-top:4px;">Bust reversal follow-through avg: +38%</div>
+    </div>
+  </header>
+
+  <!-- ==================== CONTROLS (screen only) ==================== -->
+  <div class="controls">
+    <button class="btn primary" onclick="window.print()">⎙ Print Reference</button>
+    <button class="btn" onclick="resetAll()">↺ Reset Checkboxes</button>
+    <button class="btn" onclick="document.body.scrollIntoView({behavior:'smooth'})">↑ Top</button>
+  </div>
+
+  <!-- ==================== RED FLAGS (top — always visible) ==================== -->
+  <div class="red-flags">
+    <h3>Red Flags — If ANY are true, no trade</h3>
+    <div class="red-flags-list" style="grid-template-columns: 1fr 1fr;">
+      <div>
+        Choppy range with no clear prior trend
+        <div class="explain"><strong>What this means</strong>
+          "Choppy" = price is bouncing around sideways inside a narrow band, up-down-up-down, with no direction. A double top or double bottom is a <em>reversal</em> pattern — it reverses something. If there's nothing to reverse (no trend), the pattern is just random noise that looks like a pattern. You need a real trend going in before a reversal has any meaning.
+        </div>
+      </div>
+      <div>
+        News/FOMC release within 15 min
+        <div class="explain"><strong>What this means</strong>
+          FOMC = Federal Open Market Committee (the Fed's interest-rate meetings). When major news drops — FOMC decisions, CPI, jobs reports — price can spike violently in any direction regardless of chart patterns. Your stop can get blown through by 20+ ticks of slippage. Pattern trading depends on orderly price action. News destroys that order. Wait until after.
+        </div>
+      </div>
+      <div>
+        Higher timeframe (15-min) trending hard against you
+        <div class="explain"><strong>What this means</strong>
+          You trade on the 2-minute chart, but the 15-minute chart shows the bigger picture. If the 15-min is ripping downward and you're trying to buy a double bottom on the 2-min, you're a minnow swimming against a whale. The bigger trend usually wins. Rule: small-timeframe trades should either agree with the bigger timeframe, or at least not fight a strong one.
+        </div>
+      </div>
+      <div>
+        ATR compressed below daily average (dead tape)
+        <div class="explain"><strong>What this means</strong>
+          ATR = Average True Range, a measure of how much price typically moves per bar. When ATR is below its daily average, bars are tiny — the market is "dead." Your measured-move target needs price to actually travel to get there. In a dead tape, price won't move far enough to pay you, but your stop is still the same size. Risk stays, reward shrinks. Bad math.
+        </div>
+      </div>
+      <div>
+        Price hasn't left the opening range
+        <div class="explain"><strong>What this means</strong>
+          The "opening range" is the high-to-low band set in the first 15–30 minutes after 9:30 ET. Until price breaks out of that band, the day has no direction yet — it's just institutions positioning. Patterns inside an unresolved opening range fail a lot because there's no committed flow yet. Wait for the breakout to tell you which side is winning.
+        </div>
+      </div>
+      <div>
+        Overlapping bars with no follow-through on either side
+        <div class="explain"><strong>What this means</strong>
+          "Overlapping bars" = each 2-min bar's range sits mostly inside the previous bar's range. "No follow-through" = every push up gets sold, every push down gets bought, neither side wins. That's the signature of balance/indecision. Reversal patterns need momentum to work. In balance, there's no momentum to harvest — you'll get chopped to death by small losses.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN TWO-COLUMN GRID ==================== -->
+  <div class="main-grid">
+
+    <!-- ============ SHORT COLUMN ============ -->
+    <div class="column short" data-side="short">
+      <div class="column-header">
+        <div class="column-title">Double Top — SHORT</div>
+        <div class="pattern-shape">⌒⌒</div>
+      </div>
+
+      <!-- GATE 1 -->
+      <div class="section">
+        <div class="section-label">1 · Context Gate <span class="gate-required">ALL required</span></div>
+        <div class="check-row">
+          <input type="checkbox" id="s-ctx-1" class="gate" data-side="short" data-gate="1">
+          <label for="s-ctx-1">Prior uptrend present (at least 2 legs up on the 2-min)
+            <span class="hint">No uptrend = no reversal to trade. Chop patterns fail.</span>
+            <span class="explain"><strong>What this means</strong>
+              A "leg up" = a sustained push higher made of several green bars in a row before any meaningful pullback. "Two legs up" means: push up, small pullback, push up again. That's an uptrend. A double <em>top</em> is a failure of an uptrend — to fail, there has to be an uptrend first. If price was already flat, there's nothing to reverse, and your "double top" is just two random bumps.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="s-ctx-2" class="gate" data-side="short" data-gate="1">
+          <label for="s-ctx-2">Peak 2 at a known level (prior day high, VWAP, R-zone, round number)
+            <span class="hint">Patterns at random levels fail. Levels attract institutional attention.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Known level" = a price that big traders are already watching. Examples: <em>prior day high</em> (where yesterday topped out), <em>VWAP</em> (volume-weighted average price — the day's "fair value" line everyone algos off of), <em>R-zone</em> (a resistance zone — prior area where sellers showed up), <em>round number</em> (like 20,000 on NQ — psychological magnets). Patterns work because institutions defend these levels. A double top at a random price has no defenders — just two random bumps.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="s-ctx-3" class="gate" data-side="short" data-gate="1">
+          <label for="s-ctx-3">Classified: REVERSAL (top of range) — not bear-flag continuation
+            <span class="hint">Brooks: same shape, different trade logic. Know which you're in.</span>
+            <span class="explain"><strong>What this means</strong>
+              Two shapes can look identical but mean opposite things. A double <em>top</em> at the top of an uptrend = reversal (trend ending, short it). The same two-bump shape appearing during an ongoing <em>downtrend</em> = a "bear flag" pause (trend continuing, don't short the second bump — wait for it to break down and continue). Before you click sell, ask: "Am I at the top of a move that's been going up, or am I partway through a move that's been going down?" Different location = different trade.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- GATE 2 : QUALITY SCORE -->
+      <div class="section">
+        <div class="section-label">2 · Pattern Quality Score <span>0–5</span></div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="short" data-gate="2">
+          <label>Peak 2 is lower high OR within 0.1% of peak 1
+            <span class="hint">Lower-high DT often stronger than perfect equal-high.</span>
+            <span class="explain"><strong>What this means</strong>
+              Peak 1 = the first high. Peak 2 = the second high (the rally that tries to break Peak 1 but fails). If Peak 2 is <em>slightly lower</em> than Peak 1, buyers couldn't even get back to the old high — that's weakness. If Peak 2 is within 0.1% of Peak 1, call it an "equal high" (the math: 0.1% of a 2,000 price = 2 points). A higher high would be a fresh breakout, not a double top — that's disqualifying.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="short" data-gate="2">
+          <label>Peaks separated by ≥ 6 bars (12+ minutes)
+            <span class="hint">Too close = same push. Need intervening distribution.</span>
+            <span class="explain"><strong>What this means</strong>
+              On a 2-minute chart, 6 bars = 12 minutes between the two peaks. If they're closer than that, it's really one big push with a tiny wobble, not two separate attempts. "Intervening distribution" = the pullback <em>between</em> the two peaks, where sellers quietly unload their positions to buyers who think the rally is continuing. That selling is what sets up the reversal. No pullback between peaks = no distribution = no setup.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="short" data-gate="2">
+          <label>Volume on peak 2 rally LOWER than peak 1 rally
+            <span class="hint">The volume fingerprint. Rally on weak volume = sellers absorbing.</span>
+            <span class="explain"><strong>What this means</strong>
+              Volume = number of contracts traded per bar, shown as bars underneath the price chart. When price rallies to Peak 2 on <em>lower</em> volume than it rallied to Peak 1, it means fewer buyers are willing to chase. The rally looks strong on price but is hollow underneath. "Sellers absorbing" = institutions are quietly selling into that weak buying. This is the single most reliable tell in the whole pattern.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="short" data-gate="2">
+          <label>Bearish engulfing, shooting star, or big bear bar at peak 2
+            <span class="hint">Context + trigger. Never trade context without trigger.</span>
+            <span class="explain"><strong>What this means — these are candlestick shapes at Peak 2 itself:</strong>
+              <b>Bearish engulfing</b> = a red bar whose body completely swallows the previous green bar's body (buyers pushed up, sellers slammed back harder). <b>Shooting star</b> = a bar with a long upper wick and small body near the low (price spiked up but got rejected — couldn't hold the highs). <b>Big bear bar</b> = an oversized red bar, much bigger than recent bars, closing near its low (forceful selling). Any one of these <em>at Peak 2</em> is the "trigger" — the moment sellers actually commit. Context tells you <em>where</em> to watch; trigger tells you <em>when</em> to act.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="short" data-gate="2">
+          <label>Stochastics bearish divergence on peak 2 (lower high on indicator)
+            <span class="hint">Momentum failing confirms price failing.</span>
+            <span class="explain"><strong>What this means</strong>
+              Stochastics = a momentum indicator that measures how strong recent buying or selling is, on a 0–100 scale. "Bearish divergence" = price made a new high (or equal high) at Peak 2, but stochastics made a <em>lower</em> high than it did at Peak 1. Translation: price looks as strong as before, but the underlying momentum is weaker. Divergences are early-warning signals that the trend is running out of gas before price shows it.
+            </span>
+          </label>
+        </div>
+
+        <div class="score-box">
+          <div>
+            <div class="score-label">Score</div>
+            <div class="score-value"><span id="score-short">0</span><span class="denom">/5</span></div>
+          </div>
+          <div class="score-verdict" id="verdict-short">WAIT</div>
+        </div>
+      </div>
+
+      <!-- GATE 3: ENTRY -->
+      <div class="section">
+        <div class="section-label">3 · Entry Trigger</div>
+        <div class="data-block">
+          <div class="dlabel">Neckline</div>
+          <div class="dvalue">Lowest close in the valley between peak 1 and peak 2</div>
+          <span class="explain"><strong>What this means</strong>
+            The "valley" is the pullback dip between the two peaks. The "neckline" is the lowest <em>closing price</em> in that valley — draw a horizontal line there. That line is the floor holding price up. When price breaks below it, the pattern "completes" and the downward move is confirmed. Use closes, not wicks, because closes are where committed positions live.
+          </span>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="entry" data-side="short">
+          <label>2-min bar CLOSED below the neckline (not wick)
+            <span class="hint">Wick breaks fail. Wait for close. Yes, really.</span>
+            <span class="explain"><strong>What this means</strong>
+              Each 2-min bar has a body (open-to-close) and wicks (the thin lines showing the highest and lowest price touched during those 2 minutes). A "wick break" = price briefly poked below the neckline but snapped back before the bar finished — meaning buyers defended it. A "closed break" = the bar finished with its body below the line — sellers won the 2 minutes. Pros only trust the close. Wicks lie all day.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="entry" data-side="short">
+          <label>Entry: short on break of the confirmation bar's low, OR short the retest
+            <span class="hint">Retest entry = lower risk, often misses. Pick your lane.</span>
+            <span class="explain"><strong>What this means — two ways to enter, pick one:</strong>
+              <b>Option A (aggressive):</b> The "confirmation bar" is the one that closed below the neckline. Place a sell-stop order 1 tick below <em>its</em> low. The moment the next bar ticks down through that level, you're short. Higher fill rate, slightly worse price.<br>
+              <b>Option B (retest):</b> Wait for price to bounce back UP to the neckline (now acting as resistance from above), then short when it rejects. Better price, tighter stop, but sometimes price never comes back and you miss the trade. Decide your preference <em>before</em> the setup so you're not negotiating with yourself in real time.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- GATE 4: RISK -->
+      <div class="section">
+        <div class="section-label">4 · Stop &amp; Target</div>
+        <div class="data-block">
+          <div class="dlabel">Stop</div>
+          <div class="dvalue">1–2 ticks above peak 2 (NOT peak 1 — smaller stop, more size)</div>
+          <span class="explain"><strong>What this means</strong>
+            A "stop" = a pre-placed order that closes your trade if price moves against you. For a short, place it <em>just above</em> Peak 2 (the most recent high). Why Peak 2 instead of Peak 1? Because if price closes above Peak 2, your whole thesis is wrong — it's making higher highs now, not failing. Putting the stop at the nearer level makes your risk per contract smaller, which means you can trade more contracts for the same dollar risk. Smaller, <em>tighter</em> stops (placed correctly) actually grow your account faster.
+          </span>
+        </div>
+        <div class="data-block">
+          <div class="dlabel">Measured Move Target</div>
+          <div class="dvalue">
+            T1 = Neckline − (Peak − Neckline)
+            <div class="formula">Target = Neckline − (Peak − Neckline)</div>
+          </div>
+          <span class="explain"><strong>What this means — "measured move" is a classic projection:</strong>
+            Measure the height of the pattern (distance from the peaks down to the neckline). Then subtract that same distance below the neckline — that's where you expect price to go. Example: Peak = 2350, Neckline = 2340. Pattern height = 10 points. Target = 2340 − 10 = 2330. The logic: patterns tend to produce follow-through roughly equal to the pattern that formed them. Not a guarantee, but a reasonable first profit target.
+          </span>
+        </div>
+        <div class="check-row">
+          <input type="checkbox">
+          <label>Scale 50% at midpoint of move; trail the rest
+            <span class="hint">2-min M2K often reclaims VWAP mid-move. Take something.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Scale 50%" = close half your position at the midpoint between your entry and target, locking in real profit. "Trail the rest" = keep the other half open, but move your stop down as price falls (so worst case, you still break even on the runner). Why it matters on 2-min: moves reverse <em>fast</em>. Taking half off means you've already won something even if the second half stops out. You stop dying on round-trips where a winner turned into a loser.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- GATE 5: BUST FLIP -->
+      <div class="section">
+        <div class="section-label">5 · Bust/Failure Flip</div>
+        <div class="data-block">
+          <div class="dlabel">Invalidation</div>
+          <div class="dvalue">Close back above peak 2 after breakdown = pattern busted</div>
+          <span class="explain"><strong>What this means</strong>
+            "Busted" = the pattern failed and did the opposite of what it was supposed to do. If price broke below the neckline (pattern "worked" briefly) but then reversed and closed back <em>above Peak 2</em>, that's catastrophic failure — sellers got trapped and are now being squeezed. This is a full invalidation, not a "maybe." You're wrong, exit.
+          </span>
+        </div>
+        <div class="check-row">
+          <input type="checkbox">
+          <label>Exit immediately on bust — DO NOT add to loser
+            <span class="hint">Trapped shorts fuel violent upside squeezes.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Adding to a loser" = averaging down, increasing your short position as price goes against you, hoping for a reversal. It's the single most expensive mistake in trading. When a double top busts, <em>everyone</em> who shorted it is wrong together — as price rises, their stops start triggering, and each stop is a forced buy that pushes price higher, triggering more stops. A cascading squeeze. Get out fast, don't feed it.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox">
+          <label>Consider the flip: long above peak 2 (busted DT avg follow-through +38%)
+            <span class="hint">Bulkowski: busted patterns are among highest-EV trades.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Flip" = reverse your position. You just exited a short; now you <em>buy</em> above Peak 2. Thomas Bulkowski (the statistician who studied thousands of chart patterns) found that busted patterns often produce the strongest moves in the opposite direction, because all the wrong-side traders are forced to unwind. "+38% avg follow-through" = on average, busted double tops continue 38% further up than the typical breakout. Don't stay stubborn — flipping is a real, high-probability second chance.
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ LONG COLUMN ============ -->
+    <div class="column long" data-side="long">
+      <div class="column-header">
+        <div class="column-title">Double Bottom — LONG</div>
+        <div class="pattern-shape">⌣⌣</div>
+      </div>
+
+      <!-- GATE 1 -->
+      <div class="section">
+        <div class="section-label">1 · Context Gate <span class="gate-required">ALL required</span></div>
+        <div class="check-row">
+          <input type="checkbox" id="l-ctx-1" class="gate" data-side="long" data-gate="1">
+          <label for="l-ctx-1">Prior downtrend present (at least 2 legs down on the 2-min)
+            <span class="hint">No downtrend = no reversal to trade.</span>
+            <span class="explain"><strong>What this means</strong>
+              A "leg down" = a sustained drop made of several red bars in a row before any meaningful bounce. "Two legs down" means: drop, small bounce, drop again. That's a downtrend. A double <em>bottom</em> is a failure of a downtrend — to fail, there must first be a downtrend. If price was already flat, there's nothing for buyers to reverse, and your "double bottom" is just two random dips.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="l-ctx-2" class="gate" data-side="long" data-gate="1">
+          <label for="l-ctx-2">Trough 2 at a known level (prior day low, VWAP, S-zone, round number)
+            <span class="hint">Support must exist on the left. No level = no trade.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Trough" = a low point (the bottom of the dip). "Known level" = a price big traders are already watching. Examples: <em>prior day low</em> (where yesterday bottomed), <em>VWAP</em> (volume-weighted average price — the "fair value" line), <em>S-zone</em> (support zone — a prior area where buyers showed up before), <em>round number</em> (like 2,300 on M2K — psychological magnet). "Support must exist on the left" means: look leftward on your chart — do you see a prior low or a horizontal zone at this same price? That prior reaction is what makes this level matter. Without it, buyers have no reason to defend here.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="l-ctx-3" class="gate" data-side="long" data-gate="1">
+          <label for="l-ctx-3">Classified: REVERSAL (bottom of range) — not bull-flag continuation
+            <span class="hint">Know whether you're fading a downtrend or riding an uptrend pullback.</span>
+            <span class="explain"><strong>What this means</strong>
+              Two shapes can look identical but mean opposite things. A double <em>bottom</em> at the end of a downtrend = reversal (trend ending, buy it). The same two-dip shape appearing during an ongoing <em>uptrend</em> = a "bull flag" pause (trend continuing — not really a double bottom, just a normal pullback before the next leg up). The trade logic is different: reversals fade the prior move, continuations ride it. "Fading" = trading against the recent direction. Before you click buy, ask: "Am I at the bottom of a move that's been going down, or partway through a move that's been going up?" Different location = different trade.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- GATE 2 -->
+      <div class="section">
+        <div class="section-label">2 · Pattern Quality Score <span>0–5</span></div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="long" data-gate="2">
+          <label>Trough 2 is higher low OR within 0.1% of trough 1
+            <span class="hint">Higher-low DB often stronger than perfect equal-low.</span>
+            <span class="explain"><strong>What this means</strong>
+              Trough 1 = the first low. Trough 2 = the second low (the dip that tries to break Trough 1 but fails). If Trough 2 is <em>slightly higher</em> than Trough 1, sellers couldn't even get back down to the prior low — that's buyers quietly stepping in. If Trough 2 is within 0.1% of Trough 1, call it an "equal low." A <em>lower</em> low would mean the downtrend is continuing, not reversing — that's disqualifying.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="long" data-gate="2">
+          <label>Troughs separated by ≥ 6 bars (12+ minutes)
+            <span class="hint">Need intervening accumulation, not one long sell bar.</span>
+            <span class="explain"><strong>What this means</strong>
+              On a 2-minute chart, 6 bars = 12 minutes between the two lows. If they're closer than that, it's really one long sell-off with a tiny wobble, not two separate attempts. "Intervening accumulation" = the bounce <em>between</em> the troughs, where smart buyers quietly load up on longs from retail panic sellers. That buying is what fuels the reversal. No bounce between troughs = no accumulation = no setup.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="long" data-gate="2">
+          <label>Volume on trough 2 decline LOWER than trough 1 decline
+            <span class="hint">Selling exhaustion. Sellers tiring at support.</span>
+            <span class="explain"><strong>What this means</strong>
+              Volume = contracts traded per bar, displayed as histogram bars beneath the chart. When price drops to Trough 2 on <em>lower</em> volume than it dropped to Trough 1, it means fewer sellers are willing to sell at this price anymore. The drop looks scary on price but is hollow underneath. "Selling exhaustion" = the sellers who wanted out are already out. With nobody left to push lower, even modest buying sends price up. This is the single most reliable tell in the whole pattern.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="long" data-gate="2">
+          <label>Bullish engulfing, hammer, or big bull bar at trough 2
+            <span class="hint">Trigger bar = the moment buyers commit.</span>
+            <span class="explain"><strong>What this means — "at trough 2" means ON THE BAR (or within the next 1–2 bars) that forms the second low. These are candlestick shapes that appear right at the low:</strong>
+              <b>Bullish engulfing</b> = a green bar whose body completely swallows the previous red bar's body (sellers pushed down, buyers slammed back harder). <b>Hammer</b> = a bar with a long lower wick and small body near the top (price spiked down but got rejected — buyers defended the level). <b>Big bull bar</b> = an oversized green bar, much larger than recent bars, closing near its high (forceful buying). Any one of these <em>at Trough 2</em> is the "trigger" — the moment buyers actually commit their money. You're not guessing anymore; you're watching them do it in real time. Context (the level) tells you <em>where</em> to watch. Trigger tells you <em>when</em> to act. Never enter without both.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="score" data-side="long" data-gate="2">
+          <label>Stochastics bullish divergence on trough 2 (higher low on indicator)
+            <span class="hint">Momentum stronger than price = reversal fuel.</span>
+            <span class="explain"><strong>What this means</strong>
+              Stochastics = a momentum indicator measuring strength of recent buying/selling on a 0–100 scale, usually shown in a panel below price. "Bullish divergence" = price made a new low (or equal low) at Trough 2, but stochastics made a <em>higher</em> low than at Trough 1. Translation: price looks as weak as before, but the underlying selling momentum is fading. Divergences are an early-warning signal that a trend is running out of fuel, often before price shows it.
+            </span>
+          </label>
+        </div>
+
+        <div class="score-box">
+          <div>
+            <div class="score-label">Score</div>
+            <div class="score-value"><span id="score-long">0</span><span class="denom">/5</span></div>
+          </div>
+          <div class="score-verdict" id="verdict-long">WAIT</div>
+        </div>
+      </div>
+
+      <!-- GATE 3 -->
+      <div class="section">
+        <div class="section-label">3 · Entry Trigger</div>
+        <div class="data-block">
+          <div class="dlabel">Neckline</div>
+          <div class="dvalue">Highest close in the peak between trough 1 and trough 2</div>
+          <span class="explain"><strong>What this means</strong>
+            Between the two lows, price bounced up before falling back to Trough 2. The highest <em>closing price</em> in that bounce is your neckline — draw a horizontal line there. That line is the ceiling holding price down. When price breaks above it, the pattern "completes" and the upward move is confirmed. Use closes, not wicks, because closes represent where committed money actually sits.
+          </span>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="entry" data-side="long">
+          <label>2-min bar CLOSED above the neckline (not wick)
+            <span class="hint">Wick breaks fail. Patience beats FOMO.</span>
+            <span class="explain"><strong>What this means</strong>
+              Each 2-min bar has a body (open-to-close) and wicks (the thin lines showing highest and lowest price touched during those 2 minutes). A "wick break" = price briefly poked above the neckline but snapped back before the bar finished — sellers defended it. A "closed break" = the bar finished with its body above the line — buyers won the 2 minutes. FOMO ("fear of missing out") makes traders jump on the first tick; patience means waiting the extra 30 seconds for the close. Wicks lie. Closes tell the truth.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" class="entry" data-side="long">
+          <label>Entry: long on break of confirmation bar's high, OR long the retest
+            <span class="hint">Shallow retest predicts stronger follow-through (Bulkowski).</span>
+            <span class="explain"><strong>What this means — two ways to enter, pick one:</strong>
+              <b>Option A (aggressive):</b> The "confirmation bar" is the one that closed above the neckline. Place a buy-stop order 1 tick above <em>its</em> high. The moment the next bar ticks up through that level, you're long. Higher fill rate, slightly worse price.<br>
+              <b>Option B (retest):</b> Wait for price to pull back DOWN to the neckline (now acting as support from above), then buy when it holds and bounces. Better price, tighter stop, sometimes you miss the trade entirely. Bulkowski's research: when the retest is <em>shallow</em> (price doesn't dip far before resuming) and quick, follow-through tends to be stronger — it signals buyers are impatient and eager.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- GATE 4 -->
+      <div class="section">
+        <div class="section-label">4 · Stop &amp; Target</div>
+        <div class="data-block">
+          <div class="dlabel">Stop</div>
+          <div class="dvalue">1–2 ticks below trough 2 (NOT trough 1 — smaller stop)</div>
+          <span class="explain"><strong>What this means</strong>
+            A "stop" = a pre-placed order that closes your trade if price moves against you. For a long, place it <em>just below</em> Trough 2 (the most recent low). Why Trough 2 instead of Trough 1? Because if price closes below Trough 2, your whole thesis is wrong — it's making lower lows now, not holding support. Placing the stop at the nearer level makes your per-contract risk smaller, which means you can size larger for the same dollar risk. Smaller stops (placed correctly) are how pros grow accounts.
+          </span>
+        </div>
+        <div class="data-block">
+          <div class="dlabel">Measured Move Target</div>
+          <div class="dvalue">
+            T1 = Neckline + (Neckline − Trough)
+            <div class="formula">Target = Neckline + (Neckline − Trough)</div>
+          </div>
+          <span class="explain"><strong>What this means — "measured move" is a classic projection:</strong>
+            Measure the height of the pattern (distance from the troughs up to the neckline). Then add that same distance <em>above</em> the neckline — that's where you expect price to go. Example: Trough = 2320, Neckline = 2330. Pattern height = 10 points. Target = 2330 + 10 = 2340. The logic: breakouts tend to produce follow-through roughly equal to the pattern that formed them. Not guaranteed, but a reasonable first profit target.
+          </span>
+        </div>
+        <div class="check-row">
+          <input type="checkbox">
+          <label>Scale 50% at midpoint; trail the rest
+            <span class="hint">Lock something in. 2-min can reverse fast.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Scale 50%" = close half your position at the halfway point between entry and target, locking in real profit. "Trail the rest" = keep the other half open but move your stop up as price rises (so worst case, you still break even on the runner). Why it matters on 2-min: reversals happen fast — a winner can flip to breakeven in a single bar. Scaling half means you've already banked something. It also takes emotional pressure off the remaining position, which helps you let winners run.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- GATE 5 -->
+      <div class="section">
+        <div class="section-label">5 · Bust/Failure Flip</div>
+        <div class="data-block">
+          <div class="dlabel">Invalidation</div>
+          <div class="dvalue">Close back below trough 2 after breakout = pattern busted</div>
+          <span class="explain"><strong>What this means</strong>
+            "Busted" = the pattern failed and reversed. If price broke above the neckline (pattern "worked" briefly) but then reversed and closed back <em>below Trough 2</em>, that's a full failure — buyers got trapped and are now being squeezed. This is invalidation, not a "maybe." You're wrong, exit.
+          </span>
+        </div>
+        <div class="check-row">
+          <input type="checkbox">
+          <label>Exit immediately on bust — DO NOT add to loser
+            <span class="hint">Trapped longs fuel violent downside moves.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Adding to a loser" = averaging down, buying more as price drops, hoping for a reversal. It's the single most expensive mistake in trading. When a double bottom busts, <em>everyone</em> who bought it is wrong together — as price falls, their stops trigger, and each stop is a forced sell, pushing price lower, triggering more stops. A cascading squeeze. Get out, don't feed it.
+            </span>
+          </label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox">
+          <label>Consider the flip: short below trough 2 (busted DB follow-through avg +15% against)
+            <span class="hint">Less explosive than busted DT but still tradable.</span>
+            <span class="explain"><strong>What this means</strong>
+              "Flip" = reverse your position. You just exited a long; now you <em>short</em> below Trough 2. Bulkowski's data shows busted double bottoms produce continuation moves averaging about 15% further than typical breakouts in the opposite (down) direction. Note: that's <em>less</em> explosive than a busted double top (+38%) — markets fall faster than they rise in general, but the <em>busted</em> version of a double top is particularly violent because of trapped-short squeezes. Still worth trading when the signal comes.
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOUR PRINCIPLES FINAL GATE ==================== -->
+  <div class="final-gate">
+    <h3>Emotional Discipline — Check all four before clicking</h3>
+    <div class="principles-grid">
+      <div class="principle">
+        <input type="checkbox" id="p1">
+        <div class="principle-text">
+          <strong>Principle 1 · Plan</strong>
+          Entry, stop, and target all defined before the click. Nothing improvised.
+          <span class="explain" style="margin-top:6px;"><strong>Why it matters</strong>
+            Deciding where to exit <em>while</em> you're in a trade = emotional decision-making. You'll talk yourself into holding losers ("it'll come back") and dumping winners ("I'll just take this little bit"). Write entry/stop/target on paper or in the order ticket <em>before</em> you click. Then execution becomes mechanical, not emotional.
+          </span>
+        </div>
+      </div>
+      <div class="principle">
+        <input type="checkbox" id="p2">
+        <div class="principle-text">
+          <strong>Principle 2 · Size</strong>
+          Risk ≤ predetermined % of account. No "this one feels good" oversize.
+          <span class="explain" style="margin-top:6px;"><strong>Why it matters</strong>
+            Set a fixed rule: e.g., "I never risk more than 1% of my account on any single trade." Then <em>every</em> trade gets sized from that rule, regardless of how good it looks. The trades that "feel best" are often the ones that hurt worst when wrong — partly because you sized larger on them. Constant risk per trade = no single loss can break you, and you survive long enough for edge to compound.
+          </span>
+        </div>
+      </div>
+      <div class="principle">
+        <input type="checkbox" id="p3">
+        <div class="principle-text">
+          <strong>Principle 3 · Patience</strong>
+          Waited for the close, not the wick. Not chasing, not early.
+          <span class="explain" style="margin-top:6px;"><strong>Why this is THE most important one for 2-min scalping:</strong>
+            This single rule protects you from the most common loss in pattern trading. Here's why it matters so much:<br><br>
+            <b>The wick lies.</b> In real time, as a 2-min bar is forming, price often pokes through the neckline, triggers a wave of FOMO entries, and then snaps right back — trapping everyone who jumped in early. That "poke" is the wick. When the bar actually closes, you see whether it truly broke through (body below/above the line) or whether it was a head-fake (body back on the wrong side). Difference between a winning trade and a loss: 30 seconds of patience.<br><br>
+            <b>"Chasing" = entering after the move has already gone.</b> You missed the clean entry, price is running, and you jump in scared you'll miss more. Your stop is now huge (because the low/high is way back where you should have entered), your reward is tiny (the move has less room to go), and your risk/reward is destroyed.<br><br>
+            <b>"Early" = entering before confirmation.</b> You're so sure the pattern is forming that you don't wait for the close. You're guessing, not reading. Most double tops/bottoms fail at some step — the close is the step that tells you the pattern actually worked.<br><br>
+            Patience isn't slowness — it's a specific technical skill: "wait for the bar to close and confirm before I click." In 2-min scalping, this single habit can be the difference between a profitable month and a losing one.
+          </span>
+        </div>
+      </div>
+      <div class="principle">
+        <input type="checkbox" id="p4">
+        <div class="principle-text">
+          <strong>Principle 4 · Acceptance</strong>
+          Ready to take the loss at stop. No moving the stop against me.
+          <span class="explain" style="margin-top:6px;"><strong>Why it matters</strong>
+            "Moving the stop against me" = widening your stop when price approaches it, hoping the trade turns around. This converts a small, planned loss into a large, unplanned one. Every great trader loses — what separates them is that their losses are <em>small and contained</em>. Before you enter, mentally say: "I am willing to lose $X on this trade." If you're not, don't click. The click is a commitment to the stop.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== BOTTOM REFERENCE GRID ==================== -->
+  <div class="bottom-grid">
+
+    <!-- VOLUME SIGNATURE -->
+    <div class="bottom-panel">
+      <h3>Volume Signature Cheat Sheet</h3>
+      <ul>
+        <li><strong>Healthy reversal:</strong> 2nd touch on lower volume</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        The second peak (or trough) should form on visibly smaller volume bars than the first. Fewer people participating in the second push = the trend is losing participation = reversal likely.
+      </div>
+      <ul>
+        <li><strong>Confirmation:</strong> neckline break on higher volume</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        When price breaks through the neckline (down for DT, up for DB), you want to see a <em>volume spike</em> on that breakout bar. High volume = real participation = real move. A quiet break often fails.
+      </div>
+      <ul>
+        <li><strong>Weak signal:</strong> 2nd touch on equal/higher volume</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        If volume on the second peak/trough matches or exceeds the first, the original trend still has participation — no exhaustion yet. The pattern might still work but the odds are noticeably worse.
+      </div>
+      <ul>
+        <li><strong>Bust warning:</strong> breakout bar on declining volume</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        The neckline breaks, but volume on that breakout bar is <em>smaller</em> than recent bars. That's a suspicious breakout — nobody's committing. These often reverse back through the neckline within a few bars and bust the pattern. If you see this, tighten your stop or pass.
+      </div>
+      <ul>
+        <li><strong>Accumulation/distribution:</strong> sideways bars between peaks/troughs with steady volume</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        <b>Accumulation</b> = institutions quietly <em>buying</em> (between two troughs in a double bottom). <b>Distribution</b> = institutions quietly <em>selling</em> (between two peaks in a double top). On the chart, it looks like flat, boring, sideways bars with ordinary volume — not dramatic, but persistent. It's called "stealth" because the price isn't moving, so retail doesn't notice. But under the surface, inventory is changing hands. This middle section is where the reversal is actually being built. If the middle is instead a violent V-bounce, it's a different pattern (not an accumulation/distribution pattern), and the reversal is typically weaker.
+      </div>
+    </div>
+
+    <!-- SUB-TYPE GUIDE -->
+    <div class="bottom-panel">
+      <h3>Bulkowski Sub-Types</h3>
+      <div class="explain"><strong>Context — what this whole section is</strong>
+        Thomas Bulkowski is a statistician who studied tens of thousands of chart patterns and measured which versions actually performed best. He broke double tops and double bottoms into sub-types based on the <em>shape</em> of the two peaks or troughs. Different shapes = different success rates.
+      </div>
+      <ul>
+        <li><strong>Adam:</strong> sharp V-shape, single-bar spike</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        An "Adam" peak or trough is narrow and pointy — price spikes up (or down) on a single bar, often with a long wick, then reverses fast. Looks like a sharp mountaintop or a V. Often caused by a brief panic or news spike. Quick in, quick out.
+      </div>
+      <ul>
+        <li><strong>Eve:</strong> rounded, multi-bar base</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        An "Eve" peak or trough is wide and rounded — price spends multiple bars near the extreme, forming a dome (at a top) or a bowl (at a bottom). No single sharp spike — just a gradual roll-over or roll-up. This is the shape of real accumulation/distribution, where institutions work a position over time.
+      </div>
+      <ul>
+        <li><strong>Eve &amp; Eve (best):</strong> rounded-rounded, highest avg move</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        Both peaks (or both troughs) are rounded. Statistically this sub-type produces the <em>largest</em> average follow-through move, because both ends were real institutional activity, not panic spikes. If you see a double top or double bottom where both sides look like rolling hills rather than sharp points — size up, this is the A+ setup.
+      </div>
+      <ul>
+        <li><strong>Adam &amp; Adam:</strong> sharp-sharp, mid-tier</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        Both peaks (or troughs) are sharp V-spikes. Still tradable and has a real edge, but smaller average move than Eve&amp;Eve. The sharpness signals emotion/news rather than patient positioning — moves tend to be quicker and less sustained.
+      </div>
+      <ul>
+        <li><strong>Mixed (A&amp;E / E&amp;A):</strong> acceptable, not optimal</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        One side is sharp (Adam), the other is rounded (Eve). Works, but ranks third out of the four combinations for average follow-through. Fine to trade — just don't expect the max move and don't overweight size.
+      </div>
+      <ul>
+        <li><strong>Rule of thumb:</strong> wider, more rounded bases = stronger follow-through</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        If you had to remember one thing about shape: the <em>rounder and wider</em> the tops or bottoms, the better the odds and the bigger the expected move. Why? Rounded = more time = more inventory changed hands = more trapped traders on the wrong side when the pattern completes. Sharp spikes are usually emotion; rounds are usually money.
+      </div>
+    </div>
+
+    <!-- M2K-SPECIFIC -->
+    <div class="bottom-panel">
+      <h3>M2K-Specific Notes</h3>
+      <ul>
+        <li><strong>Tick size:</strong> 0.10 = $0.50 per contract</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        On Micro Russell 2000 (M2K) futures, the smallest price change is 0.10 index points, and each tick is worth $0.50 per contract. So a 10-tick stop = $5.00 per contract. This is the math that drives your sizing — if your stop is 8 ticks (=$4), and your max risk is $80, you can trade 20 contracts.
+      </div>
+      <ul>
+        <li><strong>Typical 2-min noise:</strong> 3–8 ticks of wick on either side — bake this into stop</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        Even on a clean pattern, 2-min bars routinely have 3–8 ticks of random wick sticking above/below the bar body. That's noise, not signal. If you place your stop just 1 tick past peak/trough, normal noise will tag you out even on a winning setup. Give it room: stop 2–3 ticks beyond the extreme wick, not the body.
+      </div>
+      <ul>
+        <li><strong>Best windows:</strong> 9:30–11:00 ET &amp; 2:00–3:30 ET</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        These are the hours where volume, volatility, and directional moves are most reliable. Morning window = session open, institutions putting on positions. Afternoon window = post-lunch repositioning into the close. Patterns work best when the market is actually <em>doing something</em> — in these hours, it usually is.
+      </div>
+      <ul>
+        <li><strong>Worst window:</strong> 11:30–1:30 ET lunch chop (most busts happen here)</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        Midday is when desks go to lunch, volume dries up, and price drifts in a tight chop. Patterns that form in this window bust at an unusually high rate because there's not enough volume to produce real follow-through. Best practice: flat during lunch, or trade half-size at most.
+      </div>
+      <ul>
+        <li><strong>Slippage:</strong> 1–2 ticks common on stops in fast moves — size accordingly</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        "Slippage" = the difference between where you wanted to exit and where you actually got filled. When price is moving fast (the exact moment your stop triggers), there may be no buyer/seller at your exact price — the broker fills you at the next available price, usually 1–2 ticks worse. So your "10-tick stop" might actually cost you 11–12 ticks in real money. Assume this in your sizing math, or you'll consistently overshoot your risk plan.
+      </div>
+      <ul>
+        <li><strong>VWAP reclaim:</strong> treat as partial-profit cue, not full exit</li>
+      </ul>
+      <div class="explain"><strong>What this means</strong>
+        <b>VWAP</b> = Volume-Weighted Average Price — the running average price of the day, weighted by how much volume traded at each level. It plots as a single line on your chart and represents the day's "fair value." Most algos and institutional desks reference it constantly.<br><br>
+        <b>"Reclaim"</b> = when price crosses back <em>through</em> VWAP. For a long from a double bottom: price was below VWAP when you entered, then rallied up <em>through</em> VWAP — that's a reclaim. For a short from a double top: price was above VWAP, then dropped <em>through</em> VWAP — also a reclaim.<br><br>
+        <b>Why it's a partial-profit cue, not a full exit:</b> Reclaiming VWAP is a significant psychological/algorithmic level. Often price will pause, pull back, and retest VWAP before continuing. That pause is a great place to <em>take some profit</em> (half the position) — but not to exit entirely, because if the move continues, you want size remaining for the measured-move target. Think of it as a checkpoint, not a destination.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JOURNAL / LOG SECTION ==================== -->
+  <div class="journal" id="journal">
+    <div class="journal-header">
+      <div class="journal-title">Trade Journal</div>
+      <div class="trade-counter">
+        Trades logged: <span class="num" id="trade-count">0</span>
+        &nbsp;·&nbsp; Session started: <span id="session-date">—</span>
+      </div>
+    </div>
+
+    <div class="journal-grid">
+      <div class="field">
+        <label for="t-date">Date / Time</label>
+        <input type="text" id="t-date" readonly>
+      </div>
+      <div class="field">
+        <label for="t-direction">Direction</label>
+        <select id="t-direction">
+          <option value="">— select —</option>
+          <option value="LONG">LONG (Double Bottom)</option>
+          <option value="SHORT">SHORT (Double Top)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="t-contracts">Contracts</label>
+        <input type="number" id="t-contracts" min="1" step="1" placeholder="e.g. 6">
+      </div>
+      <div class="field">
+        <label for="t-outcome">Outcome</label>
+        <select id="t-outcome">
+          <option value="">— select —</option>
+          <option value="WIN">WIN — hit target</option>
+          <option value="PARTIAL">PARTIAL — scaled out</option>
+          <option value="BREAKEVEN">BREAKEVEN</option>
+          <option value="LOSS">LOSS — stopped</option>
+          <option value="BUSTED">BUSTED — pattern failed, flipped</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="t-entry">Entry Price</label>
+        <input type="number" id="t-entry" step="0.1" placeholder="e.g. 2341.2">
+      </div>
+      <div class="field">
+        <label for="t-stop">Stop Price</label>
+        <input type="number" id="t-stop" step="0.1" placeholder="e.g. 2343.5">
+      </div>
+      <div class="field">
+        <label for="t-target">Target Price</label>
+        <input type="number" id="t-target" step="0.1" placeholder="e.g. 2336.8">
+      </div>
+      <div class="field">
+        <label for="t-exit">Exit Price</label>
+        <input type="number" id="t-exit" step="0.1" placeholder="e.g. 2337.1">
+      </div>
+
+      <div class="field">
+        <label for="t-pnl">P&amp;L ($)</label>
+        <input type="number" id="t-pnl" step="0.01" placeholder="e.g. 123.50 or -85.00">
+      </div>
+      <div class="field">
+        <label for="t-session">Session Window</label>
+        <select id="t-session">
+          <option value="">— select —</option>
+          <option value="OPEN">9:30–11:00 (Open)</option>
+          <option value="LUNCH">11:30–13:30 (Lunch — avoid)</option>
+          <option value="PM">14:00–15:30 (PM)</option>
+          <option value="CLOSE">15:30–16:00 (Close)</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="t-plan-adherence">Plan Adherence</label>
+        <select id="t-plan-adherence">
+          <option value="">— select —</option>
+          <option value="A">A — Followed plan exactly</option>
+          <option value="B">B — Minor deviation</option>
+          <option value="C">C — Broke a rule, still okay</option>
+          <option value="F">F — Off-plan / impulsive</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="t-emotion">Emotional State</label>
+        <select id="t-emotion">
+          <option value="">— select —</option>
+          <option value="CALM">Calm / focused</option>
+          <option value="CONFIDENT">Confident</option>
+          <option value="ANXIOUS">Anxious</option>
+          <option value="FOMO">FOMO / chasing</option>
+          <option value="REVENGE">Revenge trading</option>
+          <option value="TIRED">Tired / unfocused</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label for="t-notes">Notes — what worked, what didn't, what to remember</label>
+        <textarea id="t-notes" placeholder="e.g. Peak 2 came in on lower volume, neckline break was clean, scaled 50% at midpoint. Could have trailed tighter after VWAP reclaim."></textarea>
+      </div>
+    </div>
+
+    <div class="journal-actions">
+      <div class="left-group">
+        <button class="btn-save" id="btn-log-trade" onclick="logTrade()">+ Log This Trade</button>
+        <button class="btn-export" onclick="exportCSV()">⬇ Export All Trades (CSV)</button>
+      </div>
+      <div class="right-group">
+        <button class="btn-danger" onclick="clearForm()">Clear Form</button>
+        <button class="btn-danger" onclick="confirmClearAll()">⚠ Delete All Logged Trades</button>
+      </div>
+    </div>
+
+    <!-- Live stats -->
+    <div class="stats-row" id="stats-row" style="display:none;">
+      <div class="stat-card">
+        <div class="stat-label">Total Trades</div>
+        <div class="stat-num" id="stat-total">0</div>
+        <div class="stat-sub">logged</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Win Rate</div>
+        <div class="stat-num" id="stat-winrate">—</div>
+        <div class="stat-sub" id="stat-winrate-sub">need 10+ trades</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Net P&amp;L</div>
+        <div class="stat-num" id="stat-pnl">—</div>
+        <div class="stat-sub" id="stat-pnl-sub">session total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Plan Adherence</div>
+        <div class="stat-num" id="stat-adherence">—</div>
+        <div class="stat-sub" id="stat-adherence-sub">A/B rate</div>
+      </div>
+    </div>
+
+    <!-- Recent trades -->
+    <div class="recent-trades" id="recent-trades" style="display:none;">
+      <div class="recent-trades-title">Recent trades (most recent first)</div>
+      <div class="recent-row header">
+        <div>#</div>
+        <div>Time</div>
+        <div>Dir</div>
+        <div>Grade</div>
+        <div>Notes</div>
+        <div>P&amp;L</div>
+      </div>
+      <div id="recent-rows"></div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div>A. Shapiro, MD · M2K Scalping System</div>
+    <div class="brand">"Context + Trigger + Risk. Never two out of three."</div>
+    <div>Print landscape · Letter size</div>
+  </footer>
+</div>
+
+<script>
+  function updateScore(side) {
+    const boxes = document.querySelectorAll(`input.score[data-side="${side}"]`);
+    let count = 0;
+    boxes.forEach(b => { if (b.checked) count++; });
+    document.getElementById(`score-${side}`).textContent = count;
+
+    const verdict = document.getElementById(`verdict-${side}`);
+    verdict.classList.remove('verdict-go','verdict-skip','verdict-wait');
+    if (count >= 4) {
+      verdict.textContent = 'HIGH QUALITY';
+      verdict.classList.add('verdict-go');
+    } else if (count >= 3) {
+      verdict.textContent = 'TRADEABLE';
+      verdict.classList.add('verdict-go');
+    } else if (count >= 2) {
+      verdict.textContent = 'MARGINAL — WAIT';
+      verdict.classList.add('verdict-wait');
+    } else {
+      verdict.textContent = 'SKIP';
+      verdict.classList.add('verdict-skip');
+    }
+  }
+
+  document.querySelectorAll('input.score').forEach(cb => {
+    cb.addEventListener('change', () => updateScore(cb.dataset.side));
+  });
+
+  function resetAll() {
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    updateScore('short');
+    updateScore('long');
+  }
+
+  // Init scores
+  updateScore('short');
+  updateScore('long');
+
+  // ========== JOURNAL SYSTEM ==========
+  const STORAGE_KEY = 'arnie_m2k_trades_v1';
+
+  function getTrades() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      console.error('Failed to read trades', e);
+      return [];
+    }
+  }
+
+  function saveTrades(trades) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(trades));
+      return true;
+    } catch (e) {
+      showToast('Save failed: ' + e.message, true);
+      return false;
+    }
+  }
+
+  function formatDateTime(d) {
+    const pad = n => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  }
+
+  function updateDateTime() {
+    document.getElementById('t-date').value = formatDateTime(new Date());
+  }
+
+  function captureChecklistState() {
+    // Capture all checkbox states on the checklist for later analysis
+    const state = {};
+    // Short context gates
+    state.s_ctx_uptrend = document.getElementById('s-ctx-1').checked ? 1 : 0;
+    state.s_ctx_level = document.getElementById('s-ctx-2').checked ? 1 : 0;
+    state.s_ctx_reversal = document.getElementById('s-ctx-3').checked ? 1 : 0;
+    // Long context gates
+    state.l_ctx_downtrend = document.getElementById('l-ctx-1').checked ? 1 : 0;
+    state.l_ctx_level = document.getElementById('l-ctx-2').checked ? 1 : 0;
+    state.l_ctx_reversal = document.getElementById('l-ctx-3').checked ? 1 : 0;
+    // Quality scores
+    state.short_score = parseInt(document.getElementById('score-short').textContent) || 0;
+    state.long_score = parseInt(document.getElementById('score-long').textContent) || 0;
+    // Capture individual score checkboxes per side
+    const shortScores = document.querySelectorAll('input.score[data-side="short"]');
+    const longScores = document.querySelectorAll('input.score[data-side="long"]');
+    state.s_lower_high = shortScores[0]?.checked ? 1 : 0;
+    state.s_separation = shortScores[1]?.checked ? 1 : 0;
+    state.s_volume = shortScores[2]?.checked ? 1 : 0;
+    state.s_trigger_bar = shortScores[3]?.checked ? 1 : 0;
+    state.s_stoch_div = shortScores[4]?.checked ? 1 : 0;
+    state.l_higher_low = longScores[0]?.checked ? 1 : 0;
+    state.l_separation = longScores[1]?.checked ? 1 : 0;
+    state.l_volume = longScores[2]?.checked ? 1 : 0;
+    state.l_trigger_bar = longScores[3]?.checked ? 1 : 0;
+    state.l_stoch_div = longScores[4]?.checked ? 1 : 0;
+    // Four principles
+    state.p1_plan = document.getElementById('p1').checked ? 1 : 0;
+    state.p2_size = document.getElementById('p2').checked ? 1 : 0;
+    state.p3_patience = document.getElementById('p3').checked ? 1 : 0;
+    state.p4_acceptance = document.getElementById('p4').checked ? 1 : 0;
+    state.four_principles_complete = (state.p1_plan && state.p2_size && state.p3_patience && state.p4_acceptance) ? 1 : 0;
+    return state;
+  }
+
+  function logTrade() {
+    const direction = document.getElementById('t-direction').value;
+    const outcome = document.getElementById('t-outcome').value;
+    const pnl = document.getElementById('t-pnl').value;
+
+    if (!direction) { showToast('Select direction first', true); return; }
+    if (!outcome) { showToast('Select outcome first', true); return; }
+    if (pnl === '') { showToast('Enter P&L (use 0 for breakeven)', true); return; }
+
+    updateDateTime();
+
+    const trade = {
+      id: Date.now(),
+      datetime: document.getElementById('t-date').value,
+      direction: direction,
+      contracts: document.getElementById('t-contracts').value || '',
+      outcome: outcome,
+      entry: document.getElementById('t-entry').value || '',
+      stop: document.getElementById('t-stop').value || '',
+      target: document.getElementById('t-target').value || '',
+      exit: document.getElementById('t-exit').value || '',
+      pnl: parseFloat(pnl) || 0,
+      session: document.getElementById('t-session').value || '',
+      plan_adherence: document.getElementById('t-plan-adherence').value || '',
+      emotion: document.getElementById('t-emotion').value || '',
+      notes: document.getElementById('t-notes').value.replace(/"/g, "'") || '',
+      ...captureChecklistState()
+    };
+
+    const trades = getTrades();
+    trades.push(trade);
+    if (!saveTrades(trades)) return;
+
+    showToast(`Trade #${trades.length} logged · P&L: ${trade.pnl >= 0 ? '+' : ''}${trade.pnl.toFixed(2)}`);
+    clearForm();
+    resetAll(); // reset the checklist for next trade
+    renderStats();
+    renderRecent();
+  }
+
+  function clearForm() {
+    ['t-direction','t-contracts','t-outcome','t-entry','t-stop','t-target','t-exit','t-pnl','t-session','t-plan-adherence','t-emotion','t-notes'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+    updateDateTime();
+  }
+
+  function exportCSV() {
+    const trades = getTrades();
+    if (trades.length === 0) {
+      showToast('No trades to export yet', true);
+      return;
+    }
+
+    // Build CSV header from keys of first trade
+    const headers = Object.keys(trades[0]);
+    const csv = [
+      headers.join(','),
+      ...trades.map(t => headers.map(h => {
+        const val = t[h];
+        if (typeof val === 'string' && (val.includes(',') || val.includes('"') || val.includes('\n'))) {
+          return `"${val.replace(/"/g, '""')}"`;
+        }
+        return val !== undefined && val !== null ? val : '';
+      }).join(','))
+    ].join('\n');
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const dateStr = new Date().toISOString().split('T')[0];
+    a.href = url;
+    a.download = `m2k_trades_${dateStr}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast(`Exported ${trades.length} trades`);
+  }
+
+  function confirmClearAll() {
+    const trades = getTrades();
+    if (trades.length === 0) {
+      showToast('Nothing to delete', true);
+      return;
+    }
+    if (confirm(`This will permanently delete all ${trades.length} logged trades. Export to CSV first if you want to keep them. Continue?`)) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderStats();
+      renderRecent();
+      showToast('All trades deleted');
+    }
+  }
+
+  function showToast(msg, isError) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.toggle('error', !!isError);
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2600);
+  }
+
+  function renderStats() {
+    const trades = getTrades();
+    document.getElementById('trade-count').textContent = trades.length;
+    document.getElementById('stat-total').textContent = trades.length;
+
+    if (trades.length === 0) {
+      document.getElementById('stats-row').style.display = 'none';
+      return;
+    }
+    document.getElementById('stats-row').style.display = 'grid';
+
+    // Win rate (WIN + PARTIAL count as wins)
+    const wins = trades.filter(t => t.outcome === 'WIN' || t.outcome === 'PARTIAL').length;
+    const losses = trades.filter(t => t.outcome === 'LOSS').length;
+    const decided = wins + losses;
+    const wr = decided > 0 ? Math.round((wins / decided) * 100) : null;
+    document.getElementById('stat-winrate').textContent = wr !== null ? wr + '%' : '—';
+    document.getElementById('stat-winrate-sub').textContent = trades.length >= 10 ? `${wins}W / ${losses}L` : `need ${10 - trades.length} more`;
+
+    // P&L
+    const totalPnl = trades.reduce((s, t) => s + (parseFloat(t.pnl) || 0), 0);
+    const pnlEl = document.getElementById('stat-pnl');
+    pnlEl.textContent = (totalPnl >= 0 ? '+$' : '-$') + Math.abs(totalPnl).toFixed(0);
+    pnlEl.style.color = totalPnl >= 0 ? 'var(--bull)' : 'var(--bear)';
+
+    // Plan adherence (A+B rate)
+    const graded = trades.filter(t => t.plan_adherence);
+    const goodPlan = graded.filter(t => t.plan_adherence === 'A' || t.plan_adherence === 'B').length;
+    const adherenceRate = graded.length > 0 ? Math.round((goodPlan / graded.length) * 100) : null;
+    document.getElementById('stat-adherence').textContent = adherenceRate !== null ? adherenceRate + '%' : '—';
+    document.getElementById('stat-adherence-sub').textContent = graded.length > 0 ? `${goodPlan}/${graded.length} on-plan` : 'grade your trades';
+  }
+
+  function renderRecent() {
+    const trades = getTrades();
+    const container = document.getElementById('recent-rows');
+    const wrap = document.getElementById('recent-trades');
+
+    if (trades.length === 0) {
+      wrap.style.display = 'none';
+      return;
+    }
+    wrap.style.display = 'block';
+
+    const recent = trades.slice(-5).reverse();
+    container.innerHTML = recent.map((t, i) => {
+      const idx = trades.length - i;
+      const time = t.datetime.split(' ')[1] || '—';
+      const dirClass = t.direction === 'LONG' ? 'dir-long' : 'dir-short';
+      const pnl = parseFloat(t.pnl) || 0;
+      const pnlClass = pnl > 0 ? 'pnl-pos' : pnl < 0 ? 'pnl-neg' : 'pnl-flat';
+      const pnlText = (pnl >= 0 ? '+$' : '-$') + Math.abs(pnl).toFixed(2);
+      const notes = (t.notes || '').substring(0, 60) + ((t.notes || '').length > 60 ? '…' : '');
+      return `
+        <div class="recent-row">
+          <div>#${idx}</div>
+          <div>${time}</div>
+          <div class="${dirClass}">${t.direction}</div>
+          <div>${t.plan_adherence || '—'}</div>
+          <div style="color:var(--ink-dim);">${notes || '<em style="color:var(--ink-faint);">(no notes)</em>'}</div>
+          <div class="${pnlClass}">${pnlText}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Initialize on load
+  updateDateTime();
+  document.getElementById('session-date').textContent = new Date().toLocaleDateString();
+  renderStats();
+  renderRecent();
+
+  // Keep datetime current when user interacts with form
+  document.getElementById('t-direction').addEventListener('focus', updateDateTime);
+</script>
+</body>
+</html>
