@@ -55,3 +55,55 @@
 **Problems encountered:**
 - Preview tool `preview_click` missed buttons below viewport (tab nav is below the fold); programmatic `btn.click()` works fine — this is a preview-tool artifact, not a real bug
 - `preview_screenshot` timed out twice even though `document.readyState === 'complete'` and eval calls responded normally; skipped screenshot verification in favor of DOM-level content verification
+
+## Session — 2026-04-15 — Phase 2 v2.1 Enrichment
+**What we did:**
+- Started fresh on a new branch `feature/enrich-db-dt-and-journal-dropdown` off master
+- Read the reference doc again and mapped missing content vs. existing Double Bottom / Double Top tabs
+- Added 4 new sections to the Double Bottom tab (after Gate 5):
+  - Section 6 · The Two Entry Methods (Break Above 40–50% WR vs. Close Above 55–65% WR), with pros/cons for each
+  - Section 7 · What Professionals Actually Do + Hybrid variation (Gold Standard)
+  - Section 8 · Win Rate Differences comparison
+  - Section 9 · Recommendation for Arnie (4 sub-points: forces patience, algos hunt break entries, hybrid approach later, practical observation tip)
+- Added 4 parallel new sections to the Double Top tab:
+  - Section 6 · Two Entry Methods (Break Below 38–48% WR vs. Close Below 52–62% WR), with upward-bias note
+  - Section 7 · What Professionals Do + Hybrid + important caveat about long-term upward market bias
+  - Section 8 · Win Rate Differences
+  - Section 9 · Recommendation with selectivity filters (higher-timeframe check, Stoch 5,3,3 bearish divergence, volume fingerprint, "60%+ with filters")
+- Added Pattern dropdown to trade journal form (`<select id="t-pattern">` with DB / DT / BULL_FLAG / BEAR_FLAG options)
+- Added change handler that auto-suggests direction based on pattern (DB/BullFlag → LONG, DT/BearFlag → SHORT)
+- Simplified Direction dropdown (removed redundant "(Double Bottom)" / "(Double Top)" parentheticals now that Pattern captures that)
+- Updated `logTrade()` to validate and capture `pattern`
+- Updated `clearForm()` to include `t-pattern`
+- Updated `renderRecent()` with new Pattern column showing abbreviated labels (`Db Bot`, `Db Top`, `Bull Flg`, `Bear Flg`)
+- Updated `.recent-row` CSS grid from 6 to 7 columns (50px 80px 90px 60px 70px 1fr 80px)
+- Verified in browser preview: all 4 patterns auto-set direction correctly, 2-trade test passed with patterns captured in localStorage, recent-trades row renders with 7 columns, zero console errors
+
+**Verification — DOM checks in preview:**
+- Tab content lengths: DB 14,215 · DT 16,170 · Bull 14,782 · Bear 11,860 · Unified 3,637 (DB and DT grew significantly from Phase 1)
+- Pattern dropdown: 4 options present, change handler correctly auto-sets direction
+- Log-trade test: 2 trades saved (BULL_FLAG/LONG and DT/SHORT), `pattern` field present in CSV header automatically
+- Recent-trades render: 7-col grid with Pattern column showing "Bull Flg" / "Db Top"
+- Zero console errors throughout
+
+**Merge & deploy (same session):**
+- Committed Phase 2 on feature branch (commit `bf68170` — 253 line net addition)
+- Pushed feature branch to GitHub
+- Merged `feature/enrich-db-dt-and-journal-dropdown` → `master` with `--no-ff` (commit `c0722f7`)
+- Pushed master; Netlify auto-deployed (poll 2 showed LIVE v2.1 — site jumped from 139 KB to 154 KB)
+- Ran 20-check content verification on the live site — **20/20 passed** (title, pattern dropdown, all 4 pattern options, auto-set handler, DB sections 6–9, DT sections 6–9, DB 55–65% win rate, DT 52–62% win rate, DT "be more selective", Pattern column in recent, 7-col grid, all 5 tab panels, switchTab, Bull Flag tab, Bear Flag "Faster & More Violent")
+- Captured new Puppeteer screenshot at 1400×900×2 → `arnies-app-showcase/screenshots/double-top-bottom-teaching.png`
+- Updated Gallery 1 card tagline to v2.1 (added Phase 2 description: enriched DB/DT with two entry methods, win rates, pro hybrid variation; pattern-tagged journal with auto-set direction)
+- Committed and pushed Gallery 1 (commit `00b1936`) — verified live (v2.1 text present in 103 KB payload)
+- Gallery 2 status unchanged — remains N/A (both candidate URLs 404; portfolio-gallery is empty Vite placeholder)
+
+**What's working:** Phase 2 v2.1 complete — DB and DT tabs now contain the full reference-doc entry methods, win rates, professional approach, and Arnie-specific recommendations. Trade journal supports pattern tagging with auto-suggested direction.
+**What's next:** None — app is feature-complete per both reference prompts.
+**Important decisions:**
+- Kept Direction dropdown alongside Pattern (didn't replace it) to preserve backwards compat with existing localStorage data and to allow an override if needed
+- Simplified Direction labels (removed "(Double Bottom)" / "(Double Top)" parentheticals) now that Pattern carries that semantic
+- Pattern dropdown auto-sets Direction via change-handler, not via logTrade derivation — user can see it happen and correct it if needed
+- Added sections 6–9 as append-only to the DB/DT tabs (didn't touch the existing Gate 1–5 checklists) to preserve Phase 1 behavior and the existing scoring wiring
+**Problems encountered:**
+- Initial verification check for `"What Professionals Actually Do"` came back as -1 because the active tab's CSS `text-transform: uppercase` rendered innerText in all-caps ("WHAT PROFESSIONALS ACTUALLY DO"). Inactive tabs (DT hidden) returned the raw mixed-case text. Not a real bug — content is correct.
+- No other issues encountered.
