@@ -20,7 +20,7 @@ https://arnie-double-top-bottom.netlify.app
 - Local dev server: `C:\Users\arnol\Desktop\serve-dtb-teaching.js` (port 3478, launched via `.claude/launch.json` config "dtb-teaching")
 
 ## Current Status
-Phase 1 v2.0 complete on branch `feature/add-flags-and-tops` — awaiting Arnie's merge approval
+Phase 1 v2.0 MERGED to master and live in production (2026-04-15). Gallery 1 card updated and live. Awaiting Phase 2 kickoff.
 
 ## Features Completed (v1.x)
 - Double Top + Double Bottom checklists with quality scoring (0–5)

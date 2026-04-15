@@ -38,7 +38,19 @@
 - Verified in browser: all 5 tabs render, switchTab works programmatically and via click, no console errors, DOM structure intact, content length substantial for every panel (3,637 – 14,782 chars each)
 
 **What's working:** Phase 1 v2.0 complete — all four pattern tabs plus Unified Principles tab verified functional. Existing scoring/journal/CSV export preserved.
-**What's next:** Commit + push `feature/add-flags-and-tops` branch → Arnie reviews Netlify preview → merge to master → Phase 2 (enrich DB/DT sections, add Pattern dropdown to journal)
+**What's next:** Phase 2 (enrich DB/DT sections with reference-doc entry methods, add Pattern dropdown to trade journal) on a new branch
+
+**Merge & deploy (same session):**
+- Merged `feature/add-flags-and-tops` → `master` with `--no-ff` (commit `3e61641`)
+- Pushed master to GitHub
+- Netlify auto-deployed within seconds (verified first poll showed LIVE v2.0)
+- Ran 12 live-site content checks on https://arnie-double-top-bottom.netlify.app/ — all 12 passed (title, all 5 tabs, switchTab function, bull flag definition, bear flag "Faster & More Violent" callout, Unified Principles eight rules, 61.8 Fib reference, M2K & MES comparison, v2.0 footer)
+- Captured new Puppeteer screenshot at 1400×900×2 → `arnies-app-showcase/screenshots/double-top-bottom-teaching.png`
+- Updated Gallery 1 card tagline to reflect all four patterns + Unified Principles
+- Committed and pushed Gallery 1 — verified live at https://arnies-app-showcase.netlify.app/
+- Gallery 2 (`arnies-app-gallery.netlify.app`) returns 404 — does not exist as a deployed site, so N/A
+- URL shortcut already existed at `All Of My Working Apps That Are Beautiful\Double Top-Bottom Teaching Edition.url`
+- Project folder already in correct location (`Project Files Do Not Delete\double-top-bottom-teaching`)
 **Important decisions:** See CLAUDE.md "Important Decisions" section
 **Problems encountered:**
 - Preview tool `preview_click` missed buttons below viewport (tab nav is below the fold); programmatic `btn.click()` works fine — this is a preview-tool artifact, not a real bug
