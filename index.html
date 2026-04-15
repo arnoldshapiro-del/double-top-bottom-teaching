@@ -20,20 +20,22 @@
 <style>
   :root {
     --bg: #0f1115;
-    --panel: #161a21;
-    --panel-2: #1c2129;
-    --ink: #e8e6e1;
-    --ink-dim: #9aa0a6;
-    --ink-faint: #5a6068;
-    --line: #2a2f38;
-    --line-strong: #3a4150;
+    --panel: #191d25;
+    --panel-2: #222832;
+    --ink: #f4f2ec;
+    --ink-dim: #d5d9e0;
+    --ink-faint: #a8b0bc;
+    --line: #3a4150;
+    --line-strong: #525968;
     --bull: #4ade80;
     --bull-dim: #1f4a2e;
     --bear: #f87171;
     --bear-dim: #4a1f1f;
-    --gold: #d4a64a;
-    --warn: #e8b547;
+    --gold: #e6b859;
+    --warn: #f0c05a;
     --accent: #7dd3fc;
+    --recommend: #60a5fa;
+    --recommend-glow: rgba(96, 165, 250, 0.18);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -170,11 +172,14 @@
   }
 
   .section-label {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 8px;
+    color: #d5d9e0;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -249,50 +254,50 @@
   /* Plain-English teaching blocks (Arnie's "explain it to me" notes) */
   .explain {
     display: block;
-    background: rgba(125, 211, 252, 0.06);
-    border-left: 2px solid var(--accent);
-    padding: 6px 10px;
-    margin-top: 6px;
-    font-size: 11px;
-    color: var(--ink);
+    background: rgba(125, 211, 252, 0.14);
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: #f4f2ec;
     font-style: normal;
-    line-height: 1.55;
+    line-height: 1.65;
   }
   .explain strong {
-    color: var(--accent);
+    color: #bae6fd;
     font-weight: 700;
     letter-spacing: 0.04em;
-    font-size: 9px;
+    font-size: 10px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   }
-  .short .explain { border-left-color: var(--bear); background: rgba(248, 113, 113, 0.06); }
-  .short .explain strong { color: var(--bear); }
-  .long .explain { border-left-color: var(--bull); background: rgba(74, 222, 128, 0.06); }
-  .long .explain strong { color: var(--bull); }
+  .short .explain { border-left-color: var(--bear); background: rgba(248, 113, 113, 0.14); }
+  .short .explain strong { color: #fecaca; }
+  .long .explain { border-left-color: var(--bull); background: rgba(74, 222, 128, 0.14); }
+  .long .explain strong { color: #bbf7d0; }
 
   /* Explain block used inside red-flags and bottom-panel contexts */
   .red-flags .explain {
-    background: rgba(255,255,255,0.04);
+    background: rgba(248, 113, 113, 0.14);
     border-left-color: var(--bear);
-    color: var(--ink);
-    margin-top: 4px;
-    margin-bottom: 8px;
-    padding: 5px 9px;
-    font-size: 10.5px;
+    color: #f4f2ec;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
   }
-  .red-flags .explain strong { color: var(--bear); }
+  .red-flags .explain strong { color: #fecaca; }
 
   .bottom-panel .explain {
-    margin-top: 4px;
-    margin-bottom: 8px;
-    padding: 5px 9px;
-    font-size: 10.5px;
-    background: rgba(212, 166, 74, 0.06);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 7px 11px;
+    font-size: 12px;
+    background: rgba(230, 184, 89, 0.14);
     border-left-color: var(--gold);
   }
-  .bottom-panel .explain strong { color: var(--gold); }
+  .bottom-panel .explain strong { color: #fcd34d; }
 
   /* Print-friendly version */
   @media print {
@@ -362,27 +367,37 @@
   /* ============ DATA BLOCKS ============ */
   .data-block {
     background: var(--panel-2);
-    border-left: 2px solid var(--accent);
-    padding: 10px 12px;
-    margin: 8px 0;
-    font-size: 11px;
+    border-left: 3px solid var(--accent);
+    padding: 12px 14px;
+    margin: 10px 0;
+    font-size: 12.5px;
+    line-height: 1.6;
   }
 
   .short .data-block { border-left-color: var(--bear); }
   .long .data-block { border-left-color: var(--bull); }
 
   .data-block .dlabel {
-    color: var(--ink-faint);
-    font-size: 9px;
+    color: #bae6fd;
+    font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    font-weight: 700;
+    margin-bottom: 5px;
   }
 
+  .short .data-block .dlabel { color: #fecaca; }
+  .long .data-block .dlabel { color: #bbf7d0; }
+  .neutral .data-block .dlabel { color: #fcd34d; }
+
   .data-block .dvalue {
-    color: var(--ink);
+    color: #f4f2ec;
     font-weight: 500;
+    font-size: 12.5px;
+    line-height: 1.6;
   }
+
+  .data-block .dvalue strong { color: #ffffff; font-weight: 700; }
 
   .formula {
     font-family: 'JetBrains Mono', monospace;
@@ -1007,48 +1022,74 @@
     footer .brand { color: #555; }
   }
 
-  /* ============ TAB NAVIGATION ============ */
+  /* ============ TAB NAVIGATION (sticky, prominent) ============ */
   .tab-nav {
     display: flex;
-    gap: 2px;
+    gap: 4px;
     margin-bottom: 0;
-    border-bottom: 1px solid var(--line-strong);
+    padding: 12px 16px 0 16px;
+    background: linear-gradient(180deg, #0f1115 0%, #151922 100%);
+    border: 2px solid var(--accent);
+    border-bottom: 2px solid var(--line-strong);
+    border-radius: 8px 8px 0 0;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55), 0 0 22px rgba(125, 211, 252, 0.18);
+  }
+
+  .tab-nav-label {
+    display: block;
+    width: 100%;
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
   }
 
   .tab-btn {
     background: var(--panel);
-    color: var(--ink-dim);
-    border: 1px solid var(--line);
+    color: #e8e6e1;
+    border: 1.5px solid var(--line-strong);
     border-bottom: none;
-    padding: 11px 18px;
+    padding: 13px 22px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.15s;
     white-space: nowrap;
     position: relative;
-    top: 1px;
+    top: 2px;
+    border-radius: 6px 6px 0 0;
   }
 
-  .tab-btn:hover { background: var(--panel-2); color: var(--ink); }
+  .tab-btn:hover {
+    background: var(--panel-2);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
 
   .tab-btn.active {
     background: var(--panel-2);
-    color: var(--accent);
-    border-color: var(--line-strong);
-    border-bottom: 1px solid var(--panel-2);
+    color: #ffffff;
+    border-color: var(--accent);
+    border-bottom: 2px solid var(--panel-2);
+    box-shadow: 0 -3px 14px rgba(125, 211, 252, 0.35);
   }
 
   .tab-btn .tab-num {
-    color: var(--ink-faint);
-    margin-right: 6px;
-    font-weight: 400;
+    color: var(--accent);
+    margin-right: 8px;
+    font-weight: 700;
   }
-  .tab-btn.active .tab-num { color: var(--accent); }
+  .tab-btn.active .tab-num { color: #ffffff; }
 
   .tab-container {
     display: flex;
@@ -1095,56 +1136,57 @@
   /* ============ CROSS-REFERENCE CALLOUT ============ */
   .xref {
     display: block;
-    background: rgba(125, 211, 252, 0.08);
-    border: 1px dashed var(--accent);
-    color: var(--ink);
-    padding: 8px 12px;
-    margin: 10px 0;
-    font-size: 11px;
-    line-height: 1.55;
+    background: rgba(125, 211, 252, 0.14);
+    border: 1.5px dashed var(--accent);
+    color: #f4f2ec;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 12px;
+    line-height: 1.6;
   }
   .xref strong {
-    color: var(--accent);
+    color: #bae6fd;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    font-size: 9px;
+    letter-spacing: 0.05em;
+    font-size: 10px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   }
 
   /* ============ WIN-RATE PILL ============ */
   .winrate-pill {
     display: inline-block;
     background: var(--panel-2);
-    border: 1px solid var(--line-strong);
-    padding: 2px 8px;
-    font-size: 10px;
+    border: 1.5px solid var(--line-strong);
+    padding: 3px 10px;
+    font-size: 11px;
     letter-spacing: 0.05em;
     color: var(--accent);
     font-weight: 700;
     margin-left: 6px;
   }
-  .winrate-pill.high { color: var(--bull); border-color: var(--bull); }
-  .winrate-pill.mid { color: var(--warn); border-color: var(--warn); }
-  .winrate-pill.low { color: var(--bear); border-color: var(--bear); }
+  .winrate-pill.high { color: #86efac; border-color: var(--bull); background: rgba(74, 222, 128, 0.12); }
+  .winrate-pill.mid { color: #fcd34d; border-color: var(--warn); background: rgba(230, 184, 89, 0.12); }
+  .winrate-pill.low { color: #fca5a5; border-color: var(--bear); background: rgba(248, 113, 113, 0.12); }
 
   /* ============ NUMBERED METHOD BLOCKS ============ */
   .method-block {
     background: var(--panel-2);
-    border: 1px solid var(--line);
-    padding: 12px 14px;
-    margin: 10px 0;
+    border: 1.5px solid var(--line);
+    padding: 14px 16px;
+    margin: 12px 0;
+    border-radius: 4px;
   }
 
   .method-block .method-title {
     font-family: 'Fraunces', serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 6px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-strong);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1152,36 +1194,91 @@
     gap: 6px;
   }
 
-  .long .method-block { border-left: 2px solid var(--bull); }
-  .short .method-block { border-left: 2px solid var(--bear); }
+  .long .method-block { border-left: 3px solid var(--bull); }
+  .short .method-block { border-left: 3px solid var(--bear); }
 
   .method-block ul {
     list-style: none;
-    margin: 4px 0;
+    margin: 6px 0;
     padding: 0;
   }
   .method-block li {
-    padding: 3px 0 3px 14px;
+    padding: 4px 0 4px 16px;
     position: relative;
-    font-size: 11px;
-    line-height: 1.55;
-    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #f4f2ec;
   }
-  .method-block li.pro::before  { content: '+'; position: absolute; left: 0; color: var(--bull); font-weight: 700; }
-  .method-block li.con::before  { content: '−'; position: absolute; left: 0; color: var(--bear); font-weight: 700; }
-  .method-block li.who::before  { content: '·'; position: absolute; left: 0; color: var(--ink-faint); font-weight: 700; }
-  .method-block li strong { color: var(--accent); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .method-block li.pro::before  { content: '+'; position: absolute; left: 0; color: #86efac; font-weight: 900; font-size: 13px; }
+  .method-block li.con::before  { content: '−'; position: absolute; left: 0; color: #fca5a5; font-weight: 900; font-size: 13px; }
+  .method-block li.who::before  { content: '·'; position: absolute; left: 0; color: #d5d9e0; font-weight: 900; font-size: 15px; }
+  .method-block li strong { color: #bae6fd; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
 
   /* ============ PROSE BLOCK (for longer reference prose) ============ */
   .prose-block {
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--ink);
-    padding: 4px 0 10px 0;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #f4f2ec;
+    padding: 6px 0 12px 0;
   }
-  .prose-block p { margin-bottom: 8px; }
-  .prose-block em { color: var(--accent); font-style: italic; }
-  .prose-block strong { color: var(--ink); }
+  .prose-block p { margin-bottom: 10px; }
+  .prose-block em { color: #bae6fd; font-style: italic; font-weight: 500; }
+  .prose-block strong { color: #ffffff; font-weight: 700; }
+
+  /* ============ "RECOMMENDED FOR YOU" CALLOUT (calming blue) ============ */
+  .you-recommend-callout {
+    display: block;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.22) 0%, rgba(96, 165, 250, 0.10) 100%);
+    border: 2px solid var(--recommend);
+    border-left: 6px solid var(--recommend);
+    color: #f4f2ec;
+    padding: 14px 18px;
+    margin: 14px 0 18px 0;
+    border-radius: 6px;
+    box-shadow: 0 0 22px var(--recommend-glow), 0 2px 10px rgba(0,0,0,0.35);
+  }
+  .you-recommend-callout .recommend-label {
+    display: block;
+    color: #bfdbfe;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .you-recommend-callout .recommend-label::before {
+    content: '★ ';
+    color: var(--recommend);
+  }
+  .you-recommend-callout .recommend-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #f4f2ec;
+  }
+  .you-recommend-callout .recommend-body strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
+  .you-recommend-callout .recommend-body em {
+    color: #bfdbfe;
+    font-style: italic;
+  }
+
+  /* ============ "EXPERT BACKUP" LABEL (for the second method) ============ */
+  .expert-backup-label {
+    display: inline-block;
+    background: rgba(167, 139, 250, 0.18);
+    border: 1.5px solid #a78bfa;
+    color: #c4b5fd;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: 6px;
+    border-radius: 3px;
+  }
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
@@ -1277,6 +1374,7 @@
 
   <!-- ==================== TAB NAVIGATION ==================== -->
   <div class="tab-nav" role="tablist">
+    <span class="tab-nav-label">▼ Click a pattern to study it — all four patterns and the unified rules are here:</span>
     <button class="tab-btn active" data-tab="double-bottom" onclick="switchTab('double-bottom')"><span class="tab-num">1 ·</span>Double Bottom</button>
     <button class="tab-btn" data-tab="double-top" onclick="switchTab('double-top')"><span class="tab-num">2 ·</span>Double Top</button>
     <button class="tab-btn" data-tab="bull-flag" onclick="switchTab('bull-flag')"><span class="tab-num">3 ·</span>Bull Flag</button>
@@ -1479,59 +1577,58 @@
         </div>
       </div>
 
-      <!-- ============ SECTION 6 · TWO ENTRY METHODS (Reference Doc) ============ -->
+      <!-- ============ SECTION 6 · YOUR TWO ENTRY METHODS ============ -->
       <div class="section">
-        <div class="section-label">6 · The Two Entry Methods <span>Break vs. Close</span></div>
+        <div class="section-label">6 · Your Two Entry Methods <span>Recommended + Expert Backup</span></div>
         <div class="prose-block">
-          <p>A double top is a <strong>short setup</strong>, not a long. Buyers tried twice to push price higher and failed both times — sellers are stepping in. Like the double bottom, every setup gives you the same fork: enter the moment price breaks the neckline, or wait for a full 2-minute candle to close below it.</p>
+          <p>A double top is a <strong>short setup</strong>, not a long. Buyers tried twice to push price higher and failed both times — sellers are stepping in. You only need two entry methods: the one I recommend for you right now, and the expert backup for when you're more experienced. The "break below" entry is intentionally left out — false breakdowns on 2-min candles are especially vicious on shorts because of the market's long-term upward bias.</p>
         </div>
 
         <div class="method-block">
-          <div class="method-title">Method 1 · "Break Below" — Real-Time Entry <span class="winrate-pill low">Win rate 38–48%</span></div>
+          <div class="method-title">Close Below the Neckline — Candle Confirmation Entry <span class="winrate-pill mid">Win rate 52–62%</span></div>
           <ul>
-            <li><strong>What:</strong> You enter short the moment price <em>trades through</em> the middle valley of the M (the neckline). As soon as a tick prints below it, you're in short.</li>
-            <li class="pro">Better entry price (higher), capturing more of the down-move.</li>
-            <li class="pro">If the pattern dumps, you get the maximum move.</li>
-            <li class="con">False breakdowns are <strong>extremely common</strong> — even more so than false breakouts on bottoms.</li>
-            <li class="con">Price pierces the neckline, triggers your short, then snaps back up.</li>
-            <li class="con">"Bear traps" are particularly painful because the snap-back can be violent.</li>
+            <li><strong>What:</strong> Wait for the full 2-minute candle to <em>close</em> below the neckline (the middle valley of the M) before entering short.</li>
+            <li class="pro">Confirmation that sellers held control for the full 2 minutes.</li>
+            <li class="pro">Filters out the bear traps. Higher win rate than entering on the break.</li>
+            <li class="con">Worse entry price — you're shorting lower.</li>
+            <li class="con">Stop (above the M top) is now further away.</li>
+            <li class="who">Note: slightly lower win rate than the double bottom version because of the upward-bias factor — shorts face more reversal risk than longs.</li>
           </ul>
-          <div class="xref"><strong>Note — slightly worse win rate than double bottoms</strong>
-            Markets have a long-term upward bias. Shorts face more reversal risk than longs, so break entries on double tops trap you slightly more often than break entries on double bottoms.
+        </div>
+
+        <div class="you-recommend-callout">
+          <span class="recommend-label">This is the way I recommend for you</span>
+          <div class="recommend-body">
+            Use the <strong>candle close below the neckline</strong> as your entry for every double top — and be <em>more selective</em> than you are on double bottoms. Markets have a long-term upward bias, so shorting against that bias requires stronger confirmation. Always pair this entry with the selectivity filters in Section 8 below (higher-timeframe check, bearish Stochastic divergence, volume fingerprint). This is the same "wait for the close" rule you use on bear flags, bull flags, and double bottoms — one confirmation habit across every pattern.
           </div>
         </div>
 
         <div class="method-block">
-          <div class="method-title">Method 2 · "Close Below" — Candle Confirmation Entry <span class="winrate-pill mid">Win rate 52–62%</span></div>
+          <div class="method-title">Expert Backup — Close Below Neckline, then Pullback Entry <span class="expert-backup-label">Once you're experienced</span></div>
           <ul>
-            <li><strong>What:</strong> You wait for the full 2-minute candle to <em>close</em> below the neckline before entering short.</li>
-            <li class="pro">Confirmation that sellers held control for the full 2 minutes.</li>
-            <li class="pro">Filters out the bear traps. Higher win rate.</li>
-            <li class="con">Worse entry price — you're shorting lower.</li>
-            <li class="con">Stop (above the M top) is now further away.</li>
-            <li class="con">Risk-reward on individual trades is somewhat compressed.</li>
+            <li><strong>What:</strong> Wait for the 2-min candle to close below the neckline (the recommended confirmation). Then <em>don't enter yet</em>. Watch for a small pullback back <em>up</em> to the neckline (now acting as resistance). Enter short on that retest.</li>
+            <li class="pro">Confirmation PLUS a better entry price. Tight stop, excellent risk-reward, highest expected value per trade.</li>
+            <li class="pro">Same rule you'll use on bear flags — the "close + retest" habit transfers directly.</li>
+            <li class="con">Sometimes the pullback never comes and you miss the trade entirely.</li>
+            <li class="con">Shorting against the market's upward bias is psychologically harder than going long. The discipline bar is higher.</li>
+            <li class="who">Who uses it: experienced professional short-sellers who accept missing trades as part of the game.</li>
           </ul>
-          <div class="xref"><strong>See also — Bear Flag Method 2</strong>
-            This is the same "wait for the close" principle you use on bear flag entries. One consistent confirmation habit across every pattern.
+          <div class="xref"><strong>Graduation path</strong>
+            Trade the recommended method with the selectivity filters for double tops until it's automatic. Only then layer in the Expert Backup — and only on the cleanest setups with strong bearish divergence already in place.
           </div>
         </div>
       </div>
 
-      <!-- ============ SECTION 7 · What Professionals Do ============ -->
+      <!-- ============ SECTION 7 · Win Rate Context ============ -->
       <div class="section">
-        <div class="section-label">7 · What Professionals Do</div>
-        <div class="prose-block">
-          <p>Same as double bottoms — <strong>Method 2 (candle close)</strong> is the dominant professional approach, often with the hybrid variation.</p>
+        <div class="section-label">7 · Win Rate Context</div>
+        <div class="data-block">
+          <div class="dlabel">Recommended method — candle close below neckline</div>
+          <div class="dvalue">Roughly <strong>52–62% win rate</strong>. With the selectivity filters in Section 8, can improve to <strong>60%+</strong>.</div>
         </div>
-
-        <div class="method-block">
-          <div class="method-title">The Hybrid — Close + Pullback Entry</div>
-          <ul>
-            <li class="pro">Wait for close below the neckline.</li>
-            <li class="pro">Look for a small pullback <em>up</em> to the neckline (now acting as resistance).</li>
-            <li class="pro">Enter short on the pullback.</li>
-            <li class="con">Sometimes the pullback doesn't come and you miss the trade.</li>
-          </ul>
+        <div class="data-block">
+          <div class="dlabel">For comparison — entering on the break (not recommended)</div>
+          <div class="dvalue">Roughly <strong>38–48% win rate</strong> — slightly worse than bottoms because of the upward-bias factor.</div>
         </div>
 
         <div class="data-block">
@@ -1542,24 +1639,11 @@
         </div>
       </div>
 
-      <!-- ============ SECTION 8 · Win Rate Comparison ============ -->
+      <!-- ============ SECTION 8 · Selectivity Filters ============ -->
       <div class="section">
-        <div class="section-label">8 · Win Rate Differences</div>
-        <div class="data-block">
-          <div class="dlabel">Break entries (Method 1)</div>
-          <div class="dvalue">Roughly <strong>38–48% win rate</strong> — slightly worse than bottoms because of the upward bias.</div>
-        </div>
-        <div class="data-block">
-          <div class="dlabel">Close-below entries (Method 2)</div>
-          <div class="dvalue">Roughly <strong>52–62% win rate</strong>. With the selectivity filters below, can improve to 60%+.</div>
-        </div>
-      </div>
-
-      <!-- ============ SECTION 9 · Recommendation for Arnie ============ -->
-      <div class="section">
-        <div class="section-label">9 · Recommendation for Arnie's Situation <span class="gate-required">Be more selective than DB</span></div>
+        <div class="section-label">8 · Selectivity Filters <span class="gate-required">Mandatory on double tops</span></div>
         <div class="prose-block">
-          <p><strong>Method 2 (close below confirmation), and be more selective than with double bottoms.</strong> Specific filters to add for double tops:</p>
+          <p>The recommended close-below entry alone isn't enough on double tops — you need these three filters every single time. <strong>A raw "close below the neckline" double top with no selectivity layer is a losing trade over time.</strong></p>
         </div>
 
         <div class="data-block">
@@ -1586,7 +1670,7 @@
         <div class="data-block">
           <div class="dlabel">4 · Without these filters, win rates drop</div>
           <div class="dvalue">
-            With them, win rates can improve to <strong>60%+</strong>. The filters are non-negotiable on double tops. A raw "break below the neckline" double top with no selectivity layer is a losing trade over time.
+            With them, win rates can improve to <strong>60%+</strong>. The filters are non-negotiable on double tops. A raw close-below entry without the selectivity layer above is a losing trade over time.
           </div>
         </div>
       </div>
@@ -1786,105 +1870,93 @@
         </div>
       </div>
 
-      <!-- ============ SECTION 6 · TWO ENTRY METHODS (Reference Doc) ============ -->
+      <!-- ============ SECTION 6 · YOUR TWO ENTRY METHODS ============ -->
       <div class="section">
-        <div class="section-label">6 · The Two Entry Methods <span>Break vs. Close</span></div>
+        <div class="section-label">6 · Your Two Entry Methods <span>Recommended + Expert Backup</span></div>
         <div class="prose-block">
-          <p>Every double bottom gives you the same fork in the road: enter the <em>moment</em> price crosses the neckline, or wait for a full 2-minute candle to <em>close</em> above it. That single choice drives your win rate, your average entry price, and your emotional wear-and-tear more than any other decision in the pattern.</p>
+          <p>Every double bottom gives you the same fork in the road. Some traders enter the moment price crosses the neckline; others wait for a full 2-minute candle to <em>close</em> above it. You only need one rule to start with — the one I recommend below — and one expert backup method to graduate into later. The "break above" entry is intentionally left out: it gets trapped too often on M2K and MES 2-minute candles.</p>
         </div>
 
         <div class="method-block">
-          <div class="method-title">Method 1 · "Break Above" — Real-Time Entry <span class="winrate-pill low">Win rate 40–50%</span></div>
+          <div class="method-title">Close Above the Neckline — Candle Confirmation Entry <span class="winrate-pill mid">Win rate 55–65%</span></div>
           <ul>
-            <li><strong>What:</strong> You enter the moment price <em>trades through</em> the middle peak of the W (the neckline). As soon as a tick prints above it, you're in.</li>
-            <li class="pro">Better entry price — often several ticks cheaper than waiting for the close.</li>
-            <li class="pro">If the pattern rips, you capture more of the move. On fast instruments like NQ, 5–10 ticks of extra profit on a good trade.</li>
-            <li class="con">False breakouts. Price pokes above the neckline, triggers your entry, then reverses back below.</li>
-            <li class="con">On 2-minute candles in NQ and RTY, this happens <em>a lot</em>. The wick above the neckline that then closes back below is the classic trap.</li>
-            <li class="con">More losers, each chipping away at discipline and P&amp;L.</li>
-          </ul>
-        </div>
-
-        <div class="method-block">
-          <div class="method-title">Method 2 · "Close Above" — Candle Confirmation Entry <span class="winrate-pill mid">Win rate 55–65%</span></div>
-          <ul>
-            <li><strong>What:</strong> You wait for the full 2-minute candle to <em>close</em> above the neckline before entering.</li>
-            <li class="pro">Confirmation. A candle that closes above the neckline tells you buyers actually held control for the entire 2-minute period.</li>
-            <li class="pro">Filters out a huge percentage of false breakouts. Win rate goes up meaningfully.</li>
+            <li><strong>What:</strong> Wait for the full 2-minute candle to <em>close</em> above the neckline (the middle peak of the W) before entering long.</li>
+            <li class="pro">Confirmation. A candle that closes above the neckline tells you buyers held control for the full 2-minute period.</li>
+            <li class="pro">Filters out a huge percentage of false breakouts. Win rate goes up meaningfully vs. entering on the break.</li>
             <li class="con">You give up some of the move — by the time the candle closes, price may already be 5–8 ticks above the neckline.</li>
-            <li class="con">Risk-reward ratio on each individual trade gets a little worse — entry is higher and stop (below the W bottom) is now further away in relative terms.</li>
+            <li class="con">Risk-reward on each individual trade gets a little worse — entry is higher, stop (below the W bottom) is relatively further away.</li>
+            <li class="who">Who uses it: most professional and institutional short-term traders. They think in terms of <strong>expected value</strong>, not single-trade outcome. A slightly worse entry that filters out 30–40% of false signals is a massive edge over time.</li>
           </ul>
-          <div class="xref"><strong>See also — Bull Flag Method 2</strong>
-            This is the same "wait for the close" principle used on bull flag entries. One consistent confirmation habit across every pattern beats switching rules setup-by-setup.
+        </div>
+
+        <div class="you-recommend-callout">
+          <span class="recommend-label">This is the way I recommend for you</span>
+          <div class="recommend-body">
+            Use the <strong>candle close above the neckline</strong> as your single entry rule for every double bottom on M2K and MES 2-min charts. Every time you sit through the candle waiting for it to close, you're training yourself to wait for confirmation rather than chase — and that habit pays back for years. This is also the same "wait for the close" rule you use on bull flags, bear flags, and double tops. One consistent confirmation habit across every pattern is far more powerful than switching rules setup-by-setup.
+          </div>
+        </div>
+
+        <div class="method-block">
+          <div class="method-title">Expert Backup — Close Above Neckline, then Pullback Entry <span class="expert-backup-label">Once you're experienced</span></div>
+          <ul>
+            <li><strong>What:</strong> Wait for the 2-min candle to close above the neckline (the recommended confirmation). Then <em>don't enter yet</em>. Watch for a small pullback back to the neckline (now acting as support). Enter long on that retest.</li>
+            <li class="pro">Best of both worlds — you get the confirmation AND a better entry price.</li>
+            <li class="pro">Stop is tighter, risk-reward is excellent. Highest expected value per trade of any double-bottom method.</li>
+            <li class="con">Requires serious patience — sometimes the pullback never comes and you miss the trade entirely.</li>
+            <li class="con">You'll watch a handful of perfectly valid double bottoms run away without you.</li>
+            <li class="who">Who uses it: experienced professional scalpers who have fully accepted that missing trades is part of the game. Graduate into this once the "close above" method is second nature.</li>
+          </ul>
+          <div class="xref"><strong>Graduation path</strong>
+            Trade the recommended method until it's automatic and you're comfortable with the win rate. Then start running the Expert Backup in parallel on a small number of cleaner setups. When you can sit through the "no pullback, no trade" outcomes without frustration, it becomes your default.
           </div>
         </div>
       </div>
 
-      <!-- ============ SECTION 7 · What Professionals Actually Do ============ -->
+      <!-- ============ SECTION 7 · Win Rate Context ============ -->
       <div class="section">
-        <div class="section-label">7 · What Professionals Actually Do</div>
-        <div class="prose-block">
-          <p>Most professional and institutional short-term traders use <strong>Method 2 — the candle close</strong> — or a variation of it.</p>
-          <p><strong>Why:</strong> They think in terms of <em>expected value</em>, not individual trade outcome. A slightly worse entry that filters out 30–40% of false signals is a massive edge over time. They'd rather take fewer, higher-probability trades.</p>
-        </div>
-
-        <div class="method-block">
-          <div class="method-title">The Professional Variation — Hybrid Approach <span class="winrate-pill high">Gold standard</span></div>
-          <ul>
-            <li class="pro">Wait for the close above the neckline (Method 2 confirmation).</li>
-            <li class="pro">Then enter on a small pullback <em>to</em> the neckline in the next candle or two.</li>
-            <li class="pro">Gives both confirmation AND a better entry price.</li>
-            <li class="con">Requires patience — sometimes the pullback doesn't come and you miss the trade entirely.</li>
-            <li class="who">Who uses it: experienced professional scalpers who have accepted that missing trades is part of the game.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- ============ SECTION 8 · Win Rate Comparison ============ -->
-      <div class="section">
-        <div class="section-label">8 · Win Rate Differences</div>
+        <div class="section-label">7 · Win Rate Context</div>
         <div class="data-block">
-          <div class="dlabel">Break entries (Method 1)</div>
-          <div class="dvalue">Roughly <strong>40–50% win rate</strong> on intraday timeframes.</div>
+          <div class="dlabel">Recommended method — candle close above neckline</div>
+          <div class="dvalue">Roughly <strong>55–65% win rate</strong> on intraday timeframes.</div>
         </div>
         <div class="data-block">
-          <div class="dlabel">Close-above entries (Method 2)</div>
-          <div class="dvalue">Roughly <strong>55–65% win rate</strong>.</div>
-          <span class="explain"><strong>Why Method 2 wins over time</strong>
-            Even though Method 2 has a worse entry <em>price</em>, the improvement in win rate more than compensates. Over 100 trades, you come out ahead. That's the whole game: expected value, not single-trade outcome.
+          <div class="dlabel">For comparison — entering on the break (not recommended)</div>
+          <div class="dvalue">Roughly <strong>40–50% win rate</strong>. That's why we don't use it.</div>
+          <span class="explain"><strong>Why the close wins over time</strong>
+            Even though the close entry has a slightly worse entry <em>price</em>, the improvement in win rate more than compensates. Over 100 trades, you come out meaningfully ahead. That's the whole game: expected value, not single-trade outcome.
           </span>
         </div>
       </div>
 
-      <!-- ============ SECTION 9 · Recommendation for Arnie ============ -->
+      <!-- ============ SECTION 8 · Why This Is the Right Approach ============ -->
       <div class="section">
-        <div class="section-label">9 · Recommendation for Arnie's Situation <span class="gate-required">M2K &amp; MES · 2-min</span></div>
+        <div class="section-label">8 · Why This Is the Right Approach for Arnie <span class="gate-required">M2K &amp; MES · 2-min</span></div>
 
         <div class="data-block">
-          <div class="dlabel">1 · Method 2 is the right approach</div>
+          <div class="dlabel">1 · It forces patience</div>
           <div class="dvalue">
-            <strong>Forces patience.</strong> Every time you sit through that candle waiting for it to close, you're training yourself to wait for confirmation rather than chase. That habit pays back for years.
+            Every time you sit through that candle waiting for it to close, you're training yourself to wait for confirmation rather than chase. <strong>That habit pays back for years.</strong>
           </div>
         </div>
 
         <div class="data-block">
-          <div class="dlabel">2 · Algos hunt breakout entries</div>
+          <div class="dlabel">2 · Algos hunt break-entry traders</div>
           <div class="dvalue">
-            On NQ and RTY specifically, the false breakout rate on 2-minute candles is brutal. These are fast, algorithmic-driven instruments. Waiting for the close avoids those traps.
+            On NQ, RTY, M2K and MES specifically, the false-breakout rate on 2-minute candles is brutal. These are fast, algorithmic-driven instruments. Waiting for the close is what keeps you out of those traps.
           </div>
         </div>
 
         <div class="data-block">
-          <div class="dlabel">3 · Hybrid approach later</div>
+          <div class="dlabel">3 · Expert Backup comes later</div>
           <div class="dvalue">
-            As experience grows, experiment with the hybrid — close confirmation plus pullback entry — best of both worlds.
+            Once the close-above method is automatic, graduate into the Expert Backup (close confirmation + pullback entry) for even better risk-reward.
           </div>
         </div>
 
         <div class="data-block">
           <div class="dlabel">4 · Practical observation tip</div>
           <div class="dvalue">
-            When watching a candle form with price above the neckline, note how often it pulls back below before close versus holds above. <strong>That observation alone teaches more about market structure than any book.</strong>
+            When watching a candle form with price above the neckline, notice how often it pulls back below before close versus holds above. <strong>That single observation teaches more about market structure than any book.</strong>
           </div>
         </div>
       </div>
@@ -1963,61 +2035,45 @@
           </div>
         </div>
 
-        <!-- SECTION 3 · Four Entry Methods -->
+        <!-- SECTION 3 · Your Two Entry Methods (Recommended + Expert Backup) -->
         <div class="section">
-          <div class="section-label">3 · The Four Entry Methods</div>
-
-          <div class="method-block">
-            <div class="method-title">Method 1 · Break of the Flag Trendline <span class="winrate-pill low">Win rate 40–48%</span></div>
-            <ul>
-              <li><strong>What:</strong> Draw a trendline across the highs of the pullback candles. The moment price trades through it, enter long.</li>
-              <li class="pro">Earliest entry, best price. M2K: saves 3–6 ticks. MES: saves 2–4 ticks.</li>
-              <li class="pro">If the pattern works, you capture the maximum move.</li>
-              <li class="con">Highest false-breakout rate of all four methods. Price pokes above, triggers entry, then sinks back in.</li>
-              <li class="con">On 2-min micro futures, algorithms deliberately probe these levels.</li>
-              <li class="who">Who uses it: aggressive scalpers with tight stops, comfortable taking many small losses for occasional big winners.</li>
-            </ul>
+          <div class="section-label">3 · Your Two Entry Methods <span>Recommended + Expert Backup</span></div>
+          <div class="prose-block">
+            <p>There are four ways traders enter bull flags. You only need two — the method I recommend for you right now, and the expert backup method you'll graduate into once you have more experience. The other two (break of trendline, break above flagpole high) are intentionally left out because one gets you trapped too often and the other gives you a bad price.</p>
           </div>
 
           <div class="method-block">
-            <div class="method-title">Method 2 · Candle Close Above the Flag Trendline <span class="winrate-pill mid">Win rate 52–60%</span></div>
+            <div class="method-title">Candle Close Above the Flag Trendline <span class="winrate-pill mid">Win rate 52–60%</span></div>
             <ul>
-              <li><strong>What:</strong> Same trendline as Method 1, but wait for the 2-minute candle to <em>close</em> above it, not just trade through.</li>
+              <li><strong>What:</strong> Draw a trendline across the highs of the pullback candles. Wait for a full 2-minute candle to <em>close</em> above that trendline — not just poke through — then enter long.</li>
               <li class="pro">Significant filter against false breakouts. Close above = buyers held control for the full 2 minutes.</li>
-              <li class="pro">Same confirmation principle as double bottoms — applies even more strongly because flag breakouts fakeout more often.</li>
-              <li class="con">Give up entry price. M2K: 2–5 ticks worse. MES: 1–3 ticks worse.</li>
+              <li class="pro">Same confirmation principle as double bottoms — applies even more strongly because flag breakouts fake out more often.</li>
+              <li class="con">Give up some entry price. M2K: 2–5 ticks worse. MES: 1–3 ticks worse.</li>
               <li class="con">Occasionally the breakout candle is so large that entry is uncomfortably far from stop.</li>
               <li class="who">Who uses it: <strong>most popular method among competent retail day traders</strong> — balances confirmation with reasonable pricing.</li>
             </ul>
-            <div class="xref"><strong>See also — Double Bottom</strong>
-              This is the exact same "wait for the close" principle you use on double bottom entries. Building one consistent confirmation habit across all four patterns is far more powerful than switching entry rules setup-by-setup.
+          </div>
+
+          <div class="you-recommend-callout">
+            <span class="recommend-label">This is the way I recommend for you</span>
+            <div class="recommend-body">
+              Use the <strong>candle close above the flag trendline</strong> as your entry for every bull flag, on every M2K and MES 2-minute chart. It's the single habit that will do the most for your results right now: it removes the guesswork, it makes algorithms hunt someone else, and it matches how you'll trade double bottoms, bear flags, and double tops — one confirmation rule across all four patterns.
             </div>
           </div>
 
           <div class="method-block">
-            <div class="method-title">Method 3 · Break Above the Flagpole High (Full Confirmation) <span class="winrate-pill high">Win rate 60–68%</span></div>
+            <div class="method-title">Expert Backup — Close Above Trendline, then Pullback Entry <span class="expert-backup-label">Once you're experienced</span></div>
             <ul>
-              <li><strong>What:</strong> Don't enter when price breaks the flag trendline. Wait until price trades above the <em>high of the flagpole</em> — the highest point before the pullback started.</li>
-              <li class="pro">Highest conviction entry. New highs above the pole = pattern fully confirmed.</li>
-              <li class="pro">Trading with maximum momentum behind you. Highest win rate of all four methods.</li>
-              <li class="con">Entering at the worst possible price — significant portion of the move already happened.</li>
-              <li class="con">Stop (below flag low) is far away — position size must shrink or dollar risk per trade increases.</li>
-              <li class="con">Sometimes the move is nearly exhausted by the time the pole high breaks.</li>
-              <li class="who">Who uses it: conservative institutional / prop-desk traders who prioritize win rate and have patience to miss trades.</li>
+              <li><strong>What:</strong> Wait for a 2-minute candle to close above the flag trendline (same confirmation as above). Then <em>do not enter yet</em>. Place a limit order at or just above the broken trendline, expecting a brief retest. Enter long when price pulls back to that level.</li>
+              <li class="pro">Best of both worlds — confirmation AND a better entry price.</li>
+              <li class="pro">Stop is tighter, risk-reward is excellent. Highest expected value per trade of any method.</li>
+              <li class="con">You will miss roughly 30–40% of valid bull flags because price never pulls back — it just goes.</li>
+              <li class="con">Requires serious discipline. You'll watch perfectly good trades leave without you.</li>
+              <li class="who">Who uses it: experienced professional scalpers and prop-desk traders who have fully accepted that missing trades is part of the game. Graduate into this once the "close above" method is second nature.</li>
             </ul>
-          </div>
-
-          <div class="method-block">
-            <div class="method-title">Method 4 · Hybrid — Close Above Trendline, Enter on Pullback <span class="winrate-pill mid">Win rate on entered trades 58–65%</span></div>
-            <ul>
-              <li><strong>What:</strong> Wait for a 2-minute candle to close above the flag trendline (Method 2 confirmation). Then place a limit order at or near the broken trendline, expecting a brief retest. Enter when price pulls back to that level.</li>
-              <li class="pro">Best of both worlds — confirmation AND a great entry price.</li>
-              <li class="pro">Stop is tight, risk-reward excellent. Highest expected value per trade of any method.</li>
-              <li class="con">Miss ~30–40% of valid bull flag trades because price never comes back — it just goes.</li>
-              <li class="con">Requires serious discipline. You watch perfectly good trades leave without you.</li>
-              <li class="con">Effective win rate including missed trades is lower because you sit out winners.</li>
-              <li class="who">Who uses it: experienced professional scalpers who have fully accepted that missing trades is part of the game. Method most prop firms teach.</li>
-            </ul>
+            <div class="xref"><strong>Graduation path</strong>
+              Trade the recommended method until it's automatic and you're comfortable with the win rate. Then start running the Expert Backup in parallel on a small number of setups. When you can sit through the "no pullback, no trade" trades without frustration, it becomes your default.
+            </div>
           </div>
         </div>
 
@@ -2090,7 +2146,7 @@
         <div class="section">
           <div class="section-label">6 · What Professionals Actually Do (Full Workflow)</div>
           <div class="prose-block">
-            <p>Most professional scalpers on these timeframes use <strong>Entry Method 2</strong> (candle close above the trendline) combined with <strong>Stop Method A</strong> (below the flag low).</p>
+            <p>Most professional scalpers on these timeframes use the <strong>recommended entry</strong> (candle close above the trendline) combined with <strong>Stop Method A</strong> (below the flag low).</p>
           </div>
           <div class="method-block">
             <div class="method-title">Full professional approach</div>
@@ -2119,7 +2175,7 @@
           <div class="section-label">7 · Arnie's Specific Approach <span class="gate-required">M2K / 6 contracts / Stoch 5,3,3</span></div>
 
           <div class="data-block">
-            <div class="dlabel">1 · Entry Method 2 — candle close above the flag trendline</div>
+            <div class="dlabel">1 · Recommended entry — candle close above the flag trendline</div>
             <div class="dvalue">Aligns with the same principle on double bottoms. One consistent confirmation habit across multiple patterns &gt; different entry rules per setup.</div>
           </div>
 
@@ -2228,57 +2284,45 @@
           </div>
         </div>
 
-        <!-- SECTION 4 · Four Entry Methods -->
+        <!-- SECTION 4 · Your Two Entry Methods (Recommended + Expert Backup) -->
         <div class="section">
-          <div class="section-label">4 · The Four Entry Methods</div>
-
-          <div class="method-block">
-            <div class="method-title">Method 1 · Break of the Flag Trendline (Down) <span class="winrate-pill low">Win rate 38–46%</span></div>
-            <ul>
-              <li><strong>What:</strong> Draw a trendline across the lows of the bounce candles. The moment price trades through it downward, enter short.</li>
-              <li class="pro">Earliest entry, best price. Captures maximum move on a fast bear flag.</li>
-              <li class="pro">M2K: 3–6 ticks better than later entries. MES: 2–4 ticks.</li>
-              <li class="con">Highest false-breakdown rate. Price pierces below, triggers short, then snaps back into the flag.</li>
-              <li class="con">Bear traps are <em>vicious</em> — snap-back can be larger than anticipated.</li>
-              <li class="who">Slightly worse than bull flag Method 1 because bear traps are more violent.</li>
-            </ul>
+          <div class="section-label">4 · Your Two Entry Methods <span>Recommended + Expert Backup</span></div>
+          <div class="prose-block">
+            <p>Bear flags have four classic entry methods too — but you only need two. The method I recommend for you right now, and the expert backup you'll graduate into later. Bear flags move faster than bull flags, so getting the confirmation right matters even more.</p>
           </div>
 
           <div class="method-block">
-            <div class="method-title">Method 2 · Candle Close Below the Flag Trendline <span class="winrate-pill mid">Win rate 50–58%</span></div>
+            <div class="method-title">Candle Close Below the Flag Trendline <span class="winrate-pill mid">Win rate 50–58%</span></div>
             <ul>
-              <li><strong>What:</strong> Wait for the 2-minute candle to <em>close</em> below the flag trendline before entering short.</li>
+              <li><strong>What:</strong> Draw a trendline across the lows of the bounce candles inside the flag. Wait for a full 2-minute candle to <em>close</em> below that trendline — not just tick through — then enter short.</li>
               <li class="pro">Confirmation that sellers held control for the full 2 minutes.</li>
-              <li class="pro">Filters out a large portion of bear traps. Significantly higher win rate.</li>
+              <li class="pro">Filters out a large portion of bear traps. Significantly higher win rate than entering on the break.</li>
               <li class="con">Worse entry price (lower). M2K: 2–5 ticks worse · MES: 1–3 ticks worse.</li>
-              <li class="con">Bear flags move fast — sometimes the move is partially over by the close.</li>
-              <li class="who">Note: slightly lower than bull flag Method 2 because of the speed factor — by the time you confirm, some moves are exhausted.</li>
+              <li class="con">Bear flags move fast — sometimes a chunk of the move is already gone by the close.</li>
+              <li class="who">Note: slightly lower win rate than the bull-flag version because of the speed factor — by the time you confirm, some moves are exhausted.</li>
             </ul>
-            <div class="xref"><strong>See also — Double Top</strong>
-              Same "wait for the close" principle you use on double top entries. One confirmation habit across all four patterns.
+          </div>
+
+          <div class="you-recommend-callout">
+            <span class="recommend-label">This is the way I recommend for you</span>
+            <div class="recommend-body">
+              Use the <strong>candle close below the flag trendline</strong> as your entry on every bear flag. Same confirmation habit you use on bull flags and double bottoms — one rule across every pattern. Bear flags punish impatience more than any other pattern on this list; the close filter is what protects you from the bear traps that snap violently back up into the flag.
             </div>
           </div>
 
           <div class="method-block">
-            <div class="method-title">Method 3 · Break Below the Flagpole Low (Full Confirmation) <span class="winrate-pill high">Win rate 58–66%</span></div>
+            <div class="method-title">Expert Backup — Close Below Trendline, then Pullback Entry <span class="expert-backup-label">Once you're experienced</span></div>
             <ul>
-              <li><strong>What:</strong> Wait until price actually trades below the <em>low of the flagpole</em> — the lowest point before the bounce started.</li>
-              <li class="pro">Highest conviction entry. Pattern fully confirmed. Highest win rate of all four methods.</li>
-              <li class="con">Worst price entry. Significant portion of move already happened.</li>
-              <li class="con">Stop (above flag high) is far away.</li>
-              <li class="con">On fast bear flags, may catch the tail end of the move.</li>
+              <li><strong>What:</strong> Wait for a 2-min candle to close below the trendline (same confirmation as above). Then <em>don't enter yet</em>. Place a limit order at or just below the broken trendline, expecting a brief bounce back up to it. Enter short when price retests that level (now acting as resistance).</li>
+              <li class="pro">Confirmation plus a better entry price. Tight stop, excellent risk-reward, highest expected value per trade.</li>
+              <li class="con">Bear flags often <em>don't</em> pull back to retest — they move too fast.</li>
+              <li class="con"><strong>You will miss approximately 40–50% of valid bear flag trades</strong> (higher miss rate than bull flags due to speed).</li>
+              <li class="con">Hardest method psychologically. Watching a valid short run away without you is genuinely painful.</li>
+              <li class="who">Who uses it: experienced scalpers only. Graduate into this after the "close below" method is automatic.</li>
             </ul>
-          </div>
-
-          <div class="method-block">
-            <div class="method-title">Method 4 · Hybrid — Close Below Trendline, Enter on Pullback <span class="winrate-pill mid">Win rate on entered trades 58–65%</span></div>
-            <ul>
-              <li><strong>What:</strong> Wait for a 2-min candle to close below the trendline. Place a limit order at or near the broken trendline expecting a brief retest. Enter short when price bounces back to that level (now resistance).</li>
-              <li class="pro">Confirmation + great entry price. Tight stop, excellent risk-reward. Highest expected value per trade.</li>
-              <li class="con">Bear flags often <em>don't</em> pull back to retest because they move too fast.</li>
-              <li class="con"><strong>Miss approximately 40–50% of valid bear flag trades</strong> (higher miss rate than bull flags due to speed).</li>
-              <li class="con">Hardest method psychologically.</li>
-            </ul>
+            <div class="xref"><strong>Graduation path</strong>
+              Trade the recommended method exclusively on bear flags until the rule is second nature. Once you can reliably take the close-below entry without hesitation, layer the Expert Backup in as a secondary setup for the cleanest, slowest bear flags only.
+            </div>
           </div>
         </div>
 
@@ -2363,7 +2407,7 @@
         <div class="section">
           <div class="section-label">8 · Professional Bear Flag Workflow</div>
           <div class="prose-block">
-            <p>Most professional scalpers use <strong>Entry Method 2</strong> (candle close below trendline) with <strong>Stop Method A</strong> (above flag high).</p>
+            <p>Most professional scalpers use the <strong>recommended entry</strong> (candle close below trendline) with <strong>Stop Method A</strong> (above flag high).</p>
           </div>
           <div class="method-block">
             <div class="method-title">Full professional approach</div>
@@ -2386,7 +2430,7 @@
           <div class="section-label">9 · Arnie's Specific Approach <span class="gate-required">M2K / 6 contracts / Stoch 5,3,3</span></div>
 
           <div class="data-block">
-            <div class="dlabel">1 · Entry Method 2 — candle close below the flag trendline</div>
+            <div class="dlabel">1 · Recommended entry — candle close below the flag trendline</div>
             <div class="dvalue">Same confirmation principle as all other patterns. Consistency across patterns builds discipline.</div>
           </div>
 
