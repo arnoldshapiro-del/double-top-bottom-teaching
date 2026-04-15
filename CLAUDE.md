@@ -20,7 +20,7 @@ https://arnie-double-top-bottom.netlify.app
 - Local dev server: `C:\Users\arnol\Desktop\serve-dtb-teaching.js` (port 3478, launched via `.claude/launch.json` config "dtb-teaching")
 
 ## Current Status
-Phase 2 v2.1 MERGED to master and live in production (2026-04-15). Gallery 1 card updated and live. All four pattern tabs now contain the reference-doc enrichment content. Trade journal supports pattern tagging.
+Phase 3 v2.2 MERGED to master and live in production (2026-04-15). All three user concerns from Phase 3 request addressed: (1) readability fixed, (2) sticky tab nav added, (3) entry methods simplified to exactly 2 per pattern. Gallery 1 card updated to v2.2 and live.
 
 ## Features Completed (v1.x)
 - Double Top + Double Bottom checklists with quality scoring (0–5)
@@ -47,8 +47,16 @@ Phase 2 v2.1 MERGED to master and live in production (2026-04-15). Gallery 1 car
 - **Trade journal Pattern dropdown** — new `<select id="t-pattern">` with 4 options (Double Bottom / Double Top / Bull Flag / Bear Flag); change handler auto-sets Direction (DB/BullFlag→LONG, DT/BearFlag→SHORT); pattern field captured in `logTrade()` payload; `clearForm()` includes t-pattern; `renderRecent()` has a new Pattern column showing abbreviated labels; recent-row CSS grid adjusted from 6 to 7 columns; CSV export automatically picks up the new field
 - **No regressions** — all existing Double Bottom / Double Top checklists, scoring, Four Principles gate, localStorage format preserved. Pattern is an additive field so legacy trades just render blank in that column
 
+## Features Completed (v2.2 — Phase 3, 2026-04-15)
+- **Readability overhaul** — All dim/faded text classes brightened: `--ink` #f4f2ec, `--ink-dim` #d5d9e0, `--ink-faint` #a8b0bc. `.explain`, `.dlabel`, `.section-label`, `.who`, `.pro`, `.con`, `.xref`, `.note`, `.tip`, `.gate-explain`, `.win-note` all now render at high contrast
+- **Sticky tab navigation** — `.tab-nav` is `position: sticky; top: 0; z-index: 500` with teal glow border and a label "▼ Click a pattern to study it — all four patterns and the unified rules are here:" so Bull Flag and Bear Flag tabs are impossible to miss
+- **Two-method simplification across all 4 patterns** — For every pattern (DB, DT, Bull Flag, Bear Flag): removed Method 1 (break entry, 40–50% WR) and Method 3 (full-confirmation entry). Kept exactly 2 methods: (1) candle-close entry labeled "Recommended for You" + blue `.you-recommend-callout` callout; (2) close + pullback entry labeled `.expert-backup-label` "Once you're experienced"
+- **New CSS tokens** — `--recommend: #60a5fa` and `--recommend-glow: rgba(96,165,250,0.18)` added to `:root`
+- **Blue calming recommendation callout** — `.you-recommend-callout` with gradient blue bg, 6px left border, `★ This is the way I recommend for you` label, and plain-English explanation per pattern
+- **Expert Backup label** — purple inline badge `.expert-backup-label` marking the second method "Once you're experienced"
+
 ## Features Planned / Next
-- None currently. App is feature-complete per the reference doc.
+- None. App is feature-complete.
 
 ## Known Issues / Bugs
 None
@@ -65,9 +73,9 @@ None
 ## File Structure
 ```
 /
-├── index.html       — Full single-file app (~2700 lines, v2.0)
+├── index.html       — Full single-file app (~3200+ lines, v2.2)
 ├── netlify.toml     — Netlify config (publish from root, no build)
-├── README.md        — Repo readme (updated v2.0)
+├── README.md        — Repo readme
 ├── CLAUDE.md        — This file
 └── SESSION_NOTES.md — Session history
 ```
