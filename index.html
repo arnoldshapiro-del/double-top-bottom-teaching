@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Double Top / Double Bottom — M2K 2-Min Scalping Reference</title>
+<title>Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags</title>
+<meta name="description" content="Complete 2-minute scalping reference for M2K and MES futures. Double bottoms, double tops, bull flags, and bear flags — anatomy, entry methods, win rates, stops, and discipline framework.">
+<meta name="keywords" content="double bottom, double top, bull flag, bear flag, M2K, MES, micro futures, scalping, 2-minute chart, chart patterns, Stochastics, measured move, trading discipline">
+<meta name="author" content="A. Shapiro, MD">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags">
+<meta property="og:description" content="Complete 2-minute scalping reference for M2K and MES futures. Four patterns, win rates, discipline framework, and trade journal.">
+<meta property="og:site_name" content="M2K/MES Scalping Reference">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags">
+<meta name="twitter:description" content="Complete 2-minute scalping reference for M2K and MES futures.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
@@ -997,12 +1007,205 @@
     footer .brand { color: #555; }
   }
 
+  /* ============ TAB NAVIGATION ============ */
+  .tab-nav {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--line-strong);
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    background: var(--panel);
+    color: var(--ink-dim);
+    border: 1px solid var(--line);
+    border-bottom: none;
+    padding: 11px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    position: relative;
+    top: 1px;
+  }
+
+  .tab-btn:hover { background: var(--panel-2); color: var(--ink); }
+
+  .tab-btn.active {
+    background: var(--panel-2);
+    color: var(--accent);
+    border-color: var(--line-strong);
+    border-bottom: 1px solid var(--panel-2);
+  }
+
+  .tab-btn .tab-num {
+    color: var(--ink-faint);
+    margin-right: 6px;
+    font-weight: 400;
+  }
+  .tab-btn.active .tab-num { color: var(--accent); }
+
+  .tab-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .tab-panel {
+    display: none;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+
+  /* Tab panel column display: full width, not grid */
+  .tab-panel .column {
+    width: 100%;
+  }
+
+  /* Screen-only flex order: DB, DT, Bull, Bear, Unified (overrides HTML source order) */
+  #tab-double-bottom { order: 1; }
+  #tab-double-top    { order: 2; }
+  #tab-bull-flag     { order: 3; }
+  #tab-bear-flag     { order: 4; }
+  #tab-unified       { order: 5; }
+
+  /* ============ NEUTRAL COLUMN (Unified Principles) ============ */
+  .column.neutral { border-top: 3px solid var(--gold); }
+  .neutral .column-title { color: var(--gold); }
+  .neutral .pattern-shape { color: var(--gold); }
+  .neutral .check-row input[type="checkbox"]:checked {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .neutral .explain {
+    border-left-color: var(--gold);
+    background: rgba(212, 166, 74, 0.06);
+  }
+  .neutral .explain strong { color: var(--gold); }
+  .neutral .data-block { border-left-color: var(--gold); }
+
+  /* ============ CROSS-REFERENCE CALLOUT ============ */
+  .xref {
+    display: block;
+    background: rgba(125, 211, 252, 0.08);
+    border: 1px dashed var(--accent);
+    color: var(--ink);
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+  .xref strong {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 9px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ============ WIN-RATE PILL ============ */
+  .winrate-pill {
+    display: inline-block;
+    background: var(--panel-2);
+    border: 1px solid var(--line-strong);
+    padding: 2px 8px;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .winrate-pill.high { color: var(--bull); border-color: var(--bull); }
+  .winrate-pill.mid { color: var(--warn); border-color: var(--warn); }
+  .winrate-pill.low { color: var(--bear); border-color: var(--bear); }
+
+  /* ============ NUMBERED METHOD BLOCKS ============ */
+  .method-block {
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    margin: 10px 0;
+  }
+
+  .method-block .method-title {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .long .method-block { border-left: 2px solid var(--bull); }
+  .short .method-block { border-left: 2px solid var(--bear); }
+
+  .method-block ul {
+    list-style: none;
+    margin: 4px 0;
+    padding: 0;
+  }
+  .method-block li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .method-block li.pro::before  { content: '+'; position: absolute; left: 0; color: var(--bull); font-weight: 700; }
+  .method-block li.con::before  { content: '−'; position: absolute; left: 0; color: var(--bear); font-weight: 700; }
+  .method-block li.who::before  { content: '·'; position: absolute; left: 0; color: var(--ink-faint); font-weight: 700; }
+  .method-block li strong { color: var(--accent); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ============ PROSE BLOCK (for longer reference prose) ============ */
+  .prose-block {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink);
+    padding: 4px 0 10px 0;
+  }
+  .prose-block p { margin-bottom: 8px; }
+  .prose-block em { color: var(--accent); font-style: italic; }
+  .prose-block strong { color: var(--ink); }
+
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
     .main-grid { grid-template-columns: 1fr; }
     .bottom-grid { grid-template-columns: 1fr; }
     .principles-grid { grid-template-columns: repeat(2, 1fr); }
     .red-flags-list { grid-template-columns: 1fr; }
+    .tab-btn { padding: 9px 12px; font-size: 10px; }
+  }
+
+  /* ============ TAB PRINT OVERRIDES ============ */
+  @media print {
+    .tab-nav { display: none !important; }
+    .tab-panel { display: block !important; page-break-after: always; margin-bottom: 10px; }
+    .tab-panel:last-child { page-break-after: auto; }
+    .method-block { background: white !important; border: 1px solid black !important; padding: 6px 10px; page-break-inside: avoid; }
+    .method-block .method-title { color: black !important; font-size: 11px; border-bottom: 1px solid black; }
+    .method-block li { color: black !important; font-size: 8.5px; }
+    .winrate-pill { color: black !important; border-color: black !important; background: white !important; }
+    .xref { background: white !important; border: 1px solid black !important; color: black !important; font-size: 8.5px; }
+    .xref strong { color: black !important; }
+    .prose-block, .prose-block p, .prose-block em, .prose-block strong { color: black !important; font-size: 9px; }
+    .column.neutral { border-top: 2px solid black !important; }
+    .neutral .column-title, .neutral .pattern-shape { color: black !important; }
   }
 </style>
 </head>
@@ -1012,13 +1215,13 @@
   <!-- ==================== HEADER ==================== -->
   <header>
     <div class="title-block">
-      <h1>Double Top / Double Bottom</h1>
-      <div class="subtitle">M2K · 2-Minute Scalping Reference · v1.1 — Teaching Edition</div>
+      <h1>Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags</h1>
+      <div class="subtitle">M2K &amp; MES · 2-Minute Scalping Reference · v2.0 — Teaching Edition</div>
     </div>
     <div class="meta-block">
-      <div>Base rates (intraday)</div>
-      <div class="stat">Double Bottom ≈ 78% · Double Top ≈ 65%</div>
-      <div style="margin-top:4px;">Bust reversal follow-through avg: +38%</div>
+      <div>Confirmation-entry win rates</div>
+      <div class="stat">DB 55–65% · DT 52–62% · Bull Flag 52–60% · Bear Flag 50–58%</div>
+      <div style="margin-top:4px;">All four patterns use candle-close confirmation</div>
     </div>
   </header>
 
@@ -1072,8 +1275,20 @@
     </div>
   </div>
 
-  <!-- ==================== MAIN TWO-COLUMN GRID ==================== -->
-  <div class="main-grid">
+  <!-- ==================== TAB NAVIGATION ==================== -->
+  <div class="tab-nav" role="tablist">
+    <button class="tab-btn active" data-tab="double-bottom" onclick="switchTab('double-bottom')"><span class="tab-num">1 ·</span>Double Bottom</button>
+    <button class="tab-btn" data-tab="double-top" onclick="switchTab('double-top')"><span class="tab-num">2 ·</span>Double Top</button>
+    <button class="tab-btn" data-tab="bull-flag" onclick="switchTab('bull-flag')"><span class="tab-num">3 ·</span>Bull Flag</button>
+    <button class="tab-btn" data-tab="bear-flag" onclick="switchTab('bear-flag')"><span class="tab-num">4 ·</span>Bear Flag</button>
+    <button class="tab-btn" data-tab="unified" onclick="switchTab('unified')"><span class="tab-num">5 ·</span>Unified Principles</button>
+  </div>
+
+  <!-- ==================== TAB CONTAINER ==================== -->
+  <div class="tab-container">
+
+    <!-- ============ TAB: DOUBLE TOP (short column) ============ -->
+    <div class="tab-panel" id="tab-double-top">
 
     <!-- ============ SHORT COLUMN ============ -->
     <div class="column short" data-side="short">
@@ -1264,6 +1479,10 @@
         </div>
       </div>
     </div>
+    </div><!-- /tab-double-top -->
+
+    <!-- ============ TAB: DOUBLE BOTTOM (long column) ============ -->
+    <div class="tab-panel active" id="tab-double-bottom">
 
     <!-- ============ LONG COLUMN ============ -->
     <div class="column long" data-side="long">
@@ -1454,7 +1673,627 @@
         </div>
       </div>
     </div>
-  </div>
+    </div><!-- /tab-double-bottom -->
+
+    <!-- ============ TAB: BULL FLAG ============ -->
+    <div class="tab-panel" id="tab-bull-flag">
+      <div class="column long" data-side="long">
+        <div class="column-header">
+          <div class="column-title">Bull Flag — LONG (Continuation)</div>
+          <div class="pattern-shape">▲▎</div>
+        </div>
+
+        <!-- SECTION 1 · What it is -->
+        <div class="section">
+          <div class="section-label">1 · What a Bull Flag Is <span>Precision definition</span></div>
+          <div class="prose-block">
+            <p>A bull flag is a <em>continuation</em> pattern. That's the critical starting point. You need a prior move up — the <strong>flagpole</strong> — followed by a brief consolidation that drifts slightly downward or sideways — the <strong>flag</strong> — before price resumes upward.</p>
+            <p><strong>The psychology:</strong> Aggressive buyers push price up sharply (the pole). Then some buyers take profits and price drifts back. But — and this is the key — sellers <em>can't</em> push it down very far. Supply dries up. Then buyers step back in and the next leg up begins.</p>
+            <p>On a 2-minute chart in M2K or MES, a complete bull flag typically forms over <strong>4–12 candles (8–24 minutes)</strong>. If the consolidation drags on much longer than that, it's losing its character as a flag and becoming a range — which is a different trade entirely.</p>
+          </div>
+          <div class="explain"><strong>Why "continuation" matters</strong>
+            Reversal patterns (double bottom, double top) try to catch a turning point — you're betting the old trend is dying. Continuation patterns (flags) assume the trend is still alive and well — you're just trying to board a moving train during its brief pause. Different logic, different entry rules, different stop placement. Never trade a flag without first confirming the flagpole exists. No pole = no flag = not this pattern.
+          </div>
+        </div>
+
+        <!-- SECTION 2 · Anatomy -->
+        <div class="section">
+          <div class="section-label">2 · Anatomy of a Quality Bull Flag</div>
+
+          <div class="data-block">
+            <div class="dlabel">The Flagpole</div>
+            <div class="dvalue">2–4 strong bullish candles moving up with conviction · M2K: 15–30 points · MES: 8–20 points · Decent bodies (not mostly wick) · Volume above average</div>
+            <span class="explain"><strong>What this means</strong>
+              The "pole" is the setup move that earns you the right to trade the flag. You want clear, committed buying — full green bodies, limited wicking, rising volume. A pole built mostly of wicks and dojis isn't a real pole; it's indecision dressed up as a move. On a real pole, a chart-glance tells you "buyers are in control right now."
+            </span>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Retracement depth (HARD RULE)</div>
+            <div class="dvalue">Must retrace only <strong>25–50% of the flagpole</strong>. If pullback exceeds <strong>61.8% (Fib)</strong> → pattern invalidated.</div>
+            <span class="explain"><strong>What this means</strong>
+              Fib = Fibonacci retracement levels (38.2%, 50%, 61.8%) that traders use to measure pullbacks. A shallow pullback (25–50%) means buyers are still in control and just profit-takers are rotating out. A pullback deeper than 61.8% means real selling has appeared, and the pole may be the end of the move rather than the start. This is a hard rule: if price closes through the 61.8% level, stop calling it a bull flag. It's now a deeper correction.
+            </span>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Volume</div>
+            <div class="dvalue">Decreasing volume vs. the pole. Heavy volume during pullback = warning sign (real selling, not profit-taking).</div>
+            <span class="explain"><strong>What this means</strong>
+              On a healthy flag, the pullback bars have visibly smaller volume histograms than the pole bars. Less participation = profit-taking, not genuine selling. If volume stays high or <em>increases</em> during the pullback, it means new sellers are actively hitting bids — that's distribution, not a flag. Pass.
+            </span>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Slope (CRITICAL)</div>
+            <div class="dvalue">Slightly downward OR sideways. If it slopes <strong>upward</strong> → that's an <em>ascending wedge</em>, which is <strong>bearish</strong> — opposite of what you want.</div>
+            <span class="explain"><strong>What this means</strong>
+              An ascending wedge looks similar (higher lows, higher highs squeezing together) but behaves opposite to a bull flag. In a wedge, buyers are working harder and harder (higher lows) for smaller and smaller gains (higher highs only slightly higher) — that's exhaustion, and wedges typically break <em>down</em>, not up. If the "flag" is sloping up, you're not looking at a flag anymore. Walk away or flip your thinking.
+            </span>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Candle size</div>
+            <div class="dvalue">Candles should be getting smaller (narrower range). Compressing volatility fuels the explosive continuation.</div>
+            <span class="explain"><strong>What this means</strong>
+              As the flag forms, watch the bars: they should be shrinking — smaller bodies, smaller wicks, tighter range. That compression is a volatility coil. When volatility compresses in a direction-biased market, the expansion out of the coil tends to be sharp. Big bars in the flag = no coiling = weaker breakout.
+            </span>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">The Breakout</div>
+            <div class="dvalue">Price breaks above the upper trendline of the flag channel and resumes the uptrend.</div>
+          </div>
+        </div>
+
+        <!-- SECTION 3 · Four Entry Methods -->
+        <div class="section">
+          <div class="section-label">3 · The Four Entry Methods</div>
+
+          <div class="method-block">
+            <div class="method-title">Method 1 · Break of the Flag Trendline <span class="winrate-pill low">Win rate 40–48%</span></div>
+            <ul>
+              <li><strong>What:</strong> Draw a trendline across the highs of the pullback candles. The moment price trades through it, enter long.</li>
+              <li class="pro">Earliest entry, best price. M2K: saves 3–6 ticks. MES: saves 2–4 ticks.</li>
+              <li class="pro">If the pattern works, you capture the maximum move.</li>
+              <li class="con">Highest false-breakout rate of all four methods. Price pokes above, triggers entry, then sinks back in.</li>
+              <li class="con">On 2-min micro futures, algorithms deliberately probe these levels.</li>
+              <li class="who">Who uses it: aggressive scalpers with tight stops, comfortable taking many small losses for occasional big winners.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Method 2 · Candle Close Above the Flag Trendline <span class="winrate-pill mid">Win rate 52–60%</span></div>
+            <ul>
+              <li><strong>What:</strong> Same trendline as Method 1, but wait for the 2-minute candle to <em>close</em> above it, not just trade through.</li>
+              <li class="pro">Significant filter against false breakouts. Close above = buyers held control for the full 2 minutes.</li>
+              <li class="pro">Same confirmation principle as double bottoms — applies even more strongly because flag breakouts fakeout more often.</li>
+              <li class="con">Give up entry price. M2K: 2–5 ticks worse. MES: 1–3 ticks worse.</li>
+              <li class="con">Occasionally the breakout candle is so large that entry is uncomfortably far from stop.</li>
+              <li class="who">Who uses it: <strong>most popular method among competent retail day traders</strong> — balances confirmation with reasonable pricing.</li>
+            </ul>
+            <div class="xref"><strong>See also — Double Bottom</strong>
+              This is the exact same "wait for the close" principle you use on double bottom entries. Building one consistent confirmation habit across all four patterns is far more powerful than switching entry rules setup-by-setup.
+            </div>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Method 3 · Break Above the Flagpole High (Full Confirmation) <span class="winrate-pill high">Win rate 60–68%</span></div>
+            <ul>
+              <li><strong>What:</strong> Don't enter when price breaks the flag trendline. Wait until price trades above the <em>high of the flagpole</em> — the highest point before the pullback started.</li>
+              <li class="pro">Highest conviction entry. New highs above the pole = pattern fully confirmed.</li>
+              <li class="pro">Trading with maximum momentum behind you. Highest win rate of all four methods.</li>
+              <li class="con">Entering at the worst possible price — significant portion of the move already happened.</li>
+              <li class="con">Stop (below flag low) is far away — position size must shrink or dollar risk per trade increases.</li>
+              <li class="con">Sometimes the move is nearly exhausted by the time the pole high breaks.</li>
+              <li class="who">Who uses it: conservative institutional / prop-desk traders who prioritize win rate and have patience to miss trades.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Method 4 · Hybrid — Close Above Trendline, Enter on Pullback <span class="winrate-pill mid">Win rate on entered trades 58–65%</span></div>
+            <ul>
+              <li><strong>What:</strong> Wait for a 2-minute candle to close above the flag trendline (Method 2 confirmation). Then place a limit order at or near the broken trendline, expecting a brief retest. Enter when price pulls back to that level.</li>
+              <li class="pro">Best of both worlds — confirmation AND a great entry price.</li>
+              <li class="pro">Stop is tight, risk-reward excellent. Highest expected value per trade of any method.</li>
+              <li class="con">Miss ~30–40% of valid bull flag trades because price never comes back — it just goes.</li>
+              <li class="con">Requires serious discipline. You watch perfectly good trades leave without you.</li>
+              <li class="con">Effective win rate including missed trades is lower because you sit out winners.</li>
+              <li class="who">Who uses it: experienced professional scalpers who have fully accepted that missing trades is part of the game. Method most prop firms teach.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 4 · Stop Loss Placement -->
+        <div class="section">
+          <div class="section-label">4 · Stop Loss Placement</div>
+
+          <div class="method-block">
+            <div class="method-title">Stop A · Below the Flag Low (recommended)</div>
+            <ul>
+              <li><strong>What:</strong> Place stop 1–2 ticks below the lowest point of the flag consolidation.</li>
+              <li class="pro">Most common placement. Gives trade the most room to work.</li>
+              <li class="pro">M2K: typically 10–20 tick stop · MES: ~6–15 ticks.</li>
+              <li class="pro">Wider stop but higher probability — not getting shaken out by normal flag volatility.</li>
+              <li class="con">Larger dollar risk per trade. M2K 15-tick stop = $7.50/contract. MES 12-tick stop = $15/contract.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Stop B · Below the Last Swing Low Within the Flag</div>
+            <ul>
+              <li><strong>What:</strong> Stop below the most recent swing low inside the flag. Typically 40–60% of Method A's width.</li>
+              <li class="pro">Less dollar risk, better risk-reward ratio.</li>
+              <li class="con">Higher chance of getting stopped out on normal flag oscillation before the breakout works.</li>
+              <li class="con">Win rate drops 5–8% vs. Method A.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Stop C · Fixed Dollar or Tick Stop</div>
+            <ul>
+              <li><strong>What:</strong> Predetermined max loss (e.g., 8 ticks M2K, 6 ticks MES) regardless of chart structure.</li>
+              <li class="pro">Consistent risk management, easy position sizing.</li>
+              <li class="con">Stop has no relationship to actual chart structure.</li>
+              <li class="con">Sometimes too tight (stopped out right before the move). Sometimes too wide (risking more than necessary).</li>
+            </ul>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">What professionals do</div>
+            <div class="dvalue">Almost universally <strong>Stop Method A</strong> — let chart structure define the stop, then adjust contract count so dollar risk stays consistent. Wide flag = fewer contracts. Tight flag = more contracts.</div>
+          </div>
+        </div>
+
+        <!-- SECTION 5 · M2K vs MES -->
+        <div class="section">
+          <div class="section-label">5 · M2K vs. MES — Specific Differences</div>
+
+          <div class="data-block">
+            <div class="dlabel">M2K (Micro Russell 2000)</div>
+            <div class="dvalue">
+              Bull flags tend to be <em>choppier and messier</em> than MES. Russell is small-cap — inherently more volatile. Flags often look "dirty" — pullback is jagged, not a clean channel. Need more trendline tolerance. False-breakout rate a few points higher.
+              <br>· Flagpole moves: 15–30 points on 2-min · Flag retracement: 5–15 points
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">MES (Micro S&amp;P 500)</div>
+            <div class="dvalue">
+              Bull flags generally <em>cleaner and more textbook</em>. S&amp;P is large-cap, highly liquid — candle structures smoother. Flags form tighter, more recognizable channels. Pattern reliability slightly higher.
+              <br>· Flagpole moves: 8–20 points on 2-min · Flag retracement: 3–10 points
+            </div>
+            <span class="explain"><strong>Practical implication</strong>
+              If learning the pattern, MES gives cleaner examples to practice with. Once consistent, M2K offers more points per move (larger absolute moves) but requires more tolerance for messiness.
+            </span>
+          </div>
+        </div>
+
+        <!-- SECTION 6 · Professional Workflow -->
+        <div class="section">
+          <div class="section-label">6 · What Professionals Actually Do (Full Workflow)</div>
+          <div class="prose-block">
+            <p>Most professional scalpers on these timeframes use <strong>Entry Method 2</strong> (candle close above the trendline) combined with <strong>Stop Method A</strong> (below the flag low).</p>
+          </div>
+          <div class="method-block">
+            <div class="method-title">Full professional approach</div>
+            <ul>
+              <li class="who">1. Identify the flag forming in real time as volume decreases and candles compress.</li>
+              <li class="who">2. Draw the flag trendline.</li>
+              <li class="who">3. Wait for a 2-minute candle to close above that trendline.</li>
+              <li class="who">4. Enter at the open of the next candle.</li>
+              <li class="who">5. Stop goes below the flag low.</li>
+              <li class="who">6. Target is the flagpole height projected from the breakout point (the <strong>measured move</strong>).</li>
+              <li class="who">7. Take partial profits at 1:1 risk-reward. If stop is 12 ticks away, take some off at 12 ticks of profit.</li>
+              <li class="who">8. Trail the remainder toward the full measured move target.</li>
+            </ul>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">Time Stop</div>
+            <div class="dvalue">If the trade hasn't moved meaningfully in your direction within <strong>3–4 candles (6–8 minutes)</strong> after entry, exit at scratch or small loss.</div>
+            <span class="explain"><strong>Why this rule matters</strong>
+              A real bull flag breakout should show follow-through quickly. If it stalls, the pattern has failed even if the stop hasn't been hit. A stalled flag turns into slow-bleed losers. The time stop gets you out before "maybe it'll work" drains your P&amp;L.
+            </span>
+          </div>
+        </div>
+
+        <!-- SECTION 7 · Arnie's Approach -->
+        <div class="section">
+          <div class="section-label">7 · Arnie's Specific Approach <span class="gate-required">M2K / 6 contracts / Stoch 5,3,3</span></div>
+
+          <div class="data-block">
+            <div class="dlabel">1 · Entry Method 2 — candle close above the flag trendline</div>
+            <div class="dvalue">Aligns with the same principle on double bottoms. One consistent confirmation habit across multiple patterns &gt; different entry rules per setup.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">2 · Stop Method A — below the flag low</div>
+            <div class="dvalue">
+              Let chart structure define risk. M2K at 6 contracts × $0.50/tick × 15-tick stop = <strong>$45 risk</strong>. If the flag is sloppy and stop would be 25 ticks ($75 risk), consider dropping to 4 contracts.
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">3 · Stochastics 5,3,3 confirmation filter</div>
+            <div class="dvalue">
+              Only take the bull flag breakout if:<br>
+              · Stochastic is already <strong>above 50 and rising</strong>, OR<br>
+              · Stochastic is <strong>crossing up from below 20</strong> during the flag formation.<br>
+              · <em>Warning sign:</em> Stochastic pegged above 80 and rolling over when the flag "breaks out" — momentum may be exhausting.
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">4 · Measured move target — take half at 1:1</div>
+            <div class="dvalue">Target = flagpole height projected from breakout point. On M2K: take 3 contracts off at +12 ticks, let the other 3 ride toward the full target with a trailing stop.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">5 · Time stop — exit if no movement in 3 candles</div>
+            <div class="dvalue">If trade hasn't moved at least 5–6 ticks in your direction within 3 candles (6 minutes), get out. This single rule will save you from a huge number of grinding, slow-bleed losers.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">6 · During practice phase — screenshot every flag</div>
+            <div class="dvalue">Wins <strong>and</strong> losses. After a week, review them all at once. Patterns emerge in which flags worked and which didn't that no amount of theory can teach. Visual pattern recognition only develops through repetition and review.</div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /tab-bull-flag -->
+
+    <!-- ============ TAB: BEAR FLAG ============ -->
+    <div class="tab-panel" id="tab-bear-flag">
+      <div class="column short" data-side="short">
+        <div class="column-header">
+          <div class="column-title">Bear Flag — SHORT (Continuation)</div>
+          <div class="pattern-shape">▼▎</div>
+        </div>
+
+        <!-- SECTION 1 · What it is -->
+        <div class="section">
+          <div class="section-label">1 · What a Bear Flag Is <span>Mirror of bull flag</span></div>
+          <div class="prose-block">
+            <p>A bear flag is the <em>mirror image</em> of a bull flag — a <strong>continuation pattern for downtrends</strong>. You need a prior move down — the <strong>flagpole</strong> — followed by a brief consolidation that drifts slightly upward or sideways — the <strong>flag</strong> — before price resumes downward.</p>
+            <p><strong>The psychology:</strong> Aggressive sellers push price down sharply (the pole). Then some sellers cover their shorts and price drifts back up. But buyers <em>can't</em> push it up very far. Demand is weak. Then sellers step back in and the next leg down begins.</p>
+            <p>On a 2-minute chart in M2K or MES, a complete bear flag typically forms over <strong>4–12 candles (8–24 minutes)</strong>. If consolidation drags on much longer, it's losing its character as a flag and becoming a range.</p>
+          </div>
+        </div>
+
+        <!-- SECTION 2 · Critical Difference -->
+        <div class="section">
+          <div class="section-label">2 · Critical Difference · Bear Flags Are Faster &amp; More Violent</div>
+          <div class="data-block">
+            <div class="dlabel">Why bear flags resolve faster than bull flags</div>
+            <div class="dvalue">
+              1. Fear moves markets faster than greed.<br>
+              2. Short covering during the flag creates artificial buying that vanishes the moment the breakdown begins.<br>
+              3. Stop losses below the flag trigger cascading sell orders.
+            </div>
+            <span class="explain"><strong>Practical implication</strong>
+              Entries on bear flags need to happen more quickly, and targets are often hit faster than expected. Don't be greedy — take profits aggressively. This is the single biggest behavioral difference between trading the two flag directions.
+            </span>
+          </div>
+        </div>
+
+        <!-- SECTION 3 · Anatomy -->
+        <div class="section">
+          <div class="section-label">3 · Anatomy of a Quality Bear Flag</div>
+
+          <div class="data-block">
+            <div class="dlabel">The Flagpole (Down Move)</div>
+            <div class="dvalue">2–4 strong bearish candles moving down with conviction · M2K: 15–30 point drop · MES: 8–20 points · Decent-sized red bodies · Volume ideally above average</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Retracement depth (HARD RULE)</div>
+            <div class="dvalue">Must retrace only <strong>25–50% of the flagpole</strong>. If bounce exceeds <strong>61.8% (Fib)</strong> → pattern invalidated. It's now a deeper bounce that may signal reversal, not a bear flag.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Volume</div>
+            <div class="dvalue">Decreasing volume vs. the pole. Heavy volume during the bounce = warning sign that sellers may be losing control (real buying is appearing).</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Slope (CRITICAL)</div>
+            <div class="dvalue">Slightly upward OR sideways. If it slopes <strong>downward</strong> → that's a <em>descending wedge</em>, which is <strong>bullish</strong> — opposite of what you want for a short.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">Flag — Candle size</div>
+            <div class="dvalue">Candles should be getting smaller (narrower range). Compressing volatility fuels the explosive continuation down.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">The Breakdown</div>
+            <div class="dvalue">Price breaks <strong>below</strong> the lower trendline of the flag channel and resumes the downtrend.</div>
+          </div>
+        </div>
+
+        <!-- SECTION 4 · Four Entry Methods -->
+        <div class="section">
+          <div class="section-label">4 · The Four Entry Methods</div>
+
+          <div class="method-block">
+            <div class="method-title">Method 1 · Break of the Flag Trendline (Down) <span class="winrate-pill low">Win rate 38–46%</span></div>
+            <ul>
+              <li><strong>What:</strong> Draw a trendline across the lows of the bounce candles. The moment price trades through it downward, enter short.</li>
+              <li class="pro">Earliest entry, best price. Captures maximum move on a fast bear flag.</li>
+              <li class="pro">M2K: 3–6 ticks better than later entries. MES: 2–4 ticks.</li>
+              <li class="con">Highest false-breakdown rate. Price pierces below, triggers short, then snaps back into the flag.</li>
+              <li class="con">Bear traps are <em>vicious</em> — snap-back can be larger than anticipated.</li>
+              <li class="who">Slightly worse than bull flag Method 1 because bear traps are more violent.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Method 2 · Candle Close Below the Flag Trendline <span class="winrate-pill mid">Win rate 50–58%</span></div>
+            <ul>
+              <li><strong>What:</strong> Wait for the 2-minute candle to <em>close</em> below the flag trendline before entering short.</li>
+              <li class="pro">Confirmation that sellers held control for the full 2 minutes.</li>
+              <li class="pro">Filters out a large portion of bear traps. Significantly higher win rate.</li>
+              <li class="con">Worse entry price (lower). M2K: 2–5 ticks worse · MES: 1–3 ticks worse.</li>
+              <li class="con">Bear flags move fast — sometimes the move is partially over by the close.</li>
+              <li class="who">Note: slightly lower than bull flag Method 2 because of the speed factor — by the time you confirm, some moves are exhausted.</li>
+            </ul>
+            <div class="xref"><strong>See also — Double Top</strong>
+              Same "wait for the close" principle you use on double top entries. One confirmation habit across all four patterns.
+            </div>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Method 3 · Break Below the Flagpole Low (Full Confirmation) <span class="winrate-pill high">Win rate 58–66%</span></div>
+            <ul>
+              <li><strong>What:</strong> Wait until price actually trades below the <em>low of the flagpole</em> — the lowest point before the bounce started.</li>
+              <li class="pro">Highest conviction entry. Pattern fully confirmed. Highest win rate of all four methods.</li>
+              <li class="con">Worst price entry. Significant portion of move already happened.</li>
+              <li class="con">Stop (above flag high) is far away.</li>
+              <li class="con">On fast bear flags, may catch the tail end of the move.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Method 4 · Hybrid — Close Below Trendline, Enter on Pullback <span class="winrate-pill mid">Win rate on entered trades 58–65%</span></div>
+            <ul>
+              <li><strong>What:</strong> Wait for a 2-min candle to close below the trendline. Place a limit order at or near the broken trendline expecting a brief retest. Enter short when price bounces back to that level (now resistance).</li>
+              <li class="pro">Confirmation + great entry price. Tight stop, excellent risk-reward. Highest expected value per trade.</li>
+              <li class="con">Bear flags often <em>don't</em> pull back to retest because they move too fast.</li>
+              <li class="con"><strong>Miss approximately 40–50% of valid bear flag trades</strong> (higher miss rate than bull flags due to speed).</li>
+              <li class="con">Hardest method psychologically.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 5 · Stop Loss Placement -->
+        <div class="section">
+          <div class="section-label">5 · Stop Loss Placement</div>
+
+          <div class="method-block">
+            <div class="method-title">Stop A · Above the Flag High (recommended)</div>
+            <ul>
+              <li><strong>What:</strong> Place stop 1–2 ticks above the highest point of the flag consolidation.</li>
+              <li class="pro">Most common. Gives trade most room to work.</li>
+              <li class="pro">M2K: typically 10–20 tick stop · MES: ~6–15 ticks.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Stop B · Above the Last Swing High Within the Flag</div>
+            <ul>
+              <li><strong>What:</strong> Tighter stop, 40–60% of Method A width.</li>
+              <li class="pro">Less dollar risk.</li>
+              <li class="con">Higher chance of getting stopped out on normal flag oscillation. Win rate drops 5–8% vs. Method A.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Stop C · Fixed Dollar or Tick Stop</div>
+            <ul>
+              <li><strong>What:</strong> Predetermined max loss regardless of structure.</li>
+              <li class="pro">Easy position sizing.</li>
+              <li class="con">No relationship to actual chart structure.</li>
+            </ul>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">What professionals do</div>
+            <div class="dvalue">Stop Method A — chart-structure-based — and adjust contract count to keep dollar risk consistent.</div>
+          </div>
+        </div>
+
+        <!-- SECTION 6 · M2K vs MES -->
+        <div class="section">
+          <div class="section-label">6 · M2K vs. MES — Bear Flag Differences</div>
+
+          <div class="data-block">
+            <div class="dlabel">M2K (Micro Russell 2000)</div>
+            <div class="dvalue">
+              Bear flags <em>more violent</em> than MES — small caps drop harder than large caps. More choppy and "dirty" patterns. Need more tolerance in trendline placement.
+              <br>· Flagpole drops: 15–30 points on 2-min · Flag bounce: 5–15 points
+              <br>· <strong>More profit potential per trade but more whipsaw risk.</strong>
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">MES (Micro S&amp;P 500)</div>
+            <div class="dvalue">
+              Cleaner bear flag patterns. More predictable behavior.
+              <br>· Flagpole drops: 8–20 points · Flag bounce: 3–10 points
+              <br>· <strong>More reliable but smaller absolute moves.</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 7 · Long-term bias -->
+        <div class="section">
+          <div class="section-label">7 · Trading Against the Long-Term Trend (CRITICAL)</div>
+          <div class="prose-block">
+            <p>Both M2K and MES have <strong>long-term upward bias</strong>. Trading bear flags means trading <em>against</em> that bias on a short timeframe. This requires:</p>
+          </div>
+          <div class="method-block">
+            <div class="method-title">Extra discipline required for bear flags</div>
+            <ul>
+              <li class="who"><strong>More selectivity</strong> than bull flags.</li>
+              <li class="who"><strong>Faster execution</strong> of profit-taking — don't get greedy.</li>
+              <li class="who"><strong>Awareness of broader context</strong> — bear flags during a strong uptrend day fail more often than bear flags during a clearly down day.</li>
+              <li class="who"><strong>Higher-timeframe check</strong> — if 5-min or 15-min chart is in clear uptrend, lower the priority of bear flag setups.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 8 · Professional Workflow -->
+        <div class="section">
+          <div class="section-label">8 · Professional Bear Flag Workflow</div>
+          <div class="prose-block">
+            <p>Most professional scalpers use <strong>Entry Method 2</strong> (candle close below trendline) with <strong>Stop Method A</strong> (above flag high).</p>
+          </div>
+          <div class="method-block">
+            <div class="method-title">Full professional approach</div>
+            <ul>
+              <li class="who">1. Identify the flag forming as volume decreases and candles compress.</li>
+              <li class="who">2. Draw the flag trendline (across the lows of the bounce).</li>
+              <li class="who">3. <strong>Check higher-timeframe context</strong> — is broader trend supportive of a short?</li>
+              <li class="who">4. Wait for a 2-minute candle to close below the trendline.</li>
+              <li class="who">5. Enter short at the open of the next candle.</li>
+              <li class="who">6. Stop above the flag high.</li>
+              <li class="who">7. Target is flagpole height projected from the breakdown point (<strong>measured move</strong>).</li>
+              <li class="who">8. <strong>Take profits more aggressively than on bull flags</strong> — half off at 1:1, trail the rest with a tight stop.</li>
+              <li class="who">9. <strong>Time stop:</strong> if not moving within 2–3 candles (4–6 minutes), exit. Bear flags move fast — if it's not moving, the pattern has failed.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 9 · Arnie's Approach -->
+        <div class="section">
+          <div class="section-label">9 · Arnie's Specific Approach <span class="gate-required">M2K / 6 contracts / Stoch 5,3,3</span></div>
+
+          <div class="data-block">
+            <div class="dlabel">1 · Entry Method 2 — candle close below the flag trendline</div>
+            <div class="dvalue">Same confirmation principle as all other patterns. Consistency across patterns builds discipline.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">2 · Stop Method A — above the flag high</div>
+            <div class="dvalue">
+              Let chart structure define risk. M2K at 6 contracts × $0.50/tick × 15-tick stop = <strong>$45 risk</strong>. If stop would be 25 ticks ($75), drop to 4 contracts.
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">3 · Stochastics 5,3,3 confirmation filter</div>
+            <div class="dvalue">
+              Only take the bear flag breakdown if:<br>
+              · Stochastic is already <strong>below 50 and falling</strong>, OR<br>
+              · Stochastic is <strong>crossing down from above 80</strong> during the flag formation.<br>
+              · <em>Warning sign:</em> Stochastic pegged below 20 and turning up when the flag "breaks down" — downside momentum may be exhausting.
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">4 · Higher timeframe filter (CRITICAL for bear flags)</div>
+            <div class="dvalue">
+              Before taking any bear flag, glance at the 15-minute chart:<br>
+              · 15-min clear uptrend → <strong>skip the trade</strong> or reduce to 2–3 contracts<br>
+              · 15-min sideways or down → take normal position size<br>
+              This single filter dramatically improves bear flag win rate.
+            </div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">5 · Measured move target — take profits faster</div>
+            <div class="dvalue">Take half off at <strong>1:1</strong> (faster than bull flag because bear flags reverse violently). Trail the remainder with a tighter stop than on a bull flag.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">6 · Tighter time stop than bull flags</div>
+            <div class="dvalue">If trade hasn't moved 5–6 ticks in your direction within <strong>2 candles (4 minutes)</strong> of entry, exit. Bear flags either work fast or they don't work — don't sit in a stalled bear flag.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">7 · During practice phase — screenshot every bear flag</div>
+            <div class="dvalue">
+              Wins AND losses. Pay special attention to the higher-timeframe context on losers — most losing bear flags occurred against a clear higher-timeframe uptrend.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /tab-bear-flag -->
+
+    <!-- ============ TAB: UNIFIED PRINCIPLES ============ -->
+    <div class="tab-panel" id="tab-unified">
+      <div class="column neutral">
+        <div class="column-header">
+          <div class="column-title">Unified Principles · All Four Patterns</div>
+          <div class="pattern-shape">✦</div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">Eight rules that apply to double bottoms, double tops, bull flags, and bear flags</div>
+          <div class="prose-block">
+            <p>Consistency across all four patterns is the single biggest edge you can build. Different entry rules for different setups makes discipline impossible — one rule across all four makes it automatic.</p>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">1 · Always use candle-close confirmation (Method 2)</div>
+            <div class="dvalue">Applies to double bottoms, double tops, bull flags, and bear flags. Wait for the 2-minute bar to close through the level before you click. Wicks lie. Closes tell the truth. <strong>Consistency matters more than a slightly better entry price.</strong></div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">2 · Always place stops based on chart structure (Method A)</div>
+            <div class="dvalue">Below the pattern low for longs, above the pattern high for shorts. <strong>Adjust position size</strong> to keep dollar risk consistent — wider stop means fewer contracts.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">3 · Always use Stochastics 5,3,3 as a confirmation filter</div>
+            <div class="dvalue">Momentum should align with the pattern direction. Longs: Stochastic rising (and above 50, or crossing up from below 20). Shorts: Stochastic falling (and below 50, or crossing down from above 80). Patterns against divergent momentum have much lower win rates.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">4 · Always implement a time stop</div>
+            <div class="dvalue">If the pattern isn't working within <strong>2–4 candles</strong>, exit. The pattern has failed even if your stop hasn't hit. Bull flags: 3–4 candles. Bear flags: 2–3 candles (they move faster). Double bottoms / tops: similar 3–4 candle budget.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">5 · Always take partial profits at 1:1</div>
+            <div class="dvalue">Bank some profit, let the rest ride toward the measured-move target. 2-minute scalps can flip from winner to breakeven in a single bar — scaling half means you've already cashed real profit and the runner is playing with house money.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">6 · Always check higher timeframe context</div>
+            <div class="dvalue">Especially for <strong>double tops and bear flags</strong> (trades against the long-term upward bias). If the 5-min or 15-min is trending hard against your setup, skip or reduce size. Small-timeframe trades should agree with the bigger timeframe, or at least not fight it.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">7 · Always screenshot trades</div>
+            <div class="dvalue">Wins AND losses. Visual pattern recognition is built through review, not theory. After a week of trades, patterns emerge in which setups worked and which didn't that no amount of reading can teach.</div>
+          </div>
+
+          <div class="data-block">
+            <div class="dlabel">8 · Always respect position sizing</div>
+            <div class="dvalue">Wider stops mean fewer contracts. Keep <strong>dollar risk consistent</strong> across trades. The worst losses come from sizing up on "this one feels good" setups — those are exactly the ones where the emotional attachment causes the biggest mistakes.</div>
+          </div>
+
+        </div>
+
+        <div class="section">
+          <div class="section-label">Cross-reference map</div>
+          <div class="xref"><strong>Reversal patterns (catch turning points)</strong>
+            Double Bottom (long) · Double Top (short). Both use: prior trend → two equal-ish pivots → neckline break → measured move from pattern height.
+          </div>
+          <div class="xref"><strong>Continuation patterns (join existing trends)</strong>
+            Bull Flag (long) · Bear Flag (short). Both use: flagpole → shallow pullback (25–50%) → trendline break → measured move from flagpole height.
+          </div>
+          <div class="xref"><strong>Shared entry principle — the candle close</strong>
+            Double Bottom Method 2 = Double Top Method 2 = Bull Flag Method 2 = Bear Flag Method 2. One habit, four patterns.
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /tab-unified -->
+
+  </div><!-- /tab-container -->
 
   <!-- ==================== FOUR PRINCIPLES FINAL GATE ==================== -->
   <div class="final-gate">
@@ -1788,13 +2627,36 @@
 
   <!-- ==================== FOOTER ==================== -->
   <footer>
-    <div>A. Shapiro, MD · M2K Scalping System</div>
+    <div>A. Shapiro, MD · M2K &amp; MES Scalping System · Teaching Edition v2.0</div>
     <div class="brand">"Context + Trigger + Risk. Never two out of three."</div>
-    <div>Print landscape · Letter size</div>
+    <div>Print landscape · Letter size · Four Patterns + Unified Principles</div>
   </footer>
 </div>
 
 <script>
+  // ========== TAB NAVIGATION ==========
+  function switchTab(tabName) {
+    // Deactivate all buttons and panels
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+
+    // Activate the clicked button
+    const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+    if (btn) btn.classList.add('active');
+
+    // Activate the matching panel
+    const panel = document.getElementById(`tab-${tabName}`);
+    if (panel) panel.classList.add('active');
+
+    // Scroll to top of content
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Wire up tab buttons on load
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+
   function updateScore(side) {
     const boxes = document.querySelectorAll(`input.score[data-side="${side}"]`);
     let count = 0;
