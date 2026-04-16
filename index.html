@@ -1351,6 +1351,10 @@
         const btn = document.getElementById('fb-signin-btn');
         const chip = document.getElementById('fb-user-chip');
         if (user) {
+          if (user.email !== 'arnold.shapiro@gmail.com') {
+            fbAuth.signOut();
+            return;
+          }
           btn.style.display = 'none';
           chip.style.display = 'flex';
           document.getElementById('fb-avatar').src = user.photoURL || '';
