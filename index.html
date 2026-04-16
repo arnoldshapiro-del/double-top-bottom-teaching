@@ -3315,6 +3315,96 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
   // Keep datetime current when user interacts with form
   document.getElementById('t-direction').addEventListener('focus', updateDateTime);
+
+  // =============================================
+  // FIRESTORE DATA PERSISTENCE (compat SDK)
+  // Syncs trade journal to Firestore
+  // =============================================
+  (function() {
+    var SYNC_KEY = 'arnie_m2k_trades_v1';
+
+    function saveToFirestore() {
+      var user = fbAuth.currentUser;
+      if (!user) return Promise.resolve();
+      var raw = localStorage.getItem(SYNC_KEY);
+      var trades = [];
+      try { trades = raw ? JSON.parse(raw) : []; } catch(e) {}
+      var data = {
+        trades: trades,
+        lastSyncedAt: new Date().toISOString(),
+        email: user.email,
+        displayName: user.displayName || ''
+      };
+      return fbDb.collection('users').doc(user.uid).set(data, { merge: true }).catch(function(err) {
+        console.error('Firestore save failed:', err);
+      });
+    }
+
+    function loadFromFirestore() {
+      var user = fbAuth.currentUser;
+      if (!user) return Promise.resolve();
+      return fbDb.collection('users').doc(user.uid).get().then(function(doc) {
+        if (doc.exists && doc.data().trades) {
+          var serverTrades = doc.data().trades;
+          var localRaw = localStorage.getItem(SYNC_KEY);
+          var localTrades = [];
+          try { localTrades = localRaw ? JSON.parse(localRaw) : []; } catch(e) {}
+
+          // Merge: concat + deduplicate by id, local wins
+          var idSet = {};
+          localTrades.forEach(function(t) { if (t && t.id) idSet[t.id] = true; });
+          serverTrades.forEach(function(t) {
+            if (t && t.id && !idSet[t.id]) localTrades.push(t);
+          });
+
+          // Sort by datetime descending (newest first)
+          localTrades.sort(function(a, b) {
+            return (b.id || 0) - (a.id || 0);
+          });
+
+          localStorage.setItem(SYNC_KEY, JSON.stringify(localTrades));
+          // Refresh UI
+          renderStats();
+          renderRecent();
+          // Push merged state back
+          return saveToFirestore();
+        } else {
+          return saveToFirestore();
+        }
+      }).catch(function(err) {
+        console.error('Firestore load failed:', err);
+      });
+    }
+
+    var _fsSaveTimer = null;
+    function debouncedFirestoreSave() {
+      if (!fbAuth.currentUser) return;
+      if (_fsSaveTimer) clearTimeout(_fsSaveTimer);
+      _fsSaveTimer = setTimeout(function() { saveToFirestore(); }, 2000);
+    }
+
+    // Intercept localStorage.setItem for trade key
+    var _origSetItem = localStorage.setItem.bind(localStorage);
+    localStorage.setItem = function(key, value) {
+      _origSetItem(key, value);
+      if (key === SYNC_KEY) {
+        debouncedFirestoreSave();
+      }
+    };
+
+    // Hook sign-out: save before signing out
+    var _origFbSignOut = window.fbSignOut;
+    window.fbSignOut = function() {
+      saveToFirestore().then(function() { fbAuth.signOut(); });
+    };
+
+    // Load from Firestore on sign-in
+    fbAuth.onAuthStateChanged(function(user) {
+      if (user && user.email === 'arnold.shapiro@gmail.com') {
+        loadFromFirestore();
+      }
+    });
+  })();
 </script>
 </body>
 </html>
