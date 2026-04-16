@@ -80,6 +80,18 @@ None
 └── SESSION_NOTES.md — Session history
 ```
 
+## Firebase Integration (added 2026-04-15)
+- **Firebase Project ID:** `double-top-bottom-teach`
+- **Auth:** Google Sign-In enabled (support email set manually by Arnie in Firebase console)
+- **Firestore:** Enabled (open rules during setup — may need to tighten)
+- **Implementation:** Firebase compat SDK v10.14.1 injected into `index.html` before `</head>`, floating auth widget in top-right corner
+- **Netlify domain authorized:** arnie-double-top-bottom.netlify.app
+- **Config:**
+  - apiKey: `AIzaSyBHorbhfLQhXJfEacAEOtvIi2nYq3LmWXU`
+  - authDomain: `double-top-bottom-teach.firebaseapp.com`
+  - messagingSenderId: `1034396474869`
+  - appId: `1:1034396474869:web:a02e34572548b7f7c1d4bc`
+
 ## Project-Specific Rules
 - Always deploy via GitHub push → Netlify auto-builds
 - When reference document says "incorporate ALL content in full" — do not summarize or trim

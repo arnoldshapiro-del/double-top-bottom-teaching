@@ -142,3 +142,17 @@
 - `preview_screenshot` timed out (same recurring issue in this project — documented in prior session notes). Used DOM-level content verification + Puppeteer screenshots of live site instead.
 - Node.js Windows libuv assertion warning after fetch() calls — harmless, results still printed correctly.
 - `text-transform: uppercase` on `.section-label` makes active-tab innerText return all-caps in preview. Used case-insensitive regex in verification. Not a real bug.
+
+## Session — 2026-04-15 — Firebase Integration
+**What we did:**
+- Ran `firebase-setup.js` script via sequential runner (sequential to avoid 429 rate limits)
+- Firebase project `double-top-bottom-teach` provisioned (Firestore + Google Auth + authorized domain)
+- Firebase compat SDK v10.14.1 injected into `index.html` before `</head>` tag
+- Floating Google Sign-In auth widget added to top-right corner
+- Code committed and pushed to GitHub; Netlify auto-deployed
+- Arnie manually set Google Auth support email in Firebase console
+
+**What's working:** Firebase Google Sign-In integrated and deployed
+**What's next:** Verify "Sign in with Google" button works in live site; optionally tighten Firestore security rules
+**Important decisions:** Firebase project ID is `double-top-bottom-teach` (matches repo name without the trailing "ing")
+**Problems encountered:** None specific to this app
