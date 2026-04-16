@@ -1348,18 +1348,27 @@
       document.body.appendChild(widget);
 
       fbAuth.onAuthStateChanged(function(user) {
-        const btn = document.getElementById('fb-signin-btn');
-        const chip = document.getElementById('fb-user-chip');
+        var gate = document.getElementById('fb-gate');
+        var denied = document.getElementById('fb-denied');
+        var btn = document.getElementById('fb-signin-btn');
+        var chip = document.getElementById('fb-user-chip');
         if (user) {
           if (user.email !== 'arnold.shapiro@gmail.com') {
             fbAuth.signOut();
+            if (denied) denied.style.display = 'block';
             return;
           }
+          document.body.classList.remove('fb-locked');
+          if (gate) gate.style.display = 'none';
+          if (denied) denied.style.display = 'none';
           btn.style.display = 'none';
           chip.style.display = 'flex';
           document.getElementById('fb-avatar').src = user.photoURL || '';
           document.getElementById('fb-username').textContent = user.displayName || user.email;
         } else {
+          document.body.classList.add('fb-locked');
+          if (gate) gate.style.display = 'flex';
+          if (denied) denied.style.display = 'none';
           btn.style.display = 'block';
           chip.style.display = 'none';
         }
@@ -1369,7 +1378,24 @@
     function fbSignOut() { fbAuth.signOut(); }
   </script>
 </head>
-<body>
+<body class="fb-locked">
+<style>
+body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!important}
+#fb-gate{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:#070c18;font-family:Inter,system-ui,sans-serif}
+#fb-gate .fb-gate-icon{font-size:48px;margin-bottom:16px}
+#fb-gate .fb-gate-title{color:#e2e8f0;font-size:22px;font-weight:700;margin-bottom:8px}
+#fb-gate .fb-gate-sub{color:#94a3b8;font-size:14px;margin-bottom:28px;text-align:center}
+#fb-gate .fb-gate-btn{background:#14b8a6;color:#070c18;border:none;border-radius:10px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.3px;transition:background .2s}
+#fb-gate .fb-gate-btn:hover{background:#2dd4bf}
+#fb-gate .fb-gate-denied{display:none;color:#fca5a5;font-size:13px;margin-top:16px}
+</style>
+<div id="fb-gate">
+<div class="fb-gate-icon">🔒</div>
+<div class="fb-gate-title">Private Application</div>
+<div class="fb-gate-sub">Authorized access only.<br>Sign in with your Google account to continue.</div>
+<button class="fb-gate-btn" onclick="fbSignIn()">Sign in with Google</button>
+<div class="fb-gate-denied" id="fb-denied">Access denied — this account is not authorized.</div>
+</div>
 <div class="container">
 
   <!-- ==================== HEADER ==================== -->
