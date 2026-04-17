@@ -3434,14 +3434,26 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     document.body.appendChild(chip);
     try{firebase.firestore().collection('users').doc(user.uid).set({name:user.displayName||'',email:user.email,lastVisit:firebase.firestore.FieldValue.serverTimestamp(),app:APP_ID},{merge:true});}catch(e){}
   }
+  function ungatePublic(){
+    var ov=document.getElementById('__ag');if(ov)ov.remove();
+    document.body.style.overflow='';
+    Array.from(document.body.children).forEach(function(c){if(c.style.display==='none')c.style.display='';});
+  }
   wait(function(){
     firebase.auth().onAuthStateChanged(function(user){
-      if(!user){gate();return;}
       firebase.firestore().collection('app_access').doc(APP_ID).get().then(function(snap){
+        if(snap.exists&&snap.data().public===true){
+          if(user)ungate(user);else ungatePublic();
+          return;
+        }
+        if(!user){gate();return;}
         var allowed=snap.exists?(snap.data().allowed||[]):[FALLBACK];
         if(allowed.indexOf(user.email)>=0){ungate(user);}
         else{firebase.auth().signOut();gate();setTimeout(function(){var e=document.getElementById('__age');if(e){e.textContent='Access denied for '+user.email+'.';e.style.display='';}},400);}
-      }).catch(function(){if(user.email===FALLBACK)ungate(user);else{firebase.auth().signOut();gate();}});
+      }).catch(function(){
+        if(!user){gate();return;}
+        if(user.email===FALLBACK)ungate(user);else{firebase.auth().signOut();gate();}
+      });
     });
   });
 })();
