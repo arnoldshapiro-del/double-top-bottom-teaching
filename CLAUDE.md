@@ -55,6 +55,22 @@ Phase 3 v2.2 MERGED to master and live in production (2026-04-15). All three use
 - **Blue calming recommendation callout** — `.you-recommend-callout` with gradient blue bg, 6px left border, `★ This is the way I recommend for you` label, and plain-English explanation per pattern
 - **Expert Backup label** — purple inline badge `.expert-backup-label` marking the second method "Once you're experienced"
 
+## Features Completed (v2.3 — Phase 4, 2026-04-18)
+- **Firebase sign-in infinite loop FIXED** (from prior session, commit 5f3910f): removed duplicate `onAuthStateChanged` listener from the Phase2-AuthGate block that was racing the primary handler and calling `signOut()` 3–5 s after sign-in. Added `setPersistence(LOCAL)` and hardened the primary handler's email check. Verified live.
+- **PWA added** (commit 91e06fd): `manifest.json` in project root, `<link rel="manifest">`, `theme-color`, and apple-mobile-web-app tags injected into `<head>`.
+- **Bootcamp cross-link** added to header: `<a class="bootcamp-link" href="https://unis-ta-bootcamp-day1.netlify.app/">📚 Learn the Theory → Uni's TA Bootcamp</a>`.
+- **`.illus` CSS system** added: figure styling, side-by-side grid, print overrides, `.bootcamp-link` gradient.
+- **40 inline SVG illustrations** across all 5 tabs (up from 0):
+  - Hero figures for DT, DB, Bull Flag, Bear Flag, Unified (5)
+  - Four Principles discipline gate card (1)
+  - DT sections 1/2/3/4/5/6/7/8 (8 illustrations, covers context, volume, entry, stop, bust, entry-method comparison, win-rate, Stochastics divergence)
+  - DB sections 1/2/3/4/5/6/7/8 (8 illustrations, mirror of DT)
+  - Bull Flag sections 2/3/4/5/6/7 (6 illustrations)
+  - Bear Flag sections 2/3/4/5/6/7/8 (7 illustrations)
+  - Unified Principles 1/3/5/6 + cross-reference matrix (5 illustrations)
+- **All SVGs** follow the locked palette (`#22c55e` bullish, `#ef4444` bearish, `#14b8a6` teal, `#eab308` warning, `#cbd5e1` price line, `#475569` grid, `#070c18` chart bg) with `<title>` + `<desc>` for screen readers and `<figcaption>` for sighted users.
+- **No regressions** — tab switching, quality scoring, red-flags, Four Principles gate, pattern-tagged journal, CSV export, sticky tab nav, Recommended/Expert Backup callouts, Firebase auth, PWA manifest all intact.
+
 ## Features Planned / Next
 - None. App is feature-complete.
 

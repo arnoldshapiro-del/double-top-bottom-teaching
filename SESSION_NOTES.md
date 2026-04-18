@@ -1,5 +1,27 @@
 # Session Notes — Double Top / Bottom Teaching Edition
 
+## Session — 2026-04-18 — Phase v2.3 — Firebase Auth Fix + PWA + 40 SVG Illustrations
+
+**What we did:**
+- Confirmed prior fixes already live: Firebase sign-in infinite-loop fixed (Phase2-AuthGate duplicate `onAuthStateChanged` removed, `setPersistence(LOCAL)` added), PWA manifest.json + meta tags injected, Bootcamp cross-link in header, `.illus` CSS system established, initial 12 SVG illustrations deployed (commit 91e06fd).
+- Added **28 additional SVG illustrations** across all 5 pattern tabs, raising the total from 12 → 40:
+  - **Double Top (+5):** Context/uptrend visual, volume divergence fingerprint, break-below vs candle-close comparison, win-rate bar chart (38–48 / 52–62 / 60%+), Stochastics 5,3,3 bearish divergence overlay.
+  - **Double Bottom (+5):** Context/downtrend visual, mirror volume divergence, break-above vs candle-close comparison, win-rate bar chart (40–50 / 55–65 / 65%+), Arnie's 4-point recommendation map.
+  - **Bull Flag (+6):** Pole/flag/breakout anatomy with measured-move, close-above vs pullback-to-20EMA entries, three stops (flag low / 20-EMA / 61.8% Fib), M2K vs MES character, 6-step pro workflow, Arnie's 6-point approach.
+  - **Bear Flag (+7):** Speed-and-violence comparison vs bull flag, bear-flag anatomy, close-below vs retest entries, three stops, M2K vs MES character, long-term upward bias warning, pro workflow with speed emphasis.
+  - **Unified Principles (+5):** Confirmation over prediction (wick-only / full-close / big-green candles), 61.8% Fibonacci invalidation zones, measured-move across all 4 patterns, volume signatures (reversal divergence vs continuation contract-expand), 4-pattern reversal/continuation × long/short matrix.
+- All SVGs follow the locked palette (`#22c55e` / `#ef4444` / `#14b8a6` / `#eab308` / `#cbd5e1` / `#475569` / `#070c18`) with `<title>` and `<desc>` for screen-reader accessibility and `<figcaption>` for sighted readers.
+- Committed & pushed: `4178b4e — Add 28 more SVG illustrations — total 40 across all 5 tabs`.
+- Live site verified: https://arnie-double-top-bottom.netlify.app returns HTTP 200 and grep for `figure class="illus"` returns 40 (matches local).
+- Puppeteer screenshot retaken at `arnies-app-showcase/public/screenshots/double-top-bottom-teaching.png`.
+- Gallery 1 (arnies-app-showcase) card tagline updated to v2.3 with 40-illustration summary; committed and pushed (`8eed298`).
+- URL shortcut at `All Of My Working Apps That Are Beautiful/Double Top-Bottom Teaching Edition.url` verified pointing to live URL.
+
+**What's working:** All 40 illustrations rendering on live Netlify. Tab switching, quality scoring, Four Principles gate, trade journal, CSV export, Firebase auth, PWA manifest — all intact, no regressions.
+**What's next:** App feature-complete.
+**Important decisions:** Kept single-file HTML (no React migration). Injected figures as new `<figure class="illus">` blocks right after each `<div class="section-label">` so every concept pairs with a teaching diagram.
+**Problems encountered:** None — all 28 inline injections succeeded first try.
+
 ## Session — 2026-04-14
 **What we did:**
 - Discovered project files on Desktop: index.html, double-top-bottom-teaching-edition.html, README.md, CLAUDE_CODE_PROMPT.md
