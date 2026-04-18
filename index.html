@@ -1320,9 +1320,10 @@
     };
     firebase.initializeApp(firebaseConfig);
     const fbAuth = firebase.auth();
+    fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(function(e){console.error('setPersistence failed',e);});
     const fbDb = firebase.firestore();
     const fbProvider = new firebase.auth.GoogleAuthProvider();
-  </script>
+</script>
   <!-- Firebase Auth UI -->
   <style>
     #fb-auth-widget{position:fixed;top:10px;right:14px;z-index:99999;display:flex;align-items:center;gap:8px;font-family:Inter,system-ui,sans-serif}
@@ -1353,9 +1354,10 @@
         var btn = document.getElementById('fb-signin-btn');
         var chip = document.getElementById('fb-user-chip');
         if (user) {
-          if (user.email !== 'arnold.shapiro@gmail.com') {
+          if (!user.email) { return; }
+          if (user.email.toLowerCase() !== 'arnold.shapiro@gmail.com') {
             fbAuth.signOut();
-            if (denied) denied.style.display = 'block';
+            if (denied) { denied.style.display = 'block'; denied.textContent = 'Access denied for ' + user.email + '.'; }
             return;
           }
           document.body.classList.remove('fb-locked');
@@ -1368,7 +1370,6 @@
         } else {
           document.body.classList.add('fb-locked');
           if (gate) gate.style.display = 'flex';
-          if (denied) denied.style.display = 'none';
           btn.style.display = 'block';
           chip.style.display = 'none';
         }
@@ -3407,57 +3408,6 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   })();
 </script>
 
-<!-- Phase2-AuthGate-Start -->
-<script>
-(function(){
-  var APP_ID='arnie-double-top-bottom',FALLBACK='arnold.shapiro@gmail.com';
-  function wait(cb,n){n=n||0;if(n>100)return;if(typeof firebase!=='undefined'&&firebase.apps&&firebase.apps.length)cb();else setTimeout(function(){wait(cb,n+1);},200);}
-  function gate(){
-    var ov=document.createElement('div');ov.id='__ag';
-    ov.innerHTML='<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0e1a,#1a0f2e);font-family:Inter,system-ui,sans-serif"><div style="background:#151a2a;padding:3rem 2.5rem;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);max-width:420px;width:90%;text-align:center;border:1px solid rgba(245,158,11,.25)"><div style="font-size:3rem;margin-bottom:1rem">\uD83D\uDD12</div><h1 style="color:#fff;font-size:1.5rem;margin-bottom:.5rem;font-weight:600">Private Application</h1><p style="color:#94a3b8;font-size:.9rem;margin-bottom:2rem;line-height:1.5">This app is private. Sign in with an authorized Google account.</p><button id="__agb" style="background:#f59e0b;color:#fff;border:none;padding:.75rem 2rem;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;width:100%">Sign in with Google</button><p id="__age" style="color:#f87171;font-size:.85rem;margin-top:1rem;display:none"></p></div></div>';
-    document.body.style.overflow='hidden';
-    Array.from(document.body.children).forEach(function(c){if(c.id!=='__ag')c.style.display='none';});
-    document.body.insertBefore(ov,document.body.firstChild);
-    document.getElementById('__agb').onclick=function(){
-      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function(e){if(e.code!=='auth/popup-closed-by-user'){var el=document.getElementById('__age');el.textContent=e.message||'Sign-in failed';el.style.display='';}});
-    };
-  }
-  function ungate(user){
-    var ov=document.getElementById('__ag');if(ov)ov.remove();
-    document.body.style.overflow='';
-    Array.from(document.body.children).forEach(function(c){if(c.style.display==='none')c.style.display='';});
-    var chip=document.createElement('div');
-    chip.style.cssText='position:fixed;top:10px;right:10px;z-index:99999;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.75);padding:6px 12px;border-radius:8px;backdrop-filter:blur(10px)';
-    chip.innerHTML=(user.photoURL?'<img src="'+user.photoURL+'" style="width:24px;height:24px;border-radius:50%">':'')+
-      '<span style="color:#fff;font-size:.75rem;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+(user.displayName||user.email)+'</span>'+
-      '<button onclick="firebase.auth().signOut()" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);padding:3px 8px;border-radius:4px;font-size:.7rem;cursor:pointer">Out</button>';
-    document.body.appendChild(chip);
-    try{firebase.firestore().collection('users').doc(user.uid).set({name:user.displayName||'',email:user.email,lastVisit:firebase.firestore.FieldValue.serverTimestamp(),app:APP_ID},{merge:true});}catch(e){}
-  }
-  function ungatePublic(){
-    var ov=document.getElementById('__ag');if(ov)ov.remove();
-    document.body.style.overflow='';
-    Array.from(document.body.children).forEach(function(c){if(c.style.display==='none')c.style.display='';});
-  }
-  wait(function(){
-    firebase.auth().onAuthStateChanged(function(user){
-      firebase.firestore().collection('app_access').doc(APP_ID).get().then(function(snap){
-        if(snap.exists&&snap.data().public===true){
-          if(user)ungate(user);else ungatePublic();
-          return;
-        }
-        if(!user){gate();return;}
-        var allowed=snap.exists?(snap.data().allowed||[]):[FALLBACK];
-        if(allowed.indexOf(user.email)>=0){ungate(user);}
-        else{firebase.auth().signOut();gate();setTimeout(function(){var e=document.getElementById('__age');if(e){e.textContent='Access denied for '+user.email+'.';e.style.display='';}},400);}
-      }).catch(function(){
-        if(!user){gate();return;}
-        if(user.email===FALLBACK)ungate(user);else{firebase.auth().signOut();gate();}
-      });
-    });
-  });
-})();
-</script>
-<!-- Phase2-AuthGate-End -->
+<!-- Phase2-AuthGate removed 2026-04-18: was racing with primary auth handler and causing sign-in → signOut loop. Primary auth gate at top of file handles everything. -->
 </body>
 </html>
