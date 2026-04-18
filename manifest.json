@@ -1,0 +1,14 @@
+{
+  "name": "Arnie Double Top/Bottom + Flags — Live Trading Checklist",
+  "short_name": "DT/DB Checklist",
+  "description": "Live trading checklist with 30+ SVG illustrations for Double Top, Double Bottom, Bull Flag, Bear Flag on M2K/MES 2-minute timeframes. Quality scoring, red-flag detection, Four Principles discipline gate.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070c18",
+  "theme_color": "#7dd3fc",
+  "orientation": "any",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" },
+    { "src": "/favicon.ico", "sizes": "192x192", "type": "image/x-icon", "purpose": "any maskable" }
+  ]
+}
