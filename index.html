@@ -1509,6 +1509,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <button class="tab-btn" data-tab="bull-flag" onclick="switchTab('bull-flag')"><span class="tab-num">3 ·</span>Bull Flag</button>
     <button class="tab-btn" data-tab="bear-flag" onclick="switchTab('bear-flag')"><span class="tab-num">4 ·</span>Bear Flag</button>
     <button class="tab-btn" data-tab="unified" onclick="switchTab('unified')"><span class="tab-num">5 ·</span>Unified Principles</button>
+    <button class="tab-btn" data-tab="masterclass" onclick="switchTab('masterclass')"><span class="tab-num">6 ·</span>📖 Visual Masterclass</button>
   </div>
 
   <!-- ==================== TAB CONTAINER ==================== -->
@@ -3684,7 +3685,686 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-unified -->
 
-  </div><!-- /tab-container -->
+    <!-- ============ TAB: VISUAL MASTERCLASS ============ -->
+    <div class="tab-panel" id="tab-masterclass">
+      <div class="column neutral" style="max-width:100%;">
+        <div class="section-label">📖 Visual Masterclass — 20 Illustrated Lessons That Reinforce Everything</div>
+
+        <!-- LESSON 1: Anatomy of a Candle -->
+        <h2>1. Anatomy of a Candlestick — The Language of Bars</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 280" role="img" aria-labelledby="candle-t candle-d">
+            <title id="candle-t">Candlestick Anatomy</title>
+            <desc id="candle-d">A candlestick showing open, close, high, low, body, wicks, and what each part means</desc>
+            <!-- Grid -->
+            <rect width="560" height="280" fill="#070c18"/>
+            <!-- Left candle (bullish, green) -->
+            <g transform="translate(80,140)">
+              <!-- Upper wick -->
+              <line x1="0" y1="-80" x2="0" y2="-40" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Body -->
+              <rect x="-18" y="-40" width="36" height="50" fill="#22c55e" stroke="#22c55e" stroke-width="1"/>
+              <!-- Lower wick -->
+              <line x1="0" y1="10" x2="0" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Labels -->
+              <text x="30" y="-75" fill="#cbd5e1" font-size="11" font-weight="600">HIGH</text>
+              <text x="30" y="-35" fill="#cbd5e1" font-size="11" font-weight="600">CLOSE</text>
+              <text x="30" y="5" fill="#cbd5e1" font-size="11" font-weight="600">OPEN</text>
+              <text x="30" y="65" fill="#cbd5e1" font-size="11" font-weight="600">LOW</text>
+              <text x="-50" y="80" fill="#86efac" font-size="10" font-weight="700">BULLISH</text>
+              <text x="-55" y="95" fill="#86efac" font-size="9">(Close &gt; Open)</text>
+            </g>
+            <!-- Right candle (bearish, red) -->
+            <g transform="translate(320,140)">
+              <!-- Upper wick -->
+              <line x1="0" y1="-70" x2="0" y2="-25" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Body -->
+              <rect x="-18" y="-25" width="36" height="55" fill="#ef4444" stroke="#ef4444" stroke-width="1"/>
+              <!-- Lower wick -->
+              <line x1="0" y1="30" x2="0" y2="75" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Labels -->
+              <text x="30" y="-65" fill="#cbd5e1" font-size="11" font-weight="600">HIGH</text>
+              <text x="30" y="-15" fill="#cbd5e1" font-size="11" font-weight="600">OPEN</text>
+              <text x="30" y="20" fill="#cbd5e1" font-size="11" font-weight="600">CLOSE</text>
+              <text x="30" y="80" fill="#cbd5e1" font-size="11" font-weight="600">LOW</text>
+              <text x="-50" y="100" fill="#fca5a5" font-size="10" font-weight="700">BEARISH</text>
+              <text x="-55" y="115" fill="#fca5a5" font-size="9">(Close &lt; Open)</text>
+            </g>
+          </svg>
+          <figcaption>Every candle tells you: what the market <strong>opened</strong> at, what it <strong>closed</strong> at, and how far it <strong>ranged</strong> before settling. Close relative to open = direction. Wicks = rejection.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why this matters for your trading:</strong> The CLOSE is the truth. During the bar formation, price might poke through support 10 times (that's the wick). But if the bar closes <em>above</em> support, the bar is bullish. If it closes <em>below</em>, bearish. Don't get hypnotized by wicks — wait for the close. This single habit eliminates 40% of false breakouts.</div>
+
+        <!-- LESSON 2: Bullish Engulfing -->
+        <h2>2. Bullish Engulfing — The Reversal Trigger at Support</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 220" role="img" aria-labelledby="beng-t beng-d">
+            <title id="beng-t">Bullish Engulfing Pattern</title>
+            <desc id="beng-d">Two bars: small red bearish bar followed by large green bullish bar that completely covers it</desc>
+            <rect width="560" height="220" fill="#070c18"/>
+            <!-- Grid -->
+            <line x1="40" y1="20" x2="40" y2="180" stroke="#475569" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="520" y1="20" x2="520" y2="180" stroke="#475569" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="40" y1="100" x2="520" y2="100" stroke="#475569" stroke-width="1" stroke-dasharray="2,2"/>
+            <!-- Support line -->
+            <line x1="30" y1="140" x2="530" y2="140" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="35" y="155" fill="#ef4444" font-size="11" font-weight="600">SUPPORT</text>
+            <!-- Bar 1: Small bearish (red) -->
+            <g transform="translate(150,100)">
+              <line x1="0" y1="-25" x2="0" y2="25" stroke="#cbd5e1" stroke-width="1"/>
+              <rect x="-12" y="-15" width="24" height="20" fill="#ef4444" stroke="#ef4444" stroke-width="1"/>
+              <text x="0" y="45" fill="#cbd5e1" font-size="9" text-anchor="middle">Day 1</text>
+            </g>
+            <!-- Bar 2: Large bullish (green) that engulfs bar 1 -->
+            <g transform="translate(280,100)">
+              <line x1="0" y1="-35" x2="0" y2="15" stroke="#cbd5e1" stroke-width="1"/>
+              <rect x="-16" y="-30" width="32" height="45" fill="#22c55e" stroke="#22c55e" stroke-width="2"/>
+              <text x="0" y="35" fill="#cbd5e1" font-size="9" text-anchor="middle">Day 2</text>
+              <text x="0" y="50" fill="#86efac" font-size="10" font-weight="700">ENGULFING</text>
+            </g>
+            <!-- Arrow -->
+            <path d="M 220,100 L 240,100" stroke="#14b8a6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                <polygon points="0 0, 10 5, 0 10" fill="#14b8a6"/>
+              </marker>
+            </defs>
+          </svg>
+          <figcaption>A small bearish bar followed by a larger bullish bar that completely "engulfs" it (higher high, lower low). Signature of buyer strength at support.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why it signals a reversal:</strong> Sellers pushed price down yesterday. Today, buyers are so aggressive they (1) buy all the way down to yesterday's low, then (2) push price up past yesterday's high, then (3) hold those gains in the close. That's not just buying — that's <em>dominant</em> buying. Often the candle before a Double Bottom completes with an engulfing pattern.</div>
+
+        <!-- LESSON 3: Bearish Engulfing -->
+        <h2>3. Bearish Engulfing — The Reversal Trigger at Resistance</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 220" role="img" aria-labelledby="seng-t seng-d">
+            <title id="seng-t">Bearish Engulfing Pattern</title>
+            <desc id="seng-d">Two bars: small green bullish bar followed by large red bearish bar that completely covers it</desc>
+            <rect width="560" height="220" fill="#070c18"/>
+            <!-- Grid -->
+            <line x1="40" y1="20" x2="40" y2="180" stroke="#475569" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="520" y1="20" x2="520" y2="180" stroke="#475569" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="40" y1="100" x2="520" y2="100" stroke="#475569" stroke-width="1" stroke-dasharray="2,2"/>
+            <!-- Resistance line -->
+            <line x1="30" y1="60" x2="530" y2="60" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="35" y="48" fill="#22c55e" font-size="11" font-weight="600">RESISTANCE</text>
+            <!-- Bar 1: Small bullish (green) -->
+            <g transform="translate(150,100)">
+              <line x1="0" y1="-25" x2="0" y2="25" stroke="#cbd5e1" stroke-width="1"/>
+              <rect x="-12" y="-20" width="24" height="20" fill="#22c55e" stroke="#22c55e" stroke-width="1"/>
+              <text x="0" y="45" fill="#cbd5e1" font-size="9" text-anchor="middle">Day 1</text>
+            </g>
+            <!-- Bar 2: Large bearish (red) that engulfs bar 1 -->
+            <g transform="translate(280,100)">
+              <line x1="0" y1="-15" x2="0" y2="40" stroke="#cbd5e1" stroke-width="1"/>
+              <rect x="-16" y="-10" width="32" height="45" fill="#ef4444" stroke="#ef4444" stroke-width="2"/>
+              <text x="0" y="50" fill="#cbd5e1" font-size="9" text-anchor="middle">Day 2</text>
+              <text x="0" y="65" fill="#fca5a5" font-size="10" font-weight="700">ENGULFING</text>
+            </g>
+            <!-- Arrow -->
+            <path d="M 220,100 L 240,100" stroke="#14b8a6" stroke-width="2" fill="none" marker-end="url(#arrowhead2)"/>
+            <defs>
+              <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                <polygon points="0 0, 10 5, 0 10" fill="#14b8a6"/>
+              </marker>
+            </defs>
+          </svg>
+          <figcaption>A small bullish bar followed by a larger bearish bar that completely engulfs it. Signature of seller strength at resistance. Mirror image of bullish engulfing.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why it signals a reversal:</strong> Buyers pushed price up yesterday. Today, sellers are so aggressive they (1) sell all the way up to yesterday's high, then (2) push price down past yesterday's low, then (3) hold those losses in the close. Dominant selling. Often appears right before a Double Top completes.</div>
+
+        <!-- LESSON 4: Hammer & Pin Bar -->
+        <h2>4. Hammer &amp; Pin Bar — Rejection at Support (or Resistance)</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="hammer-t hammer-d">
+            <title id="hammer-t">Hammer and Pin Bar Rejection</title>
+            <desc id="hammer-d">A candle with a small body and a long wick extending down, showing rejection of lower prices</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Support line -->
+            <line x1="30" y1="150" x2="530" y2="150" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="35" y="165" fill="#ef4444" font-size="11" font-weight="600">SUPPORT</text>
+            <!-- Hammer (bullish) -->
+            <g transform="translate(150,100)">
+              <line x1="0" y1="-20" x2="0" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="-12" y="-15" width="24" height="15" fill="#22c55e" stroke="#22c55e" stroke-width="1"/>
+              <text x="0" y="75" fill="#86efac" font-size="10" font-weight="700">HAMMER</text>
+              <text x="-40" y="-25" fill="#cbd5e1" font-size="9">Rejects</text>
+              <text x="-40" y="-15" fill="#cbd5e1" font-size="9">lower prices</text>
+            </g>
+            <!-- Pin Bar (bullish variant) -->
+            <g transform="translate(330,100)">
+              <line x1="0" y1="-15" x2="0" y2="65" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="-8" y="-10" width="16" height="12" fill="#22c55e" stroke="#22c55e" stroke-width="1"/>
+              <text x="0" y="80" fill="#86efac" font-size="10" font-weight="700">PIN BAR</text>
+              <text x="-40" y="-20" fill="#cbd5e1" font-size="9">Extreme</text>
+              <text x="-40" y="-10" fill="#cbd5e1" font-size="9">rejection</text>
+            </g>
+          </svg>
+          <figcaption>A candle with a small body and a long wick extending below (or above for bearish). Price tested lower, found no sellers, and buyers stepped in. Classic support rejection.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why it matters:</strong> A hammer at the second trough of a Double Bottom, or right before a Bull Flag's breakout, dramatically increases win rates. Why? Because the long wick proves that sellers tried to push lower and failed — that's not just a low, that's a <em>rejected</em> low. Buyers have already shown their hand.</div>
+
+        <!-- LESSON 5: Shooting Star -->
+        <h2>5. Shooting Star — Rejection at Resistance</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="shoot-t shoot-d">
+            <title id="shoot-t">Shooting Star Rejection</title>
+            <desc id="shoot-d">A candle with a small body and a long wick extending up, showing rejection of higher prices</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Resistance line -->
+            <line x1="30" y1="80" x2="530" y2="80" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="35" y="68" fill="#22c55e" font-size="11" font-weight="600">RESISTANCE</text>
+            <!-- Shooting Star (bearish) at resistance -->
+            <g transform="translate(250,130)">
+              <line x1="0" y1="-65" x2="0" y2="20" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="-12" y="-5" width="24" height="15" fill="#ef4444" stroke="#ef4444" stroke-width="1"/>
+              <text x="0" y="45" fill="#fca5a5" font-size="10" font-weight="700">SHOOTING STAR</text>
+              <text x="40" y="-60" fill="#cbd5e1" font-size="9">Sellers reject</text>
+              <text x="40" y="-50" fill="#cbd5e1" font-size="9">higher prices</text>
+            </g>
+          </svg>
+          <figcaption>Mirror of hammer. A candle with a small body and a long wick extending upward. Price tested higher, found no buyers, and sellers took over. Resistance rejection.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why it matters:</strong> At the second peak of a Double Top, or right before a Bear Flag's breakdown, a shooting star is your confirmation. Sellers have already proven they'll defend resistance — the long wick shows they've pushed back buyers multiple times. When this candle closes, the reversal is real.</div>
+
+        <!-- LESSON 6: Doji -->
+        <h2>6. Doji — Indecision / Exhaustion</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 220" role="img" aria-labelledby="doji-t doji-d">
+            <title id="doji-t">Doji Candlestick</title>
+            <desc id="doji-d">A candle where open and close are nearly identical, with wicks extending both directions</desc>
+            <rect width="560" height="220" fill="#070c18"/>
+            <!-- Uptrend context -->
+            <path d="M 50,160 L 90,140 L 130,120 L 170,100" stroke="#22c55e" stroke-width="2" fill="none"/>
+            <text x="35" y="175" fill="#22c55e" font-size="10" font-weight="600">Uptrend</text>
+            <!-- Doji candle -->
+            <g transform="translate(220,100)">
+              <line x1="0" y1="-35" x2="0" y2="35" stroke="#cbd5e1" stroke-width="1.5"/>
+              <line x1="-8" y1="-2" x2="8" y2="-2" stroke="#eab308" stroke-width="3"/>
+              <text x="0" y="55" fill="#eab308" font-size="10" font-weight="700">DOJI</text>
+              <text x="0" y="68" fill="#cbd5e1" font-size="9">(Open ≈ Close)</text>
+            </g>
+            <!-- Downtrend context after -->
+            <path d="M 280,100 L 320,120 L 360,140 L 400,160" stroke="#ef4444" stroke-width="2" fill="none"/>
+            <text x="420" y="175" fill="#ef4444" font-size="10" font-weight="600">Reversal</text>
+          </svg>
+          <figcaption>Open and close are virtually the same price. The wicks extend both directions, showing that neither buyers nor sellers won the day. Classic exhaustion / indecision signal.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why it matters:</strong> A doji after a strong trend (especially at a high or low) often precedes a reversal. But here's the key: don't trade the doji itself. Trade the <em>next bar</em>. The doji just tells you "this trend is tired." The next candle will tell you who wins — if it closes below the doji, sellers won. If above, buyers won. Doji = setup bar. Next bar = execution.</div>
+
+        <!-- LESSON 7: Trend Structure (HH/HL vs LH/LL) -->
+        <h2>7. Trend Structure — How to Recognize Up vs Down</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 280" role="img" aria-labelledby="trend-t trend-d">
+            <title id="trend-t">Trend Structure: HH/HL vs LH/LL</title>
+            <desc id="trend-d">Left: higher highs and higher lows = uptrend. Right: lower highs and lower lows = downtrend</desc>
+            <rect width="560" height="280" fill="#070c18"/>
+            <!-- UPTREND (HH/HL) -->
+            <g transform="translate(60,200)">
+              <!-- Highs line -->
+              <line x1="0" y1="0" x2="10" y2="-25" stroke="#22c55e" stroke-width="2"/>
+              <line x1="10" y1="-25" x2="20" y2="-40" stroke="#22c55e" stroke-width="2"/>
+              <line x1="20" y1="-40" x2="30" y2="-55" stroke="#22c55e" stroke-width="2"/>
+              <circle cx="0" cy="0" r="3" fill="#22c55e"/>
+              <circle cx="10" cy="-25" r="3" fill="#22c55e"/>
+              <circle cx="20" cy="-40" r="3" fill="#22c55e"/>
+              <circle cx="30" cy="-55" r="3" fill="#22c55e"/>
+              <!-- Lows line -->
+              <line x1="0" y1="15" x2="10" y2="0" stroke="#86efac" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <line x1="10" y1="0" x2="20" y2="-15" stroke="#86efac" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <line x1="20" y1="-15" x2="30" y2="-30" stroke="#86efac" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="15" r="2" fill="#86efac"/>
+              <circle cx="10" cy="0" r="2" fill="#86efac"/>
+              <circle cx="20" cy="-15" r="2" fill="#86efac"/>
+              <circle cx="30" cy="-30" r="2" fill="#86efac"/>
+              <!-- Labels -->
+              <text x="35" y="-60" fill="#22c55e" font-size="11" font-weight="700">HH (Higher High)</text>
+              <text x="35" y="-45" fill="#86efac" font-size="11" font-weight="700">HL (Higher Low)</text>
+              <text x="5" y="45" fill="#22c55e" font-size="10" font-weight="600">UPTREND</text>
+            </g>
+            <!-- DOWNTREND (LH/LL) -->
+            <g transform="translate(310,100)">
+              <!-- Highs line -->
+              <line x1="0" y1="0" x2="10" y2="20" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <line x1="10" y1="20" x2="20" y2="35" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <line x1="20" y1="35" x2="30" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <circle cx="0" cy="0" r="2" fill="#fca5a5"/>
+              <circle cx="10" cy="20" r="2" fill="#fca5a5"/>
+              <circle cx="20" cy="35" r="2" fill="#fca5a5"/>
+              <circle cx="30" cy="50" r="2" fill="#fca5a5"/>
+              <!-- Lows line -->
+              <line x1="0" y1="20" x2="10" y2="35" stroke="#ef4444" stroke-width="2"/>
+              <line x1="10" y1="35" x2="20" y2="50" stroke="#ef4444" stroke-width="2"/>
+              <line x1="20" y1="50" x2="30" y2="65" stroke="#ef4444" stroke-width="2"/>
+              <circle cx="0" cy="20" r="3" fill="#ef4444"/>
+              <circle cx="10" cy="35" r="3" fill="#ef4444"/>
+              <circle cx="20" cy="50" r="3" fill="#ef4444"/>
+              <circle cx="30" cy="65" r="3" fill="#ef4444"/>
+              <!-- Labels -->
+              <text x="35" y="5" fill="#fca5a5" font-size="11" font-weight="700">LH (Lower High)</text>
+              <text x="35" y="20" fill="#ef4444" font-size="11" font-weight="700">LL (Lower Low)</text>
+              <text x="5" y="85" fill="#ef4444" font-size="10" font-weight="600">DOWNTREND</text>
+            </g>
+          </svg>
+          <figcaption><strong>Left:</strong> Uptrend = each peak is higher than the last (HH), and each valley is higher than the last (HL). <strong>Right:</strong> Downtrend = each peak is lower than the last (LH), and each valley is lower than the last (LL).</figcaption>
+        </figure>
+        <div class="explain"><strong>Why this is your foundation:</strong> Before you can spot a reversal pattern, you must first confirm there IS something to reverse. HH/HL = uptrend. If the next swing low breaks the previous swing low (LL), the uptrend is broken. That's when reversals (Double Tops, Double Bottoms) become relevant. Without a clear prior trend, a pattern is just random noise that <em>looks</em> like a pattern.</div>
+
+        <!-- LESSON 8: Support & Resistance Flip -->
+        <h2>8. Support &amp; Resistance Flip — Old Resistance Becomes Support</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="flip-t flip-d">
+            <title id="flip-t">Support and Resistance Flip</title>
+            <desc id="flip-d">Price approaches a level from below (acts as resistance), then after breaking above, price returns to that same level (now acts as support)</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Initial resistance line -->
+            <line x1="80" y1="120" x2="480" y2="120" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="490" y="118" fill="#ef4444" font-size="10" font-weight="600">RESISTANCE</text>
+            <!-- Phase 1: Price bounces down from resistance -->
+            <path d="M 100,150 L 140,125 L 160,130 L 180,125" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+            <text x="100" y="170" fill="#fca5a5" font-size="9">Rejected</text>
+            <text x="100" y="180" fill="#fca5a5" font-size="9">from above</text>
+            <!-- Phase 2: Price breaks above resistance -->
+            <path d="M 180,125 L 220,90 L 260,75" stroke="#22c55e" stroke-width="3" fill="none"/>
+            <text x="190" y="60" fill="#86efac" font-size="9" font-weight="600">BREAK</text>
+            <!-- Phase 3: Price retests from above (now it's support) -->
+            <path d="M 260,75 L 300,110 L 320,115" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+            <line x1="80" y1="115" x2="480" y2="115" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="490" y="113" fill="#22c55e" font-size="10" font-weight="600">SUPPORT</text>
+            <text x="280" y="140" fill="#86efac" font-size="9">Bounces UP</text>
+            <text x="280" y="150" fill="#86efac" font-size="9">from support</text>
+          </svg>
+          <figcaption>Same price level flips role: first it <em>resists</em> upward moves (ceiling), then after a break above, it <em>supports</em> downward moves (floor).</figcaption>
+        </figure>
+        <div class="explain"><strong>Why this is gold:</strong> This is where your second entries come from. A Bull Flag breaks above a neckline, price runs, then comes back to retest that neckline. That neckline just flipped from resistance to support. Now <em>any</em> touch near it is a potential retest entry — often cleaner than the initial break entry. Mark all your old resistance lines; they become your support retests.</div>
+
+        <!-- LESSON 9: Break & Retest -->
+        <h2>9. Break &amp; Retest — The Cleanest Second-Chance Entry</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="retest-t retest-d">
+            <title id="retest-t">Break and Retest Entry</title>
+            <desc id="retest-d">Pattern breaks a key level, price pulls back toward that level (retest), then continues in the original direction</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Pattern (W shape = Double Bottom context) -->
+            <path d="M 60,180 L 110,100 L 150,180 L 190,120" stroke="#cbd5e1" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <!-- Neckline -->
+            <line x1="40" y1="120" x2="500" y2="120" stroke="#22c55e" stroke-width="2"/>
+            <text x="510" y="118" fill="#22c55e" font-size="10" font-weight="600">NECKLINE</text>
+            <!-- Break (going up, bullish) -->
+            <path d="M 190,120 L 250,60 L 280,45" stroke="#22c55e" stroke-width="3" fill="none"/>
+            <text x="210" y="75" fill="#86efac" font-size="10" font-weight="700">BREAK</text>
+            <!-- Retest (pull back down) -->
+            <path d="M 280,45 L 310,105" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+            <circle cx="310" cy="105" r="5" fill="#14b8a6"/>
+            <text x="315" y="130" fill="#14b8a6" font-size="10" font-weight="700">✓ RETEST ENTRY</text>
+            <!-- Continuation -->
+            <path d="M 310,105 L 360,50 L 400,25" stroke="#22c55e" stroke-width="3" fill="none"/>
+            <text x="360" y="35" fill="#86efac" font-size="9">Continue</text>
+          </svg>
+          <figcaption>Price breaks a key level (like a neckline). Price then pulls back to that level (the retest). This retest often becomes your cleanest entry: lower risk (stop just outside the level), better confirmation (the break already happened).</figcaption>
+        </figure>
+        <div class="explain"><strong>Why pro traders use this:</strong> The break entry is fast but risky — lots of people jumping in at once, slippage is high. The retest entry is safer — price proved it can break, now you see if it holds the break. If price retests and bounces UP from that level, you know it's now true support. And your stop is tiny — just below the retest low. This is the entry method that scales best for larger positions.</div>
+        <div class="xref"><strong>This applies to all 4 patterns.</strong> Double Bottom breaks neckline up → retest neckline for 2nd entry. Double Top breaks neckline down → retest neckline for 2nd entry. Bull Flag breaks above flag high → retest for 2nd entry. Bear Flag breaks below flag low → retest for 2nd entry.</div>
+
+        <!-- LESSON 10: The Wick Trap -->
+        <h2>10. The Wick Trap — Why You MUST Wait for the Close</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 260" role="img" aria-labelledby="trap-t trap-d">
+            <title id="trap-t">The Wick Trap: Early Entry vs Close Entry</title>
+            <desc id="trap-d">Left: A long wick extends below support but the bar closes above (trap for early sellers). Right: Patience is rewarded when bar closes above, confirming the pattern</desc>
+            <rect width="560" height="260" fill="#070c18"/>
+            <!-- Support line -->
+            <line x1="30" y1="140" x2="530" y2="140" stroke="#22c55e" stroke-width="2" stroke-dasharray="4,4"/>
+            <text x="35" y="155" fill="#22c55e" font-size="11" font-weight="600">SUPPORT (Neckline)</text>
+            <!-- LEFT: Wick trap (early entry loses) -->
+            <g transform="translate(150,100)">
+              <text x="0" y="-30" fill="#fca5a5" font-size="10" font-weight="700" text-anchor="middle">WICK TRAP</text>
+              <!-- Bar with long lower wick -->
+              <line x1="0" y1="-20" x2="0" y2="50" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="-14" y="-15" width="28" height="20" fill="#22c55e" stroke="#22c55e" stroke-width="1"/>
+              <!-- Annotation: early entry at wick -->
+              <circle cx="0" cy="30" r="4" fill="#ef4444" opacity="0.7"/>
+              <text x="30" y="35" fill="#ef4444" font-size="9" font-weight="600">❌ EARLY ENTRY</text>
+              <text x="30" y="47" fill="#ef4444" font-size="8">Wick takes you out</text>
+              <text x="30" y="56" fill="#ef4444" font-size="8">for small loss</text>
+            </g>
+            <!-- RIGHT: Close entry (patience wins) -->
+            <g transform="translate(380,100)">
+              <text x="0" y="-30" fill="#86efac" font-size="10" font-weight="700" text-anchor="middle">PATIENT ENTRY</text>
+              <!-- Same bar -->
+              <line x1="0" y1="-20" x2="0" y2="50" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="-14" y="-15" width="28" height="20" fill="#22c55e" stroke="#22c55e" stroke-width="2"/>
+              <!-- Annotation: entry at close -->
+              <circle cx="0" cy="-15" r="4" fill="#22c55e"/>
+              <text x="30" y="-8" fill="#86efac" font-size="9" font-weight="600">✓ CLOSE ENTRY</text>
+              <text x="30" y="4" fill="#86efac" font-size="8">Bar closes above support</text>
+              <text x="30" y="13" fill="#86efac" font-size="8">Stop below low: plenty of room</text>
+            </g>
+          </svg>
+          <figcaption>The same bar formation: price pokes below support (the wick), then closes above. Early traders got stopped out at the wick. Patient traders waited for the close and got confirmed entry.</figcaption>
+        </figure>
+        <div class="explain"><strong>The most expensive lesson:</strong> In 2-minute scalping, this is THE pattern killer. You see price poke through support, you enter. Then in the last 30 seconds of the bar, price snaps back and closes above support. You're out for a loss at exactly the moment the pattern is being confirmed. Waiting 60 more seconds for the close eliminates this. Yes, you enter 60 seconds later. But you also stop being a victim of wicks. This habit alone is worth 5–10% of your returns.</div>
+
+        <!-- LESSON 11: Measured Move (Flagpole × 100%) -->
+        <h2>11. Measured Move — The Math of Your Target</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 280" role="img" aria-labelledby="mm-t mm-d">
+            <title id="mm-t">Measured Move Target Calculation</title>
+            <desc id="mm-d">Flagpole height × 100% added to breakout point = target. Left: Bull flag. Right: Double bottom showing pole and neckline height.</desc>
+            <rect width="560" height="280" fill="#070c18"/>
+            <!-- BULL FLAG example -->
+            <g transform="translate(100,180)">
+              <!-- Flagpole (the initial push) -->
+              <line x1="0" y1="0" x2="0" y2="-80" stroke="#22c55e" stroke-width="4"/>
+              <text x="-35" y="-40" fill="#22c55e" font-size="10" font-weight="600">Pole = 80 pts</text>
+              <!-- Flag (consolidation) -->
+              <line x1="0" y1="-80" x2="40" y2="-70" stroke="#cbd5e1" stroke-width="2"/>
+              <line x1="0" y1="-80" x2="40" y2="-80" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+              <line x1="40" y1="-70" x2="40" y2="-80" stroke="#cbd5e1" stroke-width="2"/>
+              <!-- Breakout -->
+              <line x1="40" y1="-75" x2="60" y2="-155" stroke="#22c55e" stroke-width="3"/>
+              <text x="50" y="-155" fill="#86efac" font-size="9" font-weight="600">BREAK</text>
+              <!-- Target calculation box -->
+              <rect x="-30" y="-165" width="90" height="35" fill="rgba(34,197,94,.1)" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+              <text x="15" y="-150" fill="#86efac" font-size="9" font-weight="700" text-anchor="middle">Breakout + 80</text>
+              <text x="15" y="-140" fill="#cbd5e1" font-size="8" text-anchor="middle">= TARGET</text>
+            </g>
+            <!-- DOUBLE BOTTOM example -->
+            <g transform="translate(330,180)">
+              <!-- Left trough -->
+              <line x1="0" y1="0" x2="0" y2="-60" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Neckline -->
+              <line x1="0" y1="-60" x2="40" y2="-60" stroke="#22c55e" stroke-width="2"/>
+              <text x="20" y="-50" fill="#22c55e" font-size="9" font-weight="600">Neckline</text>
+              <!-- Right trough -->
+              <line x1="40" y1="-60" x2="40" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+              <!-- Height from trough to neckline = 60 pts -->
+              <path d="M 50,-60 L 50,0" stroke="#eab308" stroke-width="2" stroke-dasharray="3,3"/>
+              <text x="60" y="-30" fill="#eab308" font-size="10" font-weight="600">H = 60 pts</text>
+              <!-- Target: neckline + height -->
+              <line x1="0" y1="-60" x2="40" y2="-60" stroke="#22c55e" stroke-width="2"/>
+              <line x1="0" y1="-120" x2="40" y2="-120" stroke="#86efac" stroke-width="2" stroke-dasharray="3,3"/>
+              <text x="50" y="-115" fill="#86efac" font-size="9" font-weight="600">Target</text>
+              <text x="50" y="-105" fill="#cbd5e1" font-size="8">(Neckline + 60)</text>
+            </g>
+          </svg>
+          <figcaption><strong>Bull Flag:</strong> Flagpole height × 100% = distance from breakout to target. <strong>Double Bottom:</strong> Pattern height (trough to neckline) = distance from neckline to target.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why this is non-negotiable:</strong> Your target isn't a guess. It's math. Measure the flagpole height (or pattern height for DB/DT). That distance, projected from your entry, is where institutional traders' profit targets sit. Price WANTS to go there because orders are stacked there. Your job: don't get greedy beyond it, don't bail short of it. Let the math work.</div>
+
+        <!-- LESSON 12: R-Multiple Explained -->
+        <h2>12. R-Multiple — Understanding 1R, 2R, 3R Wins</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="rmult-t rmult-d">
+            <title id="rmult-t">R-Multiple: Risk vs Reward</title>
+            <desc id="rmult-d">1R (win = risk), 2R (win = 2× risk), 3R (win = 3× risk). Shows how gains scale with the same risk amount.</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Entry & Stop lines -->
+            <line x1="40" y1="100" x2="520" y2="100" stroke="#cbd5e1" stroke-width="2"/>
+            <text x="35" y="95" fill="#cbd5e1" font-size="10" font-weight="600">ENTRY</text>
+            <line x1="40" y1="150" x2="520" y2="150" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+            <text x="35" y="170" fill="#ef4444" font-size="10" font-weight="600">STOP (-50 pts)</text>
+            <!-- 1R Target -->
+            <line x1="40" y1="50" x2="520" y2="50" stroke="#fcd34d" stroke-width="2" stroke-dasharray="3,3"/>
+            <text x="35" y="40" fill="#fcd34d" font-size="10" font-weight="600">1R TARGET (+50)</text>
+            <!-- 2R Target -->
+            <line x1="40" y1="0" x2="520" y2="0" stroke="#86efac" stroke-width="2" stroke-dasharray="3,3"/>
+            <text x="35" y="-5" fill="#86efac" font-size="10" font-weight="600">2R TARGET (+100)</text>
+            <!-- Distance annotations -->
+            <path d="M 470,100 L 470,150" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="480" y="127" fill="#ef4444" font-size="10" font-weight="600">50 pts</text>
+            <text x="480" y="140" fill="#ef4444" font-size="9">(1R of risk)</text>
+            <path d="M 500,100 L 500,50" stroke="#fcd34d" stroke-width="1.5"/>
+            <text x="510" y="80" fill="#fcd34d" font-size="10" font-weight="600">50 pts</text>
+            <text x="510" y="93" fill="#fcd34d" font-size="9">(1R gain)</text>
+            <path d="M 530,100 L 530,0" stroke="#86efac" stroke-width="1.5"/>
+            <text x="540" y="55" fill="#86efac" font-size="10" font-weight="600">100 pts</text>
+            <text x="540" y="68" fill="#86efac" font-size="9">(2R gain)</text>
+          </svg>
+          <figcaption>"R" = the risk amount (entry to stop). 1R gain = you won your risk amount. 2R gain = you won double. 3R = triple. If you risk $50, 2R = +$100 profit. This language unifies all trade sizes.</figcaption>
+        </figure>
+        <div class="explain"><strong>The freedom this gives you:</strong> A trader scalping 5 contracts and a trader scalping 50 contracts can both talk the same language: "I took a 1.5R today." One trader made $75, the other made $750 — different money, same trading. R-multiples also show your edge. If your win rate is 60% but your average win is only 0.8R and your average loss is 1R, you're losing money. But if 60% of trades win 1.5R and 40% lose 1R, you're in profit. Know your R-profile.</div>
+
+        <!-- LESSON 13: Scale-Out Plan -->
+        <h2>13. Scale-Out — How Pros Exit: Half at 1R, Runner to 2R+</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 200" role="img" aria-labelledby="scale-t scale-d">
+            <title id="scale-t">Scale-Out Exit Plan</title>
+            <desc id="scale-d">Entry at 100, stop at 80 (1R=20). Close half at 120 (1R win). Trail stop to entry on remaining half. Let runner ride to 2R+.</desc>
+            <rect width="560" height="200" fill="#070c18"/>
+            <!-- Entry / stop / targets -->
+            <line x1="40" y1="110" x2="520" y2="110" stroke="#cbd5e1" stroke-width="2"/>
+            <text x="25" y="108" fill="#cbd5e1" font-size="10" font-weight="600">100</text>
+            <line x1="40" y1="150" x2="520" y2="150" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+            <text x="25" y="152" fill="#ef4444" font-size="10" font-weight="600">80</text>
+            <!-- 1R exit -->
+            <line x1="120" y1="90" x2="120" y2="130" stroke="#fcd34d" stroke-width="2"/>
+            <circle cx="120" cy="90" r="6" fill="#fcd34d"/>
+            <text x="100" y="80" fill="#fcd34d" font-size="10" font-weight="700">1R EXIT</text>
+            <text x="100" y="92" fill="#fcd34d" font-size="8">Sell 50%</text>
+            <!-- Trail stop -->
+            <line x1="120" y1="110" x2="360" y2="110" stroke="#86efac" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="200" y="125" fill="#86efac" font-size="9">Trail stop to entry</text>
+            <!-- 2R runner -->
+            <line x1="360" y1="70" x2="360" y2="115" stroke="#22c55e" stroke-width="2"/>
+            <circle cx="360" cy="70" r="6" fill="#22c55e"/>
+            <text x="330" y="55" fill="#22c55e" font-size="10" font-weight="700">2R+ RUNNER</text>
+            <text x="330" y="67" fill="#22c55e" font-size="8">Let remainder ride</text>
+          </svg>
+          <figcaption>Entry at 100, stop at 80 (1R = 20 pts). At 120 (1R gain), close half your position (lock in the 20-pt win). Move stop on the remaining half to breakeven. Let the rest run to 140+ (2R+).</figcaption>
+        </figure>
+        <div class="explain"><strong>Why pros use this:</strong> You lock in a guaranteed win (1R) with half, removing emotion. The trailing stop removes catastrophic risk — your worst case is breakeven on the runner. And if price keeps going, you have skin in the game for the big 2–3R move. This is the exit that balances "protect profit" with "let winners run." Most retailers close everything at 1R and miss the 2–3R days. Most retailers hold everything and get stopped back to breakeven.</div>
+
+        <!-- LESSON 14: Stochastics Divergence -->
+        <h2>14. Stochastics Divergence — Price Makes a New High, Indicator Doesn't</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="stoch-t stoch-d">
+            <title id="stoch-t">Stochastics Divergence: Bearish</title>
+            <desc id="stoch-d">Price makes higher high but Stochastics makes lower high. Divergence signals weakening momentum before reversal.</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Price chart top half -->
+            <g transform="translate(0,0)">
+              <text x="20" y="20" fill="#cbd5e1" font-size="11" font-weight="600">PRICE</text>
+              <line x1="40" y1="80" x2="40" y2="100" stroke="#cbd5e1" stroke-width="1"/>
+              <path d="M 60,100 L 100,50 L 130,70 L 170,30" stroke="#22c55e" stroke-width="2" fill="none"/>
+              <circle cx="100" cy="50" r="4" fill="#22c55e"/>
+              <circle cx="170" cy="30" r="4" fill="#22c55e"/>
+              <text x="155" y="20" fill="#22c55e" font-size="9">New High</text>
+              <line x1="40" y1="110" x2="200" y2="110" stroke="#cbd5e1" stroke-width="1" opacity="0.3"/>
+            </g>
+            <!-- Stochastics indicator bottom half -->
+            <g transform="translate(0,130)">
+              <text x="20" y="20" fill="#cbd5e1" font-size="11" font-weight="600">STOCHASTICS</text>
+              <line x1="40" y1="70" x2="40" y2="85" stroke="#cbd5e1" stroke-width="1"/>
+              <!-- Stoch line (weakening) -->
+              <path d="M 60,85 L 100,40 L 130,55 L 170,50" stroke="#14b8a6" stroke-width="2" fill="none"/>
+              <circle cx="100" cy="40" r="4" fill="#14b8a6"/>
+              <circle cx="170" cy="50" r="4" fill="#14b8a6"/>
+              <text x="155" y="30" fill="#fca5a5" font-size="9">Lower High!</text>
+              <!-- Horizontal reference -->
+              <line x1="40" y1="80" x2="200" y2="80" stroke="#cbd5e1" stroke-width="1" opacity="0.3"/>
+              <!-- Divergence annotation -->
+              <path d="M 100,0 L 100,30" stroke="#ef4444" stroke-width="2" stroke-dasharray="2,2"/>
+              <text x="75" y="65" fill="#ef4444" font-size="10" font-weight="700">DIVERGENCE</text>
+            </g>
+          </svg>
+          <figcaption>Price makes a new high (HH). But Stochastics (a momentum indicator) makes a lower high. Classic divergence: strength is fading even though price is reaching higher.</figcaption>
+        </figure>
+        <div class="explain"><strong>Why this spots reversals:</strong> Stochastics divergence is Bulkowski's #1 filter for Double Top quality. If the 2nd peak in a Double Top is accompanied by Stochastics divergence (especially 5,3,3 bearish divergence), the reversal odds jump from 52–62% to 60%+. It tells you: "Price is fighting to go higher, but momentum isn't backing it up." That's exhaustion. That's a setup screaming for a short.</div>
+
+        <!-- LESSON 15: Time-of-Day Profile -->
+        <h2>15. Time-of-Day — Why 11:30–1:30 ET Is Death</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="time-t time-d">
+            <title id="time-t">Time-of-Day Volatility Profile</title>
+            <desc id="time-d">Volatility (ATR) by hour of the trading day. High at open (9:30–11:00), dead in lunch (11:30–1:30), picks up power hour (2:00–3:30)</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Y-axis (ATR) -->
+            <line x1="50" y1="30" x2="50" y2="200" stroke="#cbd5e1" stroke-width="1"/>
+            <text x="15" y="120" fill="#cbd5e1" font-size="9">ATR</text>
+            <!-- X-axis (Time) -->
+            <line x1="50" y1="200" x2="520" y2="200" stroke="#cbd5e1" stroke-width="1"/>
+            <text x="240" y="225" fill="#cbd5e1" font-size="10" font-weight="600">Time (ET)</text>
+            <!-- Volatility bars -->
+            <rect x="70" y="100" width="30" height="100" fill="#86efac" opacity="0.8"/>
+            <text x="85" y="215" fill="#86efac" font-size="9" font-weight="600">9:30–11:00</text>
+            <text x="75" y="230" fill="#86efac" font-size="8">OPENING</text>
+            <rect x="120" y="60" width="30" height="140" fill="#22c55e"/>
+            <text x="130" y="215" fill="#22c55e" font-size="9" font-weight="600">11:00–11:30</text>
+            <!-- DEAD ZONE -->
+            <rect x="170" y="180" width="80" height="20" fill="#ef4444" opacity="0.6"/>
+            <text x="190" y="205" fill="#fca5a5" font-size="10" font-weight="700">LUNCH CHOP</text>
+            <text x="175" y="220" fill="#fca5a5" font-size="8">11:30–1:30 (AVOID)</text>
+            <!-- Recovery -->
+            <rect x="270" y="120" width="30" height="80" fill="#fcd34d" opacity="0.8"/>
+            <text x="275" y="215" fill="#fcd34d" font-size="9" font-weight="600">1:30–2:00</text>
+            <!-- Power hour -->
+            <rect x="320" y="70" width="30" height="130" fill="#22c55e"/>
+            <text x="320" y="215" fill="#22c55e" font-size="9" font-weight="600">2:00–3:30</text>
+            <text x="320" y="230" fill="#22c55e" font-size="8">POWER HOUR</text>
+          </svg>
+          <figcaption>Volatility peaks at open (institutions positioning), crashes during lunch (thin markets), and rebounds in power hour (final push). Pattern traders should focus 9:30–11:00 and 2:00–3:30 ET.</figcaption>
+        </figure>
+        <div class="explain"><strong>Brutal reality:</strong> The 11:30–1:30 window is <em>statistically</em> a loser zone. Volume is thin, spreads widen, and patterns fail at high rates because there's no institutional flow. You can see a textbook Double Bottom form at 11:45, and it'll bust by 12:15 because there just aren't buyers there. Your best trade windows: (1) 9:30–11:00 ET (institutions establishing), (2) 2:00–3:30 ET (final push). Respect this filter.</div>
+
+        <!-- LESSON 16: FOMO & The Chase Death Spiral -->
+        <h2>16. The FOMO Chase — The Death Spiral That Kills Most Traders</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 260" role="img" aria-labelledby="fomo-t fomo-d">
+            <title id="fomo-t">FOMO Chase: The Losing Spiral</title>
+            <desc id="fomo-d">Price runs, you chase at high prices, stop is huge, reward is tiny, you lose. Then revenge trade. Spiral accelerates losses.</desc>
+            <rect width="560" height="260" fill="#070c18"/>
+            <!-- Scenario 1: Clean entry -->
+            <g transform="translate(100,80)">
+              <text x="0" y="-15" fill="#86efac" font-size="10" font-weight="700">CLEAN ENTRY</text>
+              <line x1="0" y1="0" x2="0" y2="40" stroke="#cbd5e1" stroke-width="1"/>
+              <circle cx="0" cy="0" r="5" fill="#22c55e"/>
+              <text x="15" y="5" fill="#22c55e" font-size="9" font-weight="600">Entry</text>
+              <line x1="0" y1="40" x2="0" y2="80" stroke="#cbd5e1" stroke-width="1"/>
+              <circle cx="0" cy="80" r="4" fill="#ef4444"/>
+              <text x="15" y="85" fill="#ef4444" font-size="9">Stop (small)</text>
+              <line x1="0" y1="-20" x2="0" y2="-5" stroke="#cbd5e1" stroke-width="1"/>
+              <circle cx="0" cy="-20" r="4" fill="#fcd34d"/>
+              <text x="15" y="-15" fill="#fcd34d" font-size="9">Target</text>
+              <path d="M -20,0 L -20,80 L -10,80" stroke="#14b8a6" stroke-width="2" stroke-dasharray="2,2"/>
+              <text x="-45" y="40" fill="#14b8a6" font-size="8">GOOD R/R</text>
+            </g>
+            <!-- Scenario 2: Late chase entry -->
+            <g transform="translate(320,80)">
+              <text x="0" y="-15" fill="#fca5a5" font-size="10" font-weight="700">CHASE ENTRY</text>
+              <line x1="0" y1="-50" x2="0" y2="0" stroke="#cbd5e1" stroke-width="1" opacity="0.5"/>
+              <circle cx="0" cy="-50" r="4" fill="#22c55e" opacity="0.5"/>
+              <text x="15" y="-45" fill="#22c55e" font-size="8" opacity="0.7">(Clean entry)</text>
+              <!-- Your late entry -->
+              <circle cx="0" cy="0" r="5" fill="#ef4444"/>
+              <text x="15" y="5" fill="#ef4444" font-size="9" font-weight="600">YOU ENTER (late!)</text>
+              <!-- Stop way below -->
+              <line x1="0" y1="0" x2="0" y2="100" stroke="#cbd5e1" stroke-width="1"/>
+              <circle cx="0" cy="100" r="4" fill="#ef4444"/>
+              <text x="15" y="105" fill="#ef4444" font-size="9">Stop (HUGE!)</text>
+              <!-- Target barely above -->
+              <circle cx="0" cy="-10" r="3" fill="#fcd34d"/>
+              <text x="15" y="-5" fill="#fcd34d" font-size="8">Target (tiny room)</text>
+              <path d="M -20,0 L -20,100 L -10,100" stroke="#ef4444" stroke-width="2" stroke-dasharray="2,2"/>
+              <text x="-45" y="50" fill="#ef4444" font-size="8">BAD R/R!</text>
+            </g>
+          </svg>
+          <figcaption>Left: Clean entry at pattern completion = small stop, big target. Right: Chasing price after the move = huge stop, tiny target. The math is reversed and you'll lose.</figcaption>
+        </figure>
+        <div class="explain"><strong>This is where most money goes to die:</strong> You see a chart move fast. FOMO hits. You jump in without a pattern confirmation. Your entry is where other people's targets are. Your stop has to be huge (because the low/high is way back). Your reward is tiny (the move has legs left but not much). You need to win 4 times just to break even with 1 loss. You'll lose this trade. Then revenge hits — you immediately try to get it back on the next signal, but you're emotionally charged (Casino state, not Calm state). You take bad signals. You get bigger. You spiral. This kills accounts. The answer: if you're late, you're out. No entry. Next pattern.</div>
+
+        <!-- LESSON 17: Bust-to-Profit Setup -->
+        <h2>17. Bust-to-Profit — When a Failed DT Becomes a Bull Entry</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="bust-t bust-d">
+            <title id="bust-t">Bust-to-Profit: Failed Reversal Becomes New Trend</title>
+            <desc id="bust-d">Double Top forms and breaks down (looking like a short), but price retests the neckline from below, holds support, then continues down strong. That retest is a bull trap / a long entry for the new downtrend.</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Uptrend then two peaks (DT setup) -->
+            <path d="M 60,180 L 120,100 L 150,110 L 180,95" stroke="#22c55e" stroke-width="2" fill="none"/>
+            <text x="65" y="200" fill="#22c55e" font-size="9" font-weight="600">Uptrend</text>
+            <!-- Neckline -->
+            <line x1="40" y1="125" x2="500" y2="125" stroke="#ef4444" stroke-width="2"/>
+            <text x="455" y="120" fill="#ef4444" font-size="9" font-weight="600">Neckline</text>
+            <!-- Break down (short setup failed) -->
+            <path d="M 180,95 L 240,140 L 280,155" stroke="#fca5a5" stroke-width="2" fill="none" opacity="0.6"/>
+            <text x="200" y="135" fill="#fca5a5" font-size="9">Breaks down</text>
+            <!-- Retest of neckline from below (LONG ENTRY) -->
+            <path d="M 280,155 L 310,128" stroke="#22c55e" stroke-width="3" fill="none"/>
+            <circle cx="310" cy="128" r="6" fill="#22c55e"/>
+            <text x="315" y="135" fill="#86efac" font-size="10" font-weight="700">LONG ENTRY!</text>
+            <!-- Continues down strongly (the real trend) -->
+            <path d="M 310,128 L 360,60 L 420,20" stroke="#ef4444" stroke-width="3" fill="none"/>
+            <text x="360" y="50" fill="#fca5a5" font-size="9">Strong downtrend</text>
+          </svg>
+          <figcaption>A Double Top breaks down, looking like a confirmed short. But price comes back to retest the neckline and bounces hard OFF IT. That bounce off the neckline (now support) is a long entry into the new downtrend.</figcaption>
+        </figure>
+        <div class="explain"><strong>This is a hidden edge:</strong> Failed reversals often become the best continuation entries. A Double Top breaks down but then retests the neckline from below. If that retest holds (candle closes above neckline), it proves the neckline is now strong support. Many traders who got stopped out of the short are now covering (buying to close shorts), pushing price down hard. You enter long on that retest and ride the continuation down. The initial "fail" becomes the setup.</div>
+
+        <!-- LESSON 18: Pattern Recognition Flywheel -->
+        <h2>18. The Journal Flywheel — How Edge Emerges Over Time</h2>
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="fly-t fly-d">
+            <title id="fly-t">The Pattern Recognition Flywheel</title>
+            <desc id="fly-d">Journal → Analyze patterns → Spot your leaks → Refine filters → Trade better → Repeat. Over 100 trades, edge compounds.</desc>
+            <rect width="560" height="240" fill="#070c18"/>
+            <!-- Circle with 5 steps -->
+            <circle cx="280" cy="120" r="80" fill="none" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4,4"/>
+            <!-- Step 1: Journal -->
+            <g transform="translate(280,40)">
+              <rect x="-35" y="-15" width="70" height="30" fill="#14b8a6" opacity="0.2" stroke="#14b8a6" stroke-width="1.5" rx="4"/>
+              <text x="0" y="5" fill="#86efac" font-size="11" font-weight="700" text-anchor="middle">JOURNAL</text>
+              <text x="0" y="18" fill="#cbd5e1" font-size="8" text-anchor="middle">Log each trade</text>
+            </g>
+            <!-- Step 2: Analyze -->
+            <g transform="translate(380,80)">
+              <rect x="-35" y="-15" width="70" height="30" fill="#14b8a6" opacity="0.2" stroke="#14b8a6" stroke-width="1.5" rx="4"/>
+              <text x="0" y="5" fill="#86efac" font-size="11" font-weight="700" text-anchor="middle">ANALYZE</text>
+              <text x="0" y="18" fill="#cbd5e1" font-size="8" text-anchor="middle">Find patterns</text>
+            </g>
+            <!-- Step 3: Filter -->
+            <g transform="translate(360,160)">
+              <rect x="-35" y="-15" width="70" height="30" fill="#14b8a6" opacity="0.2" stroke="#14b8a6" stroke-width="1.5" rx="4"/>
+              <text x="0" y="5" fill="#86efac" font-size="11" font-weight="700" text-anchor="middle">REFINE</text>
+              <text x="0" y="18" fill="#cbd5e1" font-size="8" text-anchor="middle">Add filters</text>
+            </g>
+            <!-- Step 4: Execute -->
+            <g transform="translate(260,190)">
+              <rect x="-35" y="-15" width="70" height="30" fill="#14b8a6" opacity="0.2" stroke="#14b8a6" stroke-width="1.5" rx="4"/>
+              <text x="0" y="5" fill="#86efac" font-size="11" font-weight="700" text-anchor="middle">TRADE</text>
+              <text x="0" y="18" fill="#cbd5e1" font-size="8" text-anchor="middle">Better setup</text>
+            </g>
+            <!-- Step 5: Results -->
+            <g transform="translate(160,140)">
+              <rect x="-35" y="-15" width="70" height="30" fill="#86efac" opacity="0.3" stroke="#22c55e" stroke-width="2" rx="4"/>
+              <text x="0" y="5" fill="#22c55e" font-size="11" font-weight="700" text-anchor="middle">PROFIT</text>
+              <text x="0" y="18" fill="#cbd5e1" font-size="8" text-anchor="middle">Higher win rate</text>
+            </g>
+            <!-- Arrows -->
+            <path d="M 315,45 L 365,75" stroke="#14b8a6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 370,115 L 365,155" stroke="#14b8a6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 310,180 L 210,160" stroke="#14b8a6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 155,125 L 240,80" stroke="#22c55e" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)"/>
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                <polygon points="0 0, 10 5, 0 10" fill="#14b8a6"/>
+              </marker>
+              <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                <polygon points="0 0, 10 5, 0 10" fill="#22c55e"/>
+              </marker>
+            </defs>
+          </svg>
+          <figcaption>The flywheel: Keep a detailed journal. After 20 trades, analyze which setups won. Add filters (Stochastics divergence, time-of-day, Bulkowski shape). Trade the refined setup 20 more times. Repeat. Over 100 trades, your edge is visible and repeatable.</figcaption>
+        </figure>
+        <div class="explain"><strong>The hardest lesson to learn:</strong> There is no magic signal. Your edge comes from data. After 20 trades, you can't see patterns. After 50, patterns start. After 100, your <em>actual</em> edge becomes obvious. If 80% of your Double Bottom wins happen with Stochastics divergence but only 40% without, that's a filter worth $10K a month. But you only know that because you journaled, analyzed, and tested. The traders who "grind" for 5–10 years and become consistently profitable aren't special — they just journaled obsessively for 100+ trades and refined their setup mercilessly.</div>
+
+        <!-- Summary section -->
+        <div class="xref" style="margin-top: 24px; background: rgba(20,184,166,.08); border-left-color: #14b8a6;">
+          <strong>🎯 Masterclass Summary:</strong> These 18 lessons reinforce the 4 patterns and teach the skills needed to trade them profitably. Master the candlestick alphabet (lessons 1–6). Master market structure (lessons 7–9). Master entry and exit (lessons 10–14). Master psychology and session timing (lessons 15–18). Then journal 100 trades and refine your filters obsessively. That's the path from "I see the pattern" to "I profit from the pattern."
+        </div>
+
+      </div>
+    </div><!-- /tab-masterclass -->
 
   <!-- ==================== FOUR PRINCIPLES FINAL GATE ==================== -->
   <div class="final-gate">
