@@ -1819,6 +1819,20 @@
   .sidebar .tab-btn.tab-aggressive .tab-num { color: #fb923c; }
   .sidebar .tab-btn.tab-aggressive.active .tab-num { color: #ffffff; }
 
+  /* Red Flags tab — red "do not trade" accent */
+  .sidebar .tab-btn.tab-redflag {
+    background: rgba(248, 113, 113, 0.08);
+    border-color: rgba(248, 113, 113, 0.28);
+  }
+  .sidebar .tab-btn.tab-redflag:hover { border-color: #ef4444; color: #fca5a5; background: rgba(248, 113, 113, 0.16); }
+  .sidebar .tab-btn.tab-redflag.active {
+    background: linear-gradient(90deg, rgba(248, 113, 113, 0.32), rgba(248, 113, 113, 0.08));
+    border-color: #ef4444;
+    box-shadow: inset 3px 0 0 #ef4444, 0 0 14px rgba(248, 113, 113, 0.32);
+  }
+  .sidebar .tab-btn.tab-redflag .tab-num { color: #ef4444; }
+  .sidebar .tab-btn.tab-redflag.active .tab-num { color: #ffffff; }
+
   /* Review tab — lilac */
   .sidebar .tab-btn.tab-review {
     background: rgba(167, 139, 250, 0.06);
@@ -3061,6 +3075,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <!-- TRADE section -->
       <div class="nav-section trade">
         <div class="nav-section-header"><span class="nav-icon">💼</span> Trade</div>
+        <button class="tab-btn tab-redflag" data-tab="red-flags"><span class="tab-num">🚩</span>Red Flags — No Trade</button>
         <button class="tab-btn tab-tool" data-tab="state-gate"><span class="tab-num">🧘</span>State Gate</button>
         <button class="tab-btn tab-tool" data-tab="premarket"><span class="tab-num">📋</span>Pre-Market Prep</button>
         <button class="tab-btn tab-tool" data-tab="clock-matrix"><span class="tab-num">🕐</span>Clock Matrix</button>
@@ -3112,48 +3127,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <button class="btn" onclick="document.body.scrollIntoView({behavior:'smooth'})">↑ Top</button>
   </div>
 
-  <!-- ==================== RED FLAGS (top — always visible) ==================== -->
-  <div class="red-flags">
-    <h3>Red Flags — If ANY are true, no trade</h3>
-    <div class="red-flags-list" style="grid-template-columns: 1fr 1fr;">
-      <div>
-        Choppy range with no clear prior trend
-        <div class="explain"><strong>What this means</strong>
-          "Choppy" = price is bouncing around sideways inside a narrow band, up-down-up-down, with no direction. A double top or double bottom is a <em>reversal</em> pattern — it reverses something. If there's nothing to reverse (no trend), the pattern is just random noise that looks like a pattern. You need a real trend going in before a reversal has any meaning.
-        </div>
-      </div>
-      <div>
-        News/FOMC release within 15 min
-        <div class="explain"><strong>What this means</strong>
-          FOMC = Federal Open Market Committee (the Fed's interest-rate meetings). When major news drops — FOMC decisions, CPI, jobs reports — price can spike violently in any direction regardless of chart patterns. Your stop can get blown through by 20+ ticks of slippage. Pattern trading depends on orderly price action. News destroys that order. Wait until after.
-        </div>
-      </div>
-      <div>
-        Higher timeframe (15-min) trending hard against you
-        <div class="explain"><strong>What this means</strong>
-          You trade on the 2-minute chart, but the 15-minute chart shows the bigger picture. If the 15-min is ripping downward and you're trying to buy a double bottom on the 2-min, you're a minnow swimming against a whale. The bigger trend usually wins. Rule: small-timeframe trades should either agree with the bigger timeframe, or at least not fight a strong one.
-        </div>
-      </div>
-      <div>
-        ATR compressed below daily average (dead tape)
-        <div class="explain"><strong>What this means</strong>
-          ATR = Average True Range, a measure of how much price typically moves per bar. When ATR is below its daily average, bars are tiny — the market is "dead." Your measured-move target needs price to actually travel to get there. In a dead tape, price won't move far enough to pay you, but your stop is still the same size. Risk stays, reward shrinks. Bad math.
-        </div>
-      </div>
-      <div>
-        Price hasn't left the opening range
-        <div class="explain"><strong>What this means</strong>
-          The "opening range" is the high-to-low band set in the first 15–30 minutes after 9:30 ET. Until price breaks out of that band, the day has no direction yet — it's just institutions positioning. Patterns inside an unresolved opening range fail a lot because there's no committed flow yet. Wait for the breakout to tell you which side is winning.
-        </div>
-      </div>
-      <div>
-        Overlapping bars with no follow-through on either side
-        <div class="explain"><strong>What this means</strong>
-          "Overlapping bars" = each 2-min bar's range sits mostly inside the previous bar's range. "No follow-through" = every push up gets sold, every push down gets bought, neither side wins. That's the signature of balance/indecision. Reversal patterns need momentum to work. In balance, there's no momentum to harvest — you'll get chopped to death by small losses.
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Red Flags moved to its own tab in TRADE section (see #tab-red-flags). -->
 
   <!-- ==================== TAB CONTAINER ==================== -->
   <div class="tab-container">
@@ -8414,6 +8388,51 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="pm-actions">
           <button class="pm-save-btn" id="pm-save">Save today's plan</button>
           <span class="pm-saved-note" id="pm-saved-note"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: RED FLAGS (Branch 12 — moved from always-visible top block) ==================== -->
+  <div class="tab-panel" id="tab-red-flags">
+    <div class="red-flags">
+      <h3>Red Flags — If ANY are true, no trade</h3>
+      <div class="red-flags-list" style="grid-template-columns: 1fr 1fr;">
+        <div>
+          Choppy range with no clear prior trend
+          <div class="explain"><strong>What this means</strong>
+            "Choppy" = price is bouncing around sideways inside a narrow band, up-down-up-down, with no direction. A double top or double bottom is a <em>reversal</em> pattern — it reverses something. If there's nothing to reverse (no trend), the pattern is just random noise that looks like a pattern. You need a real trend going in before a reversal has any meaning.
+          </div>
+        </div>
+        <div>
+          News/FOMC release within 15 min
+          <div class="explain"><strong>What this means</strong>
+            FOMC = Federal Open Market Committee (the Fed's interest-rate meetings). When major news drops — FOMC decisions, CPI, jobs reports — price can spike violently in any direction regardless of chart patterns. Your stop can get blown through by 20+ ticks of slippage. Pattern trading depends on orderly price action. News destroys that order. Wait until after.
+          </div>
+        </div>
+        <div>
+          Higher timeframe (15-min) trending hard against you
+          <div class="explain"><strong>What this means</strong>
+            You trade on the 2-minute chart, but the 15-minute chart shows the bigger picture. If the 15-min is ripping downward and you're trying to buy a double bottom on the 2-min, you're a minnow swimming against a whale. The bigger trend usually wins. Rule: small-timeframe trades should either agree with the bigger timeframe, or at least not fight a strong one.
+          </div>
+        </div>
+        <div>
+          ATR compressed below daily average (dead tape)
+          <div class="explain"><strong>What this means</strong>
+            ATR = Average True Range, a measure of how much price typically moves per bar. When ATR is below its daily average, bars are tiny — the market is "dead." Your measured-move target needs price to actually travel to get there. In a dead tape, price won't move far enough to pay you, but your stop is still the same size. Risk stays, reward shrinks. Bad math.
+          </div>
+        </div>
+        <div>
+          Price hasn't left the opening range
+          <div class="explain"><strong>What this means</strong>
+            The "opening range" is the high-to-low band set in the first 15–30 minutes after 9:30 ET. Until price breaks out of that band, the day has no direction yet — it's just institutions positioning. Patterns inside an unresolved opening range fail a lot because there's no committed flow yet. Wait for the breakout to tell you which side is winning.
+          </div>
+        </div>
+        <div>
+          Overlapping bars with no follow-through on either side
+          <div class="explain"><strong>What this means</strong>
+            "Overlapping bars" = each 2-min bar's range sits mostly inside the previous bar's range. "No follow-through" = every push up gets sold, every push down gets bought, neither side wins. That's the signature of balance/indecision. Reversal patterns need momentum to work. In balance, there's no momentum to harvest — you'll get chopped to death by small losses.
+          </div>
         </div>
       </div>
     </div>
