@@ -241,3 +241,54 @@
 **What's next:** Verify "Sign in with Google" button works in live site; optionally tighten Firestore security rules
 **Important decisions:** Firebase project ID is `double-top-bottom-teach` (matches repo name without the trailing "ing")
 **Problems encountered:** None specific to this app
+
+---
+
+## Session — 2026-04-20 — v4.0 UNIFIED (11-branch merge)
+
+**What we did:**
+Executed the full 11-branch merge plan from `C:\Users\arnol\Desktop\MERGE-MASTER-PLAN.md` in a single session. Merged three predecessor apps (Double Top/Bottom teaching playbook [base], Arnie's Edge System, Arnie's Trading Academy) into one unified LEARN / TRADE / REVIEW program.
+
+**Branches shipped (sequential, merged to master, pushed live after each):**
+1. `feature/unified-nav-structure` — left sidebar with LEARN/TRADE/REVIEW sections + light-mode toggle
+2. `feature/migrate-edge-state-gate` — Four Principles state gate + 60-sec breath timer (replaces old always-visible gate)
+3. `feature/migrate-edge-premarket-prep` — Pre-Market Prep form (PDH/PDL/ONH/ONL/bias/setups/econ/mood/intent)
+4. `feature/migrate-edge-live-checklist` — 6-Box Live Checklist with GO/MARGINAL/PASS banner
+5. `feature/migrate-edge-daily-gates` — Daily Gates: max 3 trades · 2-loss lock · lunch chop 11:30–13:30 ET lock
+6. `feature/merge-journals` — 10-chip mistake tagging + localStorage namespace consolidation (playbook_*)
+7. `feature/migrate-edge-dashboard` — Edge Dashboard with win-rate by pattern/emotion/session/adherence/direction + mistake tag frequencies
+8. `feature/migrate-academy-pattern-quiz` — 41-scenario Canvas pattern quiz (TRUE/FALSE DB + DT)
+9. `feature/migrate-academy-calculators` — Tick / Position Sizer / R:R / P&L calculators for M2K, MES, RTY
+10. `feature/migrate-edge-flashcards` — 6-card flashcard trainer with inline SVGs
+11. `feature/final-polish` — SEO/metadata/README/CLAUDE.md/SESSION_NOTES updates + gallery card refresh
+
+**What's working:**
+- All 14 existing patterns/tools + 8 newly-migrated tools live at https://arnie-double-top-bottom.netlify.app
+- Firebase auth still locked to arnold.shapiro@gmail.com
+- PWA manifest + theme color intact
+- localStorage migrated to playbook_* namespace; legacy keys preserved as safety net
+- Every branch verified via preview_eval before commit; each merge Netlify-verified live before next branch
+
+**What's next:**
+- Arnie decides fate of originals (Edge System + Trading Academy) — archive / leave running / take down
+- Per master plan recommendation: archive both repos, keep live URLs 30 days as safety net, then take down
+- Uni's TA Bootcamp stays SEPARATE — untouched
+
+**Important decisions:**
+- Sequential merges (not parallel) — all 11 branches touch the same index.html, parallel would cause conflicts
+- Journal became a tab in REVIEW (it was always-visible below tabs previously)
+- Adapted Edge System's R-multiple dashboard to Playbook's dollar-based P&L schema
+- Condensed Academy's 60 quiz scenarios to 41 (same coverage, smaller footprint)
+- Dropped NQ from calculators, added M2K as Arnie's primary instrument
+- Old `.final-gate` Four Principles checklist removed (replaced by new State Gate tab)
+- Defensive null-guard on `captureChecklistState()` p1-p4 references (old checkboxes gone)
+
+**Problems encountered:**
+- Preview screenshot timed out once during State Gate testing (breath circle animation); DOM eval tests continued to confirm logic was correct
+- Initially attempted state-card click test via preview_click didn't register; programmatic `.click()` worked — non-blocking, likely a preview tool quirk
+
+**Files created/modified:**
+- `C:\Users\arnol\Desktop\merge-work\playbook\index.html` (working copy — 9000+ lines)
+- `C:\Users\arnol\Desktop\merge-work\serve-playbook-merge.js` (local dev server)
+- `C:\Users\arnol\Desktop\Project Files Do Not Delete\double-top-bottom-teaching\index.html` (synced after each branch)
+- README.md + CLAUDE.md + SESSION_NOTES.md all updated in B11

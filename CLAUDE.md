@@ -1,125 +1,100 @@
-# Arnie's Day Trading Setup Playbook
+# Arnie's Day Trading Setup Playbook — UNIFIED
 
 ## Project Name
-Arnie's Day Trading Setup Playbook — v3.1 (MES & M2K · 2-min scalping · 7 setups + 3 workflow tools + Aggressive Entry)
-(Formerly "Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags" v2.x · originally "Double Top / Double Bottom — M2K 2-Min Scalping Reference")
+Arnie's Day Trading Setup Playbook — v4.0 Unified (MES · M2K · RTY · 2-min scalping)
+The merged successor to three previous apps — Double Top/Bottom teaching playbook (this repo, the base), Arnie's Edge System, and Arnie's Trading Academy. Merged April 20, 2026.
 
 ## Purpose
-A single-file HTML trading reference app for M2K and MES 2-minute scalping. Covers four chart patterns — Double Top, Double Bottom, Bull Flag, Bear Flag — with inline plain-English teaching explanations for every concept. Also includes a Unified Principles reference tab that ties all four patterns together with 8 cross-pattern rules. Has quality scoring (0–5), red-flags panel, Four Principles discipline gate, trade journal with localStorage persistence, and CSV export.
+A single unified 2-minute futures scalping program covering the full workflow in three sidebar sections:
+- **LEARN** — 7 setup patterns + Aggressive Entry + Unified Principles + Visual Masterclass + Pattern Quiz + Calculators + Flashcards
+- **TRADE** — Four Principles State Gate + Pre-Market Prep + Clock Matrix + Decision Tree + 24-item Checklist + 6-Box Live Checklist + Daily Gates
+- **REVIEW** — Trade Journal + Edge Dashboard
 
 ## GitHub Repo
-`arnoldshapiro-del/double-top-bottom-teaching` (Phase 1 branch: `feature/add-flags-and-tops`, Phase 2 branch: `feature/enrich-db-dt-and-journal-dropdown`, both merged to `master`)
+`arnoldshapiro-del/double-top-bottom-teaching` (master branch)
+Branches 1-11 of the unified merge were all merged to master sequentially (Apr 20, 2026).
 
 ## Netlify Site URL
 https://arnie-double-top-bottom.netlify.app
 
 ## Tech Stack
 - Pure HTML + CSS + Vanilla JavaScript
-- No build step, no dependencies beyond Google Fonts (runtime CDN)
-- Single file: `index.html` (~2700 lines after v2.0 expansion)
-- Local dev server: `C:\Users\arnol\Desktop\serve-dtb-teaching.js` (port 3478, launched via `.claude/launch.json` config "dtb-teaching")
+- No build step. Single-file `index.html` (~9,000 lines after unified merge)
+- Google Fonts + Firebase compat SDK v10.14.1 at runtime
+- PWA: `manifest.json` in root
+- Firebase Google Auth locked to `arnold.shapiro@gmail.com`
 
 ## Current Status
-**v3.1 LIVE (2026-04-20).** Added ⚡ Aggressive Entry tab — the disciplined framework for entering BEFORE the candle closes when volume is explosive. 5-gate criteria (volume 3×, body past level, momentum active, morning session 9:45-11:30, 5-min trend agrees), MES 2+ pts / M2K 1.5+ pts thresholds, applied to all 7 setups with VALID vs WICK-TRAP trigger examples, stop placement comparison, 5 never-do disqualifiers, live 10-second decision scorecard, +0.50R math edge. Orange/amber "power" theme. 60+ inline SVG illustrations total.
+**v4.0 Unified LIVE (2026-04-20).** All 11 merge branches shipped in one session.
 
-**v3.0 (2026-04-20).** App renamed to "Arnie's Day Trading Setup Playbook." Expanded from 4 → 7 setups with Failed Breakout Reversal, ORB Retest, VWAP Mean Reversion with RSI. Added 3 workflow tools (Clock Matrix, Decision Tree, Pre-Trade Checklist).
+The three predecessor apps remain live as safety nets during the transition period:
+- Edge System: https://arnies-edge-system.netlify.app (still live)
+- Trading Academy: https://arnie-trading-academy.netlify.app (still live)
 
-## Features Completed (v1.x)
-- Double Top + Double Bottom checklists with quality scoring (0–5)
-- Red-flags panel
-- Final "Four Principles" discipline gate
-- Trade journal with localStorage persistence
-- CSV export
-- Print-friendly layout (landscape, Letter)
-- Plain-English teaching explanations under every concept
+Per the master plan (`C:\Users\arnol\Desktop\MERGE-MASTER-PLAN.md`), Arnie decides
+whether to archive / leave running / take down after verifying the unified app meets his needs.
 
-## Features Completed (v2.0 — Phase 1, 2026-04-15)
-- **App renamed** to "Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags" (title, H1, subtitle, footer, README, SEO meta tags)
-- **Tab navigation system** — 5 tabs (Double Bottom default, Double Top, Bull Flag, Bear Flag, Unified Principles). CSS `order` property keeps Double Bottom first visually even though HTML source has Short/Double-Top column first
-- **Bull Flag tab built from scratch** — 7 sections: precision definition, anatomy, four entry methods (candle-close above breakout, break entry, pullback to 20-EMA, stochastic cross reversal), three stop-loss methods (below flag low, below 20-EMA, Fibonacci-based), M2K vs MES comparison, professional workflow, Arnie's 6-point personal approach
-- **Bear Flag tab built from scratch** — 9 sections including the critical "Bear Flags Are Faster and More Violent" callout, long-term upward market bias considerations, four entry methods, three stop-loss methods, M2K vs MES comparison, pro workflow, Arnie's 7-point approach
-- **Unified Principles tab** — 8 numbered cross-pattern rules (confirmation trumps prediction, risk before reward, 61.8% Fib invalidation, trend alignment, measured-move targets, volume confirmation, higher-timeframe filter, emotional discipline) plus a cross-reference map that shows where each principle applies across the four patterns
-- **Print-friendly** — print media query shows all tab panels sequentially with `page-break-after: always` so physical printouts cover all four patterns
-- **SEO meta tags** — title, description, keywords added to `<head>`
-- **No regressions** — all existing scoring, journal, CSV export, and Four Principles gate preserved
+**Uni's TA Bootcamp (unis-ta-bootcamp-day1.netlify.app) stays SEPARATE — do not touch it.**
 
-## Features Completed (v2.1 — Phase 2, 2026-04-15)
-- **Double Bottom enrichment** — 4 new sections appended (6: Two Entry Methods Break-Above vs. Close-Above with win rates 40–50% vs. 55–65%; 7: What Professionals Actually Do + Hybrid variation; 8: Win Rate Differences; 9: Recommendation for Arnie — 4 sub-points including "forces patience", "algos hunt breakout entries", "hybrid approach later", "practical observation tip")
-- **Double Top enrichment** — 4 new sections appended (6: Two Entry Methods Break-Below vs. Close-Below with win rates 38–48% vs. 52–62%; 7: What Professionals Do + upward-bias caveat; 8: Win Rate Differences; 9: Recommendation with selectivity filters — higher-timeframe check, Stochastics 5,3,3 bearish divergence, volume fingerprint, "60%+ with filters")
-- **Trade journal Pattern dropdown** — new `<select id="t-pattern">` with 4 options (Double Bottom / Double Top / Bull Flag / Bear Flag); change handler auto-sets Direction (DB/BullFlag→LONG, DT/BearFlag→SHORT); pattern field captured in `logTrade()` payload; `clearForm()` includes t-pattern; `renderRecent()` has a new Pattern column showing abbreviated labels; recent-row CSS grid adjusted from 6 to 7 columns; CSV export automatically picks up the new field
-- **No regressions** — all existing Double Bottom / Double Top checklists, scoring, Four Principles gate, localStorage format preserved. Pattern is an additive field so legacy trades just render blank in that column
+## localStorage schema (playbook_ namespace — Branch 6)
+All data keys now namespaced under `playbook_`. Legacy keys (`arnie_m2k_trades_v1`, `state`, `blockedAt`, `premarket_*`, `fc_stats`) preserved non-destructively as safety net.
+- `playbook_trades` — trade objects array
+- `playbook_state` — `{ name, at }` from State Gate (4-hour persistence)
+- `playbook_blockedAt` — `{ state, at }` when non-Calm selected
+- `playbook_premarket_YYYY-MM-DD` — per-date pre-market plan
+- `playbook_fc_stats` — `{ correct, total }` flashcard accuracy
+- `playbook_theme` — `dark` | `light`
+- `playbook_migrated_v1` — migration sentinel
 
-## Features Completed (v2.2 — Phase 3, 2026-04-15)
-- **Readability overhaul** — All dim/faded text classes brightened: `--ink` #f4f2ec, `--ink-dim` #d5d9e0, `--ink-faint` #a8b0bc. `.explain`, `.dlabel`, `.section-label`, `.who`, `.pro`, `.con`, `.xref`, `.note`, `.tip`, `.gate-explain`, `.win-note` all now render at high contrast
-- **Sticky tab navigation** — `.tab-nav` is `position: sticky; top: 0; z-index: 500` with teal glow border and a label "▼ Click a pattern to study it — all four patterns and the unified rules are here:" so Bull Flag and Bear Flag tabs are impossible to miss
-- **Two-method simplification across all 4 patterns** — For every pattern (DB, DT, Bull Flag, Bear Flag): removed Method 1 (break entry, 40–50% WR) and Method 3 (full-confirmation entry). Kept exactly 2 methods: (1) candle-close entry labeled "Recommended for You" + blue `.you-recommend-callout` callout; (2) close + pullback entry labeled `.expert-backup-label` "Once you're experienced"
-- **New CSS tokens** — `--recommend: #60a5fa` and `--recommend-glow: rgba(96,165,250,0.18)` added to `:root`
-- **Blue calming recommendation callout** — `.you-recommend-callout` with gradient blue bg, 6px left border, `★ This is the way I recommend for you` label, and plain-English explanation per pattern
-- **Expert Backup label** — purple inline badge `.expert-backup-label` marking the second method "Once you're experienced"
+## Features by branch
+- **B1** — Unified nav: LEARN / TRADE / REVIEW sidebar + light-mode toggle
+- **B2** — Four Principles State Gate + 60-sec breath timer (replaces old always-visible Four Principles)
+- **B3** — Pre-Market Prep form (PDH/PDL/ONH/ONL/bias/setups/econ/mood/intent)
+- **B4** — 6-Box Live Checklist with GO/MARGINAL/PASS banner
+- **B5** — Daily Gates: max 3 trades · 2-loss lock · 11:30-13:30 lunch lock
+- **B6** — Journal merge: 10-chip mistake tagging + localStorage namespace migration
+- **B7** — Edge Dashboard: win-rate by pattern/emotion/session/adherence/direction + mistake tag frequencies
+- **B8** — Pattern Quiz: 41 Canvas-rendered scenarios (true + false DBs and DTs)
+- **B9** — Calculators: tick converter · position sizer · R:R · P&L scenarios (M2K/MES/RTY)
+- **B10** — Flashcard Trainer: 6 deliberate-practice cards with inline SVG
+- **B11** — Final polish: SEO, metadata, README, CLAUDE.md, SESSION_NOTES
 
-## Features Completed (v2.3 — Phase 4, 2026-04-18)
-- **Firebase sign-in infinite loop FIXED** (from prior session, commit 5f3910f): removed duplicate `onAuthStateChanged` listener from the Phase2-AuthGate block that was racing the primary handler and calling `signOut()` 3–5 s after sign-in. Added `setPersistence(LOCAL)` and hardened the primary handler's email check. Verified live.
-- **PWA added** (commit 91e06fd): `manifest.json` in project root, `<link rel="manifest">`, `theme-color`, and apple-mobile-web-app tags injected into `<head>`.
-- **Bootcamp cross-link** added to header: `<a class="bootcamp-link" href="https://unis-ta-bootcamp-day1.netlify.app/">📚 Learn the Theory → Uni's TA Bootcamp</a>`.
-- **`.illus` CSS system** added: figure styling, side-by-side grid, print overrides, `.bootcamp-link` gradient.
-- **40 inline SVG illustrations** across all 5 tabs (up from 0):
-  - Hero figures for DT, DB, Bull Flag, Bear Flag, Unified (5)
-  - Four Principles discipline gate card (1)
-  - DT sections 1/2/3/4/5/6/7/8 (8 illustrations, covers context, volume, entry, stop, bust, entry-method comparison, win-rate, Stochastics divergence)
-  - DB sections 1/2/3/4/5/6/7/8 (8 illustrations, mirror of DT)
-  - Bull Flag sections 2/3/4/5/6/7 (6 illustrations)
-  - Bear Flag sections 2/3/4/5/6/7/8 (7 illustrations)
-  - Unified Principles 1/3/5/6 + cross-reference matrix (5 illustrations)
-- **All SVGs** follow the locked palette (`#22c55e` bullish, `#ef4444` bearish, `#14b8a6` teal, `#eab308` warning, `#cbd5e1` price line, `#475569` grid, `#070c18` chart bg) with `<title>` + `<desc>` for screen readers and `<figcaption>` for sighted users.
-- **No regressions** — tab switching, quality scoring, red-flags, Four Principles gate, pattern-tagged journal, CSV export, sticky tab nav, Recommended/Expert Backup callouts, Firebase auth, PWA manifest all intact.
-
-## Features Completed (v3.0 — 2026-04-20 · 5 branches merged sequentially)
-- **Branch 1 — Safe rename** — Display name changed to "Arnie's Day Trading Setup Playbook" (h1, subtitle, footer, SEO tags, manifest.json, README.md). Repo name and Netlify URL preserved.
-- **Branch 2 — Failed Breakout Reversal (Setup #5)** — Highest-edge setup (60–65% WR · 2:1 R:R). 7 sections, 9 SVG illustrations. Works at PDH/PDL, ORH/ORL, round numbers (6,500 MES / 2,500 M2K), DT/DB necklines, flag breaks.
-- **Branch 3 — ORB Retest (Setup #6)** — Max 1/day morning session breakout with retest confirmation. 6 criteria, 3-target execution (1R/2R/3R+), 5 kill switches. 6 SVG illustrations.
-- **Branch 4 — VWAP Mean Reversion with RSI (Setup #7)** — Midday 11:30–2:00 EST range play. 5 criteria, VWAP = Target 1, 5 kill switches. Edge math: +0.44R expectancy per trade, ~+26R/month projected. 6 SVG illustrations.
-- **Branch 5 — 3 Workflow Tools** — 🕐 Clock Matrix (7-row time-of-day setup guide with session timeline SVG), 🌳 Pre-Trade Decision Tree (4 yes/no gates · live GO/SKIP verdict), ✅ Pre-Trade Checklist (24 interactive tick-boxes · 5 sections · live counter).
-- **Tab nav** — expanded from 8 → 12 buttons. Workflow tools get distinct violet `.tab-tool` styling to distinguish utilities from setup patterns.
-- **Trade journal** — Pattern dropdown expanded with FAILED_BREAKOUT_LONG/SHORT, ORB_RETEST_LONG/SHORT, VWAP_MR_LONG/SHORT. Auto-direction logic updated. patternLabels map updated.
-- **All existing features preserved** — DB/DT/Bull Flag/Bear Flag, Unified Principles, Visual Masterclass (20 lessons), Firebase auth gate, PWA, Four Principles discipline gate, quality scoring, CSV export.
-
-## Features Planned / Next
-- None. App is feature-complete at v3.0.
-
-## Known Issues / Bugs
-None
-
-## Important Decisions
-- Kept single-file HTML stack (did NOT migrate to Vite+React+TS+Tailwind even though the task prompt assumed that stack)
-- Kept repo name `double-top-bottom-teaching` (did not rename)
-- Branch off `master` (repo has no `main`)
-- Tab navigation (not sidebar) to preserve existing card-based layout
-- Cover both M2K AND MES (not M2K-only)
-- Reference doc content added as NEW sections — did not replace existing checklists
-- Bull/Bear Flag called out the voice-dictation fidelity note ("Bow Flags and Bare Flags") and used correct "Bull/Bear" wording
+## Design system
+- Dark mode default · light mode toggle in sidebar (persisted in `playbook_theme`)
+- Left sidebar nav with 3 labeled sections (LEARN / TRADE / REVIEW)
+- Color accents:
+  - Teal `#14b8a6` — Calm state · flashcards
+  - Orange `#fb923c` — Aggressive Entry · Pre-Market Prep
+  - Violet `#c4b5fd` — Clock Matrix / Decision Tree / Checklist · Review
+  - Blue `#60a5fa` — Calculators
+  - Gold `#e6b859` — Pattern Quiz · Neckline annotations
+  - Red `#ef4444` — Daily Gates · Thunderstorm state · Failure zones
+- Typography: JetBrains Mono (body) · Fraunces (headings)
 
 ## File Structure
 ```
 /
-├── index.html       — Full single-file app (~3200+ lines, v2.2)
-├── netlify.toml     — Netlify config (publish from root, no build)
+├── index.html       — Full single-file app (~9000 lines after unified merge)
+├── manifest.json    — PWA manifest
+├── netlify.toml     — Netlify publish config
 ├── README.md        — Repo readme
 ├── CLAUDE.md        — This file
 └── SESSION_NOTES.md — Session history
 ```
 
-## Firebase Integration (added 2026-04-15)
-- **Firebase Project ID:** `double-top-bottom-teach`
-- **Auth:** Google Sign-In enabled (support email set manually by Arnie in Firebase console)
-- **Firestore:** Enabled (open rules during setup — may need to tighten)
-- **Implementation:** Firebase compat SDK v10.14.1 injected into `index.html` before `</head>`, floating auth widget in top-right corner
-- **Netlify domain authorized:** arnie-double-top-bottom.netlify.app
-- **Config:**
-  - apiKey: `AIzaSyBHorbhfLQhXJfEacAEOtvIi2nYq3LmWXU`
-  - authDomain: `double-top-bottom-teach.firebaseapp.com`
-  - messagingSenderId: `1034396474869`
-  - appId: `1:1034396474869:web:a02e34572548b7f7c1d4bc`
+## Firebase Integration (unchanged since v3.1)
+- Firebase Project ID: `double-top-bottom-teach`
+- Auth: Google Sign-In, locked to `arnold.shapiro@gmail.com`
+- Firestore: Enabled
+- Netlify domain authorized: `arnie-double-top-bottom.netlify.app`
 
 ## Project-Specific Rules
-- Always deploy via GitHub push → Netlify auto-builds
-- When reference document says "incorporate ALL content in full" — do not summarize or trim
+- Deploy via GitHub push → Netlify auto-builds
+- Never Vercel CLI
+- Every branch merged to master sequentially (no parallel merges)
+- localStorage keys MUST stay in `playbook_` namespace going forward
+- Three predecessor apps (Edge System, Trading Academy) stay live until Arnie decides their fate
+- Uni's TA Bootcamp is separate — NEVER merge it in
+
+## Known Issues / Bugs
+None at v4.0 ship. State Gate breath animation can cause preview screenshot timeouts during testing but does not affect users.
