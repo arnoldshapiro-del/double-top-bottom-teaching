@@ -2048,6 +2048,98 @@
   .non-calm-warning strong { color: #fca5a5; }
   .non-calm-warning a { color: #fca5a5; font-weight: 700; cursor: pointer; text-decoration: underline; }
 
+  /* ============ CALCULATORS — Branch 9 ============ */
+  .calc-inner { max-width: 960px; margin: 0 auto; padding: 14px 0; }
+  .calc-header { text-align: center; margin-bottom: 22px; }
+  .calc-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: #60a5fa;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .calc-lead { color: var(--ink-dim); font-size: 13.5px; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 780px) { .calc-grid { grid-template-columns: 1fr; } }
+  .calc-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-top: 3px solid #60a5fa;
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .calc-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .calc-row { margin-bottom: 12px; }
+  .calc-row label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .calc-row input, .calc-row select {
+    width: 100%;
+    background: var(--panel-2);
+    color: var(--ink);
+    border: 1.5px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    transition: border-color 0.15s;
+  }
+  .calc-row input:focus, .calc-row select:focus { outline: none; border-color: #60a5fa; }
+  .calc-btn {
+    background: #60a5fa;
+    color: #052;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-top: 4px;
+  }
+  .calc-btn:hover { background: #93c5fd; transform: translateY(-1px); }
+  .calc-result {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--panel-2);
+    border-left: 3px solid #60a5fa;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+  }
+  .calc-result .res-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.05);
+  }
+  .calc-result .res-row:last-child { border-bottom: none; }
+  .calc-result .res-label { color: var(--ink-dim); font-size: 12px; }
+  .calc-result .res-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .calc-result .res-val.big { font-size: 18px; color: #60a5fa; }
+
   /* ============ PATTERN QUIZ — Branch 8 ============ */
   .pq-inner { max-width: 960px; margin: 0 auto; padding: 14px 0; }
   .pq-header { text-align: center; margin-bottom: 18px; }
@@ -2827,6 +2919,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <button class="tab-btn" data-tab="unified"><span class="tab-num">8 ·</span>Unified Principles</button>
         <button class="tab-btn" data-tab="masterclass"><span class="tab-num">9 ·</span>📖 Visual Masterclass</button>
         <button class="tab-btn" data-tab="pattern-quiz"><span class="tab-num">🎯</span>Pattern Quiz</button>
+        <button class="tab-btn" data-tab="calculators"><span class="tab-num">🧮</span>Calculators</button>
       </div>
 
       <!-- TRADE section -->
@@ -7813,6 +7906,118 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-masterclass -->
 
+  <!-- ==================== TAB: CALCULATORS (Branch 9 — from Academy) ==================== -->
+  <div class="tab-panel" id="tab-calculators">
+    <div class="calc-inner">
+      <div class="calc-header">
+        <h2>🧮 Trading Calculators</h2>
+        <p class="calc-lead">Fast math for M2K, MES, and RTY. Turn "is this trade big enough?" and "can I size into this?" from gut feel into a number before you click.</p>
+      </div>
+      <div class="calc-grid">
+
+        <!-- Tick converter -->
+        <div class="calc-card">
+          <h3>Tick Converter — Ticks → $</h3>
+          <div class="calc-row">
+            <label for="c-tc-inst">Instrument</label>
+            <select id="c-tc-inst">
+              <option value="M2K">M2K (Micro Russell)</option>
+              <option value="MES" selected>MES (Micro S&amp;P)</option>
+              <option value="RTY">RTY (Full Russell)</option>
+            </select>
+          </div>
+          <div class="calc-row">
+            <label for="c-tc-ticks">Ticks</label>
+            <input type="number" id="c-tc-ticks" placeholder="e.g. 10">
+          </div>
+          <div class="calc-row">
+            <label for="c-tc-contracts">Contracts</label>
+            <input type="number" id="c-tc-contracts" value="1">
+          </div>
+          <button class="calc-btn" onclick="calcTick()">Calculate</button>
+          <div id="c-tc-result"></div>
+        </div>
+
+        <!-- Position sizer -->
+        <div class="calc-card">
+          <h3>Position Sizer — Max Risk → Contracts</h3>
+          <div class="calc-row">
+            <label for="c-ps-inst">Instrument</label>
+            <select id="c-ps-inst">
+              <option value="M2K">M2K</option>
+              <option value="MES" selected>MES</option>
+              <option value="RTY">RTY</option>
+            </select>
+          </div>
+          <div class="calc-row">
+            <label for="c-ps-risk">Max Risk ($)</label>
+            <input type="number" id="c-ps-risk" placeholder="e.g. 100">
+          </div>
+          <div class="calc-row">
+            <label for="c-ps-stop">Stop Distance (ticks)</label>
+            <input type="number" id="c-ps-stop" placeholder="e.g. 8">
+          </div>
+          <button class="calc-btn" onclick="calcPositionSize()">Calculate</button>
+          <div id="c-ps-result"></div>
+        </div>
+
+        <!-- R:R calculator -->
+        <div class="calc-card">
+          <h3>R:R Calculator</h3>
+          <div class="calc-row">
+            <label for="c-rr-inst">Instrument</label>
+            <select id="c-rr-inst">
+              <option value="M2K">M2K</option>
+              <option value="MES" selected>MES</option>
+              <option value="RTY">RTY</option>
+            </select>
+          </div>
+          <div class="calc-row">
+            <label for="c-rr-entry">Entry Price</label>
+            <input type="number" id="c-rr-entry" step="0.01" placeholder="e.g. 2400.0">
+          </div>
+          <div class="calc-row">
+            <label for="c-rr-stop">Stop Price</label>
+            <input type="number" id="c-rr-stop" step="0.01" placeholder="e.g. 2397.5">
+          </div>
+          <div class="calc-row">
+            <label for="c-rr-target">Target Price</label>
+            <input type="number" id="c-rr-target" step="0.01" placeholder="e.g. 2406.0">
+          </div>
+          <button class="calc-btn" onclick="calcRR()">Calculate</button>
+          <div id="c-rr-result"></div>
+        </div>
+
+        <!-- P&L scenarios -->
+        <div class="calc-card">
+          <h3>P&amp;L Scenario — Full-Win / Partial / Loss</h3>
+          <div class="calc-row">
+            <label for="c-pnl-inst">Instrument</label>
+            <select id="c-pnl-inst">
+              <option value="M2K">M2K</option>
+              <option value="MES" selected>MES</option>
+              <option value="RTY">RTY</option>
+            </select>
+          </div>
+          <div class="calc-row">
+            <label for="c-pnl-contracts">Contracts</label>
+            <input type="number" id="c-pnl-contracts" value="3">
+          </div>
+          <div class="calc-row">
+            <label for="c-pnl-stop-pts">Stop Distance (points)</label>
+            <input type="number" id="c-pnl-stop-pts" step="0.1" placeholder="e.g. 2.5">
+          </div>
+          <div class="calc-row">
+            <label for="c-pnl-tgt-pts">Target Distance (points)</label>
+            <input type="number" id="c-pnl-tgt-pts" step="0.1" placeholder="e.g. 5.0">
+          </div>
+          <button class="calc-btn" onclick="calcPLScenario()">Calculate</button>
+          <div id="c-pnl-result"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== TAB: PATTERN QUIZ (Branch 8 — from Academy) ==================== -->
   <div class="tab-panel" id="tab-pattern-quiz">
     <div class="pq-inner">
@@ -9119,6 +9324,95 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     if (!SCENARIOS) SCENARIOS = buildQuizScenarios();
     if (quizList.length === 0) { quizList = getQuizPool(); renderQuizChart(); updateQuizScore(); }
   }
+
+  // ========== CALCULATORS (Branch 9 — from Academy, adapted for M2K/MES/RTY) ==========
+  const INSTRUMENTS = {
+    M2K: { tick: 0.10, dpt: 0.50, dpp: 5,  label: 'M2K' },
+    MES: { tick: 0.25, dpt: 1.25, dpp: 5,  label: 'MES' },
+    RTY: { tick: 0.10, dpt: 5.00, dpp: 50, label: 'RTY' }
+  };
+
+  window.calcTick = function() {
+    const inst = document.getElementById('c-tc-inst').value;
+    const I = INSTRUMENTS[inst];
+    const ticks = parseFloat(document.getElementById('c-tc-ticks').value) || 0;
+    const contracts = parseFloat(document.getElementById('c-tc-contracts').value) || 1;
+    const dollars = ticks * I.dpt * contracts;
+    const pts = (ticks * I.tick).toFixed(2);
+    document.getElementById('c-tc-result').innerHTML =
+      '<div class="calc-result">' +
+      '<div class="res-row"><span class="res-label">Dollar Value</span><span class="res-val big">$' + dollars.toFixed(2) + '</span></div>' +
+      '<div class="res-row"><span class="res-label">Breakdown</span><span class="res-val">' + ticks + ' × $' + I.dpt.toFixed(2) + ' × ' + contracts + '</span></div>' +
+      '<div class="res-row"><span class="res-label">Equivalent in Points</span><span class="res-val">' + pts + ' pts</span></div>' +
+      '</div>';
+  };
+
+  window.calcPositionSize = function() {
+    const inst = document.getElementById('c-ps-inst').value;
+    const I = INSTRUMENTS[inst];
+    const risk = parseFloat(document.getElementById('c-ps-risk').value) || 0;
+    const stopTicks = parseFloat(document.getElementById('c-ps-stop').value) || 0;
+    if (risk <= 0 || stopTicks <= 0) {
+      document.getElementById('c-ps-result').innerHTML = '<div class="calc-result"><span class="res-label">Enter max risk $ and stop ticks.</span></div>';
+      return;
+    }
+    const dollarRiskPerContract = stopTicks * I.dpt;
+    const maxContracts = Math.floor(risk / dollarRiskPerContract);
+    const actualRisk = maxContracts * dollarRiskPerContract;
+    document.getElementById('c-ps-result').innerHTML =
+      '<div class="calc-result">' +
+      '<div class="res-row"><span class="res-label">Max Contracts</span><span class="res-val big">' + maxContracts + '</span></div>' +
+      '<div class="res-row"><span class="res-label">Risk per Contract</span><span class="res-val">$' + dollarRiskPerContract.toFixed(2) + '</span></div>' +
+      '<div class="res-row"><span class="res-label">Actual Risk @ Max Size</span><span class="res-val">$' + actualRisk.toFixed(2) + '</span></div>' +
+      (maxContracts === 0 ? '<div class="res-row"><span class="res-label" style="color:var(--bear)">⚠ Stop too wide for this risk — reduce stop or raise risk</span></div>' : '') +
+      '</div>';
+  };
+
+  window.calcRR = function() {
+    const inst = document.getElementById('c-rr-inst').value;
+    const I = INSTRUMENTS[inst];
+    const entry = parseFloat(document.getElementById('c-rr-entry').value);
+    const stop = parseFloat(document.getElementById('c-rr-stop').value);
+    const target = parseFloat(document.getElementById('c-rr-target').value);
+    if (isNaN(entry) || isNaN(stop) || isNaN(target)) {
+      document.getElementById('c-rr-result').innerHTML = '<div class="calc-result"><span class="res-label">Enter all three prices.</span></div>';
+      return;
+    }
+    const riskPts = Math.abs(entry - stop);
+    const rewardPts = Math.abs(target - entry);
+    const rr = rewardPts / riskPts;
+    const riskDollars = riskPts * I.dpp;
+    const rewardDollars = rewardPts * I.dpp;
+    const verdict = rr >= 2 ? { txt: 'GO — meets 2:1 floor', color: 'var(--bull)' }
+                  : rr >= 1.5 ? { txt: 'MARGINAL — borderline', color: 'var(--warn)' }
+                  : { txt: 'PASS — R:R too thin', color: 'var(--bear)' };
+    document.getElementById('c-rr-result').innerHTML =
+      '<div class="calc-result">' +
+      '<div class="res-row"><span class="res-label">Risk : Reward</span><span class="res-val big">' + rr.toFixed(2) + ':1</span></div>' +
+      '<div class="res-row"><span class="res-label">Risk</span><span class="res-val">' + riskPts.toFixed(2) + ' pts · $' + riskDollars.toFixed(2) + '/contract</span></div>' +
+      '<div class="res-row"><span class="res-label">Reward</span><span class="res-val">' + rewardPts.toFixed(2) + ' pts · $' + rewardDollars.toFixed(2) + '/contract</span></div>' +
+      '<div class="res-row"><span class="res-label">Verdict</span><span class="res-val" style="color:' + verdict.color + '">' + verdict.txt + '</span></div>' +
+      '</div>';
+  };
+
+  window.calcPLScenario = function() {
+    const inst = document.getElementById('c-pnl-inst').value;
+    const I = INSTRUMENTS[inst];
+    const contracts = parseFloat(document.getElementById('c-pnl-contracts').value) || 1;
+    const stopPts = parseFloat(document.getElementById('c-pnl-stop-pts').value) || 0;
+    const tgtPts = parseFloat(document.getElementById('c-pnl-tgt-pts').value) || 0;
+    const fullWin = tgtPts * I.dpp * contracts;
+    const partialWin = (tgtPts / 2) * I.dpp * contracts;
+    const fullLoss = -1 * stopPts * I.dpp * contracts;
+    const rr = stopPts > 0 ? (tgtPts / stopPts) : 0;
+    document.getElementById('c-pnl-result').innerHTML =
+      '<div class="calc-result">' +
+      '<div class="res-row"><span class="res-label">Full Win @ Target</span><span class="res-val" style="color:var(--bull)">+$' + fullWin.toFixed(2) + '</span></div>' +
+      '<div class="res-row"><span class="res-label">Partial (½ target)</span><span class="res-val" style="color:var(--bull)">+$' + partialWin.toFixed(2) + '</span></div>' +
+      '<div class="res-row"><span class="res-label">Full Loss @ Stop</span><span class="res-val" style="color:var(--bear)">-$' + Math.abs(fullLoss).toFixed(2) + '</span></div>' +
+      '<div class="res-row"><span class="res-label">R:R</span><span class="res-val">' + rr.toFixed(2) + ':1</span></div>' +
+      '</div>';
+  };
 
   // ========== DECISION TREE ==========
   const dtreeAnswers = { 1: null, 2: null, 3: null, 4: null };
