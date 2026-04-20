@@ -2048,6 +2048,147 @@
   .non-calm-warning strong { color: #fca5a5; }
   .non-calm-warning a { color: #fca5a5; font-weight: 700; cursor: pointer; text-decoration: underline; }
 
+  /* ============ 6-BOX LIVE CHECKLIST — Branch 4 ============ */
+  .livecheck-inner { max-width: 820px; margin: 0 auto; padding: 14px 0; }
+  .livecheck-header { text-align: center; margin-bottom: 22px; }
+  .livecheck-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: #c4b5fd;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .livecheck-lead {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .livecheck-lead strong { color: var(--ink); }
+  .livecheck-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 22px;
+  }
+  .lc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--line);
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: var(--panel-2);
+    transition: all 0.15s;
+  }
+  .lc-item:hover { border-color: #c4b5fd; }
+  .lc-item.checked { border-color: var(--bull); background: linear-gradient(180deg, rgba(74,222,128,0.10), rgba(74,222,128,0.02)); }
+  .lc-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--line-strong);
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+    border-radius: 4px;
+  }
+  .lc-item input[type="checkbox"]:checked {
+    background: var(--bull);
+    border-color: var(--bull);
+  }
+  .lc-item input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -3px; left: 2px;
+    color: #052016;
+    font-size: 15px;
+    font-weight: 900;
+  }
+  .lc-title {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .lc-hint {
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.55;
+  }
+  .lc-hint strong { color: var(--bear); }
+
+  .decision-banner {
+    margin: 20px 0 14px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--line);
+    background: var(--panel-2);
+    transition: all 0.25s;
+  }
+  .decision-banner.go {
+    border-color: var(--bull);
+    background: linear-gradient(135deg, rgba(74,222,128,0.18), rgba(74,222,128,0.05));
+    box-shadow: 0 0 22px rgba(74,222,128,0.22);
+  }
+  .decision-banner.marginal {
+    border-color: var(--warn);
+    background: linear-gradient(135deg, rgba(240,192,90,0.18), rgba(240,192,90,0.05));
+    box-shadow: 0 0 22px rgba(240,192,90,0.22);
+  }
+  .decision-banner.pass {
+    border-color: var(--bear);
+    background: linear-gradient(135deg, rgba(248,113,113,0.14), rgba(248,113,113,0.04));
+    box-shadow: 0 0 22px rgba(248,113,113,0.2);
+  }
+  .dec-verdict {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+  .decision-banner.go .dec-verdict { color: var(--bull); }
+  .decision-banner.marginal .dec-verdict { color: var(--warn); }
+  .decision-banner.pass .dec-verdict { color: var(--bear); }
+  .dec-sub {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .lc-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .lc-btn {
+    background: var(--panel-2);
+    color: var(--ink-dim);
+    border: 1px solid var(--line-strong);
+    padding: 9px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .lc-btn:hover {
+    border-color: #c4b5fd;
+    color: #c4b5fd;
+  }
+
   /* ============ PRE-MARKET PREP FORM — Branch 3 ============ */
   .premarket-inner { max-width: 920px; margin: 0 auto; padding: 14px 0; }
   .premarket-header { text-align: center; margin-bottom: 22px; }
@@ -2303,7 +2444,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <button class="tab-btn tab-tool" data-tab="premarket"><span class="tab-num">📋</span>Pre-Market Prep</button>
         <button class="tab-btn tab-tool" data-tab="clock-matrix"><span class="tab-num">🕐</span>Clock Matrix</button>
         <button class="tab-btn tab-tool" data-tab="decision-tree"><span class="tab-num">🌳</span>Decision Tree</button>
-        <button class="tab-btn tab-tool" data-tab="checklist"><span class="tab-num">✅</span>Pre-Trade Checklist</button>
+        <button class="tab-btn tab-tool" data-tab="checklist"><span class="tab-num">✅</span>24-Item Checklist</button>
+        <button class="tab-btn tab-tool" data-tab="live-checklist"><span class="tab-num">🎚️</span>6-Box Live Checklist</button>
       </div>
 
       <!-- REVIEW section -->
@@ -7277,6 +7419,69 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-masterclass -->
 
+  <!-- ==================== TAB: 6-BOX LIVE CHECKLIST (Branch 4) ==================== -->
+  <div class="tab-panel" id="tab-live-checklist">
+    <div class="livecheck-inner">
+      <div class="livecheck-header">
+        <h2>🎚️ 6-Box Live Checklist</h2>
+        <p class="livecheck-lead">Six questions. Answer every one before you click the mouse. <strong>5 or 6 ticked = take it. 4 or fewer = pass.</strong> This is a Kahneman System-2 activator — the friction between impulse and execution is where your edge lives.</p>
+      </div>
+      <div class="livecheck-card" id="livecheck-card">
+        <label class="lc-item" data-key="level">
+          <input type="checkbox">
+          <div>
+            <div class="lc-title">1. Level — pattern is at real structure</div>
+            <div class="lc-hint">Prior day H/L, overnight H/L, VWAP, round number (e.g. 2400 on M2K, 6000 on MES), or 9/20 EMA on the 15-min chart. "Somewhere on the chart" doesn't count.</div>
+          </div>
+        </label>
+        <label class="lc-item" data-key="macd">
+          <input type="checkbox">
+          <div>
+            <div class="lc-title">2. MACD confirms</div>
+            <div class="lc-hint">Double bottoms/tops → histogram divergence (higher low or lower high than the first). Bull flags → MACD above zero. Bear flags → MACD below zero. No exceptions.</div>
+          </div>
+        </label>
+        <label class="lc-item" data-key="stoch">
+          <input type="checkbox">
+          <div>
+            <div class="lc-title">3. Stochastic is in the right zone</div>
+            <div class="lc-hint">Longs → Stoch &lt;20 turning UP. Shorts → Stoch &gt;80 turning DOWN. Not mid-range. Not just touched it yesterday — turning now.</div>
+          </div>
+        </label>
+        <label class="lc-item" data-key="trigger">
+          <input type="checkbox">
+          <div>
+            <div class="lc-title">4. Trigger candle printed</div>
+            <div class="lc-hint">One of: Morning Star, Hammer/Pin (bonus: liquidity sweep), Bullish Engulfing (longs) — or the bearish equivalent for shorts. A plain breakout candle does NOT count.</div>
+          </div>
+        </label>
+        <label class="lc-item" data-key="volume">
+          <input type="checkbox">
+          <div>
+            <div class="lc-title">5. Volume confirms</div>
+            <div class="lc-hint">Trigger bar's volume &gt; 5-bar average. For flags: volume CONTRACTS during the flag and EXPANDS on the breakout bar. No volume expansion = it's just noise.</div>
+          </div>
+        </label>
+        <label class="lc-item" data-key="time">
+          <input type="checkbox">
+          <div>
+            <div class="lc-title">6. Time of day is prime</div>
+            <div class="lc-hint">9:30–11:00 ET or 14:00–15:30 ET only. <strong>Never 11:30–13:30 ET</strong> — lunch chop kills these setups.</div>
+          </div>
+        </label>
+
+        <div class="decision-banner pass" id="decision-banner">
+          <div class="dec-verdict" id="dec-verdict">PASS</div>
+          <div class="dec-sub" id="dec-sub">Not enough boxes ticked.</div>
+        </div>
+
+        <div class="lc-actions">
+          <button class="lc-btn" id="lc-reset">Reset checklist</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== TAB: PRE-MARKET PREP (Branch 3) ==================== -->
   <div class="tab-panel" id="tab-premarket">
     <div class="premarket-inner">
@@ -7891,6 +8096,41 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   const pmSaveBtn = document.getElementById('pm-save');
   if (pmSaveBtn) pmSaveBtn.addEventListener('click', savePremarket);
   loadPremarket();
+
+  // ========== 6-BOX LIVE CHECKLIST (Branch 4) ==========
+  function refreshLiveChecklist() {
+    const boxes = document.querySelectorAll('#livecheck-card .lc-item input[type=checkbox]');
+    let count = 0;
+    boxes.forEach(b => {
+      b.closest('.lc-item').classList.toggle('checked', b.checked);
+      if (b.checked) count++;
+    });
+    const banner = document.getElementById('decision-banner');
+    const verdict = document.getElementById('dec-verdict');
+    const sub = document.getElementById('dec-sub');
+    if (!banner || !verdict || !sub) return;
+    banner.className = 'decision-banner';
+    if (count >= 5) {
+      banner.classList.add('go');
+      verdict.textContent = 'GO';
+      sub.textContent = count === 6 ? 'All 6 boxes ticked. A+ setup. Take it with full size.' : '5 of 6 boxes ticked. Take it with normal size.';
+    } else if (count === 4) {
+      banner.classList.add('marginal');
+      verdict.textContent = 'MARGINAL';
+      sub.textContent = '4 of 6. Either half size or pass. Remember: most losing retail trades come from 4-box setups traders forced.';
+    } else {
+      banner.classList.add('pass');
+      verdict.textContent = 'PASS';
+      sub.textContent = count + ' of 6 boxes. Not a trade. Close NinjaTrader for a second and breathe.';
+    }
+  }
+  document.querySelectorAll('#livecheck-card .lc-item input[type=checkbox]').forEach(b => b.addEventListener('change', refreshLiveChecklist));
+  const lcResetBtn = document.getElementById('lc-reset');
+  if (lcResetBtn) lcResetBtn.addEventListener('click', () => {
+    document.querySelectorAll('#livecheck-card .lc-item input[type=checkbox]').forEach(b => b.checked = false);
+    refreshLiveChecklist();
+  });
+  refreshLiveChecklist();
 
   // ========== DECISION TREE ==========
   const dtreeAnswers = { 1: null, 2: null, 3: null, 4: null };
