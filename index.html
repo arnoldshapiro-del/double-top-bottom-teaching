@@ -2048,6 +2048,141 @@
   .non-calm-warning strong { color: #fca5a5; }
   .non-calm-warning a { color: #fca5a5; font-weight: 700; cursor: pointer; text-decoration: underline; }
 
+  /* ============ FLASHCARDS — Branch 10 ============ */
+  .fc-inner { max-width: 800px; margin: 0 auto; padding: 14px 0; }
+  .fc-header { text-align: center; margin-bottom: 22px; }
+  .fc-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: #14b8a6;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .fc-lead { color: var(--ink-dim); font-size: 13.5px; line-height: 1.6; max-width: 620px; margin: 0 auto; }
+  .fc-card-main {
+    background: var(--panel);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 24px;
+    text-align: center;
+  }
+  .fc-counter {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .fc-chart {
+    background: #070c18;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 14px;
+  }
+  .fc-chart svg { display: block; }
+  .fc-question {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .fc-question small {
+    display: block;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-dim);
+    font-weight: 400;
+    line-height: 1.55;
+  }
+  .fc-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .fc-buttons button {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    padding: 11px 24px;
+    border-radius: 8px;
+    border: 2px solid var(--line-strong);
+    background: var(--panel-2);
+    color: var(--ink-dim);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .fc-buttons button.long { border-color: var(--bull); color: var(--bull); }
+  .fc-buttons button.long:hover { background: var(--bull); color: #052016; }
+  .fc-buttons button.short { border-color: var(--bear); color: var(--bear); }
+  .fc-buttons button.short:hover { background: var(--bear); color: #fff; }
+  .fc-buttons button:not(.long):not(.short):hover { border-color: var(--accent); color: var(--accent); }
+  .fc-reveal {
+    display: none;
+    padding: 16px 18px;
+    border-radius: 10px;
+    margin: 12px 0;
+    text-align: left;
+  }
+  .fc-reveal.show { display: block; }
+  .fc-reveal.correct { background: rgba(74,222,128,0.12); border: 1.5px solid var(--bull); }
+  .fc-reveal.wrong { background: rgba(248,113,113,0.12); border: 1.5px solid var(--bear); }
+  .fc-reveal h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .fc-reveal .pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .fc-reveal .pill.bull { background: var(--bull); color: #052016; }
+  .fc-reveal .pill.bear { background: var(--bear); color: #fff; }
+  .fc-reveal .pill.teal { background: #14b8a6; color: #052016; }
+  .fc-reveal p { color: var(--ink); font-size: 13px; line-height: 1.55; margin-bottom: 6px; }
+  .fc-reveal p:last-child { margin-bottom: 0; }
+  .fc-reveal strong { color: var(--ink); }
+  .fc-stats {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin: 10px 0;
+  }
+  .fc-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .fc-btn-ghost {
+    background: var(--panel-2);
+    color: var(--ink-dim);
+    border: 1px solid var(--line-strong);
+    padding: 9px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .fc-btn-ghost:hover { border-color: #14b8a6; color: #14b8a6; }
+
   /* ============ CALCULATORS — Branch 9 ============ */
   .calc-inner { max-width: 960px; margin: 0 auto; padding: 14px 0; }
   .calc-header { text-align: center; margin-bottom: 22px; }
@@ -2920,6 +3055,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <button class="tab-btn" data-tab="masterclass"><span class="tab-num">9 ·</span>📖 Visual Masterclass</button>
         <button class="tab-btn" data-tab="pattern-quiz"><span class="tab-num">🎯</span>Pattern Quiz</button>
         <button class="tab-btn" data-tab="calculators"><span class="tab-num">🧮</span>Calculators</button>
+        <button class="tab-btn" data-tab="flashcards"><span class="tab-num">🃏</span>Flashcard Trainer</button>
       </div>
 
       <!-- TRADE section -->
@@ -7906,6 +8042,32 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-masterclass -->
 
+  <!-- ==================== TAB: FLASHCARDS (Branch 10 — from Edge System) ==================== -->
+  <div class="tab-panel" id="tab-flashcards">
+    <div class="fc-inner">
+      <div class="fc-header">
+        <h2>🃏 Flashcard Trainer</h2>
+        <p class="fc-lead">Deliberate practice. Ericsson's research says expertise needs repetition with instant feedback — this is that. Look at the chart, decide <strong>LONG / SHORT / PASS</strong>, then see what actually worked. 5 minutes a day = real pattern-recognition edge.</p>
+      </div>
+      <div class="fc-card-main" id="fc-card-main">
+        <div class="fc-counter" id="fc-counter">Card 1 of 6</div>
+        <div class="fc-chart" id="fc-chart"></div>
+        <div class="fc-question" id="fc-question">What would you do here?</div>
+        <div class="fc-buttons">
+          <button class="long" data-answer="LONG">LONG</button>
+          <button class="short" data-answer="SHORT">SHORT</button>
+          <button data-answer="PASS">PASS</button>
+        </div>
+        <div class="fc-reveal" id="fc-reveal"></div>
+        <div class="fc-stats" id="fc-stats"></div>
+        <div class="fc-actions">
+          <button class="fc-btn-ghost" id="fc-next" style="display:none">Next card →</button>
+          <button class="fc-btn-ghost" id="fc-reset">Restart deck</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== TAB: CALCULATORS (Branch 9 — from Academy) ==================== -->
   <div class="tab-panel" id="tab-calculators">
     <div class="calc-inner">
@@ -9045,6 +9207,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     if (tabName === 'daily-gates' || tabName === 'live-checklist') renderDailyGatesTab();
     if (tabName === 'edge-dashboard') renderEdgeDashboard();
     if (tabName === 'pattern-quiz') initQuiz();
+    if (tabName === 'flashcards') initFlashcards();
   };
   renderEdgeDashboard();
 
@@ -9394,6 +9557,104 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       '<div class="res-row"><span class="res-label">Verdict</span><span class="res-val" style="color:' + verdict.color + '">' + verdict.txt + '</span></div>' +
       '</div>';
   };
+
+  // ========== FLASHCARDS (Branch 10 — from Edge System) ==========
+  const FC_DECK = [
+    {
+      question: "2-min M2K — what do you do?",
+      hint: "W forming at prior day low, MACD histogram shows higher low at Low 2, green candle fully engulfs prior red.",
+      answer: "LONG",
+      pattern: "Double Bottom + Bullish Engulfing",
+      reasoning: "All 6 boxes: level (PDL), MACD divergence, Stoch <20 up, trigger candle (engulfing), volume expansion on green, prime time window. Textbook A+ setup.",
+      svg: '<svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" width="100%"><rect width="400" height="160" fill="#070c18"/><line x1="0" y1="125" x2="400" y2="125" stroke="#eab308" stroke-dasharray="3,3" stroke-width="1"/><text x="4" y="121" fill="#eab308" font-size="8">PDL support</text><polyline points="10,30 35,55 60,80 90,105 115,120 140,125 155,100 185,70 215,65 240,90 270,115 295,123 310,100 335,65 360,40 390,25" fill="none" stroke="#cbd5e1" stroke-width="1.5"/><rect x="285" y="123" width="8" height="4" fill="#ef4444"/><rect x="300" y="85" width="8" height="40" fill="#22c55e" stroke="#fff" stroke-width="0.5"/><text x="295" y="143" fill="#22c55e" font-size="9" font-weight="700">ENGULFING</text></svg>'
+    },
+    {
+      question: "2-min MES — what do you do?",
+      hint: "M forming at overnight high, MACD lower high, long upper wick with small body at the bottom.",
+      answer: "SHORT",
+      pattern: "Double Top + Shooting Star",
+      reasoning: "Shooting star at High 2 with MACD bearish divergence. Index futures need more confirmation on shorts — this has it. Stoch >80 rolling down seals it.",
+      svg: '<svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" width="100%"><rect width="400" height="160" fill="#070c18"/><line x1="0" y1="35" x2="400" y2="35" stroke="#eab308" stroke-dasharray="3,3" stroke-width="1"/><text x="4" y="31" fill="#eab308" font-size="8">ONH resistance</text><polyline points="10,130 35,105 60,80 90,55 115,40 140,35 155,60 185,90 215,95 240,70 270,45 295,37" fill="none" stroke="#cbd5e1" stroke-width="1.5"/><line x1="300" y1="20" x2="300" y2="40" stroke="#ef4444" stroke-width="1"/><rect x="297" y="40" width="6" height="5" fill="#ef4444"/><text x="272" y="18" fill="#ef4444" font-size="9" font-weight="700">SHOOTING STAR</text></svg>'
+    },
+    {
+      question: "2-min M2K at 12:15 ET — what do you do?",
+      hint: "Looks like a decent double bottom forming at VWAP. MACD not quite making a higher low yet. Time: 12:15 PM ET.",
+      answer: "PASS",
+      pattern: "Would-be Double Bottom — LUNCH CHOP",
+      reasoning: "Two disqualifiers: (1) lunch window 11:30-13:30 ET has systematically the worst edge on RTY/ES, (2) MACD hasn't confirmed yet. Either one alone = pass.",
+      svg: '<svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" width="100%"><rect width="400" height="160" fill="#070c18"/><line x1="0" y1="110" x2="400" y2="110" stroke="#475569" stroke-dasharray="3,3" stroke-width="1"/><text x="4" y="106" fill="#a8b0bc" font-size="8">VWAP</text><polyline points="10,80 40,95 70,105 100,110 125,95 155,85 185,90 215,100 240,110 270,105 300,100 330,95 360,90 390,95" fill="none" stroke="#cbd5e1" stroke-width="1.5"/><text x="150" y="25" fill="#ef4444" font-size="11" font-weight="700">⚠️ 12:15 ET — lunch chop</text></svg>'
+    },
+    {
+      question: "2-min M2K after strong morning rally — what do you do?",
+      hint: "Flagpole up, 4 bars of consolidation pulling back to 9 EMA, volume contracted in flag, MACD above zero, next bar breaks prior high on volume expansion.",
+      answer: "LONG",
+      pattern: "Bull Flag — EMA Pullback Breakout",
+      reasoning: "Textbook bull flag: pole, volume contraction, MACD above zero, pullback to 9 EMA, breakout on volume. 10:05 ET = prime window. Take it.",
+      svg: '<svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" width="100%"><rect width="400" height="160" fill="#070c18"/><polyline points="10,140 40,125 70,100 105,75 135,55 160,65 180,68 200,65 220,70 245,55 275,35 305,22 335,15 380,8" fill="none" stroke="#cbd5e1" stroke-width="1.5"/><line x1="130" y1="58" x2="250" y2="65" stroke="#14b8a6" stroke-dasharray="3,3" stroke-width="1"/><text x="135" y="52" fill="#14b8a6" font-size="8">9 EMA</text><rect x="160" y="60" width="80" height="12" fill="none" stroke="#eab308" stroke-dasharray="2,2"/><text x="165" y="85" fill="#eab308" font-size="8">flag (volume dries up)</text><circle cx="245" cy="55" r="4" fill="#22c55e"/><text x="225" y="45" fill="#22c55e" font-size="9" font-weight="700">BREAKOUT</text></svg>'
+    },
+    {
+      question: "2-min MES gap-down at 9:45 ET — what do you do?",
+      hint: "Morning gap down, rally back to 20 EMA which is now overhead resistance, bearish engulfing at the EMA, breaks prior bar low.",
+      answer: "SHORT",
+      pattern: "Bear Flag — EMA Resistance Breakdown",
+      reasoning: "Gap-down day is the prime bear flag environment. Rally into 20 EMA from below = textbook retest. Bearish engulfing = trigger. 9:45 ET = prime window.",
+      svg: '<svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" width="100%"><rect width="400" height="160" fill="#070c18"/><polyline points="10,40 25,45 40,85 70,100 100,115 130,125 160,115 190,100 220,90 245,85 275,100 305,125 335,140 380,150" fill="none" stroke="#cbd5e1" stroke-width="1.5"/><line x1="130" y1="100" x2="260" y2="90" stroke="#14b8a6" stroke-dasharray="3,3" stroke-width="1"/><text x="135" y="95" fill="#14b8a6" font-size="8">20 EMA (resistance)</text><rect x="240" y="80" width="6" height="10" fill="#22c55e"/><rect x="250" y="80" width="6" height="18" fill="#ef4444"/><text x="220" y="72" fill="#ef4444" font-size="9" font-weight="700">BEARISH ENGULF</text></svg>'
+    },
+    {
+      question: "2-min M2K — what do you do?",
+      hint: "Price is chopping sideways mid-range. No prior day level nearby. MACD flat at zero. Stoch mid-range. Big red candle just printed.",
+      answer: "PASS",
+      pattern: "No setup — chop",
+      reasoning: "Nothing is at a level. No pattern. No indicator confirmation. This is where FOMO and boredom kill accounts. The absence of a setup IS information. Wait.",
+      svg: '<svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" width="100%"><rect width="400" height="160" fill="#070c18"/><polyline points="10,80 40,75 70,85 100,80 130,78 160,82 190,76 220,84 250,79 280,81 310,76 340,90 380,83" fill="none" stroke="#cbd5e1" stroke-width="1.5"/><text x="110" y="35" fill="#a8b0bc" font-size="11" font-style="italic">Chop. No setup.</text><text x="110" y="50" fill="#a8b0bc" font-size="9">No level. No trigger. No trade.</text></svg>'
+    }
+  ];
+  let fcIndex = 0;
+  let fcStats = (function(){ try { return JSON.parse(localStorage.getItem('playbook_fc_stats') || '{"correct":0,"total":0}'); } catch { return {correct:0,total:0}; } })();
+
+  function initFlashcards() {
+    fcIndex = 0;
+    renderFlashcard();
+  }
+  function renderFlashcard() {
+    const card = FC_DECK[fcIndex];
+    const counter = document.getElementById('fc-counter');
+    const chart = document.getElementById('fc-chart');
+    const question = document.getElementById('fc-question');
+    const reveal = document.getElementById('fc-reveal');
+    const next = document.getElementById('fc-next');
+    const stats = document.getElementById('fc-stats');
+    if (!counter) return;
+    counter.textContent = 'Card ' + (fcIndex + 1) + ' of ' + FC_DECK.length;
+    chart.innerHTML = card.svg;
+    question.innerHTML = card.question + '<small>' + card.hint + '</small>';
+    reveal.classList.remove('show', 'correct', 'wrong');
+    reveal.innerHTML = '';
+    next.style.display = 'none';
+    stats.textContent = 'Your accuracy: ' + (fcStats.total ? Math.round(100*fcStats.correct/fcStats.total) : 0) + '% (' + fcStats.correct + '/' + fcStats.total + ')';
+  }
+  document.querySelectorAll('#fc-card-main .fc-buttons button').forEach(b => b.addEventListener('click', () => {
+    const my = b.dataset.answer;
+    const card = FC_DECK[fcIndex];
+    const correct = my === card.answer;
+    fcStats.total++;
+    if (correct) fcStats.correct++;
+    localStorage.setItem('playbook_fc_stats', JSON.stringify(fcStats));
+    const reveal = document.getElementById('fc-reveal');
+    reveal.className = 'fc-reveal show ' + (correct ? 'correct' : 'wrong');
+    const pillClass = card.answer==='LONG' ? 'bull' : card.answer==='SHORT' ? 'bear' : 'teal';
+    reveal.innerHTML = '<h4>' + (correct ? '✓ Correct' : '✗ Not this time') + ' — Answer: <span class="pill ' + pillClass + '">' + card.answer + '</span></h4>' +
+      '<p><strong>Pattern:</strong> ' + card.pattern + '</p>' +
+      '<p>' + card.reasoning + '</p>';
+    document.getElementById('fc-next').style.display = fcIndex < FC_DECK.length - 1 ? 'inline-block' : 'none';
+    document.getElementById('fc-stats').textContent = 'Your accuracy: ' + Math.round(100*fcStats.correct/fcStats.total) + '% (' + fcStats.correct + '/' + fcStats.total + ')';
+  }));
+  const fcNextBtn = document.getElementById('fc-next');
+  if (fcNextBtn) fcNextBtn.addEventListener('click', () => {
+    if (fcIndex < FC_DECK.length - 1) { fcIndex++; renderFlashcard(); }
+  });
+  const fcResetBtn = document.getElementById('fc-reset');
+  if (fcResetBtn) fcResetBtn.addEventListener('click', () => { fcIndex = 0; renderFlashcard(); });
 
   window.calcPLScenario = function() {
     const inst = document.getElementById('c-pnl-inst').value;
