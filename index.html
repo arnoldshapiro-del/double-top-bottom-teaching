@@ -2048,6 +2048,84 @@
   .non-calm-warning strong { color: #fca5a5; }
   .non-calm-warning a { color: #fca5a5; font-weight: 700; cursor: pointer; text-decoration: underline; }
 
+  /* ============ EDGE DASHBOARD — Branch 7 ============ */
+  .edge-dash-inner { max-width: 1100px; margin: 0 auto; padding: 14px 0; }
+  .edge-dash-header { text-align: center; margin-bottom: 22px; }
+  .edge-dash-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: #c4b5fd;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .edge-dash-lead {
+    color: var(--ink-dim);
+    font-size: 13.5px;
+    line-height: 1.6;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .edge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .edge-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .edge-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--line);
+    font-weight: 700;
+  }
+  .edge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.05);
+    font-size: 12.5px;
+  }
+  .edge-row:last-child { border-bottom: none; }
+  .edge-row .label { color: var(--ink-dim); }
+  .edge-row .label small { color: var(--ink-faint); margin-left: 4px; font-weight: 400; }
+  .edge-row .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .edge-row .value.bull { color: var(--bull); }
+  .edge-row .value.bear { color: var(--bear); }
+  .edge-row .value.warn { color: var(--warn); }
+  .edge-no-data {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+    padding: 10px 0;
+  }
+  .edge-overall {
+    background: linear-gradient(135deg, rgba(167,139,250,0.10), rgba(125,211,252,0.05));
+    border: 1.5px solid rgba(167,139,250,0.35);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+  .edge-overall h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    color: #c4b5fd;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+
   /* ============ JOURNAL TAG CHIPS — Branch 6 ============ */
   .tag-row {
     display: flex;
@@ -2632,6 +2710,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="nav-section review">
         <div class="nav-section-header"><span class="nav-icon">📊</span> Review</div>
         <button class="tab-btn tab-review" data-tab="journal"><span class="tab-num">📝</span>Trade Journal</button>
+        <button class="tab-btn tab-review" data-tab="edge-dashboard"><span class="tab-num">📈</span>Edge Dashboard</button>
       </div>
     </div>
 
@@ -7599,6 +7678,38 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-masterclass -->
 
+  <!-- ==================== TAB: EDGE DASHBOARD (Branch 7) ==================== -->
+  <div class="tab-panel" id="tab-edge-dashboard">
+    <div class="edge-dash-inner">
+      <div class="edge-dash-header">
+        <h2>📈 Edge Dashboard</h2>
+        <p class="edge-dash-lead">Your own numbers. After ~30 logged trades this will show exactly which patterns, states, times, and plan-adherence configurations make you money — independent of anything any book says. Steenbarger's "personalized base rates" intervention — the single highest-ROI tool in trader improvement.</p>
+      </div>
+
+      <div class="edge-overall">
+        <h3>Overall</h3>
+        <div class="edge-grid" style="margin-bottom:0;">
+          <div class="edge-row"><span class="label">Total trades logged</span><span class="value" id="ed-total">0</span></div>
+          <div class="edge-row"><span class="label">Win rate</span><span class="value" id="ed-wr">—</span></div>
+          <div class="edge-row"><span class="label">Net P&amp;L ($)</span><span class="value" id="ed-pnl">—</span></div>
+          <div class="edge-row"><span class="label">Expectancy (avg $ per trade)</span><span class="value" id="ed-exp">—</span></div>
+          <div class="edge-row"><span class="label">Average winner</span><span class="value bull" id="ed-avgw">—</span></div>
+          <div class="edge-row"><span class="label">Average loser</span><span class="value bear" id="ed-avgl">—</span></div>
+          <div class="edge-row"><span class="label">Biggest winner / loser</span><span class="value" id="ed-max">—</span></div>
+        </div>
+      </div>
+
+      <div class="edge-grid">
+        <div class="edge-card"><h3>By Pattern</h3><div id="ed-by-pattern"></div></div>
+        <div class="edge-card"><h3>By Emotional State</h3><div id="ed-by-emotion"></div></div>
+        <div class="edge-card"><h3>By Time of Day / Session</h3><div id="ed-by-session"></div></div>
+        <div class="edge-card"><h3>By Plan Adherence</h3><div id="ed-by-adherence"></div></div>
+        <div class="edge-card"><h3>By Direction</h3><div id="ed-by-direction"></div></div>
+        <div class="edge-card"><h3>Mistake Tags (frequency)</h3><div id="ed-by-tags"></div></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== TAB: DAILY GATES (Branch 5) ==================== -->
   <div class="tab-panel" id="tab-daily-gates">
     <div class="gates-inner">
@@ -8460,12 +8571,115 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   renderDailyGatesTab();
   // Refresh every 30s so time window updates
   setInterval(renderDailyGatesTab, 30000);
-  // Re-evaluate when switching to these tabs
+
+  // ========== EDGE DASHBOARD (Branch 7) ==========
+  const PATTERN_LABELS = {
+    DB: 'Double Bottom', DT: 'Double Top',
+    BULL_FLAG: 'Bull Flag', BEAR_FLAG: 'Bear Flag',
+    FAILED_BREAKOUT_LONG: 'Failed Breakout ↑', FAILED_BREAKOUT_SHORT: 'Failed Breakout ↓',
+    ORB_RETEST_LONG: 'ORB Retest ↑', ORB_RETEST_SHORT: 'ORB Retest ↓',
+    VWAP_MR_LONG: 'VWAP MR ↑', VWAP_MR_SHORT: 'VWAP MR ↓'
+  };
+  const SESSION_LABELS = {
+    OPEN: '9:30–11:00 Open', LUNCH: '11:30–13:30 Lunch',
+    PM: '14:00–15:30 PM', CLOSE: '15:30–16:00 Close', OTHER: 'Other'
+  };
+  const EMOTION_LABELS = {
+    CALM: 'Calm', CONFIDENT: 'Confident', ANXIOUS: 'Anxious',
+    FOMO: 'FOMO/chasing', REVENGE: 'Revenge', TIRED: 'Tired'
+  };
+  const ADHERENCE_LABELS = {
+    A: 'A — Followed plan', B: 'B — Minor deviation',
+    C: 'C — Broke a rule', F: 'F — Off-plan'
+  };
+
+  function getAllTrades() {
+    try { return JSON.parse(localStorage.getItem('playbook_trades') || '[]'); }
+    catch { return []; }
+  }
+
+  function isWin(t) {
+    if (t.outcome === 'WIN' || t.outcome === 'PARTIAL') return true;
+    if (typeof t.pnl === 'number' && t.pnl > 0) return true;
+    return false;
+  }
+  function isLoss(t) {
+    if (t.outcome === 'LOSS' || t.outcome === 'BUSTED') return true;
+    if (typeof t.pnl === 'number' && t.pnl < 0) return true;
+    return false;
+  }
+  function pnlNum(t) { return (typeof t.pnl === 'number' ? t.pnl : parseFloat(t.pnl) || 0); }
+
+  function groupBy(trades, key, labelMap) {
+    const groups = {};
+    trades.forEach(t => {
+      const rawKey = t[key] || '—';
+      const k = labelMap?.[rawKey] || rawKey;
+      if (!groups[k]) groups[k] = { n: 0, wins: 0, totalPnL: 0 };
+      groups[k].n++;
+      if (isWin(t)) groups[k].wins++;
+      groups[k].totalPnL += pnlNum(t);
+    });
+    return Object.entries(groups).sort((a, b) => b[1].n - a[1].n);
+  }
+
+  function mkEdgeRows(groups) {
+    if (groups.length === 0) return '<p class="edge-no-data">Log 10+ trades to see your data.</p>';
+    return groups.map(([k, v]) => {
+      const wr = Math.round(100 * v.wins / v.n);
+      const avg = (v.totalPnL / v.n).toFixed(0);
+      const cls = wr >= 60 ? 'bull' : wr <= 40 ? 'bear' : 'warn';
+      const sign = v.totalPnL >= 0 ? '+' : '';
+      return '<div class="edge-row"><span class="label">' + k + ' <small>(' + v.n + ')</small></span><span class="value ' + cls + '">' + wr + '% · ' + sign + '$' + avg + ' avg</span></div>';
+    }).join('');
+  }
+
+  function renderEdgeDashboard() {
+    const trades = getAllTrades();
+
+    document.getElementById('ed-by-pattern').innerHTML = mkEdgeRows(groupBy(trades, 'pattern', PATTERN_LABELS));
+    document.getElementById('ed-by-emotion').innerHTML = mkEdgeRows(groupBy(trades, 'emotion', EMOTION_LABELS));
+    document.getElementById('ed-by-session').innerHTML = mkEdgeRows(groupBy(trades, 'session', SESSION_LABELS));
+    document.getElementById('ed-by-adherence').innerHTML = mkEdgeRows(groupBy(trades, 'plan_adherence', ADHERENCE_LABELS));
+    document.getElementById('ed-by-direction').innerHTML = mkEdgeRows(groupBy(trades, 'direction'));
+
+    // Tag frequencies
+    const tagCounts = {};
+    trades.forEach(t => (t.tags || []).forEach(tag => { tagCounts[tag] = (tagCounts[tag] || 0) + 1; }));
+    const tagEntries = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+    document.getElementById('ed-by-tags').innerHTML = tagEntries.length === 0
+      ? '<p class="edge-no-data">No tags yet. Tag trades in the Journal to see frequencies.</p>'
+      : tagEntries.map(([t, n]) => '<div class="edge-row"><span class="label">' + t + '</span><span class="value">' + n + '</span></div>').join('');
+
+    // Overall stats
+    const n = trades.length;
+    const wins = trades.filter(isWin);
+    const losses = trades.filter(isLoss);
+    const netPnL = trades.reduce((s, t) => s + pnlNum(t), 0);
+    const avgW = wins.length ? wins.reduce((s, t) => s + pnlNum(t), 0) / wins.length : 0;
+    const avgL = losses.length ? losses.reduce((s, t) => s + pnlNum(t), 0) / losses.length : 0;
+    const pnls = trades.map(pnlNum);
+    const maxW = pnls.length ? Math.max(...pnls) : 0;
+    const maxL = pnls.length ? Math.min(...pnls) : 0;
+    const exp = n ? (netPnL / n) : 0;
+
+    document.getElementById('ed-total').textContent = n;
+    document.getElementById('ed-wr').textContent = n ? Math.round(100 * wins.length / n) + '%' : '—';
+    document.getElementById('ed-pnl').textContent = n ? (netPnL >= 0 ? '+$' : '-$') + Math.abs(netPnL).toFixed(2) : '—';
+    document.getElementById('ed-exp').textContent = n ? (exp >= 0 ? '+$' : '-$') + Math.abs(exp).toFixed(2) : '—';
+    document.getElementById('ed-avgw').textContent = wins.length ? '+$' + avgW.toFixed(2) : '—';
+    document.getElementById('ed-avgl').textContent = losses.length ? '-$' + Math.abs(avgL).toFixed(2) : '—';
+    document.getElementById('ed-max').textContent = n ? '+$' + maxW.toFixed(0) + ' / -$' + Math.abs(maxL).toFixed(0) : '—';
+  }
+
+  // Re-evaluate when switching to relevant tabs
   const originalSwitchTab = window.switchTab;
   window.switchTab = function(tabName) {
     originalSwitchTab(tabName);
     if (tabName === 'daily-gates' || tabName === 'live-checklist') renderDailyGatesTab();
+    if (tabName === 'edge-dashboard') renderEdgeDashboard();
   };
+  renderEdgeDashboard();
 
   // ========== DECISION TREE ==========
   const dtreeAnswers = { 1: null, 2: null, 3: null, 4: null };
