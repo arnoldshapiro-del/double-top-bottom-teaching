@@ -58,6 +58,7 @@ All data keys now namespaced under `playbook_`. Legacy keys (`arnie_m2k_trades_v
 - **B9** — Calculators: tick converter · position sizer · R:R · P&L scenarios (M2K/MES/RTY)
 - **B10** — Flashcard Trainer: 6 deliberate-practice cards with inline SVG
 - **B11** — Final polish: SEO, metadata, README, CLAUDE.md, SESSION_NOTES
+- **B12** — Red Flags moved from always-visible top panel to its own first-position TRADE tab (🚩 Red Flags — No Trade). Every other tab now opens clean at the top
 
 ## Design system
 - Dark mode default · light mode toggle in sidebar (persisted in `playbook_theme`)

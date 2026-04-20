@@ -292,3 +292,21 @@ Executed the full 11-branch merge plan from `C:\Users\arnol\Desktop\MERGE-MASTER
 - `C:\Users\arnol\Desktop\merge-work\serve-playbook-merge.js` (local dev server)
 - `C:\Users\arnol\Desktop\Project Files Do Not Delete\double-top-bottom-teaching\index.html` (synced after each branch)
 - README.md + CLAUDE.md + SESSION_NOTES.md all updated in B11
+
+---
+
+## Session — 2026-04-20 (continued) — Red Flags UX refactor
+
+**What Arnie noticed:** The Red Flags panel was pinned to the top of every page, taking up roughly half the viewport. New tab content was always pushed below it. Same material shown everywhere — wasted space.
+
+**What we did:**
+- Added a '🚩 Red Flags — No Trade' tab as the FIRST item in the TRADE section (with a red `.tab-redflag` accent so it reads like a stop sign).
+- Removed the always-visible `<div class="red-flags">` block from above the tab container.
+- Kept all 6 warnings + explanations intact in the new tab panel.
+- Red Flags now sits naturally in the pre-trade pre-flight sequence: Red Flags → State Gate → Pre-Market Prep → 6-Box Live Checklist → Daily Gates → Decision Tree.
+
+**Result:** Every tab now opens cleanly with its content at the top of the main column.
+
+**Verified live:** https://arnie-double-top-bottom.netlify.app — curl confirms tab-red-flags deployed; preview eval confirmed all 6 warnings render inside the new panel.
+
+**Files changed:** index.html only (CSS block for `.tab-redflag`, sidebar button added, tab panel added, old always-visible block removed).
