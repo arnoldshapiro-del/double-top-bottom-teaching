@@ -1508,8 +1508,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <button class="tab-btn" data-tab="double-top" onclick="switchTab('double-top')"><span class="tab-num">2 ·</span>Double Top</button>
     <button class="tab-btn" data-tab="bull-flag" onclick="switchTab('bull-flag')"><span class="tab-num">3 ·</span>Bull Flag</button>
     <button class="tab-btn" data-tab="bear-flag" onclick="switchTab('bear-flag')"><span class="tab-num">4 ·</span>Bear Flag</button>
-    <button class="tab-btn" data-tab="unified" onclick="switchTab('unified')"><span class="tab-num">5 ·</span>Unified Principles</button>
-    <button class="tab-btn" data-tab="masterclass" onclick="switchTab('masterclass')"><span class="tab-num">6 ·</span>📖 Visual Masterclass</button>
+    <button class="tab-btn" data-tab="failed-breakout" onclick="switchTab('failed-breakout')"><span class="tab-num">5 ·</span>🎯 Failed Breakout</button>
+    <button class="tab-btn" data-tab="unified" onclick="switchTab('unified')"><span class="tab-num">6 ·</span>Unified Principles</button>
+    <button class="tab-btn" data-tab="masterclass" onclick="switchTab('masterclass')"><span class="tab-num">7 ·</span>📖 Visual Masterclass</button>
   </div>
 
   <!-- ==================== TAB CONTAINER ==================== -->
@@ -3377,6 +3378,478 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-bear-flag -->
 
+    <!-- ============ TAB: FAILED BREAKOUT REVERSAL ============ -->
+    <div class="tab-panel" id="tab-failed-breakout">
+      <div class="column neutral">
+        <div class="column-header">
+          <div class="column-title">🎯 Failed Breakout Reversal · Highest-Edge Trap Setup</div>
+          <div class="pattern-shape">⇄</div>
+        </div>
+
+        <div class="you-recommend-callout">
+          <div class="recommend-label">★ Arnie's A+ Setup</div>
+          <div class="recommend-body">This is the <strong>highest-edge setup in the whole playbook</strong>. Win rate 60–65% at a clean 2:1 R:R on MES &amp; M2K 2-min. Why? You're not predicting the breakout — you're waiting for it to <em>fail</em>, then fading the trapped crowd as they puke out. Breakouts fail more often than most traders realize, especially at significant levels. Let them try, let them fail, then take their money.</div>
+        </div>
+
+        <figure class="illus">
+          <svg viewBox="0 0 680 280" role="img" aria-labelledby="fb-hero-t fb-hero-d">
+            <title id="fb-hero-t">Failed Breakout Reversal hero pattern</title>
+            <desc id="fb-hero-d">Price breaks above a significant level, trades back through it within 2-4 candles, and the reclaim candle closes back inside the prior range, trapping breakout buyers.</desc>
+            <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="60" x2="680" y2="60"/><line x1="0" y1="130" x2="680" y2="130"/><line x1="0" y1="200" x2="680" y2="200"/></g>
+            <!-- the "prior range" shaded zone -->
+            <rect x="20" y="60" width="620" height="140" fill="#14b8a6" fill-opacity=".05"/>
+            <!-- The significant level -->
+            <line x1="20" y1="60" x2="660" y2="60" stroke="#eab308" stroke-width="2.2" stroke-dasharray="6 4"/>
+            <text x="30" y="52" fill="#eab308" font-size="11" font-weight="800">SIGNIFICANT LEVEL (e.g., PDH · ORB High · Flag break · DT neckline · Round #)</text>
+            <!-- price path: range, breakout, fail, reclaim, drop -->
+            <path d="M 30,150 L 80,130 L 130,160 L 180,120 L 230,90 L 280,70 L 320,40 L 360,30 L 400,45 L 440,70 L 480,120 L 520,160 L 570,200 L 620,230" stroke="#cbd5e1" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+            <!-- Annotation: breakout attempt -->
+            <circle cx="340" cy="32" r="8" fill="#22c55e" stroke="#fff" stroke-width="2"/>
+            <text x="340" y="18" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">1 · BREAKOUT</text>
+            <!-- Annotation: reclaim -->
+            <rect x="420" y="52" width="38" height="28" fill="#ef4444" fill-opacity=".25" stroke="#ef4444" stroke-width="2"/>
+            <text x="500" y="70" fill="#fca5a5" font-size="10" font-weight="800">2 · RECLAIM CANDLE closes back inside →</text>
+            <!-- Target level -->
+            <line x1="20" y1="200" x2="660" y2="200" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="30" y="216" fill="#14b8a6" font-size="10" font-weight="700">Target 1: opposite side of the broken range</text>
+            <!-- Short entry arrow -->
+            <g transform="translate(460,95)">
+              <path d="M 0,0 L 0,20 L -6,14 M 0,20 L 6,14" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+              <text x="8" y="14" fill="#fca5a5" font-size="10" font-weight="800">SHORT</text>
+            </g>
+            <!-- Stop marker -->
+            <line x1="335" y1="26" x2="370" y2="26" stroke="#ef4444" stroke-width="2"/>
+            <text x="372" y="29" fill="#fca5a5" font-size="9" font-weight="700">STOP 1-2 ticks above fail extreme</text>
+          </svg>
+          <figcaption>The Failed Breakout hero: price pokes above a significant level, closes a "reclaim candle" back inside the prior range, and you fade the trapped buyers with a tight stop above the failure extreme.</figcaption>
+        </figure>
+
+        <!-- SECTION 1 · WHAT IS A FAILED BREAKOUT + WHY IT HAS EDGE -->
+        <div class="section">
+          <div class="section-label">1 · What Is a Failed Breakout? (and why it has edge)</div>
+          <figure class="illus">
+            <svg viewBox="0 0 680 220" role="img" aria-labelledby="fb-compare-t fb-compare-d">
+              <title id="fb-compare-t">Successful breakout vs failed breakout comparison</title>
+              <desc id="fb-compare-d">Left panel shows a clean breakout that holds; right panel shows a breakout that fails, reclaims, and reverses.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="110" x2="680" y2="110"/></g>
+              <!-- Left: clean breakout -->
+              <line x1="10" y1="110" x2="330" y2="110" stroke="#22c55e" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="20" y="102" fill="#86efac" font-size="10" font-weight="700">Level</text>
+              <path d="M 20,160 L 60,140 L 100,155 L 140,125 L 180,95 L 220,70 L 260,55 L 300,45" stroke="#22c55e" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <text x="170" y="195" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">✓ CLEAN BREAKOUT (holds)</text>
+              <text x="170" y="210" text-anchor="middle" fill="#cbd5e1" font-size="10">price holds above, no trade for you here</text>
+              <!-- Right: failed breakout -->
+              <line x1="370" y1="110" x2="660" y2="110" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="380" y="102" fill="#eab308" font-size="10" font-weight="700">Level</text>
+              <path d="M 380,160 L 420,140 L 460,125 L 500,85 L 530,70 L 560,95 L 595,135 L 635,175" stroke="#ef4444" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <circle cx="530" cy="70" r="5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+              <text x="530" y="60" text-anchor="middle" fill="#86efac" font-size="9">break</text>
+              <rect x="585" y="120" width="20" height="22" fill="#ef4444" fill-opacity=".3" stroke="#ef4444" stroke-width="1.5"/>
+              <text x="595" y="156" text-anchor="middle" fill="#fca5a5" font-size="9">reclaim</text>
+              <text x="510" y="195" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="800">✗ FAILED BREAKOUT (trap)</text>
+              <text x="510" y="210" text-anchor="middle" fill="#cbd5e1" font-size="10">price slips back, trapped buyers puke — YOU short</text>
+            </svg>
+            <figcaption>Most breakouts hold (no trade for you). A minority fail — and <strong>that minority is your setup</strong>. The edge comes from the asymmetric pain of trapped breakout buyers being forced to exit.</figcaption>
+          </figure>
+          <div class="data-block">
+            <div class="dlabel">Definition</div>
+            <ul>
+              <li>Price breaks above (or below) a well-defined level.</li>
+              <li>Within 2–4 candles, it trades back <em>through</em> the broken level.</li>
+              <li>A "reclaim" candle closes back inside the prior range.</li>
+            </ul>
+            <div class="explain"><strong>What this means in plain English</strong>
+              A "breakout" happens every time price pushes through a line everyone's watching (a prior high, a range edge, a round number). When it works, late buyers pile in and price runs. When it <em>fails</em>, those late buyers are suddenly trapped — they bought high, and now price is falling back <em>under</em> the line they just bought above. Their stops are packed just below the breakout level. When price gets back there and starts triggering those stops, the exits cascade and the move accelerates in the OPPOSITE direction. You're not trading the breakout — you're trading the cascading exits of the people who traded the breakout. That's where the 60–65% win rate comes from.
+            </div>
+            <div class="dlabel" style="margin-top:14px;">Why it has edge — the three-part reason</div>
+            <ul>
+              <li><strong>Asymmetric pain:</strong> breakout traders bought the top of the move; they're underwater the moment it fails.</li>
+              <li><strong>Stops are stacked:</strong> a predictable cluster of stop-losses just beyond the level acts as fuel for your trade.</li>
+              <li><strong>You're not guessing — you're reacting:</strong> the breakout already happened and already failed. You have evidence before you risk money.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 2 · WHERE IT WORKS BEST -->
+        <div class="section">
+          <div class="section-label">2 · Where It Works Best — Five Significant Levels</div>
+          <figure class="illus">
+            <svg viewBox="0 0 680 300" role="img" aria-labelledby="fb-levels-t fb-levels-d">
+              <title id="fb-levels-t">Five significant levels where failed breakouts have highest edge</title>
+              <desc id="fb-levels-d">Chart with labeled horizontal lines showing Previous Day High/Low, Opening Range High/Low, flag breakout level, double-top/bottom neckline, and round number.</desc>
+              <g stroke="#475569" stroke-opacity=".25" stroke-dasharray="2 3"><line x1="0" y1="40" x2="680" y2="40"/><line x1="0" y1="90" x2="680" y2="90"/><line x1="0" y1="140" x2="680" y2="140"/><line x1="0" y1="190" x2="680" y2="190"/><line x1="0" y1="240" x2="680" y2="240"/></g>
+              <!-- PDH -->
+              <line x1="20" y1="40" x2="660" y2="40" stroke="#eab308" stroke-width="2" stroke-dasharray="6 3"/>
+              <text x="30" y="33" fill="#eab308" font-size="10" font-weight="800">1 · PDH / PDL — Previous Day's High or Low · ★ STRONGEST (per Al Brooks)</text>
+              <!-- ORB -->
+              <line x1="20" y1="90" x2="660" y2="90" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 3"/>
+              <text x="30" y="83" fill="#14b8a6" font-size="10" font-weight="800">2 · ORB — Opening Range High/Low (9:30–9:45 AM EST)</text>
+              <!-- Flag -->
+              <line x1="20" y1="140" x2="660" y2="140" stroke="#60a5fa" stroke-width="2" stroke-dasharray="5 2"/>
+              <text x="30" y="133" fill="#93c5fd" font-size="10" font-weight="800">3 · Flag breakout level (bull flag top · bear flag bottom)</text>
+              <!-- DT neckline -->
+              <line x1="20" y1="190" x2="660" y2="190" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4 4"/>
+              <text x="30" y="183" fill="#c4b5fd" font-size="10" font-weight="800">4 · Double-Top neckline · Double-Bottom neckline</text>
+              <!-- Round numbers -->
+              <line x1="20" y1="240" x2="660" y2="240" stroke="#f472b6" stroke-width="2" stroke-dasharray="3 3"/>
+              <text x="30" y="233" fill="#f9a8d4" font-size="10" font-weight="800">5 · Round numbers — 6,500 MES · 2,500 M2K (psychological magnets)</text>
+              <text x="340" y="275" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="700">A level is "significant" when size traders are watching it. Without size watching, there's no fuel for the fail.</text>
+              <text x="340" y="290" text-anchor="middle" fill="#a8b0bc" font-size="10">No significant level = no trap = no trade.</text>
+            </svg>
+            <figcaption>Five level types where failed breakouts have the highest edge. <strong>PDH/PDL is the #1</strong> — Al Brooks ranked it as the strongest level in intraday futures.</figcaption>
+          </figure>
+          <div class="data-block">
+            <div class="dlabel">Why these five levels (and not random swing points)</div>
+            <ul>
+              <li><strong>Previous Day High / Low (PDH / PDL):</strong> every institutional desk has these marked. Biggest, most watched level in intraday trading.</li>
+              <li><strong>Opening Range (ORB):</strong> the high and low of the first 15 minutes. Day-trading community obsesses over this; the algos run right to the edges.</li>
+              <li><strong>Flag breakout level:</strong> the top (bull flag) or bottom (bear flag) of a consolidation. Well-defined and heavily stop-hunted.</li>
+              <li><strong>Double-top neckline / double-bottom neckline:</strong> the horizontal trigger line that completes the pattern. Gets watched by everyone running the checklist on those tabs.</li>
+              <li><strong>Round numbers (6,500 MES · 2,500 M2K):</strong> psychological magnets. Big orders cluster here regardless of chart structure.</li>
+            </ul>
+            <div class="explain"><strong>Arnie's take</strong>
+              I rank these in order of edge: <b>PDH/PDL &gt; ORB &gt; round number &gt; DT/DB neckline &gt; flag break</b>. When a failed breakout forms at PDH or PDL, that's when I size up. When it forms at a flag breakout that no one else is watching, I skip — the crowd isn't there, so there's no trap to spring.
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3 · SIX SETUP CRITERIA (ALL must be true) -->
+        <div class="section">
+          <div class="section-label">3 · Six Setup Criteria <span class="gate-required">ALL required</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 680 220" role="img" aria-labelledby="fb-crit-t fb-crit-d">
+              <title id="fb-crit-t">The six criteria shown on a single chart</title>
+              <desc id="fb-crit-d">Annotated 2-min chart showing breakout attempt, 2-4 candle window, reclaim close, volume bars, and first-hour timing.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="60" x2="680" y2="60"/><line x1="0" y1="130" x2="680" y2="130"/></g>
+              <line x1="20" y1="60" x2="660" y2="60" stroke="#eab308" stroke-width="2" stroke-dasharray="6 3"/>
+              <text x="30" y="52" fill="#eab308" font-size="10" font-weight="800">Level (say PDH)</text>
+              <path d="M 40,120 L 90,100 L 140,130 L 190,85 L 240,50 L 290,35 L 340,50 L 390,85 L 440,105 L 490,70 L 540,55 L 590,40" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <!-- Breakout candles -->
+              <rect x="230" y="42" width="12" height="20" fill="#22c55e"/>
+              <rect x="278" y="28" width="12" height="24" fill="#22c55e"/>
+              <!-- Reclaim candle -->
+              <rect x="328" y="42" width="12" height="30" fill="#ef4444" stroke="#ef4444" stroke-width="2"/>
+              <text x="334" y="25" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">RECLAIM</text>
+              <!-- Window brackets -->
+              <path d="M 230 165 L 230 170 L 345 170 L 345 165" stroke="#14b8a6" stroke-width="1.5" fill="none"/>
+              <text x="287" y="184" text-anchor="middle" fill="#14b8a6" font-size="10" font-weight="800">2-4 candle window</text>
+              <!-- Volume bars -->
+              <text x="10" y="205" fill="#cbd5e1" font-size="9">VOL</text>
+              <rect x="230" y="195" width="12" height="10" fill="#cbd5e1"/>
+              <rect x="278" y="192" width="12" height="13" fill="#cbd5e1"/>
+              <rect x="328" y="182" width="12" height="22" fill="#eab308"/>
+              <text x="365" y="202" fill="#eab308" font-size="10" font-weight="800">↑ volume on fail ≥ volume on breakout</text>
+            </svg>
+            <figcaption>The six criteria visualized on one 2-min chart. The reclaim candle (red) closes back through the yellow level, within 2-4 candles of the attempt, on volume at least equal to the breakout.</figcaption>
+          </figure>
+          <div class="check-row">
+            <input type="checkbox" class="gate" id="fb-c1">
+            <label for="fb-c1">Clear breakout attempt at a significant level
+              <span class="hint">PDH/PDL, ORB, flag break, DT/DB neckline, or round number — not a random swing.</span>
+              <span class="explain"><strong>What this means</strong>
+                You need a level the whole market is watching. "Clear breakout attempt" = at least one full candle closes past the level, not just a wick. If you can't name the level out loud ("that's the previous day's high"), it's not significant enough.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="gate" id="fb-c2">
+            <label for="fb-c2">Within 2–4 candles, price trades back through the broken level
+              <span class="hint">Count bars. Fewer than 2 = noise. More than 4 = stale, trend may be resuming.</span>
+              <span class="explain"><strong>What this means</strong>
+                On a 2-min chart, 2–4 candles = 4–8 minutes. That's the window where the breakout crowd is still holding and hasn't gone to stops yet. If it takes much longer, the move is probably rolling over for a different reason and the "trap" dynamic is gone.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="gate" id="fb-c3">
+            <label for="fb-c3">"Reclaim" candle closes back inside the prior range
+              <span class="hint">Full body close back across the level. Wicks don't count.</span>
+              <span class="explain"><strong>What this means</strong>
+                "Reclaim" means the market took back the level it briefly surrendered. You need a <em>close</em> on the opposite side of the line — not a poke, not a wick. The close is what confirms the trap is sprung. Wicks-only mean price tested and the bulls won; a full close back under means the bulls got rejected and are about to run.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="gate" id="fb-c4">
+            <label for="fb-c4">Volume on the failure ≥ volume on the original breakout
+              <span class="hint">Equal or greater volume = forced exits. Lower = quiet rollover (weaker setup).</span>
+              <span class="explain"><strong>What this means</strong>
+                The volume you see on the reclaim candle and the bar immediately after tells you whether the trap is actually springing. If stops are triggering and breakout buyers are puking, you'll see a volume bar noticeably taller than the breakout bars. If volume is quiet on the reclaim, it's just mean-reversion, not a panic — smaller edge.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="gate" id="fb-c5">
+            <label for="fb-c5">Failure happens within the first hour of the breakout
+              <span class="hint">Fresh trap = fresh pain. Old breakouts have already run and cooled off.</span>
+              <span class="explain"><strong>What this means</strong>
+                If a breakout happened 90 minutes ago and NOW it's coming back, half the late buyers have already bailed on their own and the other half have moved their stops. The asymmetric-pain effect decays with time. Trade the freshly trapped, not the old news.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="gate" id="fb-c6">
+            <label for="fb-c6">Higher timeframes (5m, 15m) not in strongly opposing trend
+              <span class="hint">Fading a weak breakout in a sideways/neutral HTF context = good. Fading a weak breakout against a screaming trend = terrible.</span>
+              <span class="explain"><strong>What this means</strong>
+                Pull up the 5-min and 15-min charts. If they're ripping in the same direction as the original breakout, your "failure" may just be a pullback before continuation. Only take failed-breakouts when HTFs are either neutral or siding <em>with</em> your reversal.
+              </span>
+            </label>
+          </div>
+          <div class="score-box">
+            <div>
+              <div class="score-label">Criteria checked</div>
+              <div class="score-value"><span id="fb-count">0</span><span class="denom">/6</span></div>
+            </div>
+            <div class="score-verdict">ALL 6 REQUIRED</div>
+          </div>
+        </div>
+
+        <!-- SECTION 4 · ENTRY -->
+        <div class="section">
+          <div class="section-label">4 · Entry Trigger — The Reclaim Candle Close</div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="fb-entry-t fb-entry-d">
+              <title id="fb-entry-t">Entry on reclaim candle close</title>
+              <desc id="fb-entry-d">Zoomed-in view of the reclaim candle showing the entry at its close, with wick-only rejection shown for comparison.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="100" x2="560" y2="100"/></g>
+              <line x1="10" y1="100" x2="550" y2="100" stroke="#eab308" stroke-width="2.2" stroke-dasharray="6 3"/>
+              <text x="20" y="92" fill="#eab308" font-size="11" font-weight="800">Broken level</text>
+              <!-- Breakout candle -->
+              <g><rect x="80" y="60" width="18" height="30" fill="#22c55e"/><line x1="89" y1="52" x2="89" y2="60" stroke="#22c55e" stroke-width="1.5"/><line x1="89" y1="90" x2="89" y2="95" stroke="#22c55e" stroke-width="1.5"/></g>
+              <text x="89" y="150" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">breakout</text>
+              <!-- Poke candle -->
+              <g><rect x="160" y="70" width="18" height="12" fill="#22c55e" fill-opacity=".5"/><line x1="169" y1="62" x2="169" y2="70" stroke="#22c55e" stroke-width="1.5"/><line x1="169" y1="82" x2="169" y2="88" stroke="#22c55e" stroke-width="1.5"/></g>
+              <!-- Rejection candle (not yet closed) -->
+              <g><rect x="240" y="72" width="18" height="28" fill="#ef4444" fill-opacity=".6"/><line x1="249" y1="65" x2="249" y2="72" stroke="#ef4444" stroke-width="1.5"/></g>
+              <text x="249" y="150" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">testing...</text>
+              <!-- RECLAIM candle (full close under) -->
+              <g>
+                <rect x="320" y="82" width="22" height="48" fill="#ef4444" stroke="#fca5a5" stroke-width="2"/>
+                <line x1="331" y1="70" x2="331" y2="82" stroke="#ef4444" stroke-width="1.5"/>
+              </g>
+              <text x="331" y="65" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">★ RECLAIM</text>
+              <text x="331" y="150" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">close BELOW level</text>
+              <!-- Entry arrow -->
+              <g transform="translate(362,122)">
+                <path d="M 0,-6 L 0,6 L -4,2 M 0,6 L 4,2" stroke="#ef4444" stroke-width="2" fill="none"/>
+                <text x="9" y="3" fill="#fca5a5" font-size="10" font-weight="800">ENTER SHORT</text>
+              </g>
+              <!-- Wick-only example (rejected, not a signal) -->
+              <g><rect x="470" y="92" width="18" height="10" fill="#22c55e"/><line x1="479" y1="70" x2="479" y2="92" stroke="#22c55e" stroke-width="1.5"/></g>
+              <text x="479" y="150" text-anchor="middle" fill="#a8b0bc" font-size="9">wick only</text>
+              <text x="479" y="165" text-anchor="middle" fill="#a8b0bc" font-size="9">— not a signal</text>
+            </svg>
+            <figcaption>Enter at the <strong>close of the reclaim candle</strong> — the 2-min bar whose body closes back under (for shorts) or back over (for longs) the broken level. <em>Wicks don't count.</em></figcaption>
+          </figure>
+          <div class="data-block">
+            <div class="dlabel">Entry methodology</div>
+            <ul>
+              <li><strong>Trigger:</strong> close of the reclaim candle (bar closes back inside the prior range).</li>
+              <li><strong>Fill:</strong> market order at the close, or stop order 1 tick on the reclaim-side of the candle body.</li>
+              <li><strong>Do NOT anticipate:</strong> don't short just because price dipped below the level. Wait for the CLOSE.</li>
+            </ul>
+            <div class="explain"><strong>Why "close, not touch"</strong>
+              Intrabar price can cross and re-cross a level multiple times (wicks both ways). Only the <em>close</em> of the 2-min candle is committed market opinion. If you act on the touch, you'll get faked out half the time. If you act on the close, you've already seen the rejection be final for that bar.
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5 · STOP -->
+        <div class="section">
+          <div class="section-label">5 · Stop Placement — 1–2 Ticks Beyond the Failed Extreme</div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="fb-stop-t fb-stop-d">
+              <title id="fb-stop-t">Stop placement beyond failed extreme</title>
+              <desc id="fb-stop-d">Short-trade example showing entry at reclaim close and stop 1-2 ticks above the highest point of the failed breakout.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="90" x2="560" y2="90"/></g>
+              <line x1="10" y1="90" x2="550" y2="90" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="20" y="82" fill="#eab308" font-size="10" font-weight="800">Broken level</text>
+              <!-- Fail extreme wick -->
+              <g>
+                <line x1="150" y1="40" x2="150" y2="100" stroke="#22c55e" stroke-width="1.5"/>
+                <rect x="141" y="60" width="18" height="20" fill="#22c55e"/>
+              </g>
+              <text x="150" y="150" text-anchor="middle" fill="#86efac" font-size="9">fail extreme</text>
+              <!-- Reclaim candle -->
+              <g><rect x="241" y="82" width="18" height="40" fill="#ef4444" stroke="#fca5a5" stroke-width="1.5"/></g>
+              <text x="250" y="150" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">reclaim · ENTRY</text>
+              <!-- Stop line -->
+              <line x1="40" y1="36" x2="520" y2="36" stroke="#ef4444" stroke-width="2"/>
+              <text x="50" y="28" fill="#fca5a5" font-size="11" font-weight="800">⌐ STOP — 1-2 ticks above fail extreme</text>
+              <!-- Risk markers -->
+              <line x1="520" y1="36" x2="520" y2="122" stroke="#f87171" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="525" y="80" fill="#fca5a5" font-size="10" font-weight="700">risk</text>
+              <text x="525" y="95" fill="#fca5a5" font-size="10" font-weight="700">(1R)</text>
+              <!-- MES tick math -->
+              <text x="280" y="185" text-anchor="middle" fill="#cbd5e1" font-size="10">Typical risk on MES: 4–10 points ($20–$50 per contract)</text>
+            </svg>
+            <figcaption>Stop goes <strong>1–2 ticks beyond the highest point of the failed attempt</strong> — not the reclaim-candle extreme, the <em>failed breakout extreme</em>. This is your 1R.</figcaption>
+          </figure>
+          <div class="data-block">
+            <div class="dlabel">Stop math by contract</div>
+            <ul>
+              <li><strong>MES:</strong> 1 tick = 0.25 pts = $1.25 per contract. Typical stop = 4–10 pts = $20–$50 per contract.</li>
+              <li><strong>M2K:</strong> 1 tick = 0.10 pts = $0.50 per contract. Typical stop = 10–20 ticks = $5–$10 per contract.</li>
+            </ul>
+            <div class="explain"><strong>Why "fail extreme," not reclaim extreme</strong>
+              If the failed breakout is real, price should never revisit the failed extreme. If it does, your thesis is invalidated — the original direction is back in charge. That's the natural invalidation point and therefore the natural stop. Putting the stop closer than that gets you chopped out on noise; putting it farther than that wastes R.
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 6 · TARGETS -->
+        <div class="section">
+          <div class="section-label">6 · Target Management — T1 = 1.5-2R · T2 = Runner</div>
+          <figure class="illus">
+            <svg viewBox="0 0 680 240" role="img" aria-labelledby="fb-targets-t fb-targets-d">
+              <title id="fb-targets-t">Target 1 and Runner for failed breakout short</title>
+              <desc id="fb-targets-d">Short entry at reclaim, T1 at opposite side of range for 1.5-2R, T2 runner beyond for trend extension.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="680" y2="50"/><line x1="0" y1="110" x2="680" y2="110"/><line x1="0" y1="170" x2="680" y2="170"/></g>
+              <!-- Broken level -->
+              <line x1="20" y1="50" x2="660" y2="50" stroke="#eab308" stroke-width="1.8" stroke-dasharray="5 3"/>
+              <text x="30" y="42" fill="#eab308" font-size="10" font-weight="800">Broken level (entry zone)</text>
+              <!-- Entry marker -->
+              <circle cx="200" cy="70" r="6" fill="#ef4444" stroke="#fff" stroke-width="2"/>
+              <text x="200" y="90" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">ENTRY SHORT</text>
+              <!-- Stop -->
+              <line x1="40" y1="28" x2="640" y2="28" stroke="#ef4444" stroke-width="1.8"/>
+              <text x="50" y="22" fill="#fca5a5" font-size="10" font-weight="800">STOP · 1R = 4-10 MES pts</text>
+              <!-- T1 -->
+              <line x1="40" y1="110" x2="640" y2="110" stroke="#22c55e" stroke-width="2"/>
+              <text x="50" y="104" fill="#86efac" font-size="11" font-weight="800">★ T1 · opposite side of broken range · 1.5-2R · take 50%</text>
+              <!-- T2 runner -->
+              <line x1="40" y1="170" x2="640" y2="170" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 2"/>
+              <text x="50" y="164" fill="#14b8a6" font-size="11" font-weight="800">T2 · runner · trail stop, let it cook</text>
+              <!-- Path -->
+              <path d="M 200,70 L 240,82 L 280,98 L 320,95 L 360,110 L 400,118 L 440,135 L 480,148 L 520,162 L 560,175 L 600,190" stroke="#ef4444" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <!-- Partial take marker -->
+              <g transform="translate(360,110)"><circle r="5" fill="#22c55e" stroke="#fff" stroke-width="1.5"/></g>
+              <text x="360" y="128" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">+ move stop to BE</text>
+              <text x="340" y="225" text-anchor="middle" fill="#cbd5e1" font-size="10">At T1: bank 50% + move stop to break-even. Now it's a free trade with upside.</text>
+            </svg>
+            <figcaption>Two-target management: bank half at the opposite side of the range (1.5–2R), move stop to break-even, let the runner ride.</figcaption>
+          </figure>
+          <div class="data-block">
+            <div class="dlabel">Management sequence</div>
+            <ul>
+              <li><strong>At entry:</strong> bracket with full stop + T1 (opposite side of broken range) + T2 (runner).</li>
+              <li><strong>At T1 (1.5–2R):</strong> take 50%, move stop to break-even. You are now risking zero.</li>
+              <li><strong>At T2:</strong> trail stop behind swing structure. Exit on close through the trailing stop.</li>
+            </ul>
+            <div class="explain"><strong>Why "50% at T1" and not all-or-nothing</strong>
+              Failed breakouts reverse back into the range about 65% of the time, but they only run to the opposite extreme (T2) about 35% of the time. Taking half at T1 guarantees you book the high-probability win; letting the rest run lets you catch the occasional 3-5R home run without giving back the base case.
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 7 · KILL SWITCH -->
+        <div class="section">
+          <div class="section-label">7 · Kill Switches — When To Skip</div>
+          <figure class="illus">
+            <svg viewBox="0 0 680 200" role="img" aria-labelledby="fb-kill-t fb-kill-d">
+              <title id="fb-kill-t">Five kill-switch scenarios</title>
+              <desc id="fb-kill-d">Icons and labels for the five reasons to skip a failed-breakout setup: insignificant level, strong trend, weak reclaim candle, news-driven, stale.</desc>
+              <g font-size="11" font-weight="800" text-anchor="middle">
+                <g transform="translate(70,60)">
+                  <circle r="30" fill="#4a1f1f" stroke="#ef4444" stroke-width="2"/>
+                  <text fill="#fca5a5" y="6">☒</text>
+                  <text fill="#fca5a5" y="58">Random swing</text>
+                  <text fill="#a8b0bc" y="76" font-size="9" font-weight="400">not a watched level</text>
+                </g>
+                <g transform="translate(210,60)">
+                  <circle r="30" fill="#4a1f1f" stroke="#ef4444" stroke-width="2"/>
+                  <text fill="#fca5a5" y="6">📈</text>
+                  <text fill="#fca5a5" y="58">HTF ripping</text>
+                  <text fill="#a8b0bc" y="76" font-size="9" font-weight="400">5m/15m strong trend</text>
+                </g>
+                <g transform="translate(350,60)">
+                  <circle r="30" fill="#4a1f1f" stroke="#ef4444" stroke-width="2"/>
+                  <text fill="#fca5a5" y="6">📏</text>
+                  <text fill="#fca5a5" y="58">Weak reclaim</text>
+                  <text fill="#a8b0bc" y="76" font-size="9" font-weight="400">doji / tiny body</text>
+                </g>
+                <g transform="translate(490,60)">
+                  <circle r="30" fill="#4a1f1f" stroke="#ef4444" stroke-width="2"/>
+                  <text fill="#fca5a5" y="6">📰</text>
+                  <text fill="#fca5a5" y="58">News candle</text>
+                  <text fill="#a8b0bc" y="76" font-size="9" font-weight="400">CPI, FOMC, NFP</text>
+                </g>
+                <g transform="translate(620,60)">
+                  <circle r="30" fill="#4a1f1f" stroke="#ef4444" stroke-width="2"/>
+                  <text fill="#fca5a5" y="6">⏱</text>
+                  <text fill="#fca5a5" y="58">Stale</text>
+                  <text fill="#a8b0bc" y="76" font-size="9" font-weight="400">&gt;5 candles old</text>
+                </g>
+              </g>
+              <text x="340" y="180" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="700">Any ONE of these → skip. No hero trades.</text>
+            </svg>
+            <figcaption>If any one of these five is present, the setup loses its edge. Skip and wait for a cleaner one.</figcaption>
+          </figure>
+          <div class="data-block">
+            <div class="dlabel">The five kill switches in plain English</div>
+            <ul>
+              <li><strong>Insignificant level:</strong> breakout wasn't at PDH/PDL/ORB/flag/DT-neckline/round number → no crowd trapped → no fuel.</li>
+              <li><strong>Higher timeframe in strong opposing trend:</strong> the 5-min and 15-min are ripping up hard → your "failed breakout down" is probably just a pullback before more up.</li>
+              <li><strong>Weak reclaim candle:</strong> doji, tiny body, long wicks both sides → no committed rejection. Needs a forceful close back inside.</li>
+              <li><strong>News-driven spike:</strong> CPI, FOMC, NFP, or any major release within 30 min → bar volatility is random, not pattern-driven.</li>
+              <li><strong>Stale setup:</strong> more than 5 candles (10 minutes) have passed since the reclaim → trap has dissipated, stops are gone, edge is gone.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 8 · M2K vs MES -->
+        <div class="section">
+          <div class="section-label">8 · MES vs M2K — Character Differences</div>
+          <figure class="illus">
+            <svg viewBox="0 0 680 160" role="img" aria-labelledby="fb-cmp-t fb-cmp-d">
+              <title id="fb-cmp-t">MES vs M2K comparison for failed breakouts</title>
+              <desc id="fb-cmp-d">Side-by-side comparison showing MES has slower, cleaner breakouts while M2K has faster, wilder ones.</desc>
+              <g><rect x="20" y="20" width="320" height="120" fill="#191d25" stroke="#3a4150" stroke-width="1"/><text x="180" y="42" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">MES (Micro S&amp;P 500)</text></g>
+              <g><rect x="360" y="20" width="300" height="120" fill="#191d25" stroke="#3a4150" stroke-width="1"/><text x="510" y="42" text-anchor="middle" fill="#f472b6" font-size="13" font-weight="800">M2K (Micro Russell 2000)</text></g>
+              <g fill="#d5d9e0" font-size="10">
+                <text x="35" y="65">• Tick: 0.25 pts = $1.25/contract</text>
+                <text x="35" y="82">• Typical 2-min bar: 2-5 pts</text>
+                <text x="35" y="99">• Breakouts: slower, cleaner</text>
+                <text x="35" y="116">• Fails: more reliable, less whipsaw</text>
+                <text x="35" y="133" fill="#86efac" font-weight="700">→ A+ vehicle for this setup</text>
+              </g>
+              <g fill="#d5d9e0" font-size="10">
+                <text x="375" y="65">• Tick: 0.10 pts = $0.50/contract</text>
+                <text x="375" y="82">• Typical 2-min bar: 4-8 ticks</text>
+                <text x="375" y="99">• Breakouts: fast, violent</text>
+                <text x="375" y="116">• Fails: quicker payoff but more noise</text>
+                <text x="375" y="133" fill="#f9a8d4" font-weight="700">→ Good vehicle but requires quicker hands</text>
+              </g>
+            </svg>
+            <figcaption>MES is the cleaner vehicle for failed-breakouts; M2K is faster but noisier. Both trade the same setup — just size differently.</figcaption>
+          </figure>
+        </div>
+
+        <!-- SECTION 9 · ARNIE'S APPROACH -->
+        <div class="section">
+          <div class="section-label">9 · Arnie's Approach</div>
+          <div class="data-block">
+            <div class="dlabel">How I'll actually trade this live</div>
+            <ul>
+              <li><strong>Mark the five levels before the open:</strong> PDH, PDL, yesterday's close, key round numbers (6,500 MES · 2,500 M2K), and any prior-week extremes.</li>
+              <li><strong>Mark the ORB range at 9:45 AM EST:</strong> high and low of 9:30–9:45. Add to the "levels to watch" list.</li>
+              <li><strong>Wait for a breakout attempt, then sit on hands:</strong> do NOT trade the breakout. Watch it.</li>
+              <li><strong>When price slips back through within 2–4 candles:</strong> count bars. If yes, flip to "reclaim watch."</li>
+              <li><strong>Only pull the trigger on a full close back inside:</strong> no anticipation. Close or skip.</li>
+              <li><strong>Size based on the 1R risk:</strong> 1% of account max. If stop is 8 MES pts ($40), my 1% allows me to size appropriately for $40 × contracts.</li>
+              <li><strong>Bank half at T1, move to BE, runner to T2:</strong> mechanical management. No hero stuff.</li>
+              <li><strong>Cap at 3 attempts per day:</strong> if I miss 3, I'm done. No chasing.</li>
+            </ul>
+            <div class="explain"><strong>Why this is my A+ setup</strong>
+              Because it passes every filter I care about: (1) I'm reacting, not predicting, (2) the level is significant and watchable, (3) the math is clean (tight stop, 1.5-2R T1, runner optionality), (4) it has a psychological tailwind (I'm patient while the crowd is chasing), (5) it's frequent enough to be worth hunting but rare enough to respect, (6) it works just as well at 10 AM as at 3 PM.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /tab-failed-breakout -->
+
     <!-- ============ TAB: UNIFIED PRINCIPLES ============ -->
     <div class="tab-panel" id="tab-unified">
       <div class="column neutral">
@@ -4566,6 +5039,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <option value="DT">Double Top (short)</option>
           <option value="BULL_FLAG">Bull Flag (long)</option>
           <option value="BEAR_FLAG">Bear Flag (short)</option>
+          <option value="FAILED_BREAKOUT_LONG">Failed Breakout ↑ (long trap reversal)</option>
+          <option value="FAILED_BREAKOUT_SHORT">Failed Breakout ↓ (short trap reversal)</option>
         </select>
       </div>
       <div class="field">
@@ -4900,8 +5375,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   document.getElementById('t-pattern').addEventListener('change', function() {
     const dir = document.getElementById('t-direction');
     const p = this.value;
-    if (p === 'DB' || p === 'BULL_FLAG') dir.value = 'LONG';
-    else if (p === 'DT' || p === 'BEAR_FLAG') dir.value = 'SHORT';
+    if (p === 'DB' || p === 'BULL_FLAG' || p === 'FAILED_BREAKOUT_LONG') dir.value = 'LONG';
+    else if (p === 'DT' || p === 'BEAR_FLAG' || p === 'FAILED_BREAKOUT_SHORT') dir.value = 'SHORT';
   });
 
   function exportCSV() {
@@ -5004,7 +5479,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     wrap.style.display = 'block';
 
     const recent = trades.slice(-5).reverse();
-    const patternLabels = { DB: 'Db Bot', DT: 'Db Top', BULL_FLAG: 'Bull Flg', BEAR_FLAG: 'Bear Flg' };
+    const patternLabels = { DB: 'Db Bot', DT: 'Db Top', BULL_FLAG: 'Bull Flg', BEAR_FLAG: 'Bear Flg', FAILED_BREAKOUT_LONG: 'FB ↑', FAILED_BREAKOUT_SHORT: 'FB ↓' };
     container.innerHTML = recent.map((t, i) => {
       const idx = trades.length - i;
       const time = t.datetime.split(' ')[1] || '—';
