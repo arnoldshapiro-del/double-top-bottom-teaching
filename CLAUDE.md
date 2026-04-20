@@ -59,6 +59,9 @@ All data keys now namespaced under `playbook_`. Legacy keys (`arnie_m2k_trades_v
 - **B10** — Flashcard Trainer: 6 deliberate-practice cards with inline SVG
 - **B11** — Final polish: SEO, metadata, README, CLAUDE.md, SESSION_NOTES
 - **B12** — Red Flags moved from always-visible top panel to its own first-position TRADE tab (🚩 Red Flags — No Trade). Every other tab now opens clean at the top
+- **B13** — Layout: container max-width 1400→1800px; body font 13→14px; line-height 1.5→1.55; padding 24px→20px 28px
+- **B14** — Sidebar: height fills full viewport (calc(100vh-32px)); flex-column; theme toggle pinned to bottom via margin-top:auto
+- **B15** — TTS read-aloud engine: browser Web Speech API (same as Uni's TA Bootcamp); teal 🔊 "Read this lesson" button + reading-time estimate on 14 tabs; sentence-queue pattern; floating pause/stop/speed control bar; auto-stops on tab switch; persists rate in `playbook_tts_rate`
 
 ## Design system
 - Dark mode default · light mode toggle in sidebar (persisted in `playbook_theme`)

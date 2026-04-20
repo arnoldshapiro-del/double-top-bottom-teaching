@@ -310,3 +310,38 @@ Executed the full 11-branch merge plan from `C:\Users\arnol\Desktop\MERGE-MASTER
 **Verified live:** https://arnie-double-top-bottom.netlify.app — curl confirms tab-red-flags deployed; preview eval confirmed all 6 warnings render inside the new panel.
 
 **Files changed:** index.html only (CSS block for `.tab-redflag`, sidebar button added, tab panel added, old always-visible block removed).
+
+## Session — 2026-04-20 (continued) — Branch 15: TTS Read-Aloud Engine
+
+**What Arnie asked for:**
+"I need it to read out loud — study the mechanism from Uni's TA Bootcamp. Tell me how many minutes it is to read. Same beautiful color where it says Read the lesson. Then a pause/continue and exit button."
+
+**What we did:**
+- **Branch 15 — TTS (Text-to-Speech) engine** — ported from Uni's TA Bootcamp (React `useTTS.ts` hook → vanilla JS). Uses browser Web Speech API — free, no API key, works in Chrome and Edge.
+- Voice scoring: prefers female/neural/natural voices (same algorithm as bootcamp). Persists voice index, rate in `playbook_tts_*` localStorage keys.
+- **Teal "🔊 Read this lesson" button** with reading-time estimate (e.g. "~5 min read" at 130 wpm) appears for 14 readable tabs (all LEARN pattern tabs + Aggressive Entry + Principles + Masterclass + Red Flags + Clock Matrix + Decision Tree + Checklist).
+- Sentence-by-sentence queue pattern (not one big utterance) — same approach as bootcamp for reliability across browsers.
+- **Floating control bar** (fixed bottom) while speaking: animated teal sound bars, "Playing…"/"Paused" label, ⏸ Pause / ▶ Resume button, ⏹ Stop button, speed slider (0.6×–1.4×).
+- Auto-stops when user switches to a different tab.
+- Light-mode compatible (bar goes white/teal in light mode).
+- Text extraction: clones tab panel, removes canvas/svg/button/input elements, filters out short/numeric-only lines, joins prose lines.
+
+**Branch:** `b15-tts-reader` → merged to master
+**Deployed:** https://arnie-double-top-bottom.netlify.app ✅
+**Verified:** "🔊 Read this lesson" confirmed visible on live site via WebFetch.
+**Project Files:** Fresh clone from GitHub to `C:\Users\arnol\Desktop\Project Files Do Not Delete\double-top-bottom-teaching` ✅
+**Gallery:** arnies-app-showcase card tagline updated to mention TTS, new screenshot ✅
+
+---
+
+## Session — 2026-04-20 (continued) — UX polish: width · sidebar height
+
+**What Arnie noticed:**
+1. "Huge black on the right and left" — 1400px container cap was wasting ~260px/side on 1920px monitors. Body text was small (13px).
+2. Sidebar "should go further down" — the blue-bordered box only rendered as tall as its content; below that was empty black space not matching the main column length.
+
+**What we did:**
+- **Branch 13** — `.container` max-width: 1400px → 1800px; body font-size: 13px → 14px; line-height: 1.5 → 1.55; padding: 24px → 20px 28px. On 1920px display, main column went from ~1128px → 1528px of usable width (+35%).
+- **Branch 14** — `.sidebar` max-height → height (exact viewport-minus-32px); sidebar is now a flex-column; `.theme-toggle-wrap` gets `margin-top: auto` so the dark/light toggle pins to the bottom of the sidebar. Sidebar now always extends from top to bottom of viewport.
+
+**Verified live:** both changes curl-verified on https://arnie-double-top-bottom.netlify.app + Project Files synced.
