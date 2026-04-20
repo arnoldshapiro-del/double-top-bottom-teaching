@@ -2951,6 +2951,123 @@
     font-weight: 700;
     margin-left: auto;
   }
+
+  /* ===== TTS READ BAR & FLOAT CONTROLS (Branch 15) ===== */
+  .tts-read-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    margin: 0 0 14px 0;
+    background: rgba(20,184,166,.07);
+    border: 1px solid rgba(20,184,166,.28);
+    border-radius: 8px;
+  }
+  .tts-read-time {
+    font-size: 12px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .tts-read-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #14b8a6;
+    color: #0a0e1a;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+    white-space: nowrap;
+  }
+  .tts-read-btn:hover { background: #0d9488; }
+  .tts-float-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #0c1420;
+    border-top: 1px solid rgba(20,184,166,.4);
+    padding: 10px 24px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,.5);
+  }
+  body.light-mode .tts-float-bar {
+    background: #f0fdf8;
+    border-top-color: #14b8a6;
+    box-shadow: 0 -4px 20px rgba(0,0,0,.1);
+  }
+  .tts-float-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .tts-anim-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .tts-bar-item {
+    display: block;
+    width: 4px;
+    border-radius: 2px;
+    background: #14b8a6;
+    height: 6px;
+  }
+  .tts-float-bar:not(.paused) .tts-bar-item:nth-child(1) { animation: ttsBarAnim .8s ease-in-out 0s infinite alternate; }
+  .tts-float-bar:not(.paused) .tts-bar-item:nth-child(2) { animation: ttsBarAnim .8s ease-in-out .15s infinite alternate; }
+  .tts-float-bar:not(.paused) .tts-bar-item:nth-child(3) { animation: ttsBarAnim .8s ease-in-out .3s infinite alternate; }
+  .tts-float-bar:not(.paused) .tts-bar-item:nth-child(4) { animation: ttsBarAnim .8s ease-in-out .45s infinite alternate; }
+  @keyframes ttsBarAnim { from { height: 4px; } to { height: 18px; } }
+  .tts-status-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #14b8a6;
+    white-space: nowrap;
+  }
+  body.light-mode .tts-status-label { color: #0d9488; }
+  .tts-ctrl-btn {
+    background: rgba(255,255,255,.08);
+    color: #e2e8f0;
+    border: 1px solid rgba(255,255,255,.18);
+    padding: 5px 16px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background .15s;
+    white-space: nowrap;
+  }
+  .tts-ctrl-btn:hover { background: rgba(255,255,255,.16); }
+  body.light-mode .tts-ctrl-btn { background: rgba(0,0,0,.06); color: #1e293b; border-color: rgba(0,0,0,.18); }
+  body.light-mode .tts-ctrl-btn:hover { background: rgba(0,0,0,.12); }
+  .tts-stop-btn { color: #f87171; border-color: rgba(248,113,113,.3); }
+  .tts-stop-btn:hover { background: rgba(248,113,113,.14) !important; }
+  .tts-speed-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .tts-rate-label {
+    font-size: 12px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    min-width: 38px;
+    text-align: right;
+  }
+  .tts-rate-slider {
+    width: 80px;
+    accent-color: #14b8a6;
+    cursor: pointer;
+  }
 </style>
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -3130,6 +3247,12 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   </div>
 
   <!-- Red Flags moved to its own tab in TRADE section (see #tab-red-flags). -->
+
+  <!-- TTS Read Bar (Branch 15) — shown for readable LEARN/TRADE tabs -->
+  <div id="tts-read-bar" class="tts-read-bar" style="display:none;">
+    <span id="tts-read-time" class="tts-read-time"></span>
+    <button class="tts-read-btn" onclick="ttsStartReading()">🔊 Read this lesson</button>
+  </div>
 
   <!-- ==================== TAB CONTAINER ==================== -->
   <div class="tab-container">
@@ -8809,6 +8932,25 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <div>LEARN · TRADE · REVIEW — the complete 2-minute scalping workflow in one app</div>
   </footer>
 
+  <!-- TTS Float Control Bar (Branch 15) — fixed to bottom when reading aloud -->
+  <div id="tts-float-bar" class="tts-float-bar" style="display:none;">
+    <div class="tts-float-inner">
+      <div class="tts-anim-bars">
+        <span class="tts-bar-item"></span>
+        <span class="tts-bar-item"></span>
+        <span class="tts-bar-item"></span>
+        <span class="tts-bar-item"></span>
+      </div>
+      <span id="tts-status-label" class="tts-status-label">Playing…</span>
+      <button id="tts-pause-btn" class="tts-ctrl-btn" onclick="ttsPauseResume()">⏸ Pause</button>
+      <button class="tts-ctrl-btn tts-stop-btn" onclick="ttsStop()">⏹ Stop</button>
+      <div class="tts-speed-wrap">
+        <span id="tts-rate-label" class="tts-rate-label">0.95×</span>
+        <input type="range" id="tts-rate-slider" class="tts-rate-slider" min="0.6" max="1.4" step="0.05" value="0.95" oninput="ttsSetRate(parseFloat(this.value))">
+      </div>
+    </div>
+  </div>
+
   </div><!-- close main-col -->
   </div><!-- close app-shell -->
 </div>
@@ -10209,6 +10351,241 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       }
     });
   })();
+
+  // ========== TTS ENGINE (Branch 15) ==========
+  // Browser Web Speech API — same mechanism as Uni's TA Bootcamp, ported to vanilla JS
+  // No external API, no cost, works in Chrome and Edge.
+
+  const TTS_READABLE_TABS = new Set([
+    'double-top','double-bottom','bull-flag','bear-flag',
+    'failed-breakout','orb-retest','vwap-mr',
+    'aggressive-entry','unified','masterclass',
+    'red-flags','clock-matrix','decision-tree','checklist'
+  ]);
+
+  const TTS_FEMALE_NAMES = [
+    'zira','jenny','aria','sara','samantha','ava','chloe','courtney',
+    'emily','emma','fiona','hazel','joanna','karen','kendra','linda',
+    'lucy','michelle','monica','nicky','olivia','sally','salli','serena',
+    'susan','tessa','victoria','kimberly','amy'
+  ];
+  const TTS_MALE_NAMES = [
+    'david','mark','james','daniel','george','guy','richard','roger',
+    'ryan','thomas','sean','alex','brian','eric','fred'
+  ];
+
+  let ttsVoices = [];
+  let ttsSelectedVoice = null;
+  let ttsSpeechRate = parseFloat(localStorage.getItem('playbook_tts_rate') || '0.95');
+  let ttsSpeechPitch = 1.0;
+  let ttsSentenceQueue = [];
+  let ttsCurrentIdx = 0;
+  let ttsIsSpeaking = false;
+  let ttsIsPaused = false;
+  let ttsIsCancelled = false;
+
+  function ttsScoreVoice(v) {
+    let s = 0;
+    const n = v.name.toLowerCase();
+    if (TTS_FEMALE_NAMES.some(f => n.includes(f))) s += 10;
+    if (n.includes('natural')) s += 5;
+    if (n.includes('neural')) s += 4;
+    if (n.includes('enhanced')) s += 3;
+    if (n.includes('microsoft')) s += 2;
+    if (n.includes('google')) s += 1;
+    return s;
+  }
+
+  function ttsLoadVoices() {
+    if (!window.speechSynthesis) return;
+    const raw = window.speechSynthesis.getVoices();
+    if (!raw.length) return;
+    let filtered = raw.filter(v => v.lang.startsWith('en-US'));
+    if (!filtered.length) filtered = raw.filter(v => v.lang.startsWith('en'));
+    if (!filtered.length) filtered = raw;
+    // Deduplicate by name+lang
+    const seen = new Set(), deduped = [];
+    filtered.forEach(v => {
+      const key = v.name + '__' + v.lang;
+      if (!seen.has(key)) { seen.add(key); deduped.push(v); }
+    });
+    // Score and sort (best voice first)
+    ttsVoices = deduped
+      .map(v => ({ voice: v, score: ttsScoreVoice(v) }))
+      .sort((a, b) => b.score - a.score);
+    // Restore or pick best
+    const storedIdx = parseInt(localStorage.getItem('playbook_tts_voice_idx') || '0', 10);
+    ttsSelectedVoice = ttsVoices[storedIdx]?.voice || ttsVoices[0]?.voice || null;
+  }
+
+  function ttsInit() {
+    if (!window.speechSynthesis) return;
+    ttsLoadVoices();
+    window.speechSynthesis.addEventListener('voiceschanged', ttsLoadVoices);
+    // Android/Chrome async voice load fallback
+    let polls = 0;
+    const poll = setInterval(() => {
+      if (ttsVoices.length || ++polls > 25) clearInterval(poll);
+      else ttsLoadVoices();
+    }, 400);
+  }
+
+  // Extract clean readable text from a tab panel
+  function ttsGetTabText(tabName) {
+    const panel = document.getElementById('tab-' + tabName);
+    if (!panel) return '';
+    // Work on a clone so we don't modify the DOM
+    const clone = panel.cloneNode(true);
+    // Remove non-prose elements
+    ['script','style','canvas','svg','button','input','select','textarea','figure'].forEach(tag => {
+      clone.querySelectorAll(tag).forEach(el => el.remove());
+    });
+    const raw = clone.innerText || clone.textContent || '';
+    // Clean line by line
+    const lines = raw.split('\n')
+      .map(l => l.trim())
+      .filter(l => {
+        if (!l || l.length < 5) return false;
+        if (/^[\d\s.,;:!?()%\-+×÷=]*$/.test(l)) return false; // pure numbers/math
+        if (/^[^\w]{1,6}$/.test(l)) return false; // emoji/symbol-only short strings
+        return true;
+      });
+    return lines.join(' ');
+  }
+
+  function ttsReadingTime(text) {
+    const words = text.split(/\s+/).filter(w => w.length > 0).length;
+    const mins = words / 130; // 130 wpm — good pace for trading/educational content
+    if (mins < 0.75) return 'under 1 min read';
+    if (mins < 1.4) return '~1 min read';
+    return '~' + Math.round(mins) + ' min read';
+  }
+
+  // Sentence-by-sentence speaking (same pattern as bootcamp — more reliable than one big utterance)
+  function ttsSpeakNext() {
+    if (ttsIsCancelled) { ttsSetSpeakingState(false); return; }
+    if (ttsCurrentIdx >= ttsSentenceQueue.length) { ttsSetSpeakingState(false); return; }
+    const sentence = ttsSentenceQueue[ttsCurrentIdx].trim();
+    if (!sentence) { ttsCurrentIdx++; ttsSpeakNext(); return; }
+    const u = new SpeechSynthesisUtterance(sentence);
+    if (ttsSelectedVoice) u.voice = ttsSelectedVoice;
+    u.rate = ttsSpeechRate;
+    u.pitch = ttsSpeechPitch;
+    u.volume = 1.0;
+    u.onend = () => { ttsCurrentIdx++; setTimeout(ttsSpeakNext, 150); };
+    u.onerror = () => { ttsCurrentIdx++; setTimeout(ttsSpeakNext, 150); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function ttsSetSpeakingState(speaking) {
+    ttsIsSpeaking = speaking;
+    if (!speaking) ttsIsPaused = false;
+    const floatBar = document.getElementById('tts-float-bar');
+    if (floatBar) floatBar.style.display = speaking ? '' : 'none';
+    ttsUpdateFloatBar();
+  }
+
+  function ttsUpdateFloatBar() {
+    const floatBar = document.getElementById('tts-float-bar');
+    const statusLabel = document.getElementById('tts-status-label');
+    const pauseBtn = document.getElementById('tts-pause-btn');
+    if (!floatBar) return;
+    if (ttsIsPaused) {
+      floatBar.classList.add('paused');
+      if (statusLabel) statusLabel.textContent = 'Paused';
+      if (pauseBtn) pauseBtn.textContent = '▶ Resume';
+    } else {
+      floatBar.classList.remove('paused');
+      if (statusLabel) statusLabel.textContent = 'Playing…';
+      if (pauseBtn) pauseBtn.textContent = '⏸ Pause';
+    }
+  }
+
+  function ttsStartReading() {
+    if (!window.speechSynthesis) {
+      alert('Your browser doesn\'t support text-to-speech. Try Chrome or Edge.');
+      return;
+    }
+    const activePanel = document.querySelector('.tab-panel.active');
+    if (!activePanel) return;
+    const tabName = activePanel.id.replace('tab-', '');
+    const text = ttsGetTabText(tabName);
+    if (!text) return;
+    window.speechSynthesis.cancel();
+    ttsIsCancelled = false;
+    // Split into sentences for reliable playback
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    ttsSentenceQueue = sentences;
+    ttsCurrentIdx = 0;
+    ttsSetSpeakingState(true);
+    setTimeout(ttsSpeakNext, 50);
+  }
+
+  function ttsPauseResume() {
+    if (!ttsIsSpeaking) return;
+    if (ttsIsPaused) {
+      window.speechSynthesis.resume();
+      ttsIsPaused = false;
+    } else {
+      window.speechSynthesis.pause();
+      ttsIsPaused = true;
+    }
+    ttsUpdateFloatBar();
+  }
+
+  function ttsStop() {
+    ttsIsCancelled = true;
+    window.speechSynthesis.cancel();
+    ttsSentenceQueue = [];
+    ttsCurrentIdx = 0;
+    ttsSetSpeakingState(false);
+  }
+
+  function ttsSetRate(rate) {
+    ttsSpeechRate = rate;
+    localStorage.setItem('playbook_tts_rate', String(rate));
+    const label = document.getElementById('tts-rate-label');
+    if (label) label.textContent = rate.toFixed(2) + '×';
+  }
+
+  // Called whenever the active tab changes
+  function ttsOnTabSwitch(tabName) {
+    const readBar = document.getElementById('tts-read-bar');
+    if (!readBar) return;
+    if (TTS_READABLE_TABS.has(tabName)) {
+      const text = ttsGetTabText(tabName);
+      const timeEl = document.getElementById('tts-read-time');
+      if (timeEl) timeEl.textContent = ttsReadingTime(text);
+      readBar.style.display = '';
+    } else {
+      readBar.style.display = 'none';
+    }
+    // Auto-stop reading when user navigates away
+    if (ttsIsSpeaking) ttsStop();
+  }
+
+  // Chain onto existing switchTab wrapper
+  (function() {
+    const _prevSwitchTab = window.switchTab;
+    window.switchTab = function(tabName) {
+      _prevSwitchTab(tabName);
+      ttsOnTabSwitch(tabName);
+    };
+  })();
+
+  // Boot up
+  ttsInit();
+  // Show reading time for the initial active tab
+  setTimeout(function() {
+    const activePanel = document.querySelector('.tab-panel.active');
+    if (activePanel) ttsOnTabSwitch(activePanel.id.replace('tab-', ''));
+    // Restore speed slider to saved value
+    const slider = document.getElementById('tts-rate-slider');
+    const label = document.getElementById('tts-rate-label');
+    if (slider) slider.value = ttsSpeechRate;
+    if (label) label.textContent = ttsSpeechRate.toFixed(2) + '×';
+  }, 300);
+
 </script>
 
 <!-- Phase2-AuthGate removed 2026-04-18: was racing with primary auth handler and causing sign-in → signOut loop. Primary auth gate at top of file handles everything. -->
