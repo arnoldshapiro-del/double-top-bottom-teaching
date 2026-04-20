@@ -1,7 +1,7 @@
 # Arnie's Day Trading Setup Playbook
 
 ## Project Name
-Arnie's Day Trading Setup Playbook — v3.0 (MES & M2K · 2-min scalping · 7 setups + 3 workflow tools)
+Arnie's Day Trading Setup Playbook — v3.1 (MES & M2K · 2-min scalping · 7 setups + 3 workflow tools + Aggressive Entry)
 (Formerly "Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags" v2.x · originally "Double Top / Double Bottom — M2K 2-Min Scalping Reference")
 
 ## Purpose
@@ -20,7 +20,9 @@ https://arnie-double-top-bottom.netlify.app
 - Local dev server: `C:\Users\arnol\Desktop\serve-dtb-teaching.js` (port 3478, launched via `.claude/launch.json` config "dtb-teaching")
 
 ## Current Status
-**v3.0 MAJOR EXPANSION — LIVE (2026-04-20).** App renamed to "Arnie's Day Trading Setup Playbook." Expanded from 4 → 7 setups with the addition of Failed Breakout Reversal, ORB Retest, and VWAP Mean Reversion with RSI. Added 3 interactive workflow tools (Clock Matrix, Decision Tree, Pre-Trade Checklist). Total 55+ SVG illustrations. Gallery card updated, URL shortcut renamed. Feature-complete.
+**v3.1 LIVE (2026-04-20).** Added ⚡ Aggressive Entry tab — the disciplined framework for entering BEFORE the candle closes when volume is explosive. 5-gate criteria (volume 3×, body past level, momentum active, morning session 9:45-11:30, 5-min trend agrees), MES 2+ pts / M2K 1.5+ pts thresholds, applied to all 7 setups with VALID vs WICK-TRAP trigger examples, stop placement comparison, 5 never-do disqualifiers, live 10-second decision scorecard, +0.50R math edge. Orange/amber "power" theme. 60+ inline SVG illustrations total.
+
+**v3.0 (2026-04-20).** App renamed to "Arnie's Day Trading Setup Playbook." Expanded from 4 → 7 setups with Failed Breakout Reversal, ORB Retest, VWAP Mean Reversion with RSI. Added 3 workflow tools (Clock Matrix, Decision Tree, Pre-Trade Checklist).
 
 ## Features Completed (v1.x)
 - Double Top + Double Bottom checklists with quality scoring (0–5)

@@ -1,5 +1,24 @@
 # Session Notes — Arnie's Day Trading Setup Playbook
 
+## Session — 2026-04-20 — v3.1 ⚡ Aggressive Entry Tab
+
+**What we did:**
+- New ⚡ **Aggressive Entry** tab — disciplined framework for entering BEFORE the candle closes when volume is explosive (answers Arnie's deep-research question about early impulse entries).
+- 5-gate criteria: volume ≥3× avg · body past level · momentum active · morning session 9:45–11:30 · 5-min trend agrees. ALL 5 must pass or skip.
+- MES 2+ points / M2K 1.5+ points thresholds with visual examples.
+- Applied to all 7 patterns (DB, DT, Bull Flag, Bear Flag, Failed Breakout, ORB Retest, VWAP MR) with VALID vs WICK-TRAP trigger boxes.
+- 5 absolute never-do disqualifiers. Stop placement comparison SVG. Live 10-second decision scorecard.
+- Math edge: +0.50R aggressive vs +0.26R wait-for-close (when gates pass).
+- Orange/amber "power" accent theme (`.tab-aggressive`, `#fb923c`). Tab nav expanded 12 → 13 buttons.
+- Branch `feature/aggressive-entry` merged to master with `--no-ff`, pushed, Netlify deployed.
+- Gallery card (arnies-app-showcase) updated to v3.1 tagline + new screenshot + emoji changed 📈 → ⚡.
+
+**What's working:** Live at https://arnie-double-top-bottom.netlify.app — Aggressive Entry tab confirmed visible. Gallery card v3.1 live.
+
+**What's next:** Feature-complete unless Arnie requests further additions.
+
+---
+
 ## Session — 2026-04-20 — v3.0 MAJOR EXPANSION — 3 New Setups + 3 Workflow Tools + App Rename
 
 **What we did:**
