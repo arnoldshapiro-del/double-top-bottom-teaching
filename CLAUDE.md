@@ -1,8 +1,8 @@
-# Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags
+# Arnie's Day Trading Setup Playbook
 
 ## Project Name
-Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags — Teaching Edition v2.0
-(Formerly "Double Top / Double Bottom — M2K 2-Min Scalping Reference")
+Arnie's Day Trading Setup Playbook — v3.0 (MES & M2K · 2-min scalping · 7 setups + 3 workflow tools)
+(Formerly "Trading Double Bottoms and Double Tops, and Bull Flags and Bear Flags" v2.x · originally "Double Top / Double Bottom — M2K 2-Min Scalping Reference")
 
 ## Purpose
 A single-file HTML trading reference app for M2K and MES 2-minute scalping. Covers four chart patterns — Double Top, Double Bottom, Bull Flag, Bear Flag — with inline plain-English teaching explanations for every concept. Also includes a Unified Principles reference tab that ties all four patterns together with 8 cross-pattern rules. Has quality scoring (0–5), red-flags panel, Four Principles discipline gate, trade journal with localStorage persistence, and CSV export.
@@ -20,7 +20,7 @@ https://arnie-double-top-bottom.netlify.app
 - Local dev server: `C:\Users\arnol\Desktop\serve-dtb-teaching.js` (port 3478, launched via `.claude/launch.json` config "dtb-teaching")
 
 ## Current Status
-Phase 3 v2.2 MERGED to master and live in production (2026-04-15). All three user concerns from Phase 3 request addressed: (1) readability fixed, (2) sticky tab nav added, (3) entry methods simplified to exactly 2 per pattern. Gallery 1 card updated to v2.2 and live.
+**v3.0 MAJOR EXPANSION — LIVE (2026-04-20).** App renamed to "Arnie's Day Trading Setup Playbook." Expanded from 4 → 7 setups with the addition of Failed Breakout Reversal, ORB Retest, and VWAP Mean Reversion with RSI. Added 3 interactive workflow tools (Clock Matrix, Decision Tree, Pre-Trade Checklist). Total 55+ SVG illustrations. Gallery card updated, URL shortcut renamed. Feature-complete.
 
 ## Features Completed (v1.x)
 - Double Top + Double Bottom checklists with quality scoring (0–5)
@@ -71,8 +71,18 @@ Phase 3 v2.2 MERGED to master and live in production (2026-04-15). All three use
 - **All SVGs** follow the locked palette (`#22c55e` bullish, `#ef4444` bearish, `#14b8a6` teal, `#eab308` warning, `#cbd5e1` price line, `#475569` grid, `#070c18` chart bg) with `<title>` + `<desc>` for screen readers and `<figcaption>` for sighted users.
 - **No regressions** — tab switching, quality scoring, red-flags, Four Principles gate, pattern-tagged journal, CSV export, sticky tab nav, Recommended/Expert Backup callouts, Firebase auth, PWA manifest all intact.
 
+## Features Completed (v3.0 — 2026-04-20 · 5 branches merged sequentially)
+- **Branch 1 — Safe rename** — Display name changed to "Arnie's Day Trading Setup Playbook" (h1, subtitle, footer, SEO tags, manifest.json, README.md). Repo name and Netlify URL preserved.
+- **Branch 2 — Failed Breakout Reversal (Setup #5)** — Highest-edge setup (60–65% WR · 2:1 R:R). 7 sections, 9 SVG illustrations. Works at PDH/PDL, ORH/ORL, round numbers (6,500 MES / 2,500 M2K), DT/DB necklines, flag breaks.
+- **Branch 3 — ORB Retest (Setup #6)** — Max 1/day morning session breakout with retest confirmation. 6 criteria, 3-target execution (1R/2R/3R+), 5 kill switches. 6 SVG illustrations.
+- **Branch 4 — VWAP Mean Reversion with RSI (Setup #7)** — Midday 11:30–2:00 EST range play. 5 criteria, VWAP = Target 1, 5 kill switches. Edge math: +0.44R expectancy per trade, ~+26R/month projected. 6 SVG illustrations.
+- **Branch 5 — 3 Workflow Tools** — 🕐 Clock Matrix (7-row time-of-day setup guide with session timeline SVG), 🌳 Pre-Trade Decision Tree (4 yes/no gates · live GO/SKIP verdict), ✅ Pre-Trade Checklist (24 interactive tick-boxes · 5 sections · live counter).
+- **Tab nav** — expanded from 8 → 12 buttons. Workflow tools get distinct violet `.tab-tool` styling to distinguish utilities from setup patterns.
+- **Trade journal** — Pattern dropdown expanded with FAILED_BREAKOUT_LONG/SHORT, ORB_RETEST_LONG/SHORT, VWAP_MR_LONG/SHORT. Auto-direction logic updated. patternLabels map updated.
+- **All existing features preserved** — DB/DT/Bull Flag/Bear Flag, Unified Principles, Visual Masterclass (20 lessons), Firebase auth gate, PWA, Four Principles discipline gate, quality scoring, CSV export.
+
 ## Features Planned / Next
-- None. App is feature-complete.
+- None. App is feature-complete at v3.0.
 
 ## Known Issues / Bugs
 None

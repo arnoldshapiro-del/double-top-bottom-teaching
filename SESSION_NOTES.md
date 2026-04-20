@@ -1,4 +1,48 @@
-# Session Notes — Double Top / Bottom Teaching Edition
+# Session Notes — Arnie's Day Trading Setup Playbook
+
+## Session — 2026-04-20 — v3.0 MAJOR EXPANSION — 3 New Setups + 3 Workflow Tools + App Rename
+
+**What we did:**
+- **App renamed** from "Trading Double Bottoms, Double Tops, Bull Flags & Bear Flags" → **"Arnie's Day Trading Setup Playbook"** everywhere (h1, subtitle, footer, SEO meta tags, manifest.json, README.md, URL shortcut). Repo name `double-top-bottom-teaching` and live URL `arnie-double-top-bottom.netlify.app` intentionally kept (safe rename — no repo churn).
+- **Branch 2 — Failed Breakout Reversal setup tab** (merged): 7-section tab covering the highest-edge setup (60–65% win rate at 2:1 R:R). Locations: PDH/PDL, ORH/ORL, DT/DB necklines, flag breaks, round numbers (6,500 MES / 2,500 M2K). 6 setup criteria. Entry on reclaim candle close. Stop 1–2 ticks beyond failed extreme. Full SVG-illustrated (9 illustrations including hero, location map, reclaim geometry, execution trade map, volume divergence, selectivity gate).
+- **Branch 3 — ORB Retest setup tab** (merged): 9:30–9:45 EST opening range breakout with pullback-and-retest confirmation. Max 1 per day. 6-criteria setup (break → pullback → retest → volume comparison → 5-min non-opposing → rejection candle). Entry at retest, 3-target execution (1R/2R/3R+). 5 kill switches (gap >20, holiday, FOMC/CPI/NFP, retest >20min, chasing). 6 illustrations.
+- **Branch 4 — VWAP Mean Reversion with RSI setup tab** (merged): Midday 11:30 AM–2:00 PM EST range play, 55–60% WR at 1.5:1 R:R. VWAP + Bollinger (20,2) + RSI(14). 5-criteria setup (ranging market, band touch, RSI exhaustion, rejection candle, midday timing). Target = VWAP. Max 3 MR trades per session. 5 kill switches. Edge math projection (+0.44R/trade, ~26R/month). 6 illustrations.
+- **Branch 5 — 3 Workflow Tools** (merged): 
+  - 🕐 **Clock Matrix** — 7-row time-of-day setup guide with hero timeline SVG (9:30 open → close). Color-coded edge levels (high green / medium yellow / low red / purple midday MR-only).
+  - 🌳 **Pre-Trade Decision Tree** — 4 yes/no questions (at known level · matches playbook pattern · R:R ≥1.5:1 · calm state) with live GO/SKIP verdict driven by JS state. Any NO = SKIP with red verdict. All YES = GO with green verdict.
+  - ✅ **Pre-Trade Checklist** — 24 interactive tick-boxes across 5 sections (Market Context · Setup ID · Volume/Momentum · Risk & Numbers · Mental State with Four Principles). Live progress counter, verdict changes green at 24/24.
+- Tab navigation expanded from 8 → 12 buttons. Workflow tools get a distinct violet accent (`.tab-tool` CSS class) to separate utilities from setup patterns.
+- Pattern dropdown in trade journal expanded: added FAILED_BREAKOUT_LONG/SHORT, ORB_RETEST_LONG/SHORT, VWAP_MR_LONG/SHORT. Auto-direction logic updated. patternLabels map updated (FB ↑/↓, ORB ↑/↓, VWAP ↑/↓).
+- SVG illustrations total now 55+ across all 7 setup tabs + Clock Matrix.
+- manifest.json description updated to reflect 7 setups + 3 workflow tools.
+- README.md rewritten with new title, 7-setups list, 3-workflow-tools list.
+- Puppeteer screenshot taken of live site at `arnies-app-showcase/screenshots/day-trading-setup-playbook.png`.
+- Gallery 1 card (arnies-app-showcase) updated to v3.0 with full new-feature tagline. Pushed.
+- URL shortcut renamed from "Double Top-Bottom Teaching Edition.url" → "Arnie's Day Trading Setup Playbook.url" (same live URL).
+
+**Commits / merges this session:**
+- `feature/rename-to-setup-playbook` → master (Branch 1 rename)
+- `feature/failed-breakout` → master (Branch 2, 9 SVGs)
+- `feature/orb-retest` → master (Branch 3, 6 SVGs) — merge commit `2af452e`
+- `feature/vwap-mean-reversion` → master (Branch 4, 6 SVGs) — merge commit `434e045`
+- `feature/workflow-tools` → master (Branch 5, workflow tools) — merge commit `7e8e4c1`
+- Gallery update commit `8e64abc` pushed to arnies-app-showcase/master
+
+**What's working:** All 7 setup tabs render on live Netlify. Clock Matrix, Decision Tree (with live GO/SKIP verdict), and Pre-Trade Checklist (with live 24/24 counter) all functional. Firebase auth gate intact. PWA intact. Pattern-tagged trade journal with 6 new pattern options. No regressions in DB/DT/Bull Flag/Bear Flag/Unified Principles/Visual Masterclass tabs.
+
+**What's next:** App is feature-complete at v3.0. Potential future work Arnie may request: backtest results for new setups, trade journal export of new patterns, or adding 8th setup if discovered.
+
+**Important decisions:**
+- Kept repo name and Netlify URL unchanged (safe rename — only display name changed).
+- Built all 5 branches sequentially in one session per Arnie's "don't stop till everything's finished" directive.
+- Deferred gallery screenshot to after all 5 branches merged (not per-branch) — avoided 4 wasted interim screenshots.
+- Workflow tools are tabs (not a modal/dialog) — consistent with existing tab architecture, deep-linkable, printable.
+- Decision Tree and Checklist state is ephemeral (not persisted to localStorage) — by design, these are single-use pre-trade gates, not journal entries.
+
+**Problems encountered:**
+- Windows curl SSL revocation check failed briefly (transient CRL issue). Worked around with `--ssl-no-revoke`. Not a deploy issue.
+
+---
 
 ## Session — 2026-04-18 — Phase v2.3 — Firebase Auth Fix + PWA + 40 SVG Illustrations
 
