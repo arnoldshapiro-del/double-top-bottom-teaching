@@ -1510,8 +1510,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <button class="tab-btn" data-tab="bear-flag" onclick="switchTab('bear-flag')"><span class="tab-num">4 ·</span>Bear Flag</button>
     <button class="tab-btn" data-tab="failed-breakout" onclick="switchTab('failed-breakout')"><span class="tab-num">5 ·</span>🎯 Failed Breakout</button>
     <button class="tab-btn" data-tab="orb-retest" onclick="switchTab('orb-retest')"><span class="tab-num">6 ·</span>🌅 ORB Retest</button>
-    <button class="tab-btn" data-tab="unified" onclick="switchTab('unified')"><span class="tab-num">7 ·</span>Unified Principles</button>
-    <button class="tab-btn" data-tab="masterclass" onclick="switchTab('masterclass')"><span class="tab-num">8 ·</span>📖 Visual Masterclass</button>
+    <button class="tab-btn" data-tab="vwap-mr" onclick="switchTab('vwap-mr')"><span class="tab-num">7 ·</span>🌀 VWAP Mean Rev</button>
+    <button class="tab-btn" data-tab="unified" onclick="switchTab('unified')"><span class="tab-num">8 ·</span>Unified Principles</button>
+    <button class="tab-btn" data-tab="masterclass" onclick="switchTab('masterclass')"><span class="tab-num">9 ·</span>📖 Visual Masterclass</button>
   </div>
 
   <!-- ==================== TAB CONTAINER ==================== -->
@@ -4188,6 +4189,341 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-orb-retest -->
 
+    <!-- ============ TAB: VWAP MEAN REVERSION WITH RSI ============ -->
+    <div class="tab-panel" id="tab-vwap-mr">
+      <div class="column neutral">
+        <div class="column-header">
+          <div class="column-title">🌀 VWAP Mean Reversion with RSI · Range Play · 55–60% Win Rate</div>
+          <div class="pattern-shape">⇋</div>
+        </div>
+
+        <div class="you-recommend-callout">
+          <strong>★ What this is — in plain English:</strong> Price has wandered <em>too far</em> from its session average (VWAP). Statistically, it usually comes back. When RSI(14) also shows the move is exhausted (>70 at a top, <30 at a bottom), <em>and</em> a rejection candle prints <em>at the outer Bollinger/2nd std-dev band</em>, the odds favor a fade back to VWAP. This is a <strong>range-play setup</strong> — works best when the market is chopping, not trending hard. Runs in the <strong>midday window: 11:30 AM–2:00 PM EST</strong>. 3–6 setups per day typical. 1.5:1 R:R. Skip entirely in strong trends, during news, or before the close.
+        </div>
+
+        <figure class="illus">
+          <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vwap-hero-title vwap-hero-desc">
+            <title id="vwap-hero-title">VWAP Mean Reversion — price fading from upper band back to VWAP</title>
+            <desc id="vwap-hero-desc">Sinuous price line oscillates between upper and lower 2nd std dev bands. At upper band, RSI shows 75. A bearish rejection candle prints. Short entry with stop above band, target at VWAP. Below: RSI subplot with 70/30 levels.</desc>
+            <rect width="640" height="280" fill="#070c18"/>
+            <g stroke="#475569" stroke-opacity=".25" stroke-width="1">
+              <line x1="40" y1="50" x2="600" y2="50"/>
+              <line x1="40" y1="100" x2="600" y2="100"/>
+              <line x1="40" y1="150" x2="600" y2="150"/>
+              <line x1="40" y1="200" x2="600" y2="200"/>
+            </g>
+            <!-- VWAP center line -->
+            <line x1="40" y1="125" x2="600" y2="125" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="50" y="121" fill="#c4b5fd" font-size="10" font-weight="700">VWAP</text>
+            <!-- Upper 2nd std dev band -->
+            <path d="M 40 60 Q 200 55 400 58 T 600 62" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+            <text x="545" y="54" fill="#fbbf24" font-size="9">+2σ Upper Band</text>
+            <!-- Lower 2nd std dev band -->
+            <path d="M 40 190 Q 200 195 400 192 T 600 188" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+            <text x="545" y="202" fill="#fbbf24" font-size="9">–2σ Lower Band</text>
+            <!-- Sinuous price -->
+            <path d="M 40 125 Q 90 140 130 130 T 200 100 Q 240 80 280 85 Q 310 88 335 65 Q 345 60 360 62" stroke="#cbd5e1" stroke-width="2.2" fill="none"/>
+            <!-- Rejection candle at upper band -->
+            <rect x="355" y="56" width="8" height="18" fill="#ef4444" stroke="#fecaca" stroke-width="1"/>
+            <line x1="359" y1="48" x2="359" y2="58" stroke="#fecaca" stroke-width="1"/>
+            <text x="370" y="58" fill="#fca5a5" font-size="10" font-weight="700">REJECTION</text>
+            <!-- Entry arrow -->
+            <path d="M 375 82 L 375 118" stroke="#ef4444" stroke-width="2" marker-end="url(#arrVwap)"/>
+            <defs><marker id="arrVwap" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/></marker></defs>
+            <text x="382" y="100" fill="#fca5a5" font-size="10">Short</text>
+            <!-- Stop above band -->
+            <line x1="355" y1="48" x2="420" y2="48" stroke="#eab308" stroke-width="2" stroke-dasharray="3 2"/>
+            <text x="425" y="52" fill="#facc15" font-size="9">Stop</text>
+            <!-- Price falls to VWAP -->
+            <path d="M 375 85 Q 410 100 440 118 Q 460 125 485 125" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+            <circle cx="485" cy="125" r="5" fill="#22c55e"/>
+            <text x="495" y="128" fill="#86efac" font-size="10" font-weight="700">Target = VWAP</text>
+            <!-- RSI subplot -->
+            <rect x="40" y="225" width="560" height="40" fill="#0b1222" stroke="#334155" stroke-width="1"/>
+            <text x="48" y="240" fill="#c4b5fd" font-size="9" font-weight="700">RSI(14)</text>
+            <line x1="100" y1="230" x2="600" y2="230" stroke="#ef4444" stroke-width="0.8" stroke-dasharray="2 2"/>
+            <text x="605" y="232" fill="#fca5a5" font-size="8">70</text>
+            <line x1="100" y1="260" x2="600" y2="260" stroke="#22c55e" stroke-width="0.8" stroke-dasharray="2 2"/>
+            <text x="605" y="262" fill="#86efac" font-size="8">30</text>
+            <path d="M 100 250 Q 180 245 250 235 Q 310 228 355 226" stroke="#c4b5fd" stroke-width="1.5" fill="none"/>
+            <circle cx="355" cy="226" r="3" fill="#ef4444"/>
+            <text x="362" y="230" fill="#fca5a5" font-size="9" font-weight="700">RSI = 75 · exhausted</text>
+          </svg>
+          <figcaption>The full setup in one picture: price tags +2σ upper band while RSI(14) crosses 75 (overbought), a bearish rejection candle closes, short entry triggers with stop just above the band high. Target = VWAP. Classic mean reversion geometry.</figcaption>
+        </figure>
+
+        <!-- Section 1: The Three Tools -->
+        <div class="section-label">1 · The Three Tools You Need on the Chart</div>
+        <div class="explain">
+          <strong>VWAP (Volume-Weighted Average Price)</strong> — a running average that weights every price by its volume. It is the <em>institutional fair-value benchmark</em>. Mutual funds, pension funds, and algos measure their own execution against VWAP. This means there are real buyers just below VWAP and real sellers just above VWAP — it acts as a magnet and a dividing line.
+          <br><br>
+          <strong>Bollinger Bands (20-period, 2 std dev)</strong> — or use a volume-weighted equivalent. The upper and lower bands mark where price is <em>two standard deviations</em> away from the 20-period mean. By definition, price spends ~95% of the time <em>inside</em> these bands. A close <em>at or beyond</em> a band is a statistical extreme — the move is likely overextended.
+          <br><br>
+          <strong>RSI(14)</strong> — Relative Strength Index, 14-period. Measures momentum on a 0–100 scale. Above 70 = overbought. Below 30 = oversold. By itself, RSI is weak — trends ride at 75+ for hours. But <em>combined</em> with a touch of the 2nd std dev band and a rejection candle, it becomes a high-confluence exhaustion signal.
+        </div>
+        <figure class="illus">
+          <svg viewBox="0 0 620 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vwap-tools-title">
+            <title id="vwap-tools-title">Three chart tools: VWAP line, Bollinger Bands, and RSI(14) subplot</title>
+            <rect width="620" height="230" fill="#070c18"/>
+            <!-- Three side-by-side visual explainers -->
+            <g transform="translate(20,20)">
+              <rect x="0" y="0" width="180" height="170" fill="#0b1222" stroke="#7c3aed" stroke-width="1.5" rx="6"/>
+              <text x="90" y="20" fill="#c4b5fd" font-size="11" font-weight="700" text-anchor="middle">VWAP</text>
+              <line x1="15" y1="85" x2="165" y2="85" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M 15 110 Q 50 70 90 95 T 165 75" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+              <text x="90" y="145" fill="#d5d9e0" font-size="9" text-anchor="middle">volume-weighted</text>
+              <text x="90" y="157" fill="#d5d9e0" font-size="9" text-anchor="middle">session average</text>
+            </g>
+            <g transform="translate(220,20)">
+              <rect x="0" y="0" width="180" height="170" fill="#0b1222" stroke="#f59e0b" stroke-width="1.5" rx="6"/>
+              <text x="90" y="20" fill="#fbbf24" font-size="11" font-weight="700" text-anchor="middle">Bollinger (20,2)</text>
+              <path d="M 15 40 Q 90 35 165 42" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+              <path d="M 15 130 Q 90 135 165 128" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+              <path d="M 15 85 Q 60 60 90 90 Q 120 120 165 85" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+              <text x="90" y="155" fill="#d5d9e0" font-size="9" text-anchor="middle">95% of time</text>
+              <text x="90" y="167" fill="#d5d9e0" font-size="9" text-anchor="middle">price inside bands</text>
+            </g>
+            <g transform="translate(420,20)">
+              <rect x="0" y="0" width="180" height="170" fill="#0b1222" stroke="#14b8a6" stroke-width="1.5" rx="6"/>
+              <text x="90" y="20" fill="#7dd3fc" font-size="11" font-weight="700" text-anchor="middle">RSI(14)</text>
+              <line x1="15" y1="45" x2="165" y2="45" stroke="#ef4444" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <text x="170" y="48" fill="#fca5a5" font-size="8">70</text>
+              <line x1="15" y1="125" x2="165" y2="125" stroke="#22c55e" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <text x="170" y="128" fill="#86efac" font-size="8">30</text>
+              <path d="M 15 85 Q 50 60 90 40 Q 130 60 165 90" stroke="#c4b5fd" stroke-width="1.5" fill="none"/>
+              <circle cx="90" cy="40" r="3" fill="#ef4444"/>
+              <text x="90" y="157" fill="#d5d9e0" font-size="9" text-anchor="middle">momentum 0–100</text>
+            </g>
+          </svg>
+          <figcaption>Three tools working together — VWAP is the magnet (violet), Bollinger outer bands are the extremes (amber), RSI(14) confirms exhaustion (lower panel).</figcaption>
+        </figure>
+
+        <!-- Section 2: The 5-Criteria Checklist -->
+        <div class="section-label">2 · The 5-Criteria Setup Checklist (all must be true)</div>
+        <div class="data-block">
+          <div class="check-row"><span class="check-num">1</span><div><strong>Market is ranging, not trending hard.</strong> ADX &lt; 25 ideal. If the 20-EMA is climbing/falling at a steep angle, mean reversion fails — trend wins. Visual rule: if the last 10 candles make a clean stairstep, SKIP.</div></div>
+          <div class="check-row"><span class="check-num">2</span><div><strong>Price is AT or just BEYOND the 2nd std dev band.</strong> Candle body or wick touches the band. Not "near." Not "almost." Touching or breaching.</div></div>
+          <div class="check-row"><span class="check-num">3</span><div><strong>RSI(14) is &gt;70 for shorts (upper band) or &lt;30 for longs (lower band).</strong> Confirms momentum exhaustion. Even better: RSI is rolling over (just crossed back under 70 / back over 30).</div></div>
+          <div class="check-row"><span class="check-num">4</span><div><strong>A rejection candle prints.</strong> Pin bar (long wick into the band, small body), bearish/bullish engulfing, or shooting star/hammer at the extreme. The candle must CLOSE back inside the bands.</div></div>
+          <div class="check-row"><span class="check-num">5</span><div><strong>Time of day is midday: 11:30 AM – 2:00 PM EST.</strong> This is when trends exhaust, volume drops, and ranges form. Do NOT run this setup in the first 90 minutes (9:30–11:00) — trends dominate. Do NOT run in the last 30 minutes — closing auctions distort.</div></div>
+        </div>
+        <figure class="illus">
+          <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vwap-criteria-title">
+            <title id="vwap-criteria-title">Five criteria compound into one high-confluence VWAP mean reversion short</title>
+            <rect width="640" height="260" fill="#070c18"/>
+            <g stroke="#475569" stroke-opacity=".2" stroke-width="1">
+              <line x1="40" y1="60" x2="600" y2="60"/>
+              <line x1="40" y1="120" x2="600" y2="120"/>
+              <line x1="40" y1="180" x2="600" y2="180"/>
+            </g>
+            <!-- VWAP -->
+            <line x1="40" y1="130" x2="600" y2="130" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="45" y="127" fill="#c4b5fd" font-size="9">VWAP</text>
+            <!-- Upper band -->
+            <path d="M 40 55 L 600 60" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="3 3" fill="none"/>
+            <text x="545" y="52" fill="#fbbf24" font-size="9">+2σ Upper</text>
+            <!-- Lower band -->
+            <path d="M 40 200 L 600 205" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="3 3" fill="none"/>
+            <!-- Ranging price (criterion 1) -->
+            <path d="M 40 130 Q 80 90 120 140 Q 160 180 200 130 Q 240 90 280 140 Q 320 100 360 70" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+            <!-- Rejection candle at upper band (criterion 2, 4) -->
+            <rect x="362" y="58" width="10" height="20" fill="#ef4444" stroke="#fecaca" stroke-width="1"/>
+            <line x1="367" y1="45" x2="367" y2="60" stroke="#fecaca" stroke-width="1.2"/>
+            <!-- Criterion labels -->
+            <g font-size="9" font-weight="700">
+              <rect x="55" y="215" width="38" height="30" fill="#14b8a6" opacity=".2" stroke="#14b8a6" rx="4"/>
+              <text x="74" y="228" fill="#7dd3fc" text-anchor="middle">1</text>
+              <text x="74" y="240" fill="#d5d9e0" text-anchor="middle" font-size="7">Ranging</text>
+              <rect x="110" y="215" width="38" height="30" fill="#f59e0b" opacity=".2" stroke="#f59e0b" rx="4"/>
+              <text x="129" y="228" fill="#fbbf24" text-anchor="middle">2</text>
+              <text x="129" y="240" fill="#d5d9e0" text-anchor="middle" font-size="7">Band touch</text>
+              <rect x="165" y="215" width="38" height="30" fill="#c4b5fd" opacity=".2" stroke="#c4b5fd" rx="4"/>
+              <text x="184" y="228" fill="#c4b5fd" text-anchor="middle">3</text>
+              <text x="184" y="240" fill="#d5d9e0" text-anchor="middle" font-size="7">RSI &gt; 70</text>
+              <rect x="220" y="215" width="38" height="30" fill="#ef4444" opacity=".2" stroke="#ef4444" rx="4"/>
+              <text x="239" y="228" fill="#fca5a5" text-anchor="middle">4</text>
+              <text x="239" y="240" fill="#d5d9e0" text-anchor="middle" font-size="7">Reject cdl</text>
+              <rect x="275" y="215" width="38" height="30" fill="#22c55e" opacity=".2" stroke="#22c55e" rx="4"/>
+              <text x="294" y="228" fill="#86efac" text-anchor="middle">5</text>
+              <text x="294" y="240" fill="#d5d9e0" text-anchor="middle" font-size="7">12:15 EST</text>
+            </g>
+            <!-- Clock showing time -->
+            <circle cx="500" cy="230" r="22" fill="#0b1222" stroke="#22c55e" stroke-width="1.5"/>
+            <line x1="500" y1="230" x2="500" y2="213" stroke="#86efac" stroke-width="2"/>
+            <line x1="500" y1="230" x2="513" y2="230" stroke="#86efac" stroke-width="2"/>
+            <text x="500" y="256" fill="#86efac" font-size="10" font-weight="700" text-anchor="middle">12:15 EST</text>
+            <!-- Short arrow -->
+            <path d="M 385 78 L 385 115" stroke="#ef4444" stroke-width="2" marker-end="url(#arrC)"/>
+            <defs><marker id="arrC" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/></marker></defs>
+            <text x="395" y="95" fill="#fca5a5" font-size="10" font-weight="700">SHORT</text>
+          </svg>
+          <figcaption>All five criteria stacked at once — range structure (1), upper band tag (2), RSI > 70 (3), bearish rejection close (4), midday timing (5). This is the full confluence that produces 55–60% win rate.</figcaption>
+        </figure>
+
+        <!-- Section 3: Entry / Stop / Target -->
+        <div class="section-label">3 · Execution — Entry, Stop, Target</div>
+        <div class="data-block">
+          <div class="data-row"><span class="dlabel">Entry (SHORT from upper band):</span><span class="dval">On the close of the rejection candle back inside the bands. Enter at the open of the NEXT bar.</span></div>
+          <div class="data-row"><span class="dlabel">Entry (LONG from lower band):</span><span class="dval">On the close of the rejection candle (hammer/bullish engulfing) back inside the bands. Enter at the open of the NEXT bar.</span></div>
+          <div class="data-row"><span class="dlabel">Stop:</span><span class="dval">1–2 ticks beyond the rejection candle's extreme (above the high for shorts, below the low for longs). This is typically <strong>2–4 points on MES, 1.5–3 points on M2K.</strong></span></div>
+          <div class="data-row"><span class="dlabel">Target 1 (primary):</span><span class="dval">VWAP. This is where 70%+ of mean-reversion trades resolve. Take 1/2 to 2/3 of position off.</span></div>
+          <div class="data-row"><span class="dlabel">Target 2 (runner):</span><span class="dval">Opposite band if price has clear range structure (bouncing between bands all day). Trail the rest of the position with the 20-EMA.</span></div>
+          <div class="data-row"><span class="dlabel">R:R:</span><span class="dval">1.5:1 minimum. Don't accept less. If VWAP is only 1R away from entry, the trade is too tight — skip.</span></div>
+        </div>
+        <figure class="illus">
+          <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vwap-exec-title">
+            <title id="vwap-exec-title">Execution map — rejection candle close entry, stop above band, target at VWAP</title>
+            <rect width="640" height="240" fill="#070c18"/>
+            <g stroke="#475569" stroke-opacity=".2" stroke-width="1">
+              <line x1="40" y1="40" x2="600" y2="40"/>
+              <line x1="40" y1="100" x2="600" y2="100"/>
+              <line x1="40" y1="160" x2="600" y2="160"/>
+              <line x1="40" y1="220" x2="600" y2="220"/>
+            </g>
+            <line x1="40" y1="130" x2="600" y2="130" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="545" y="127" fill="#c4b5fd" font-size="10" font-weight="700">VWAP · Target</text>
+            <path d="M 40 50 L 600 55" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="3 3" fill="none"/>
+            <text x="540" y="46" fill="#fbbf24" font-size="10">+2σ Band</text>
+            <!-- Price approach -->
+            <path d="M 40 130 Q 90 120 130 105 Q 170 90 210 75 Q 240 68 270 62" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+            <!-- Rejection pin bar -->
+            <rect x="265" y="58" width="12" height="18" fill="#ef4444" stroke="#fecaca" stroke-width="1.2"/>
+            <line x1="271" y1="40" x2="271" y2="60" stroke="#fecaca" stroke-width="1.5"/>
+            <text x="285" y="52" fill="#fca5a5" font-size="10" font-weight="700">Reject pin</text>
+            <!-- Entry arrow at close of rejection candle -->
+            <circle cx="277" cy="76" r="4" fill="#ef4444"/>
+            <path d="M 295 76 L 325 76" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrEnt)"/>
+            <defs><marker id="arrEnt" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/></marker></defs>
+            <text x="330" y="80" fill="#fca5a5" font-size="10" font-weight="700">Entry · 6,498</text>
+            <!-- Stop -->
+            <line x1="260" y1="40" x2="440" y2="40" stroke="#eab308" stroke-width="1.8" stroke-dasharray="4 3"/>
+            <text x="445" y="44" fill="#facc15" font-size="10" font-weight="700">Stop · 6,502 (+4)</text>
+            <!-- Target at VWAP -->
+            <line x1="260" y1="130" x2="440" y2="130" stroke="#22c55e" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="445" y="134" fill="#86efac" font-size="10" font-weight="700">Target · 6,490 (–8)</text>
+            <!-- Price falls to VWAP -->
+            <path d="M 277 76 L 290 88 L 310 98 L 340 112 L 380 125 L 420 130" stroke="#ef4444" stroke-width="2.2" fill="none"/>
+            <circle cx="420" cy="130" r="5" fill="#22c55e"/>
+            <!-- R:R -->
+            <rect x="450" y="175" width="140" height="45" fill="#0b1222" stroke="#60a5fa" stroke-width="1.5" rx="6"/>
+            <text x="520" y="192" fill="#60a5fa" font-size="9" text-anchor="middle" font-weight="700">Math check</text>
+            <text x="520" y="206" fill="#d5d9e0" font-size="9" text-anchor="middle">Risk 4 pts / Reward 8 pts</text>
+            <text x="520" y="218" fill="#86efac" font-size="10" text-anchor="middle" font-weight="700">2:1 R:R ✓</text>
+          </svg>
+          <figcaption>Short execution: enter on the close of the rejection pin at 6,498, stop 4 points above at 6,502, target VWAP 8 points lower at 6,490. 2:1 R:R, clean statistical trade.</figcaption>
+        </figure>
+
+        <!-- Section 4: Kill Switches -->
+        <div class="section-label">4 · Kill Switches — When to Skip This Setup Entirely</div>
+        <div class="data-block">
+          <div class="xref"><strong>🚫 Strong trend day.</strong> If the 9 or 20-EMA is sloped steeply and price is making clean higher highs/lows (or lower highs/lows), this setup gets crushed. Trend trumps mean reversion. Check: is ADX(14) > 25? Is price pulling away from VWAP repeatedly? If yes, SKIP.</div>
+          <div class="xref"><strong>🚫 News window.</strong> FOMC (2 PM EST Wed of meeting week), CPI, NFP (1st Fri of month), PCE, jobless claims — news spikes blow past bands and keep going. Check the economic calendar before placing any trade. If a tier-1 release is within 30 minutes, SKIP.</div>
+          <div class="xref"><strong>🚫 Wide ATR / high volatility day.</strong> If ATR is 2x normal, the 2nd std dev band is also 2x normal — you need a much bigger stop for the same mean reversion geometry, and R:R breaks down. Check 14-period ATR vs. 30-day average.</div>
+          <div class="xref"><strong>🚫 Near session open (before 11:00 EST) or close (after 2:00 EST).</strong> Opening drive and closing auction distort mean reversion. The midday window (11:30–2:00) is the sweet spot. Religiously enforce.</div>
+          <div class="xref"><strong>🚫 Already took the opposite setup on the same day.</strong> If you already shorted the upper band and hit target, and now price is at the lower band tempting a long — pause. Two trades on the same pattern is fine, but three+ fading is revenge trading in disguise. Max 3 VWAP MR trades per session.</div>
+        </div>
+        <figure class="illus">
+          <svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vwap-kill-title">
+            <title id="vwap-kill-title">Five kill switches for VWAP mean reversion</title>
+            <rect width="640" height="170" fill="#070c18"/>
+            <g font-size="9" font-weight="700">
+              <!-- Box 1: Trend -->
+              <rect x="20" y="20" width="115" height="130" fill="#0b1222" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+              <text x="77" y="38" fill="#fca5a5" text-anchor="middle">🚫 TREND DAY</text>
+              <line x1="35" y1="80" x2="115" y2="50" stroke="#22c55e" stroke-width="2"/>
+              <text x="77" y="105" fill="#d5d9e0" font-size="8" text-anchor="middle">Clean stairstep</text>
+              <text x="77" y="117" fill="#d5d9e0" font-size="8" text-anchor="middle">ADX &gt; 25</text>
+              <text x="77" y="135" fill="#eab308" font-size="8" text-anchor="middle">STAND ASIDE</text>
+              <!-- Box 2: News -->
+              <rect x="145" y="20" width="115" height="130" fill="#0b1222" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+              <text x="202" y="38" fill="#fca5a5" text-anchor="middle">🚫 NEWS</text>
+              <text x="202" y="70" fill="#d5d9e0" font-size="8" text-anchor="middle">FOMC · CPI · NFP</text>
+              <text x="202" y="85" fill="#d5d9e0" font-size="8" text-anchor="middle">PCE · Claims</text>
+              <text x="202" y="105" fill="#d5d9e0" font-size="8" text-anchor="middle">± 30 min window</text>
+              <text x="202" y="135" fill="#eab308" font-size="8" text-anchor="middle">SKIP</text>
+              <!-- Box 3: Wide ATR -->
+              <rect x="270" y="20" width="115" height="130" fill="#0b1222" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+              <text x="327" y="38" fill="#fca5a5" text-anchor="middle">🚫 WIDE ATR</text>
+              <path d="M 290 95 Q 310 65 330 95 Q 350 125 370 95" stroke="#eab308" stroke-width="1.5" fill="none"/>
+              <text x="327" y="110" fill="#d5d9e0" font-size="8" text-anchor="middle">2x normal ATR</text>
+              <text x="327" y="135" fill="#eab308" font-size="8" text-anchor="middle">R:R BREAKS</text>
+              <!-- Box 4: Time -->
+              <rect x="395" y="20" width="115" height="130" fill="#0b1222" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+              <text x="452" y="38" fill="#fca5a5" text-anchor="middle">🚫 WRONG TIME</text>
+              <circle cx="452" cy="75" r="18" fill="#0b1222" stroke="#eab308" stroke-width="1"/>
+              <line x1="452" y1="75" x2="452" y2="60" stroke="#eab308" stroke-width="1.5"/>
+              <text x="452" y="105" fill="#d5d9e0" font-size="8" text-anchor="middle">Before 11:30</text>
+              <text x="452" y="117" fill="#d5d9e0" font-size="8" text-anchor="middle">or after 2:00</text>
+              <text x="452" y="135" fill="#eab308" font-size="8" text-anchor="middle">SKIP</text>
+              <!-- Box 5: Overtrading -->
+              <rect x="520" y="20" width="100" height="130" fill="#0b1222" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+              <text x="570" y="38" fill="#fca5a5" text-anchor="middle">🚫 OVERTRADE</text>
+              <text x="570" y="70" fill="#d5d9e0" font-size="8" text-anchor="middle">&gt; 3 MR trades</text>
+              <text x="570" y="85" fill="#d5d9e0" font-size="8" text-anchor="middle">in one session</text>
+              <text x="570" y="105" fill="#d5d9e0" font-size="8" text-anchor="middle">= revenge</text>
+              <text x="570" y="135" fill="#eab308" font-size="8" text-anchor="middle">HARD STOP</text>
+            </g>
+          </svg>
+          <figcaption>Five red-flag conditions. Any ONE triggered = no trade. This is the single biggest edge in mean reversion: knowing when NOT to do it.</figcaption>
+        </figure>
+
+        <!-- Section 5: Arnie's Approach -->
+        <div class="section-label">5 · Arnie's Approach — Live Trading Process for MES &amp; M2K</div>
+        <div class="data-block">
+          <div class="check-row"><span class="check-num">1</span><div><strong>Set up the chart in advance.</strong> Add VWAP (session reset at 9:30), Bollinger Bands (20, 2 std dev), RSI(14) subplot, and the 20-EMA. Lock the template. Never trade this setup without all three visible.</div></div>
+          <div class="check-row"><span class="check-num">2</span><div><strong>Clock gate.</strong> Do not even look at this setup before 11:30 AM EST. Set a phone alarm. Before then, hunt Failed Breakouts, ORB Retests, or DB/DT.</div></div>
+          <div class="check-row"><span class="check-num">3</span><div><strong>Trend filter — 30-second glance.</strong> Is the 20-EMA sloped &gt; 30 degrees? If yes, close the chart and come back in 30 minutes. Mean reversion dies in trending markets.</div></div>
+          <div class="check-row"><span class="check-num">4</span><div><strong>Wait for ALL 5 criteria.</strong> Do not force. "Close enough" to the band is NOT touching the band. RSI at 68 is NOT &gt;70. A small bearish candle at the band is NOT a rejection candle. Patience pays here more than anywhere.</div></div>
+          <div class="check-row"><span class="check-num">5</span><div><strong>Pre-stage the order.</strong> As the rejection candle is forming, pre-enter the stop order at the opposite side of the band. The moment the candle closes, you press one button and you're in with a valid stop.</div></div>
+          <div class="check-row"><span class="check-num">6</span><div><strong>Target 1 = VWAP, exit half.</strong> Move stop to breakeven. Let the runner go. If price stalls at VWAP for 3+ bars with wicks on both sides, close the runner — it's resolved.</div></div>
+          <div class="check-row"><span class="check-num">7</span><div><strong>Log the trade with the VWAP MR pattern tag.</strong> Note: was RSI reading, did it trigger reflexively or with hesitation, how many points band-to-VWAP, did Target 2 fill. Track win rate by <em>time of day</em> — 12:15 setups often outperform 1:45 setups as the lunch drift fades.</div></div>
+          <div class="check-row"><span class="check-num">8</span><div><strong>Max 3 VWAP MR trades per session.</strong> This setup has 3–6 valid signals per day — but discipline says 3. More than 3 = fatigue-driven trade, not A+ signal.</div></div>
+        </div>
+
+        <!-- Section 6: Why it works -->
+        <div class="section-label">6 · Why This Setup Has a Real Edge</div>
+        <div class="explain">
+          <strong>Statistical gravity.</strong> By the definition of standard deviation, price spends ~95% of the time inside the 2nd std dev bands. A close AT the band is literally at the edge of a probability distribution — the expected next move is back toward the mean, not further out.
+          <br><br>
+          <strong>Institutional behavior.</strong> Big money uses VWAP as their execution benchmark. When price strays far from VWAP, algos and desks that need to buy at/below VWAP step in (on the lower band) and vice versa on the upper band. You are trading <em>with</em> institutional flow, not against it.
+          <br><br>
+          <strong>Midday regime.</strong> Volume drops 40–60% during lunch. Trend orders thin out. The market "breathes" instead of marching. This is precisely when mean reversion strategies work — and why you must skip this setup during high-volume hours.
+          <br><br>
+          <strong>55–60% win rate · 1.5:1 R:R.</strong> Expectancy = (0.575 × 1.5) − (0.425 × 1) = +0.4375R per trade. Across 3 trades per day, 20 sessions per month, that's +26R monthly if you execute perfectly. Real-world will be less, but the math is positive.
+        </div>
+        <figure class="illus">
+          <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vwap-edge-title">
+            <title id="vwap-edge-title">Expected value math for VWAP mean reversion</title>
+            <rect width="600" height="180" fill="#070c18"/>
+            <g font-size="11">
+              <rect x="30" y="20" width="250" height="140" fill="#0b1222" stroke="#60a5fa" stroke-width="1.5" rx="8"/>
+              <text x="155" y="42" fill="#60a5fa" font-size="12" text-anchor="middle" font-weight="700">Per-Trade Expectancy</text>
+              <text x="45" y="70" fill="#86efac" font-weight="700">Win rate:</text>
+              <text x="260" y="70" fill="#d5d9e0" text-anchor="end">57.5%</text>
+              <text x="45" y="90" fill="#86efac" font-weight="700">Win size:</text>
+              <text x="260" y="90" fill="#d5d9e0" text-anchor="end">+1.5R</text>
+              <text x="45" y="110" fill="#fca5a5" font-weight="700">Loss rate:</text>
+              <text x="260" y="110" fill="#d5d9e0" text-anchor="end">42.5%</text>
+              <text x="45" y="130" fill="#fca5a5" font-weight="700">Loss size:</text>
+              <text x="260" y="130" fill="#d5d9e0" text-anchor="end">−1.0R</text>
+              <line x1="40" y1="140" x2="270" y2="140" stroke="#475569" stroke-width="1"/>
+              <text x="45" y="155" fill="#7dd3fc" font-weight="700">Expected value:</text>
+              <text x="260" y="155" fill="#86efac" text-anchor="end" font-weight="700">+0.44R</text>
+              <rect x="320" y="20" width="250" height="140" fill="#0b1222" stroke="#14b8a6" stroke-width="1.5" rx="8"/>
+              <text x="445" y="42" fill="#7dd3fc" font-size="12" text-anchor="middle" font-weight="700">Monthly projection</text>
+              <text x="335" y="68" fill="#d5d9e0">3 trades/day × 20 sessions</text>
+              <text x="335" y="88" fill="#d5d9e0">= 60 trades/month</text>
+              <text x="335" y="112" fill="#d5d9e0">60 × 0.44R per trade</text>
+              <text x="445" y="140" fill="#86efac" font-size="14" text-anchor="middle" font-weight="700">≈ +26R / month</text>
+              <text x="445" y="155" fill="#fbbf24" font-size="9" text-anchor="middle" font-style="italic">IF discipline perfect</text>
+            </g>
+          </svg>
+          <figcaption>Math of the edge. 57.5% win rate at 1.5R wins vs. 1R losses = +0.44R per trade. Over 60 trades per month: +26R if executed perfectly. Reality is noisier — but the expectancy is positive.</figcaption>
+        </figure>
+
+      </div>
+    </div><!-- /tab-vwap-mr -->
+
     <!-- ============ TAB: UNIFIED PRINCIPLES ============ -->
     <div class="tab-panel" id="tab-unified">
       <div class="column neutral">
@@ -5381,6 +5717,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <option value="FAILED_BREAKOUT_SHORT">Failed Breakout ↓ (short trap reversal)</option>
           <option value="ORB_RETEST_LONG">ORB Retest ↑ (long session breakout)</option>
           <option value="ORB_RETEST_SHORT">ORB Retest ↓ (short session breakout)</option>
+          <option value="VWAP_MR_LONG">VWAP Mean Rev ↑ (long from lower band)</option>
+          <option value="VWAP_MR_SHORT">VWAP Mean Rev ↓ (short from upper band)</option>
         </select>
       </div>
       <div class="field">
@@ -5715,8 +6053,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   document.getElementById('t-pattern').addEventListener('change', function() {
     const dir = document.getElementById('t-direction');
     const p = this.value;
-    if (p === 'DB' || p === 'BULL_FLAG' || p === 'FAILED_BREAKOUT_LONG' || p === 'ORB_RETEST_LONG') dir.value = 'LONG';
-    else if (p === 'DT' || p === 'BEAR_FLAG' || p === 'FAILED_BREAKOUT_SHORT' || p === 'ORB_RETEST_SHORT') dir.value = 'SHORT';
+    if (p === 'DB' || p === 'BULL_FLAG' || p === 'FAILED_BREAKOUT_LONG' || p === 'ORB_RETEST_LONG' || p === 'VWAP_MR_LONG') dir.value = 'LONG';
+    else if (p === 'DT' || p === 'BEAR_FLAG' || p === 'FAILED_BREAKOUT_SHORT' || p === 'ORB_RETEST_SHORT' || p === 'VWAP_MR_SHORT') dir.value = 'SHORT';
   });
 
   function exportCSV() {
@@ -5819,7 +6157,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     wrap.style.display = 'block';
 
     const recent = trades.slice(-5).reverse();
-    const patternLabels = { DB: 'Db Bot', DT: 'Db Top', BULL_FLAG: 'Bull Flg', BEAR_FLAG: 'Bear Flg', FAILED_BREAKOUT_LONG: 'FB ↑', FAILED_BREAKOUT_SHORT: 'FB ↓', ORB_RETEST_LONG: 'ORB ↑', ORB_RETEST_SHORT: 'ORB ↓' };
+    const patternLabels = { DB: 'Db Bot', DT: 'Db Top', BULL_FLAG: 'Bull Flg', BEAR_FLAG: 'Bear Flg', FAILED_BREAKOUT_LONG: 'FB ↑', FAILED_BREAKOUT_SHORT: 'FB ↓', ORB_RETEST_LONG: 'ORB ↑', ORB_RETEST_SHORT: 'ORB ↓', VWAP_MR_LONG: 'VWAP ↑', VWAP_MR_SHORT: 'VWAP ↓' };
     container.innerHTML = recent.map((t, i) => {
       const idx = trades.length - i;
       const time = t.datetime.split(' ')[1] || '—';
