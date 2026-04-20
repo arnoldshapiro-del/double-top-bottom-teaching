@@ -2048,6 +2048,140 @@
   .non-calm-warning strong { color: #fca5a5; }
   .non-calm-warning a { color: #fca5a5; font-weight: 700; cursor: pointer; text-decoration: underline; }
 
+  /* ============ PATTERN QUIZ — Branch 8 ============ */
+  .pq-inner { max-width: 960px; margin: 0 auto; padding: 14px 0; }
+  .pq-header { text-align: center; margin-bottom: 18px; }
+  .pq-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .pq-lead {
+    color: var(--ink-dim);
+    font-size: 13.5px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .pq-scoreboard {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    margin: 14px 0 20px;
+    flex-wrap: wrap;
+  }
+  .pq-stat { text-align: center; }
+  .pq-stat .pq-val {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 800;
+    display: block;
+    color: var(--ink);
+  }
+  .pq-stat .pq-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+  }
+  .pq-tabs, .pq-subtabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px; }
+  .pq-tab {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 6px;
+    background: var(--panel-2);
+    color: var(--ink-dim);
+    border: 1.5px solid var(--line);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .pq-tab:hover { border-color: var(--gold); color: var(--gold); }
+  .pq-tab.active { background: var(--gold); color: #1a0f00; border-color: var(--gold); }
+  .pq-chart-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .pq-chart-card canvas { width: 100%; display: block; border-radius: 6px; }
+  .pq-chart-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .pq-actions { display: flex; gap: 12px; justify-content: center; margin: 14px 0; flex-wrap: wrap; }
+  .pq-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 2px solid;
+  }
+  .pq-btn:hover { transform: translateY(-1px); }
+  .pq-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+  .pq-btn.true-btn { border-color: var(--bull); color: var(--bull); background: rgba(74,222,128,0.08); }
+  .pq-btn.true-btn:hover { background: var(--bull); color: #052016; }
+  .pq-btn.false-btn { border-color: var(--bear); color: var(--bear); background: rgba(248,113,113,0.08); }
+  .pq-btn.false-btn:hover { background: var(--bear); color: #fff; }
+  .pq-result { padding: 18px 22px; border-radius: 10px; margin: 14px 0; }
+  .pq-result.correct { background: rgba(74,222,128,0.12); border: 1.5px solid var(--bull); }
+  .pq-result.wrong { background: rgba(248,113,113,0.12); border: 1.5px solid var(--bear); }
+  .pq-result .pq-verdict {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .pq-result .pq-explain { color: var(--ink); line-height: 1.65; font-size: 13px; }
+  .pq-result .pq-lesson {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--gold);
+    background: rgba(230,184,89,0.08);
+    font-size: 12.5px;
+    color: #fcd34d;
+    border-radius: 0 6px 6px 0;
+  }
+  .pq-next-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 11px 28px;
+    border-radius: 6px;
+    border: none;
+    background: var(--gold);
+    color: #1a0f00;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .pq-next-btn:hover { transform: translateY(-1px); }
+  .pq-progress { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-faint); text-align: center; margin-top: 8px; }
+  .pq-final { text-align: center; padding: 32px 18px; }
+  .pq-final .pq-pct {
+    font-family: 'Fraunces', serif;
+    font-size: 72px;
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+  .pq-final .pq-msg { font-size: 15px; color: var(--ink-dim); margin-bottom: 16px; }
+
   /* ============ EDGE DASHBOARD — Branch 7 ============ */
   .edge-dash-inner { max-width: 1100px; margin: 0 auto; padding: 14px 0; }
   .edge-dash-header { text-align: center; margin-bottom: 22px; }
@@ -2692,6 +2826,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <button class="tab-btn tab-aggressive" data-tab="aggressive-entry"><span class="tab-num">⚡</span>Aggressive Entry</button>
         <button class="tab-btn" data-tab="unified"><span class="tab-num">8 ·</span>Unified Principles</button>
         <button class="tab-btn" data-tab="masterclass"><span class="tab-num">9 ·</span>📖 Visual Masterclass</button>
+        <button class="tab-btn" data-tab="pattern-quiz"><span class="tab-num">🎯</span>Pattern Quiz</button>
       </div>
 
       <!-- TRADE section -->
@@ -7678,6 +7813,32 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-masterclass -->
 
+  <!-- ==================== TAB: PATTERN QUIZ (Branch 8 — from Academy) ==================== -->
+  <div class="tab-panel" id="tab-pattern-quiz">
+    <div class="pq-inner">
+      <div class="pq-header">
+        <h2>🎯 Pattern Quiz</h2>
+        <p class="pq-lead">30 true double bottoms and 30 false double bottoms (and the same for double tops). Click TRUE or FALSE on each chart. Correct answers + explanations + per-lesson takeaways. Pattern recognition is a muscle — this is how you train it.</p>
+      </div>
+      <div class="pq-scoreboard">
+        <div class="pq-stat"><span class="pq-val" id="pq-score">0</span><span class="pq-label">Correct</span></div>
+        <div class="pq-stat"><span class="pq-val" id="pq-total">0</span><span class="pq-label">Attempted</span></div>
+        <div class="pq-stat"><span class="pq-val" id="pq-pct">—</span><span class="pq-label">Accuracy</span></div>
+        <div class="pq-stat"><span class="pq-val" id="pq-streak">0</span><span class="pq-label">Streak</span></div>
+      </div>
+      <div class="pq-tabs" id="pq-tabs">
+        <button class="pq-tab active" onclick="setQuizCat('db', this)">Double Bottom</button>
+        <button class="pq-tab" onclick="setQuizCat('dt', this)">Double Top</button>
+      </div>
+      <div class="pq-subtabs" id="pq-subtabs">
+        <button class="pq-tab active" onclick="setQuizMode('quiz', this)">Quiz Mode</button>
+        <button class="pq-tab" onclick="setQuizMode('true', this)">Study True</button>
+        <button class="pq-tab" onclick="setQuizMode('false', this)">Study False</button>
+      </div>
+      <div id="pq-area"></div>
+    </div>
+  </div>
+
   <!-- ==================== TAB: EDGE DASHBOARD (Branch 7) ==================== -->
   <div class="tab-panel" id="tab-edge-dashboard">
     <div class="edge-dash-inner">
@@ -8678,8 +8839,286 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     originalSwitchTab(tabName);
     if (tabName === 'daily-gates' || tabName === 'live-checklist') renderDailyGatesTab();
     if (tabName === 'edge-dashboard') renderEdgeDashboard();
+    if (tabName === 'pattern-quiz') initQuiz();
   };
   renderEdgeDashboard();
+
+  // ========== PATTERN QUIZ (Branch 8 — migrated from Trading Academy) ==========
+  function genCandles(p){
+    const candles=[];
+    let price=p.startPrice||2100;
+    p.phases.forEach(ph=>{
+      for(let i=0;i<ph.len;i++){
+        const dir=ph.dir==='up'?1:ph.dir==='down'?-1:(Math.random()>.5?1:-1);
+        const spread=ph.spread*(0.6+Math.random()*0.8);
+        const body=spread*(0.3+Math.random()*0.5);
+        const wickUp=spread*(Math.random()*0.4);
+        const wickDn=spread*(Math.random()*0.4);
+        const move=(ph.trend||0)*(0.5+Math.random());
+        let o,c,h,l;
+        if(dir>0){o=price;c=price+body;h=c+wickUp;l=o-wickDn;}
+        else{c=price;o=price+body;h=o+wickUp;l=c-wickDn;}
+        price=c+move;
+        const vol=ph.vol*(0.5+Math.random());
+        candles.push({o,c,h,l,vol,bull:c>=o});
+      }
+    });
+    return candles;
+  }
+
+  function drawQuizChart(canvas, scenario, showAnswer){
+    const dpr=window.devicePixelRatio||1;
+    const rect=canvas.parentElement?canvas.parentElement.getBoundingClientRect():{width:800};
+    const W=Math.max(rect.width-32,600);
+    const H=400;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.width=W+'px';canvas.style.height=H+'px';
+    const ctx=canvas.getContext('2d');
+    ctx.scale(dpr,dpr);
+    const candles=scenario.candles;
+    const pad={t:30,r:60,b:70,l:20};
+    const cw=Math.max(3,Math.min(12,(W-pad.l-pad.r)/candles.length-2));
+    const gap=Math.max(1,cw*.3);
+    const chartH=H-pad.t-pad.b-60;
+    const volH=50;
+    let minP=Infinity,maxP=-Infinity,maxV=0;
+    candles.forEach(c=>{if(c.l<minP)minP=c.l;if(c.h>maxP)maxP=c.h;if(c.vol>maxV)maxV=c.vol;});
+    const range=maxP-minP||1;
+    const priceY=p=>(pad.t+chartH)-(((p-minP)/range)*chartH);
+    ctx.fillStyle='#0c1118';ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='rgba(28,42,58,.6)';ctx.lineWidth=.5;
+    for(let i=0;i<10;i++){const y=pad.t+chartH/9*i;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();}
+    ctx.font='10px "JetBrains Mono"';ctx.fillStyle='#64748b';ctx.textAlign='right';
+    for(let i=0;i<6;i++){const p=minP+(range/5)*i;ctx.fillText(p.toFixed(1),W-pad.r+48,priceY(p)+3);}
+    candles.forEach((c,i)=>{
+      const x=pad.l+i*(cw+gap);
+      const vh=(c.vol/maxV)*volH;
+      ctx.fillStyle=c.bull?'rgba(74,222,128,.25)':'rgba(248,113,113,.25)';
+      ctx.fillRect(x,H-pad.b+volH-vh,cw,vh);
+    });
+    candles.forEach((c,i)=>{
+      const x=pad.l+i*(cw+gap);
+      const mx=x+cw/2;
+      ctx.strokeStyle=c.bull?'#4ade80':'#f87171';ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(mx,priceY(c.h));ctx.lineTo(mx,priceY(c.l));ctx.stroke();
+      const top=priceY(Math.max(c.o,c.c)),bot=priceY(Math.min(c.o,c.c));
+      const bodyH=Math.max(1,bot-top);
+      ctx.fillStyle=c.bull?'#4ade80':'#f87171';
+      ctx.fillRect(x,top,cw,bodyH);
+    });
+    if(showAnswer && scenario.annotations){
+      const ann=scenario.annotations;
+      if(ann.neckline!=null){
+        ctx.strokeStyle='#e6b859';ctx.lineWidth=1;ctx.setLineDash([5,3]);
+        ctx.beginPath();ctx.moveTo(pad.l,priceY(ann.neckline));ctx.lineTo(W-pad.r,priceY(ann.neckline));ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.font='11px "JetBrains Mono"';ctx.fillStyle='#e6b859';ctx.textAlign='left';
+        ctx.fillText('NECKLINE',W-pad.r-70,priceY(ann.neckline)-6);
+      }
+      if(ann.marks){
+        ann.marks.forEach(m=>{
+          const x=pad.l+m.candle*(cw+gap)+cw/2;
+          const y=priceY(m.price);
+          ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fillStyle=m.color||'#e6b859';ctx.fill();
+          ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();
+          ctx.font='10px "JetBrains Mono"';ctx.fillStyle='#e2e8f0';ctx.textAlign='center';
+          ctx.fillText(m.label,x,m.above?y-12:y+16);
+        });
+      }
+      if(ann.failZone){
+        const fz=ann.failZone;
+        const x1=pad.l+fz.start*(cw+gap),x2=pad.l+fz.end*(cw+gap)+cw;
+        ctx.fillStyle='rgba(248,113,113,.08)';
+        ctx.fillRect(x1,pad.t,x2-x1,chartH);
+        ctx.strokeStyle='rgba(248,113,113,.4)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+        ctx.strokeRect(x1,pad.t,x2-x1,chartH);ctx.setLineDash([]);
+      }
+    }
+    ctx.font='12px "JetBrains Mono"';ctx.fillStyle='#64748b';ctx.textAlign='left';
+    ctx.fillText(scenario.title||'',pad.l,H-8);
+  }
+
+  function mkDB(isTrue,title,explain,lesson,params){
+    const basePrice=2080+Math.random()*40;
+    const preTrend=params.preTrend||8;
+    const dropAmt=params.drop||6;
+    const neckBounce=params.neckBounce||3;
+    const candlesBetween=params.between||8;
+    const secondLowOffset=params.secondOffset||0;
+    const breakoutStrength=params.breakout||2;
+    const volProfile=params.volProfile||[1.2,.4,.6,1.8];
+    const postBreak=params.postBreak||4;
+    const failAfter=params.failAfter||false;
+    const phases=[
+      {len:preTrend,dir:'down',vol:0.8,spread:1.2,trend:-dropAmt/preTrend},
+      {len:2,dir:'up',vol:volProfile[0],spread:1.5,trend:neckBounce/2},
+      {len:Math.floor(candlesBetween*.4),dir:'up',vol:volProfile[1],spread:0.8,trend:neckBounce/(candlesBetween*.4)},
+      {len:Math.floor(candlesBetween*.3),dir:'down',vol:volProfile[1],spread:0.7,trend:-neckBounce/(candlesBetween*.3)},
+      {len:Math.floor(candlesBetween*.3),dir:'down',vol:volProfile[2],spread:1,trend:-(neckBounce+secondLowOffset)/(candlesBetween*.3)},
+      {len:2,dir:'up',vol:volProfile[2],spread:1.2,trend:neckBounce/2},
+      {len:3,dir:'up',vol:volProfile[3]*breakoutStrength,spread:1.5*breakoutStrength,trend:breakoutStrength*.8}
+    ];
+    if(failAfter) phases.push({len:postBreak,dir:'down',vol:1,spread:1.5,trend:-breakoutStrength*.6});
+    else phases.push({len:postBreak,dir:'up',vol:.8,spread:.9,trend:.3});
+    const candles=genCandles({startPrice:basePrice,phases});
+    let minIdx1=preTrend,minIdx2=preTrend+candlesBetween;
+    let low1=Infinity,low2=Infinity;
+    candles.forEach((c,i)=>{
+      if(i>=preTrend-1&&i<=preTrend+3&&c.l<low1){low1=c.l;minIdx1=i;}
+      if(i>=preTrend+candlesBetween-3&&i<=preTrend+candlesBetween+3&&c.l<low2){low2=c.l;minIdx2=i;}
+    });
+    const neckline=Math.max(...candles.slice(preTrend,preTrend+candlesBetween+2).map(c=>c.h))-(neckBounce*.15);
+    const ann={neckline,marks:[
+      {candle:minIdx1,price:low1,label:params.type==='top'?'HIGH 1':'LOW 1',color:isTrue?'#4ade80':'#f87171',above:false},
+      {candle:minIdx2,price:low2,label:params.type==='top'?'HIGH 2':'LOW 2',color:isTrue?'#4ade80':'#f87171',above:false}
+    ]};
+    if(!isTrue&&params.failZone) ann.failZone=params.failZone;
+    return{candles,isTrue,title,explain,lesson,annotations:ann,type:'db'};
+  }
+
+  function mkDT(isTrue,title,explain,lesson,params){
+    const s=mkDB(isTrue,title,explain,lesson,Object.assign({},params,{type:'top'}));
+    const mid=s.candles.reduce((a,c)=>a+c.o,0)/s.candles.length;
+    s.candles=s.candles.map(c=>{
+      const no=mid*2-c.o,nc=mid*2-c.c,nh=mid*2-c.l,nl=mid*2-c.h;
+      return{o:no,c:nc,h:nh,l:nl,vol:c.vol,bull:nc>=no};
+    });
+    s.type='dt';
+    if(s.annotations.neckline!=null) s.annotations.neckline=mid*2-s.annotations.neckline;
+    if(s.annotations.marks) s.annotations.marks=s.annotations.marks.map(m=>({...m,price:mid*2-m.price,above:true,label:m.label.replace('LOW','HIGH')}));
+    return s;
+  }
+
+  function buildQuizScenarios(){
+    const DB_TRUE=[],DB_FALSE=[],DT_TRUE=[],DT_FALSE=[];
+    // 15 TRUE Double Bottoms
+    DB_TRUE.push(mkDB(true,'#1 — Textbook Perfect','Equal lows 8 candles apart with a volume surge on breakout. Both lows at same price, declining volume on the second low, breakout candle tall with heavy volume.','Equal lows + declining volume + surge breakout. Trust it.',{between:8,secondOffset:0.1,breakout:2.2,volProfile:[1.4,.3,.5,2.2]}));
+    DB_TRUE.push(mkDB(true,'#2 — Second Low Slightly Higher','The second low is slightly higher — classic bullish sign. Buyers stepping in earlier.','Higher second low is BETTER than equal lows.',{between:9,secondOffset:0.6,breakout:2,volProfile:[1.3,.35,.4,2]}));
+    DB_TRUE.push(mkDB(true,'#3 — Wide Formation (15 Candles)','15 candles between lows. Plenty of time for genuine retest of support. Neckline tested multiple times.','More candles between lows = higher reliability.',{between:15,secondOffset:0.2,breakout:1.8,volProfile:[1.2,.3,.4,1.9],preTrend:12}));
+    DB_TRUE.push(mkDB(true,'#4 — Deep Prior Downtrend','A substantial 15-candle downtrend preceded this DB. Reversal pattern has context.','Always verify a real downtrend preceded the pattern.',{between:8,secondOffset:0.3,breakout:2,volProfile:[1.5,.3,.5,2],preTrend:15,drop:10}));
+    DB_TRUE.push(mkDB(true,'#5 — Explosive Breakout','Breakout candle 2.5x average with massive volume. Market is telling you the reversal is real.','2x+ breakout = green light. 2.5x is unmistakable.',{between:8,secondOffset:0.15,breakout:3,volProfile:[1.2,.3,.45,3]}));
+    DB_TRUE.push(mkDB(true,'#6 — Neckline Retest Holds','After breakout, price pulls back to neckline and holds. Highest-confidence entry of all methods.','Neckline retest = Method C, best R:R when available.',{between:10,secondOffset:0.2,breakout:1.6,volProfile:[1.2,.3,.5,1.8],postBreak:6}));
+    DB_TRUE.push(mkDB(true,'#7 — Hammer at Second Low','Second low forms a textbook hammer — long lower wick, small body at top. Classic reversal candle.','Hammer at second low = bonus confirmation.',{between:7,secondOffset:0.4,breakout:2,volProfile:[1.3,.35,.5,2]}));
+    DB_TRUE.push(mkDB(true,'#8 — Perfect 4-Stage Volume','HIGH on first low (panic), LOW during retrace, LOWER on second low (sellers fading), SURGE on breakout.','4-stage volume signature — most reliable confirmation tool.',{between:9,secondOffset:0.15,breakout:2.1,volProfile:[1.8,.25,.35,2.5]}));
+    DB_TRUE.push(mkDB(true,'#9 — Compact but Valid (6)','Only 6 candles between lows — at minimum threshold. But volume perfect, breakout explosive.','6 candles is minimum. Below 5 = noise.',{between:6,secondOffset:0.2,breakout:2.5,volProfile:[1.4,.3,.4,2.8]}));
+    DB_TRUE.push(mkDB(true,'#10 — Messy Middle, Clean Edges','Middle is choppy. But lows are clean, neckline defined, breakout strong.','Messy middle ≠ bad pattern. Lows and breakout matter most.',{between:11,secondOffset:0.1,breakout:2,volProfile:[1.3,.5,.55,2.1]}));
+    DB_TRUE.push(mkDB(true,'#11 — Declining Volume Progressive','Volume declines steadily: first low highest, second lower, breakout surge.','Progressive volume decline = sellers leaving.',{between:10,secondOffset:0.25,breakout:1.9,volProfile:[1.6,.4,.3,2.2]}));
+    DB_TRUE.push(mkDB(true,'#12 — Bullish Divergence','Price made slightly lower second low, but momentum made higher low. Bullish divergence.','Price lower + RSI higher = reversal likely.',{between:9,secondOffset:-0.3,breakout:2.1,volProfile:[1.4,.3,.45,2.2]}));
+    // 12 FALSE Double Bottoms
+    DB_FALSE.push(mkDB(false,'#13 — Bear Flag Disguise','Prior downtrend only 5 candles. This is a bear flag continuation, not a DB reversal.','Real DBs need meaningful prior exhaustion.',{between:5,secondOffset:0.1,breakout:0.8,volProfile:[.7,.4,.5,.6],preTrend:5,drop:3,failAfter:true,failZone:{start:0,end:5}}));
+    DB_FALSE.push(mkDB(false,'#14 — Second Low Breaks First','Second low plunged well below first. Support is gone. Sellers still in control.','Second low below first by >few ticks = pattern DEAD.',{between:8,secondOffset:-2.5,breakout:1,volProfile:[1.2,.4,.8,1],failAfter:true,failZone:{start:13,end:18}}));
+    DB_FALSE.push(mkDB(false,'#15 — Only 2 Candles Between','2 candles between lows. V-bounce, not DB.','Need 5+ candles minimum.',{between:2,secondOffset:0.1,breakout:1.2,volProfile:[.8,.5,.7,1],failAfter:true,postBreak:5,failZone:{start:7,end:11}}));
+    DB_FALSE.push(mkDB(false,'#16 — No Prior Downtrend','Pattern in sideways chop. No downtrend = nothing to reverse.','No downtrend = no reversal.',{between:7,secondOffset:0.2,breakout:1,volProfile:[.6,.5,.6,.7],preTrend:8,drop:1.5,failAfter:true,failZone:{start:0,end:8}}));
+    DB_FALSE.push(mkDB(false,'#17 — Doji Breakout, No Volume','Breakout candle is tiny doji with minimal volume. No conviction.','Doji breakout = warning, not buy signal.',{between:8,secondOffset:0.15,breakout:0.4,volProfile:[1.2,.3,.5,.5],failAfter:true,failZone:{start:18,end:22}}));
+    DB_FALSE.push(mkDB(false,'#18 — Breakout Reverses','Price broke above neckline then reversed back within 2 candles. False breakout.','Wait for candle CLOSE above neckline.',{between:9,secondOffset:0.2,breakout:1.5,volProfile:[1.1,.3,.5,1.3],failAfter:true,postBreak:3,failZone:{start:20,end:25}}));
+    DB_FALSE.push(mkDB(false,'#19 — Volume INCREASES on Low 2','Volume on second low HIGHER than first. Selling conviction growing, not fading.','Volume should DECREASE on second low.',{between:8,secondOffset:0.1,breakout:1,volProfile:[1,.3,1.5,.8],failAfter:true,failZone:{start:12,end:17}}));
+    DB_FALSE.push(mkDB(false,'#20 — Third Low Forms','A third low forms. No longer a DB — becomes triple bottom or rectangle.','If third low appears, reclassify.',{between:8,secondOffset:0.1,breakout:0.8,volProfile:[1,.4,.5,.7],failAfter:true,postBreak:8,failZone:{start:22,end:30}}));
+    DB_FALSE.push(mkDB(false,'#21 — Tiny Pattern Height','Neckline barely above the lows. Measured move target too small to trade.','Pattern height <0.3 pts = too small for 2-min.',{between:7,secondOffset:0.1,breakout:1,volProfile:[1,.4,.5,1.2],neckBounce:0.8,failAfter:true,failZone:{start:0,end:25}}));
+    DB_FALSE.push(mkDB(false,'#22 — Lunch Hour (Low Liquidity)','Pattern formed during 11:30–13:30. Volume too thin for reliable breakout.','Lunch patterns lack volume.',{between:9,secondOffset:0.2,breakout:0.9,volProfile:[.5,.2,.3,.6],failAfter:true,failZone:{start:0,end:28}}));
+    DB_FALSE.push(mkDB(false,'#23 — News Spike Fades','Breakout from news spike faded immediately. Reactive, not structural.','News-driven breakouts that fade = traps.',{between:8,secondOffset:0.15,breakout:2.5,volProfile:[1.2,.3,.5,2],failAfter:true,postBreak:3,failZone:{start:19,end:24}}));
+    DB_FALSE.push(mkDB(false,'#24 — Long Upper Wick Breakout','Breakout candle has long upper wick — price rejected higher.','Long upper wick on breakout = rejection.',{between:8,secondOffset:0.2,breakout:1.4,volProfile:[1.2,.3,.5,1.5],failAfter:true,failZone:{start:18,end:22}}));
+    // Double Tops — mirrors
+    DT_TRUE.push(mkDT(true,'#1 — Textbook Double Top','Equal highs 8 candles apart with volume surge on breakdown. Declining volume on second high.','Equal highs + declining volume + surge breakdown. Sell signal.',{between:8,secondOffset:0.1,breakout:2.2,volProfile:[1.4,.3,.5,2.2]}));
+    DT_TRUE.push(mkDT(true,'#2 — Second High Lower','Second high slightly lower — buyers could not reach original resistance.','Lower second high = BETTER than equal highs.',{between:9,secondOffset:0.6,breakout:2,volProfile:[1.3,.35,.4,2]}));
+    DT_TRUE.push(mkDT(true,'#3 — Wide Formation','15 candles between highs. Genuine resistance confirmation.','More candles = higher reliability.',{between:15,secondOffset:0.2,breakout:1.8,volProfile:[1.2,.3,.4,1.9],preTrend:12}));
+    DT_TRUE.push(mkDT(true,'#4 — Deep Prior Uptrend','15-candle uptrend preceded this DT. Genuine exhaustion after extended buying.','Verify real uptrend preceded the pattern.',{between:8,secondOffset:0.3,breakout:2,volProfile:[1.5,.3,.5,2],preTrend:15,drop:10}));
+    DT_TRUE.push(mkDT(true,'#5 — Explosive Breakdown','Breakdown candle 2.5x avg with massive volume. Reversal is real.','2x+ breakdown = red light.',{between:8,secondOffset:0.15,breakout:3,volProfile:[1.2,.3,.45,3]}));
+    DT_TRUE.push(mkDT(true,'#6 — Shooting Star at High 2','Second high forms shooting star — long upper wick, small body at bottom.','Shooting star = bonus confirmation.',{between:7,secondOffset:0.4,breakout:2,volProfile:[1.3,.35,.5,2]}));
+    DT_TRUE.push(mkDT(true,'#7 — Perfect 4-Stage Volume','HIGH first high, LOW pullback, LOWER second high, SURGE breakdown.','4-stage volume works for tops too.',{between:9,secondOffset:0.15,breakout:2.1,volProfile:[1.8,.25,.35,2.5]}));
+    DT_TRUE.push(mkDT(true,'#8 — Multi-Touch Neckline','3 touches of support before breakdown. 4th attempt broke with volume.','More touches = more significant level.',{between:14,secondOffset:0.15,breakout:1.8,volProfile:[1.2,.35,.4,2]}));
+    DT_TRUE.push(mkDT(true,'#9 — Bearish Divergence','Price slightly higher second high, momentum lower. Bearish divergence.','Price up + RSI down = reversal likely.',{between:9,secondOffset:-0.3,breakout:2.1,volProfile:[1.4,.3,.45,2.2]}));
+    // False DTs
+    DT_FALSE.push(mkDT(false,'#10 — Bull Flag Disguise','Only 5 candles uptrend. Bull flag continuation, not DT reversal.',"If uptrend is short, may be bull flag.",{between:5,secondOffset:0.1,breakout:0.8,volProfile:[.7,.4,.5,.6],preTrend:5,drop:3,failAfter:true,failZone:{start:0,end:5}}));
+    DT_FALSE.push(mkDT(false,'#11 — Second High Breaks Above','Second high surged above first — this is a breakout, not a DT.','Resistance broken = pattern dead.',{between:8,secondOffset:-2.5,breakout:1,volProfile:[1.2,.4,.8,1],failAfter:true,failZone:{start:13,end:18}}));
+    DT_FALSE.push(mkDT(false,'#12 — Only 2 Candles Between','2 candles between highs. No time for real retest.','Need 5+ candles minimum.',{between:2,secondOffset:0.1,breakout:1.2,volProfile:[.8,.5,.7,1],failAfter:true,postBreak:5,failZone:{start:7,end:11}}));
+    DT_FALSE.push(mkDT(false,'#13 — No Prior Uptrend','Pattern in sideways action. No uptrend = no reversal.','DTs only work as REVERSAL patterns.',{between:7,secondOffset:0.2,breakout:1,volProfile:[.6,.5,.6,.7],preTrend:8,drop:1.5,failAfter:true,failZone:{start:0,end:8}}));
+    DT_FALSE.push(mkDT(false,'#14 — Tiny Doji Breakdown','Breakdown is a doji with minimal volume. No conviction.','1.5x+ breakdown with volume required.',{between:8,secondOffset:0.15,breakout:0.4,volProfile:[1.2,.3,.5,.5],failAfter:true,failZone:{start:18,end:22}}));
+    DT_FALSE.push(mkDT(false,'#15 — Breakdown Reverses','Broke below neckline, reversed back within 2 candles. False breakdown.','Wait for candle close below neckline.',{between:9,secondOffset:0.2,breakout:1.5,volProfile:[1.1,.3,.5,1.3],failAfter:true,postBreak:3,failZone:{start:20,end:25}}));
+    DT_FALSE.push(mkDT(false,'#16 — Volume INCREASES on High 2','Volume on second high HIGHER. Buyers gaining conviction.','Volume should DECREASE on second high.',{between:8,secondOffset:0.1,breakout:1,volProfile:[1,.3,1.5,.8],failAfter:true,failZone:{start:12,end:17}}));
+    DT_FALSE.push(mkDT(false,'#17 — Lunch Hour','Formed during 11:30–13:30 lunch chop. Volume too thin.','Lunch patterns lack volume.',{between:9,secondOffset:0.2,breakout:0.9,volProfile:[.5,.2,.3,.6],failAfter:true,failZone:{start:0,end:28}}));
+    DT_FALSE.push(mkDT(false,'#18 — Long Lower Wick Breakdown','Breakdown candle has long lower wick — buyers stepped in.','Long lower wick on breakdown = rejection.',{between:8,secondOffset:0.2,breakout:1.4,volProfile:[1.2,.3,.5,1.5],failAfter:true,failZone:{start:18,end:22}}));
+    return {db_true:DB_TRUE, db_false:DB_FALSE, dt_true:DT_TRUE, dt_false:DT_FALSE};
+  }
+
+  let SCENARIOS = null;
+  let quizCat='db', quizMode='quiz', quizIdx=0, quizScore=0, quizAttempted=0, quizStreak=0, quizAnswered=false, quizList=[], quizWrong=[];
+
+  function getQuizPool(){
+    const t = quizCat==='db' ? SCENARIOS.db_true : SCENARIOS.dt_true;
+    const f = quizCat==='db' ? SCENARIOS.db_false : SCENARIOS.dt_false;
+    if(quizMode==='true') return [...t];
+    if(quizMode==='false') return [...f];
+    const all=[...t,...f];
+    for(let i=all.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[all[i],all[j]]=[all[j],all[i]];}
+    return all;
+  }
+
+  function updateQuizScore(){
+    document.getElementById('pq-score').textContent=quizScore;
+    document.getElementById('pq-total').textContent=quizAttempted;
+    document.getElementById('pq-pct').textContent=quizAttempted ? Math.round(quizScore/quizAttempted*100)+'%' : '—';
+    document.getElementById('pq-streak').textContent=quizStreak;
+    const streakEl=document.getElementById('pq-streak');
+    if (streakEl) streakEl.style.color = quizStreak>=3 ? 'var(--gold)' : 'var(--ink)';
+  }
+
+  function renderQuizChart(){
+    const area=document.getElementById('pq-area');
+    if (!area) return;
+    if (quizIdx>=quizList.length){
+      const pct=quizAttempted?Math.round(quizScore/quizAttempted*100):0;
+      let msg='Keep studying!';
+      if(pct>=90) msg='Outstanding! Strong pattern recognition.';
+      else if(pct>=75) msg='Good work. Review the ones you missed.';
+      else if(pct>=60) msg='Decent start. Focus on failure modes.';
+      const color=pct>=75?'var(--bull)':pct>=50?'var(--gold)':'var(--bear)';
+      area.innerHTML='<div class="pq-final"><div class="pq-pct" style="color:'+color+'">'+pct+'%</div><div class="pq-msg">'+msg+'</div><p style="color:var(--ink-dim)">'+quizScore+' correct out of '+quizAttempted+'</p><button class="pq-next-btn" onclick="resetQuiz()" style="margin-top:18px">↺ Start Over</button></div>';
+      return;
+    }
+    const s=quizList[quizIdx];
+    quizAnswered=false;
+    area.innerHTML='<div class="pq-chart-num">Chart '+(quizIdx+1)+' of '+quizList.length+' — '+(quizCat==='db'?'Double Bottom':'Double Top')+'</div><div class="pq-chart-card"><canvas id="pq-canvas" height="400"></canvas></div>'+(quizMode==='true'||quizMode==='false'?'<div class="pq-result '+(s.isTrue?'correct':'wrong')+'"><div class="pq-verdict" style="color:'+(s.isTrue?'var(--bull)':'var(--bear)')+'">'+(s.isTrue?'✓ TRUE PATTERN':'✗ FALSE PATTERN')+'</div><div class="pq-explain">'+s.explain+'</div><div class="pq-lesson">'+s.lesson+'</div></div><button class="pq-next-btn" onclick="nextQuiz()">Next →</button>':'<div class="pq-actions" id="pq-btns"><button class="pq-btn true-btn" onclick="answerQuiz(true)">✓ TRUE PATTERN</button><button class="pq-btn false-btn" onclick="answerQuiz(false)">✗ FALSE PATTERN</button></div><div id="pq-result-slot"></div>')+'<div class="pq-progress">'+quizIdx+'/'+quizList.length+' completed</div>';
+    setTimeout(()=>{ const c=document.getElementById('pq-canvas'); if(c) drawQuizChart(c, s, quizMode==='true'||quizMode==='false'); }, 50);
+  }
+
+  window.answerQuiz = function(userSaidTrue){
+    if(quizAnswered) return;
+    quizAnswered=true;
+    const s=quizList[quizIdx];
+    const correct = userSaidTrue === s.isTrue;
+    quizAttempted++;
+    if(correct){quizScore++;quizStreak++;} else {quizStreak=0;quizWrong.push(s);}
+    updateQuizScore();
+    document.querySelectorAll('#pq-btns .pq-btn').forEach(b=>b.disabled=true);
+    const c=document.getElementById('pq-canvas');
+    if(c) drawQuizChart(c, s, true);
+    document.getElementById('pq-result-slot').innerHTML='<div class="pq-result '+(correct?'correct':'wrong')+'"><div class="pq-verdict" style="color:'+(correct?'var(--bull)':'var(--bear)')+'">'+(correct?'✓ CORRECT!':'✗ WRONG')+'</div><div class="pq-explain"><strong>'+(s.isTrue?'This IS a true pattern.':'This is a FALSE pattern.')+'</strong> '+s.explain+'</div><div class="pq-lesson">'+s.lesson+'</div></div><button class="pq-next-btn" onclick="nextQuiz()">Next →</button>';
+  };
+  window.nextQuiz = function(){ quizIdx++; renderQuizChart(); };
+
+  window.setQuizCat = function(cat, btn){
+    quizCat=cat;
+    document.querySelectorAll('#pq-tabs .pq-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    resetQuiz();
+  };
+  window.setQuizMode = function(mode, btn){
+    quizMode=mode;
+    document.querySelectorAll('#pq-subtabs .pq-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    resetQuiz();
+  };
+  window.resetQuiz = function(){
+    quizIdx=0; quizScore=0; quizAttempted=0; quizStreak=0; quizAnswered=false; quizWrong=[];
+    quizList = getQuizPool();
+    updateQuizScore();
+    renderQuizChart();
+  };
+
+  function initQuiz(){
+    if (!SCENARIOS) SCENARIOS = buildQuizScenarios();
+    if (quizList.length === 0) { quizList = getQuizPool(); renderQuizChart(); updateQuizScore(); }
+  }
 
   // ========== DECISION TREE ==========
   const dtreeAnswers = { 1: null, 2: null, 3: null, 4: null };
