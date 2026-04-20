@@ -1882,6 +1882,206 @@
     .sidebar, .theme-toggle-wrap { display: none !important; }
     .app-shell { display: block; }
   }
+
+  /* ==================== FOUR PRINCIPLES STATE GATE — Branch 2 ==================== */
+  .state-gate-inner { max-width: 900px; margin: 0 auto; padding: 14px 0; }
+  .state-gate-header { text-align: center; margin-bottom: 22px; }
+  .state-gate-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .state-gate-lead {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .state-gate-lead strong { color: #14b8a6; }
+
+  .current-state-badge {
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-dim);
+  }
+  .current-state-badge strong {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 6px;
+  }
+  .cs-state-calm { color: #14b8a6 !important; }
+  .cs-state-thunderstorm { color: #ef4444 !important; }
+  .cs-state-casino { color: #eab308 !important; }
+  .cs-state-ambien { color: #8b5cf6 !important; }
+  .current-state-badge .cs-time { color: var(--ink-faint); font-size: 11px; font-style: italic; }
+
+  .state-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 640px) { .state-grid { grid-template-columns: 1fr; } }
+
+  .state-card {
+    background: var(--panel-2);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s;
+    color: var(--ink);
+    font-family: inherit;
+  }
+  .state-card:hover {
+    border-color: #14b8a6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(20, 184, 166, 0.18);
+  }
+  .state-card .sc-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 6px;
+    opacity: 0.85;
+  }
+  .state-card .sc-name {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .state-card .sc-desc {
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .state-card.calm { border-color: #14b8a6; }
+  .state-card.calm .sc-name, .state-card.calm .sc-label { color: #14b8a6; }
+  .state-card.thunderstorm .sc-name, .state-card.thunderstorm .sc-label { color: #ef4444; }
+  .state-card.casino .sc-name, .state-card.casino .sc-label { color: #eab308; }
+  .state-card.ambien .sc-name, .state-card.ambien .sc-label { color: #8b5cf6; }
+
+  .breath-timer {
+    display: none;
+    margin: 28px auto;
+    text-align: center;
+    max-width: 500px;
+  }
+  .breath-timer.active { display: block; }
+  .breath-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20,184,166,0.25), rgba(20,184,166,0));
+    border: 3px solid #14b8a6;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    color: #14b8a6;
+    animation: breath 8s ease-in-out infinite;
+  }
+  @keyframes breath { 0%,100% { transform: scale(0.85); } 50% { transform: scale(1.05); } }
+  .breath-text {
+    font-size: 14px;
+    color: var(--ink);
+    margin-top: 16px;
+    line-height: 1.55;
+  }
+  .breath-back-btn {
+    margin-top: 18px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    background: #14b8a6;
+    color: #052016;
+    font-weight: 700;
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .breath-back-btn:hover { background: #2dd4bf; }
+
+  .gate-warning {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 24px;
+    color: var(--ink);
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .gate-warning strong { color: #f87171; }
+
+  /* Non-Calm warning banner shown on TRADE tabs when state != Calm */
+  .non-calm-warning {
+    display: none;
+    background: linear-gradient(90deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
+    border: 1.5px solid rgba(239,68,68,0.5);
+    border-left: 4px solid #ef4444;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  body.non-calm .tab-panel.trade-tab .non-calm-warning { display: block; }
+  .non-calm-warning strong { color: #fca5a5; }
+  .non-calm-warning a { color: #fca5a5; font-weight: 700; cursor: pointer; text-decoration: underline; }
+
+  /* Sidebar state indicator */
+  .sidebar-state-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 9px;
+    border-radius: 6px;
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    margin-bottom: 8px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .sidebar-state-indicator:hover { border-color: var(--accent); }
+  .sidebar-state-indicator .state-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #6b7280;
+    flex-shrink: 0;
+  }
+  .sidebar-state-indicator .state-label {
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 9.5px;
+  }
+  .sidebar-state-indicator .state-name {
+    color: var(--ink);
+    font-weight: 700;
+    margin-left: auto;
+  }
 </style>
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -2005,6 +2205,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <!-- TRADE section -->
       <div class="nav-section trade">
         <div class="nav-section-header"><span class="nav-icon">💼</span> Trade</div>
+        <button class="tab-btn tab-tool" data-tab="state-gate"><span class="tab-num">🧘</span>State Gate</button>
         <button class="tab-btn tab-tool" data-tab="clock-matrix"><span class="tab-num">🕐</span>Clock Matrix</button>
         <button class="tab-btn tab-tool" data-tab="decision-tree"><span class="tab-num">🌳</span>Decision Tree</button>
         <button class="tab-btn tab-tool" data-tab="checklist"><span class="tab-num">✅</span>Pre-Trade Checklist</button>
@@ -2015,6 +2216,12 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="nav-section-header"><span class="nav-icon">📊</span> Review</div>
         <button class="tab-btn tab-review" data-tab="journal"><span class="tab-num">📝</span>Trade Journal</button>
       </div>
+    </div>
+
+    <div class="sidebar-state-indicator" id="sidebar-state-indicator" onclick="switchTab('state-gate')" title="Click to recheck your state">
+      <span class="state-dot"></span>
+      <span class="state-label">State:</span>
+      <span class="state-name">—</span>
     </div>
 
     <div class="theme-toggle-wrap">
@@ -6975,53 +7182,50 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-masterclass -->
 
-  <!-- ==================== FOUR PRINCIPLES FINAL GATE ==================== -->
-  <div class="final-gate">
-    <h3>Emotional Discipline — Check all four before clicking</h3>
-    <div class="principles-grid">
-      <div class="principle">
-        <input type="checkbox" id="p1">
-        <div class="principle-text">
-          <strong>Principle 1 · Plan</strong>
-          Entry, stop, and target all defined before the click. Nothing improvised.
-          <span class="explain" style="margin-top:6px;"><strong>Why it matters</strong>
-            Deciding where to exit <em>while</em> you're in a trade = emotional decision-making. You'll talk yourself into holding losers ("it'll come back") and dumping winners ("I'll just take this little bit"). Write entry/stop/target on paper or in the order ticket <em>before</em> you click. Then execution becomes mechanical, not emotional.
-          </span>
-        </div>
+  <!-- ==================== TAB: STATE GATE (Branch 2 — replaces old Four Principles checklist) ==================== -->
+  <div class="tab-panel" id="tab-state-gate">
+    <div class="state-gate-inner">
+      <div class="state-gate-header">
+        <h2>🧘 Four Principles · State Gate</h2>
+        <p class="state-gate-lead">Before you trade, check your state. Only <strong>Calm</strong> unlocks trading. The other three lock you out with a 60-second breathing timer. This is the single highest-ROI discipline tool.</p>
       </div>
-      <div class="principle">
-        <input type="checkbox" id="p2">
-        <div class="principle-text">
-          <strong>Principle 2 · Size</strong>
-          Risk ≤ predetermined % of account. No "this one feels good" oversize.
-          <span class="explain" style="margin-top:6px;"><strong>Why it matters</strong>
-            Set a fixed rule: e.g., "I never risk more than 1% of my account on any single trade." Then <em>every</em> trade gets sized from that rule, regardless of how good it looks. The trades that "feel best" are often the ones that hurt worst when wrong — partly because you sized larger on them. Constant risk per trade = no single loss can break you, and you survive long enough for edge to compound.
-          </span>
-        </div>
+
+      <div class="current-state-badge" id="current-state-badge">
+        Current state: <strong id="cs-name">Not set</strong>
+        <span class="cs-time" id="cs-time"></span>
       </div>
-      <div class="principle">
-        <input type="checkbox" id="p3">
-        <div class="principle-text">
-          <strong>Principle 3 · Patience</strong>
-          Waited for the close, not the wick. Not chasing, not early.
-          <span class="explain" style="margin-top:6px;"><strong>Why this is THE most important one for 2-min scalping:</strong>
-            This single rule protects you from the most common loss in pattern trading. Here's why it matters so much:<br><br>
-            <b>The wick lies.</b> In real time, as a 2-min bar is forming, price often pokes through the neckline, triggers a wave of FOMO entries, and then snaps right back — trapping everyone who jumped in early. That "poke" is the wick. When the bar actually closes, you see whether it truly broke through (body below/above the line) or whether it was a head-fake (body back on the wrong side). Difference between a winning trade and a loss: 30 seconds of patience.<br><br>
-            <b>"Chasing" = entering after the move has already gone.</b> You missed the clean entry, price is running, and you jump in scared you'll miss more. Your stop is now huge (because the low/high is way back where you should have entered), your reward is tiny (the move has less room to go), and your risk/reward is destroyed.<br><br>
-            <b>"Early" = entering before confirmation.</b> You're so sure the pattern is forming that you don't wait for the close. You're guessing, not reading. Most double tops/bottoms fail at some step — the close is the step that tells you the pattern actually worked.<br><br>
-            Patience isn't slowness — it's a specific technical skill: "wait for the bar to close and confirm before I click." In 2-min scalping, this single habit can be the difference between a profitable month and a losing one.
-          </span>
-        </div>
+
+      <div class="state-grid" id="state-grid">
+        <button class="state-card calm" data-state="Calm">
+          <div class="sc-label">Green Light</div>
+          <div class="sc-name">Calm State</div>
+          <div class="sc-desc">Focused, patient, clear. Willing to wait for A+ setups. Not chasing anything. This is the only state where you trade.</div>
+        </button>
+        <button class="state-card thunderstorm" data-state="Thunderstorm">
+          <div class="sc-label">Do Not Trade</div>
+          <div class="sc-name">Thunderstorm</div>
+          <div class="sc-desc">Anger, frustration, fear. Emotions are loud. Revenge-trading energy. Your judgment is compromised right now.</div>
+        </button>
+        <button class="state-card casino" data-state="Casino">
+          <div class="sc-label">Do Not Trade</div>
+          <div class="sc-name">Casino</div>
+          <div class="sc-desc">Gambling high. Excited, chasing, "I feel lucky." FOMO present. Every setup looks great — that's the tell.</div>
+        </button>
+        <button class="state-card ambien" data-state="Ambien">
+          <div class="sc-label">Do Not Trade</div>
+          <div class="sc-name">Ambien</div>
+          <div class="sc-desc">Foggy, tired, not sharp. Distracted. Hard to focus on the chart. Sleep-deprived or mentally drained.</div>
+        </button>
       </div>
-      <div class="principle">
-        <input type="checkbox" id="p4">
-        <div class="principle-text">
-          <strong>Principle 4 · Acceptance</strong>
-          Ready to take the loss at stop. No moving the stop against me.
-          <span class="explain" style="margin-top:6px;"><strong>Why it matters</strong>
-            "Moving the stop against me" = widening your stop when price approaches it, hoping the trade turns around. This converts a small, planned loss into a large, unplanned one. Every great trader loses — what separates them is that their losses are <em>small and contained</em>. Before you enter, mentally say: "I am willing to lose $X on this trade." If you're not, don't click. The click is a commitment to the stop.
-          </span>
-        </div>
+
+      <div class="breath-timer" id="breath-timer">
+        <div class="breath-circle" id="breath-circle">60</div>
+        <div class="breath-text">Breathe slowly. Do not trade this session unless you return to Calm.</div>
+        <button class="breath-back-btn" id="breath-back">Check Again</button>
+      </div>
+
+      <div class="gate-warning">
+        <strong>Why this matters:</strong> Lo &amp; Repin (MIT, 2002) measured autonomic arousal in live traders and showed elevated states directly degrade decision quality. Barber &amp; Odean's research consistently finds emotionally-driven overtrading is the #1 killer of retail accounts. You already know this as a psychiatrist — this just forces you to apply it to yourself. State persists 4 hours; recheck after that.
       </div>
     </div>
   </div>
@@ -7378,6 +7582,106 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
   // Restore saved theme on load (default: dark)
   applyTheme(localStorage.getItem('playbook_theme') || 'dark');
+
+  // ========== FOUR PRINCIPLES STATE GATE (Branch 2) ==========
+  const FOUR_HOURS_MS = 4 * 60 * 60 * 1000;
+  let breathInterval = null;
+
+  function getStoredState() {
+    try {
+      const s = JSON.parse(localStorage.getItem('state') || 'null');
+      if (!s || !s.at || !s.name) return null;
+      if (Date.now() - s.at > FOUR_HOURS_MS) return null;
+      return s;
+    } catch { return null; }
+  }
+
+  function updateStateBadge() {
+    const s = getStoredState();
+    const name = document.getElementById('cs-name');
+    const time = document.getElementById('cs-time');
+    if (!name || !time) return;
+    if (s) {
+      name.textContent = s.name;
+      name.className = 'cs-state-' + s.name.toLowerCase();
+      const elapsed = Math.max(0, Math.round((Date.now() - s.at) / 60000));
+      time.textContent = ' · checked ' + elapsed + ' min ago';
+    } else {
+      name.textContent = 'Not set';
+      name.className = '';
+      time.textContent = '';
+    }
+  }
+
+  function updateSidebarStateIndicator() {
+    const s = getStoredState();
+    const ind = document.getElementById('sidebar-state-indicator');
+    if (!ind) return;
+    const name = s?.name || 'Not set';
+    const colors = { Calm: '#14b8a6', Thunderstorm: '#ef4444', Casino: '#eab308', Ambien: '#8b5cf6' };
+    const color = colors[name] || '#6b7280';
+    ind.querySelector('.state-dot').style.background = color;
+    ind.querySelector('.state-dot').style.boxShadow = '0 0 6px ' + color;
+    ind.querySelector('.state-name').textContent = name;
+    ind.querySelector('.state-name').style.color = name !== 'Not set' ? color : '';
+    // Body class for non-Calm warnings
+    if (s && s.name !== 'Calm') document.body.classList.add('non-calm');
+    else document.body.classList.remove('non-calm');
+  }
+
+  function startBreathTimer() {
+    const grid = document.getElementById('state-grid');
+    const timer = document.getElementById('breath-timer');
+    if (grid) grid.style.display = 'none';
+    if (timer) timer.classList.add('active');
+    const circle = document.getElementById('breath-circle');
+    let remaining = 60;
+    if (circle) circle.textContent = remaining;
+    if (breathInterval) clearInterval(breathInterval);
+    breathInterval = setInterval(() => {
+      remaining--;
+      if (circle) circle.textContent = remaining;
+      if (remaining <= 0) {
+        clearInterval(breathInterval);
+        if (circle) circle.textContent = '✓';
+      }
+    }, 1000);
+  }
+
+  function stopBreathTimer() {
+    if (breathInterval) clearInterval(breathInterval);
+    const grid = document.getElementById('state-grid');
+    const timer = document.getElementById('breath-timer');
+    if (timer) timer.classList.remove('active');
+    if (grid) grid.style.display = 'grid';
+  }
+
+  function selectState(stateName) {
+    const obj = { name: stateName, at: Date.now() };
+    localStorage.setItem('state', JSON.stringify(obj));
+    if (stateName !== 'Calm') {
+      localStorage.setItem('blockedAt', JSON.stringify({ state: stateName, at: Date.now() }));
+      startBreathTimer();
+    } else {
+      stopBreathTimer();
+    }
+    updateStateBadge();
+    updateSidebarStateIndicator();
+  }
+
+  document.querySelectorAll('.state-card').forEach(c => {
+    c.addEventListener('click', () => selectState(c.dataset.state));
+  });
+
+  const breathBackBtn = document.getElementById('breath-back');
+  if (breathBackBtn) breathBackBtn.addEventListener('click', stopBreathTimer);
+
+  // Initial load
+  updateStateBadge();
+  updateSidebarStateIndicator();
+
+  // Refresh the "min ago" every 30 sec
+  setInterval(updateStateBadge, 30000);
 
   // ========== DECISION TREE ==========
   const dtreeAnswers = { 1: null, 2: null, 3: null, 4: null };
