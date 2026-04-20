@@ -2048,6 +2048,100 @@
   .non-calm-warning strong { color: #fca5a5; }
   .non-calm-warning a { color: #fca5a5; font-weight: 700; cursor: pointer; text-decoration: underline; }
 
+  /* ============ PRE-MARKET PREP FORM — Branch 3 ============ */
+  .premarket-inner { max-width: 920px; margin: 0 auto; padding: 14px 0; }
+  .premarket-header { text-align: center; margin-bottom: 22px; }
+  .premarket-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: #fb923c;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .premarket-lead {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .premarket-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  }
+  .pm-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 16px;
+    margin-bottom: 4px;
+  }
+  @media (max-width: 700px) { .pm-form-grid { grid-template-columns: 1fr; } }
+  .pm-row { margin-bottom: 14px; }
+  .pm-row label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .pm-row input, .pm-row select, .pm-row textarea {
+    width: 100%;
+    background: var(--panel-2);
+    color: var(--ink);
+    border: 1.5px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.4;
+    transition: border-color 0.15s;
+  }
+  .pm-row input:focus, .pm-row select:focus, .pm-row textarea:focus {
+    outline: none;
+    border-color: #fb923c;
+  }
+  .pm-row textarea { min-height: 70px; resize: vertical; }
+  .pm-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    flex-wrap: wrap;
+  }
+  .pm-save-btn {
+    background: #fb923c;
+    color: #1a0f00;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 26px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .pm-save-btn:hover { background: #fdb874; transform: translateY(-1px); }
+  .pm-saved-note { color: var(--ink-faint); font-size: 12px; font-style: italic; }
+  .pm-today {
+    background: var(--panel-2);
+    border-left: 3px solid #fb923c;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-bottom: 16px;
+  }
+  .pm-today strong { color: #fb923c; }
+
   /* Sidebar state indicator */
   .sidebar-state-indicator {
     display: flex;
@@ -2206,6 +2300,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="nav-section trade">
         <div class="nav-section-header"><span class="nav-icon">💼</span> Trade</div>
         <button class="tab-btn tab-tool" data-tab="state-gate"><span class="tab-num">🧘</span>State Gate</button>
+        <button class="tab-btn tab-tool" data-tab="premarket"><span class="tab-num">📋</span>Pre-Market Prep</button>
         <button class="tab-btn tab-tool" data-tab="clock-matrix"><span class="tab-num">🕐</span>Clock Matrix</button>
         <button class="tab-btn tab-tool" data-tab="decision-tree"><span class="tab-num">🌳</span>Decision Tree</button>
         <button class="tab-btn tab-tool" data-tab="checklist"><span class="tab-num">✅</span>Pre-Trade Checklist</button>
@@ -7182,6 +7277,83 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
     </div><!-- /tab-masterclass -->
 
+  <!-- ==================== TAB: PRE-MARKET PREP (Branch 3) ==================== -->
+  <div class="tab-panel" id="tab-premarket">
+    <div class="premarket-inner">
+      <div class="premarket-header">
+        <h2>📋 Pre-Market Prep</h2>
+        <p class="premarket-lead">Fill this out once each morning before 9:30 ET. SMB / Raschke / Minervini rule: no written plan, no trading. Locks in "if-then" intentions — research shows this alone has a medium-to-large effect on behavior (Gollwitzer 1999).</p>
+      </div>
+      <div class="pm-today" id="pm-today"></div>
+      <div class="premarket-card">
+        <div class="pm-form-grid">
+          <div class="pm-row">
+            <label for="pm-pdh">Yesterday's High (M2K / MES)</label>
+            <input type="text" id="pm-pdh" placeholder="e.g. 2412.5 / 6020">
+          </div>
+          <div class="pm-row">
+            <label for="pm-pdl">Yesterday's Low</label>
+            <input type="text" id="pm-pdl" placeholder="e.g. 2389.0 / 5998">
+          </div>
+          <div class="pm-row">
+            <label for="pm-onh">Overnight High (ONH)</label>
+            <input type="text" id="pm-onh" placeholder="e.g. 2418">
+          </div>
+          <div class="pm-row">
+            <label for="pm-onl">Overnight Low (ONL)</label>
+            <input type="text" id="pm-onl" placeholder="e.g. 2402">
+          </div>
+        </div>
+        <div class="pm-row">
+          <label for="pm-bias">Bias for today</label>
+          <select id="pm-bias">
+            <option value="">Pick one…</option>
+            <option value="long">Long bias — looking for longs only</option>
+            <option value="short">Short bias — looking for shorts only</option>
+            <option value="neutral">Neutral — trade what the chart shows</option>
+            <option value="standaside">Stand aside — no clear bias, low conviction</option>
+          </select>
+        </div>
+        <div class="pm-row">
+          <label for="pm-setups">Today I will ONLY take these setups</label>
+          <select id="pm-setups">
+            <option value="">Pick one…</option>
+            <option value="db-morningstar">Double Bottom + Morning Star at Low 2</option>
+            <option value="db-hammer">Double Bottom + Hammer/Pin at Low 2</option>
+            <option value="db-engulf">Double Bottom + Bullish Engulfing at Low 2</option>
+            <option value="dt-eveningstar">Double Top + Evening Star at High 2</option>
+            <option value="dt-shootingstar">Double Top + Shooting Star at High 2</option>
+            <option value="dt-engulf">Double Top + Bearish Engulfing at High 2</option>
+            <option value="bf-emapull">Bull Flag + EMA pullback breakout</option>
+            <option value="bf-bpb">Bull Flag + Breakout-Pullback re-entry</option>
+            <option value="br-emaretest">Bear Flag + EMA retest breakdown</option>
+            <option value="br-retest">Bear Flag + Breakdown+Retest</option>
+            <option value="failed-breakout">Failed Breakout Reversal only</option>
+            <option value="orb-retest">ORB Retest only (morning session)</option>
+            <option value="vwap-mr">VWAP Mean Reversion only (midday)</option>
+            <option value="any">Any of my 7 setups with full checklist</option>
+          </select>
+        </div>
+        <div class="pm-row">
+          <label for="pm-econ">Economic calendar flag today (FOMC, CPI, NFP, etc.)</label>
+          <input type="text" id="pm-econ" placeholder="e.g. None, or CPI at 8:30 ET">
+        </div>
+        <div class="pm-row">
+          <label for="pm-mood">Mood rating (1 = exhausted, 10 = sharp)</label>
+          <input type="number" id="pm-mood" min="1" max="10" placeholder="1–10">
+        </div>
+        <div class="pm-row">
+          <label for="pm-intent">One intention for today (one sentence)</label>
+          <textarea id="pm-intent" placeholder="e.g. I will wait for the full 6-box checklist. I will not take any trade 11:30–13:30 ET."></textarea>
+        </div>
+        <div class="pm-actions">
+          <button class="pm-save-btn" id="pm-save">Save today's plan</button>
+          <span class="pm-saved-note" id="pm-saved-note"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== TAB: STATE GATE (Branch 2 — replaces old Four Principles checklist) ==================== -->
   <div class="tab-panel" id="tab-state-gate">
     <div class="state-gate-inner">
@@ -7682,6 +7854,43 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
   // Refresh the "min ago" every 30 sec
   setInterval(updateStateBadge, 30000);
+
+  // ========== PRE-MARKET PREP (Branch 3) ==========
+  const PM_FIELDS = ['pm-pdh','pm-pdl','pm-onh','pm-onl','pm-bias','pm-setups','pm-econ','pm-mood','pm-intent'];
+  const TODAY_KEY = () => 'premarket_' + new Date().toISOString().slice(0,10);
+
+  function loadPremarket() {
+    try {
+      const pm = JSON.parse(localStorage.getItem(TODAY_KEY()) || 'null');
+      const today = document.getElementById('pm-today');
+      if (today) {
+        const d = new Date();
+        today.innerHTML = '<strong>Date:</strong> ' + d.toLocaleDateString(undefined, { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+      }
+      if (!pm) return;
+      PM_FIELDS.forEach(f => {
+        const el = document.getElementById(f);
+        if (el && pm[f] !== undefined) el.value = pm[f];
+      });
+      const note = document.getElementById('pm-saved-note');
+      if (note && pm._at) note.textContent = '✓ Saved ' + new Date(pm._at).toLocaleTimeString();
+    } catch {}
+  }
+
+  function savePremarket() {
+    const pm = { _at: Date.now() };
+    PM_FIELDS.forEach(f => {
+      const el = document.getElementById(f);
+      if (el) pm[f] = el.value;
+    });
+    localStorage.setItem(TODAY_KEY(), JSON.stringify(pm));
+    const note = document.getElementById('pm-saved-note');
+    if (note) note.textContent = '✓ Saved ' + new Date().toLocaleTimeString();
+  }
+
+  const pmSaveBtn = document.getElementById('pm-save');
+  if (pmSaveBtn) pmSaveBtn.addEventListener('click', savePremarket);
+  loadPremarket();
 
   // ========== DECISION TREE ==========
   const dtreeAnswers = { 1: null, 2: null, 3: null, 4: null };
