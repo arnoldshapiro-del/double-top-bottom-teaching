@@ -1404,6 +1404,11 @@
   #tab-bull-flag     { order: 3; }
   #tab-bear-flag     { order: 4; }
   #tab-unified       { order: 5; }
+  /* Volume Signature Cheat Sheet must always render LAST. Without this, it
+     has default order:0 and flex places it BEFORE tabs 1-4 (order:1-4), which
+     made clicks on buttons 1-4 appear to do nothing — the viewport was stuck
+     on the cheat sheet while the active tab rendered below it. */
+  .bottom-grid { order: 999; }
 
   /* ============ NEUTRAL COLUMN (Unified Principles) ============ */
   .column.neutral { border-top: 3px solid var(--gold); }
