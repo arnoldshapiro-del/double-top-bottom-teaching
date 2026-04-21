@@ -1,5 +1,70 @@
 # Session Notes — Arnie's Day Trading Setup Playbook
 
+## Session — 2026-04-21 — v4.1 🏁 THE PLAN section added (Research + Final Plan)
+
+**What we did:**
+- Added a brand-new **THE PLAN** section to the left sidebar (4th section, below REVIEW) with gold 🏁 header, styled consistently with LEARN / TRADE / REVIEW but visually distinct (gold accent).
+- Added two new tabs inside THE PLAN:
+  - **🧠 The Research Behind the Plan** (`tab-research-plan`) — Full content from `The_Research_Behind_The_Plan.md` transferred verbatim. 9-part scholarly document with sticky table of contents at top, numbered sections, "back to top" links between sections, teal/green/red color-coded callouts matching app palette. Covers: Double Bottoms research, wick-vs-body neckline decision, "15 seconds left" dilemma, buy stops/entry mechanics, stop placement breakthrough, Double Tops, Bull Flags, Bear Flags, Unified research principles. TTS-enabled.
+  - **🏆 Final Trading Plan** (`tab-final-plan`) — Full content from `Final_Trading_Plan.md` transferred verbatim. Designed as a LIVE TRADING REFERENCE checklist (distinct from rest of app which teaches). Features: prominent "LIVE TRADING REFERENCE" banner, 4 pattern cards (Double Bottom 10 steps, Double Top 11 steps, Bull Flag 11 steps, Bear Flag 12 steps) each with numbered step cards color-coded by pattern, the 10 Universal Rules in a highlighted gold box, clean Quick Reference table at the end, two Mindset Trap callout boxes.
+- Mobile-responsive: large step numbers, scannable layout, narrow-viewport testing built into CSS.
+- All work done on branch `feature/add-the-plan` (branched from master). NO existing sections modified — purely additive.
+- Updated CLAUDE.md to document the new section as Branch B16.
+
+**Files modified:**
+- `index.html` — 5 edits: CSS additions for `.nav-section.plan` + all `.plan-*`/`.pattern-plan`/`.step-card`/`.universal-rules`/`.quick-ref`/`.mindset-trap` classes + light-mode + mobile responsive rules; sidebar HTML addition (THE PLAN section with 2 tab buttons); TTS registration for `research-plan`; two new tab-panel divs before toast.
+- `CLAUDE.md` — Updated Current Status to v4.1, added B16 feature entry, added THE PLAN to Purpose section.
+- `SESSION_NOTES.md` — This entry.
+
+**What's working:** All CSS classes added without conflicts; sidebar structure preserved; tab switching works via existing `switchTab()`; TTS works on research tab; no existing sections touched.
+
+**What's next:** Push branch → verify Netlify preview build → add preview domain to Firebase authorized domains via Identity Toolkit API → Arnie reviews preview URL → merge to master after his approval.
+
+**Important decisions:**
+- Branched from `master` (repo default), not `main` as prompt stated — flagged this to Arnie who gave full autonomous authorization.
+- Flagged tech stack discrepancy: prompt said Vite+React+TS+Tailwind but repo is vanilla HTML single-file — proceeded with vanilla HTML matching existing architecture.
+- Used gold (#e6b859) as THE PLAN accent color — reuses existing palette color (from Pattern Quiz / Neckline annotations) rather than introducing a new color.
+- Content transferred verbatim from both source .md files per Arnie's explicit requirement — no paraphrasing or trimming.
+
+**Problems encountered:**
+- None during edits. Netlify-only-builds-master: added `feature/add-the-plan` to `allowed_branches`, triggered build via API, pre-authorized the `feature-add-the-plan--arnie-double-top-bottom.netlify.app` domain in Firebase via Identity Toolkit PATCH.
+
+---
+
+## Session — 2026-04-21 — v4.2 🎨 THE PLAN illustration pass
+
+**What we did (follow-up to v4.1):** Arnie reviewed the preview URL, approved the content, and asked for "an incredible number of incredibly helpful illustrations" across both new tabs before merge. Did a full illustration pass:
+
+**Research tab — 10 inline SVG figures:**
+- Part 1 · Hero W-anatomy (bottoms, neckline, breakout, target projection)
+- Part 1 · Method 1 vs Method 2 side-by-side comparison (false breakout vs confirmed close)
+- Part 2 · Body-vs-wick neckline diagram showing same candle produces two different necklines
+- Part 2 · Four-scenario wick-grading candle chart (①strongest / ②caution / ③warning / ④trap)
+- Part 3 · 15-seconds dilemma decision diagram (click-now vs wait-for-close with clock + candle)
+- Part 3 · 85% pullback reality showing fair-price calm entry
+- Part 4 · 5-step entry mechanics workflow (watch → close? → wick? → click → pre-stage)
+- Part 5 · Traditional wide stop vs tight neckline stop side-by-side with $99 vs $15 risk callouts
+- Part 6 · Double Top mirror hero
+- Part 7 · Bull Flag anatomy (flagpole, flag channel, breakout, target projection)
+- Part 8 · Bear Flag anatomy (violent downward with fast/violent banner)
+- Part 9 · Unified 4-pattern comparison grid (DB / DT / BF / BEF in one frame)
+
+**Final Plan tab — 4 pattern hero mini-charts + 2 mindset trap visuals:**
+- Double Bottom hero (W with entry/stop/target/BE marker)
+- Double Top hero (M with HTF filter badge)
+- Bull Flag hero (flagpole+flag+breakout with target projection)
+- Bear Flag hero (pole down + rising flag + breakdown with FAST · VIOLENT badge)
+- Trap 1 "Runaway Fear" — chase-parabola vs wait-pullback side-by-side
+- Trap 2 "Buy Stop Comfort" — wick-triggered stop vs confirmation close side-by-side
+
+**CSS added:** `.plan-illus` (with .long/.short/.gold/.key variants), `.plan-compare` two-column grid that collapses to one on mobile, `.pattern-hero-chart` for compact pattern card heroes, light-mode overrides.
+
+**Files modified:** `index.html` (CSS block + 16 inline SVG figures inserted), `SESSION_NOTES.md`.
+
+**What's working:** All SVGs use existing color palette (teal #14b8a6, gold #eab308/#e6b859, green #22c55e, red #ef4444) and match the visual language of the existing 55+ SVGs in the LEARN section setups.
+
+---
+
 ## Session — 2026-04-20 — v3.1 ⚡ Aggressive Entry Tab
 
 **What we did:**

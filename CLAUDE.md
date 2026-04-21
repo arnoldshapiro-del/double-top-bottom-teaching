@@ -5,10 +5,11 @@ Arnie's Day Trading Setup Playbook — v4.0 Unified (MES · M2K · RTY · 2-min 
 The merged successor to three previous apps — Double Top/Bottom teaching playbook (this repo, the base), Arnie's Edge System, and Arnie's Trading Academy. Merged April 20, 2026.
 
 ## Purpose
-A single unified 2-minute futures scalping program covering the full workflow in three sidebar sections:
+A single unified 2-minute futures scalping program covering the full workflow in four sidebar sections:
 - **LEARN** — 7 setup patterns + Aggressive Entry + Unified Principles + Visual Masterclass + Pattern Quiz + Calculators + Flashcards
 - **TRADE** — Four Principles State Gate + Pre-Market Prep + Clock Matrix + Decision Tree + 24-item Checklist + 6-Box Live Checklist + Daily Gates
 - **REVIEW** — Trade Journal + Edge Dashboard
+- **THE PLAN** — 🧠 The Research Behind the Plan + 🏆 Final Trading Plan (added 2026-04-21)
 
 ## GitHub Repo
 `arnoldshapiro-del/double-top-bottom-teaching` (master branch)
@@ -25,6 +26,8 @@ https://arnie-double-top-bottom.netlify.app
 - Firebase Google Auth locked to `arnold.shapiro@gmail.com`
 
 ## Current Status
+**v4.2 THE PLAN illustration pass (2026-04-21).** 16 inline SVG figures added across Research + Final Plan tabs. Matches existing visual language.
+**v4.1 THE PLAN section added (2026-04-21).** Purely additive — no existing sections modified.
 **v4.0 Unified LIVE (2026-04-20).** All 11 merge branches shipped in one session.
 
 The three predecessor apps remain live as safety nets during the transition period:
@@ -62,6 +65,9 @@ All data keys now namespaced under `playbook_`. Legacy keys (`arnie_m2k_trades_v
 - **B13** — Layout: container max-width 1400→1800px; body font 13→14px; line-height 1.5→1.55; padding 24px→20px 28px
 - **B14** — Sidebar: height fills full viewport (calc(100vh-32px)); flex-column; theme toggle pinned to bottom via margin-top:auto
 - **B15** — TTS read-aloud engine: browser Web Speech API (same as Uni's TA Bootcamp); teal 🔊 "Read this lesson" button + reading-time estimate on 14 tabs; sentence-queue pattern; floating pause/stop/speed control bar; auto-stops on tab switch; persists rate in `playbook_tts_rate`
+- **B16** — THE PLAN section (2026-04-21): new 4th sidebar section below REVIEW with gold 🏁 header. Two tabs:
+  - `tab-research-plan` (🧠 The Research Behind the Plan) — 9-part scholarly document with sticky TOC navigation and "back to top" links; covers DB research, wick-vs-body neckline decision, "15 seconds left" dilemma, buy stops/entry mechanics, stop placement breakthrough, DT/Bull Flag/Bear Flag research, and unified research principles. TTS-enabled.
+  - `tab-final-plan` (🏆 Final Trading Plan) — LIVE TRADING REFERENCE checklist styled distinctly from the rest of the app. 4 pattern cards (DB/DT/BF/BEF) with numbered step cards, color-coded by pattern (green/red/green/red). 10 Universal Rules in a prominent gold box. Quick Reference table. Two Mindset Trap callouts. Mobile-responsive for phone viewing next to trading computer.
 
 ## Design system
 - Dark mode default · light mode toggle in sidebar (persisted in `playbook_theme`)
