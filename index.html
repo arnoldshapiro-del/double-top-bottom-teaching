@@ -3800,6 +3800,30 @@
   body.light-mode .tts-ctrl-btn:hover { background: rgba(0,0,0,.12); }
   .tts-stop-btn { color: #f87171; border-color: rgba(248,113,113,.3); }
   .tts-stop-btn:hover { background: rgba(248,113,113,.14) !important; }
+  .tts-seek-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .tts-seek-btn {
+    padding: 5px 9px !important;
+    font-size: 12px !important;
+    color: #5eead4 !important;
+    border-color: rgba(94,234,212,.28) !important;
+    min-width: 0;
+  }
+  .tts-seek-btn:hover { background: rgba(94,234,212,.14) !important; }
+  body.light-mode .tts-seek-btn {
+    color: #0d9488 !important;
+    border-color: rgba(13,148,136,.35) !important;
+  }
+  body.light-mode .tts-seek-btn:hover { background: rgba(13,148,136,.12) !important; }
+  @media (max-width: 760px) {
+    .tts-float-inner { flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .tts-speed-wrap { margin-left: 0; }
+    .tts-seek-btn { padding: 4px 7px !important; font-size: 11px !important; }
+  }
   .tts-speed-wrap {
     display: flex;
     align-items: center;
@@ -11595,8 +11619,18 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <span class="tts-bar-item"></span>
       </div>
       <span id="tts-status-label" class="tts-status-label">Playing…</span>
+      <div class="tts-seek-group" title="Rewind">
+        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(-60)" title="Rewind 1 minute">⏪ 1m</button>
+        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(-30)" title="Rewind 30 seconds">⏪ 30s</button>
+        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(-15)" title="Rewind 15 seconds">⏪ 15s</button>
+      </div>
       <button id="tts-pause-btn" class="tts-ctrl-btn" onclick="ttsPauseResume()">⏸ Pause</button>
       <button class="tts-ctrl-btn tts-stop-btn" onclick="ttsStop()">⏹ Stop</button>
+      <div class="tts-seek-group" title="Fast-forward">
+        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(15)" title="Forward 15 seconds">15s ⏩</button>
+        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(30)" title="Forward 30 seconds">30s ⏩</button>
+        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(60)" title="Forward 1 minute">1m ⏩</button>
+      </div>
       <div class="tts-speed-wrap">
         <span id="tts-rate-label" class="tts-rate-label">0.95×</span>
         <input type="range" id="tts-rate-slider" class="tts-rate-slider" min="0.6" max="1.4" step="0.05" value="0.95" oninput="ttsSetRate(parseFloat(this.value))">
@@ -13061,10 +13095,57 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   let ttsSpeechRate = parseFloat(localStorage.getItem('playbook_tts_rate') || '0.95');
   let ttsSpeechPitch = 1.0;
   let ttsSentenceQueue = [];
+  let ttsSentenceTimings = [];
+  let ttsSentenceStartWall = 0;
   let ttsCurrentIdx = 0;
   let ttsIsSpeaking = false;
   let ttsIsPaused = false;
   let ttsIsCancelled = false;
+
+  function ttsBuildTimings() {
+    ttsSentenceTimings = [];
+    let cumulative = 0;
+    const wpm = 150 * (ttsSpeechRate || 1);
+    const secondsPerWord = 60 / wpm;
+    for (const sentence of ttsSentenceQueue) {
+      ttsSentenceTimings.push(cumulative);
+      const words = (sentence || '').split(/\s+/).filter(w => w.length > 0).length;
+      cumulative += words * secondsPerWord + 0.15;
+    }
+  }
+
+  function ttsSeek(deltaSeconds) {
+    if (!ttsIsSpeaking || !ttsSentenceQueue.length) return;
+    if (!ttsSentenceTimings.length) ttsBuildTimings();
+    const sentenceStartSec = ttsSentenceTimings[ttsCurrentIdx] || 0;
+    const elapsedInSentence = ttsSentenceStartWall && !ttsIsPaused
+      ? Math.max(0, (Date.now() - ttsSentenceStartWall) / 1000)
+      : 0;
+    const currentPosSec = sentenceStartSec + elapsedInSentence;
+    const targetPosSec = Math.max(0, currentPosSec + deltaSeconds);
+    let newIdx = 0;
+    for (let i = ttsSentenceTimings.length - 1; i >= 0; i--) {
+      if (ttsSentenceTimings[i] <= targetPosSec) { newIdx = i; break; }
+    }
+    if (newIdx >= ttsSentenceQueue.length) { ttsStop(); return; }
+    const wasPaused = ttsIsPaused;
+    ttsIsCancelled = true;
+    window.speechSynthesis.cancel();
+    setTimeout(() => {
+      ttsCurrentIdx = newIdx;
+      ttsIsCancelled = false;
+      ttsIsPaused = false;
+      ttsUpdateFloatBar();
+      ttsSpeakNext();
+      if (wasPaused) {
+        setTimeout(() => {
+          window.speechSynthesis.pause();
+          ttsIsPaused = true;
+          ttsUpdateFloatBar();
+        }, 120);
+      }
+    }, 120);
+  }
 
   function ttsScoreVoice(v) {
     let s = 0;
@@ -13154,6 +13235,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     u.rate = ttsSpeechRate;
     u.pitch = ttsSpeechPitch;
     u.volume = 1.0;
+    u.onstart = () => { ttsSentenceStartWall = Date.now(); };
     u.onend = () => { ttsCurrentIdx++; setTimeout(ttsSpeakNext, 150); };
     u.onerror = () => { ttsCurrentIdx++; setTimeout(ttsSpeakNext, 150); };
     window.speechSynthesis.speak(u);
@@ -13199,6 +13281,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
     ttsSentenceQueue = sentences;
     ttsCurrentIdx = 0;
+    ttsSentenceStartWall = 0;
+    ttsBuildTimings();
     ttsSetSpeakingState(true);
     setTimeout(ttsSpeakNext, 50);
   }
@@ -13228,6 +13312,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     localStorage.setItem('playbook_tts_rate', String(rate));
     const label = document.getElementById('tts-rate-label');
     if (label) label.textContent = rate.toFixed(2) + '×';
+    if (ttsSentenceQueue.length) ttsBuildTimings();
   }
 
   // Called whenever the active tab changes
