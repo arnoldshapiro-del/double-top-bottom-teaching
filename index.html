@@ -8963,14 +8963,27 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   // ========== TAB NAVIGATION ==========
   // Force the page to top via every known method. Belt-and-suspenders —
   // Edge/Chrome scroll-anchoring was silently restoring position on tabs 1-4
-  // (the long pattern tabs) after we reset scrollTop. Firing through rAF +
-  // setTimeout covers the case where a later relayout (TTS innerText, etc.)
-  // triggers a re-anchor.
+  // (the long pattern tabs) after we reset scrollTop.
   function _scrollPageToTop() {
     try { window.scrollTo(0, 0); } catch (_) {}
     if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+  }
+
+  // Pin scroll at 0 for a short window so nothing (browser scroll anchoring,
+  // TTS-triggered relayout, focus restoration, etc.) can sneak scroll back up.
+  // The loop runs every animation frame for `durationMs`, forcing scrollTop=0
+  // every ~16ms. This is the only approach that reliably survives the Chromium
+  // scroll-anchor feature on the long pattern tabs (DB/DT/Bull Flag/Bear Flag).
+  let _pinScrollStopAt = 0;
+  function _pinScrollAtTop(durationMs) {
+    _pinScrollStopAt = Math.max(_pinScrollStopAt, performance.now() + durationMs);
+    const tick = () => {
+      _scrollPageToTop();
+      if (performance.now() < _pinScrollStopAt) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
 
   function switchTab(tabName) {
@@ -8986,13 +8999,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     const panel = document.getElementById(`tab-${tabName}`);
     if (panel) panel.classList.add('active');
 
-    // Fire scroll-to-top in three waves so no relayout can cancel it.
+    // Pin the page to the top. 350ms covers: immediate reset, rAF after layout,
+    // and the 80ms TTS relayout. Any scroll-anchor attempt to "restore" position
+    // during this window is overwritten on the next frame.
     _scrollPageToTop();
-    requestAnimationFrame(() => {
-      _scrollPageToTop();
-      requestAnimationFrame(_scrollPageToTop);
-    });
-    setTimeout(_scrollPageToTop, 150);
+    _pinScrollAtTop(350);
   }
 
   // Wire up tab buttons on load
