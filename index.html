@@ -2148,6 +2148,90 @@
   }
   .plan-principles li strong { color: #fde68a; }
 
+  /* ==================== PLAN illustrations (inline SVG figures) ==================== */
+  .plan-illus {
+    margin: 18px 0;
+    padding: 14px 14px 10px;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3));
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+  }
+  .plan-illus svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .plan-illus figcaption {
+    margin-top: 10px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink-dim, #94a3b8);
+    text-align: center;
+    font-style: italic;
+  }
+  .plan-illus figcaption strong { color: #7dd3fc; font-style: normal; font-weight: 700; }
+  .plan-illus.long { border-left: 3px solid #22c55e; }
+  .plan-illus.short { border-left: 3px solid #ef4444; }
+  .plan-illus.gold { border-left: 3px solid #e6b859; }
+  .plan-illus.key { border-left: 3px solid #14b8a6; }
+
+  /* Two-column compare layout for side-by-side SVGs */
+  .plan-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .plan-compare > figure {
+    margin: 0;
+    padding: 12px;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3));
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+  }
+  .plan-compare > figure svg { width: 100%; height: auto; display: block; }
+  .plan-compare > figure figcaption {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink-dim, #94a3b8);
+    text-align: center;
+  }
+  .plan-compare > figure.good { border-top: 3px solid #22c55e; }
+  .plan-compare > figure.bad { border-top: 3px solid #ef4444; }
+  .plan-compare > figure.good figcaption strong { color: #86efac; }
+  .plan-compare > figure.bad figcaption strong { color: #fca5a5; }
+
+  @media (max-width: 900px) {
+    .plan-compare { grid-template-columns: 1fr; }
+  }
+
+  /* Light mode overrides for illustrations */
+  body.light-mode .plan-illus,
+  body.light-mode .plan-compare > figure {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(248, 250, 252, 0.6));
+    border-color: rgba(15, 23, 42, 0.12);
+  }
+  body.light-mode .plan-illus figcaption,
+  body.light-mode .plan-compare > figure figcaption { color: #475569; }
+  body.light-mode .plan-illus figcaption strong { color: #0891b2; }
+
+  /* Pattern mini-chart hero (Final Plan pattern card) */
+  .pattern-hero-chart {
+    margin: 0 0 16px;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+  }
+  .pattern-hero-chart svg { width: 100%; height: auto; max-height: 180px; display: block; }
+  body.light-mode .pattern-hero-chart {
+    background: rgba(248, 250, 252, 0.8);
+    border-color: rgba(15, 23, 42, 0.1);
+  }
+
   /* ==================== FINAL TRADING PLAN — exclusive styling ==================== */
 
   .live-trading-banner {
@@ -9637,7 +9721,70 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         </ul>
         <p class="plan-prose">The pattern signals that sellers tried twice to push price lower and failed both times. Buyers are stepping in at that level.</p>
 
+        <figure class="plan-illus long">
+          <svg viewBox="0 0 640 280" role="img" aria-label="Double Bottom anatomy with W shape, neckline, entry trigger, and projected target">
+            <title>Double Bottom — Anatomy Map</title>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="70" x2="640" y2="70"/><line x1="0" y1="140" x2="640" y2="140"/><line x1="0" y1="210" x2="640" y2="210"/>
+            </g>
+            <rect x="70" y="205" width="460" height="22" fill="#22c55e" fill-opacity=".10" stroke="#22c55e" stroke-opacity=".4" stroke-dasharray="3 3"/>
+            <text x="300" y="241" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">Tolerance zone — equal lows</text>
+            <path d="M 25,60 L 75,95 L 130,140 L 185,205 L 230,175 L 285,140 L 340,165 L 395,200 L 445,175 L 495,130 L 545,85 L 605,45" stroke="#cbd5e1" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+            <line x1="185" y1="140" x2="495" y2="140" stroke="#eab308" stroke-width="2.2" stroke-dasharray="5 3"/>
+            <text x="340" y="132" text-anchor="middle" fill="#eab308" font-size="12" font-weight="800">NECKLINE — resistance</text>
+            <circle cx="185" cy="205" r="7" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+            <text x="185" y="228" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">BOTTOM 1</text>
+            <circle cx="395" cy="200" r="7" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+            <text x="395" y="223" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">BOTTOM 2</text>
+            <circle cx="285" cy="140" r="6" fill="#eab308" stroke="#0f172a" stroke-width="1.5"/>
+            <text x="285" y="118" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="700">MIDDLE PEAK</text>
+            <circle cx="545" cy="85" r="9" fill="#14b8a6" stroke="#fff" stroke-width="2"/>
+            <text x="545" y="70" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="800">BREAKOUT ↑</text>
+            <line x1="615" y1="205" x2="615" y2="140" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <line x1="615" y1="140" x2="615" y2="75" stroke="#14b8a6" stroke-width="1.8"/>
+            <text x="625" y="175" fill="#5eead4" font-size="10" font-weight="700">Height</text>
+            <text x="625" y="108" fill="#5eead4" font-size="10" font-weight="700">= Target</text>
+          </svg>
+          <figcaption>The <strong>W</strong> shape: two lows at the same level, middle peak = neckline, projected target = pattern height above the neckline.</figcaption>
+        </figure>
+
         <h3 class="plan-h3">The Two Entry Methods — Pros and Cons</h3>
+
+        <div class="plan-compare">
+          <figure class="bad">
+            <svg viewBox="0 0 320 200" role="img" aria-label="Method 1 break above entry with false breakout">
+              <title>Method 1 — Break Above (False Breakout Example)</title>
+              <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+                <line x1="0" y1="60" x2="320" y2="60"/><line x1="0" y1="120" x2="320" y2="120"/>
+              </g>
+              <line x1="0" y1="90" x2="320" y2="90" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="310" y="82" text-anchor="end" fill="#eab308" font-size="10" font-weight="700">NECKLINE</text>
+              <path d="M 15,150 L 40,125 L 65,110 L 90,130 L 115,155 L 140,165 L 170,145 L 195,120 L 220,82 L 240,68 L 250,95 L 265,120 L 290,150 L 305,175" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <circle cx="230" cy="75" r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+              <text x="230" y="60" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">ENTRY 🔴</text>
+              <path d="M 232 80 L 250 95" stroke="#ef4444" stroke-width="2"/>
+              <text x="275" y="185" text-anchor="end" fill="#fca5a5" font-size="10" font-weight="700">→ REVERSED</text>
+            </svg>
+            <figcaption><strong>Method 1 — Break Above.</strong> Wick trips entry above neckline, then closes back below. Classic trap. ~40–50% win rate.</figcaption>
+          </figure>
+          <figure class="good">
+            <svg viewBox="0 0 320 200" role="img" aria-label="Method 2 close above entry with confirmed breakout">
+              <title>Method 2 — Close Above (Confirmed Breakout)</title>
+              <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+                <line x1="0" y1="60" x2="320" y2="60"/><line x1="0" y1="120" x2="320" y2="120"/>
+              </g>
+              <line x1="0" y1="90" x2="320" y2="90" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="310" y="82" text-anchor="end" fill="#eab308" font-size="10" font-weight="700">NECKLINE</text>
+              <path d="M 15,150 L 40,130 L 65,115 L 90,135 L 115,160 L 140,165 L 170,140 L 195,115 L 220,85 L 240,65 L 265,50 L 290,35 L 305,22" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <rect x="232" y="62" width="14" height="28" fill="#22c55e" stroke="#86efac" stroke-width="1"/>
+              <text x="239" y="55" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">CLOSE</text>
+              <circle cx="258" cy="55" r="6" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+              <text x="258" y="40" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">ENTRY ✓</text>
+              <text x="305" y="18" text-anchor="end" fill="#86efac" font-size="10" font-weight="700">→ RUN</text>
+            </svg>
+            <figcaption><strong>Method 2 — Close Above.</strong> Wait for full body close past the neckline. Worse fill, but ~55–65% win rate.</figcaption>
+          </figure>
+        </div>
 
         <h4 class="plan-h4">Method 1: "Break Above" (Real-Time Entry)</h4>
         <p class="plan-prose">Enter the moment price trades through the middle peak of the W (the neckline).</p>
@@ -9702,6 +9849,42 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <p class="plan-prose">This was one of the most important questions explored. It addresses: when the middle peak of the W (or middle valley of the M) has a significant wick, where exactly is the neckline? And when the breakout candle has a wick, does it count?</p>
 
+        <figure class="plan-illus gold">
+          <svg viewBox="0 0 640 220" role="img" aria-label="Neckline placement at body close vs wick high">
+            <title>Body vs Wick — Two Different Necklines from the Same Candle</title>
+            <defs>
+              <linearGradient id="wickGrad" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#ef4444" stop-opacity="0.02"/>
+              </linearGradient>
+            </defs>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="60" x2="640" y2="60"/><line x1="0" y1="120" x2="640" y2="120"/><line x1="0" y1="180" x2="640" y2="180"/>
+            </g>
+            <text x="160" y="25" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">SCHOOL A · BODY CLOSE (Conservative)</text>
+            <text x="480" y="25" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="800">SCHOOL B · WICK HIGH (Strict)</text>
+            <line x1="320" y1="35" x2="320" y2="205" stroke="#475569" stroke-opacity=".5" stroke-dasharray="1 4"/>
+            <path d="M 20,170 L 60,140 L 100,110 L 140,80 L 175,55 L 195,95 L 225,130 L 260,155 L 295,170" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <line x1="170" y1="55" x2="180" y2="55" stroke="#cbd5e1" stroke-width="1.5"/>
+            <line x1="175" y1="55" x2="175" y2="95" stroke="#cbd5e1" stroke-width="1.5"/>
+            <rect x="170" y="85" width="10" height="12" fill="#ef4444" stroke="#cbd5e1" stroke-width="1.2"/>
+            <line x1="30" y1="95" x2="300" y2="95" stroke="#eab308" stroke-width="2.2" stroke-dasharray="5 3"/>
+            <text x="160" y="88" text-anchor="middle" fill="#eab308" font-size="10" font-weight="800">Neckline A · body close</text>
+            <circle cx="175" cy="95" r="5" fill="#eab308" stroke="#fff" stroke-width="1.5"/>
+            <text x="160" y="200" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">Lower level · easier to confirm ↓</text>
+            <path d="M 340,170 L 380,140 L 420,110 L 460,80 L 495,55 L 515,95 L 545,130 L 580,155 L 615,170" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <line x1="490" y1="55" x2="500" y2="55" stroke="#cbd5e1" stroke-width="1.5"/>
+            <line x1="495" y1="55" x2="495" y2="95" stroke="#cbd5e1" stroke-width="1.5"/>
+            <rect x="490" y="85" width="10" height="12" fill="#ef4444" stroke="#cbd5e1" stroke-width="1.2"/>
+            <line x1="350" y1="55" x2="620" y2="55" stroke="#f87171" stroke-width="2.2" stroke-dasharray="5 3"/>
+            <text x="480" y="48" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">Neckline B · wick tip</text>
+            <circle cx="495" cy="55" r="5" fill="#f87171" stroke="#fff" stroke-width="1.5"/>
+            <rect x="335" y="55" width="285" height="40" fill="url(#wickGrad)"/>
+            <text x="480" y="200" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">Higher level · harder to confirm ↑</text>
+          </svg>
+          <figcaption>Same candle, two neckline choices. The <strong>body close</strong> is where committed buying actually ended up; the <strong>wick tip</strong> often just marks an algorithmic probe.</figcaption>
+        </figure>
+
         <h3 class="plan-h3">Question 1: Where Do You DRAW the Neckline?</h3>
         <p class="plan-prose">Two schools of thought produce DIFFERENT neckline levels on the same chart:</p>
 
@@ -9733,6 +9916,54 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <p class="plan-prose">But the breakout candle's QUALITY matters enormously, measured by the wick-to-body ratio.</p>
 
         <h3 class="plan-h3">The Four Scenarios</h3>
+
+        <figure class="plan-illus key">
+          <svg viewBox="0 0 640 240" role="img" aria-label="Four breakout quality scenarios graded by wick percentage">
+            <title>Breakout Quality — Four Scenarios by Wick Percentage</title>
+            <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3">
+              <line x1="0" y1="130" x2="640" y2="130"/>
+            </g>
+            <line x1="0" y1="130" x2="640" y2="130" stroke="#eab308" stroke-width="1.8" stroke-dasharray="5 3"/>
+            <text x="10" y="122" fill="#eab308" font-size="10" font-weight="700">Neckline</text>
+            <g>
+              <line x1="95" y1="60" x2="95" y2="200" stroke="#86efac" stroke-width="1.2"/>
+              <rect x="87" y="65" width="16" height="65" fill="#22c55e" stroke="#86efac" stroke-width="1"/>
+              <text x="95" y="48" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">①</text>
+              <text x="95" y="225" text-anchor="middle" fill="#86efac" font-size="10" font-weight="700">0–20%</text>
+              <text x="95" y="238" text-anchor="middle" fill="#bbf7d0" font-size="9">STRONGEST</text>
+            </g>
+            <g>
+              <line x1="230" y1="48" x2="230" y2="210" stroke="#fde68a" stroke-width="1.2"/>
+              <rect x="222" y="80" width="16" height="50" fill="#22c55e" stroke="#fde68a" stroke-width="1"/>
+              <text x="230" y="38" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="800">②</text>
+              <text x="230" y="225" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="700">20–40%</text>
+              <text x="230" y="238" text-anchor="middle" fill="#fef9c3" font-size="9">CAUTION</text>
+            </g>
+            <g>
+              <line x1="365" y1="30" x2="365" y2="215" stroke="#fdba74" stroke-width="1.2"/>
+              <rect x="357" y="110" width="16" height="20" fill="#22c55e" stroke="#fdba74" stroke-width="1"/>
+              <text x="365" y="22" text-anchor="middle" fill="#fdba74" font-size="11" font-weight="800">③</text>
+              <text x="365" y="225" text-anchor="middle" fill="#fdba74" font-size="10" font-weight="700">40%+</text>
+              <text x="365" y="238" text-anchor="middle" fill="#fed7aa" font-size="9">WARNING</text>
+            </g>
+            <g>
+              <line x1="500" y1="30" x2="500" y2="210" stroke="#fca5a5" stroke-width="1.2"/>
+              <rect x="492" y="135" width="16" height="25" fill="#ef4444" stroke="#fca5a5" stroke-width="1"/>
+              <text x="500" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">④</text>
+              <text x="500" y="225" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="700">CLOSE BELOW</text>
+              <text x="500" y="238" text-anchor="middle" fill="#fecaca" font-size="9">TRAP · SKIP</text>
+            </g>
+            <g fill="#94a3b8" font-size="9" font-family="JetBrains Mono, monospace">
+              <text x="95" y="150" text-anchor="middle">small wick</text>
+              <text x="230" y="165" text-anchor="middle">mod. wick</text>
+              <text x="365" y="170" text-anchor="middle">huge wick</text>
+              <text x="500" y="175" text-anchor="middle">wick above</text>
+              <text x="500" y="185" text-anchor="middle">close below</text>
+            </g>
+          </svg>
+          <figcaption>Grade every breakout by its wick percentage relative to the full candle range. <strong>①</strong> ship it · <strong>②</strong> smaller size or pull-back entry · <strong>③</strong> skip or wait for the next candle · <strong>④</strong> not a breakout — liquidity sweep.</figcaption>
+        </figure>
+
         <div class="plan-scenarios">
           <div class="plan-scenario strong">
             <div class="plan-scenario-head">① Close above + small wick (0–20%)</div>
@@ -9779,6 +10010,54 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <h3 class="plan-h3">The Problem</h3>
         <p class="plan-prose">During live practice trading, a common scenario: the 2-minute candle is forming, price is hovering near the neckline, then with 15–20 seconds left a big green surge pushes price well above the neckline. It looks like a "sure thing." Temptation to market-in before the close is intense.</p>
 
+        <figure class="plan-illus key">
+          <svg viewBox="0 0 640 220" role="img" aria-label="The 15 seconds dilemma decision tree">
+            <title>The 15-Seconds Dilemma — Click Now or Wait for Close?</title>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="110" x2="640" y2="110"/>
+            </g>
+            <line x1="0" y1="110" x2="640" y2="110" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="10" y="102" fill="#eab308" font-size="10" font-weight="700">Neckline</text>
+            <g transform="translate(60,0)">
+              <rect x="0" y="20" width="150" height="180" fill="rgba(15,23,42,0.4)" stroke="#475569" stroke-opacity=".5" rx="6"/>
+              <text x="75" y="38" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="700">Forming candle</text>
+              <text x="75" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="800">:15 left on clock</text>
+              <rect x="60" y="70" width="30" height="55" fill="#22c55e" stroke="#86efac" stroke-width="1.2"/>
+              <line x1="75" y1="60" x2="75" y2="70" stroke="#86efac" stroke-width="1.2"/>
+              <line x1="75" y1="125" x2="75" y2="140" stroke="#86efac" stroke-width="1.2"/>
+              <circle cx="75" cy="178" r="18" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+              <line x1="75" y1="178" x2="75" y2="167" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+              <line x1="75" y1="178" x2="84" y2="183" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <g>
+              <line x1="215" y1="110" x2="255" y2="75" stroke="#cbd5e1" stroke-opacity=".5" stroke-width="1.5"/>
+              <line x1="215" y1="110" x2="255" y2="145" stroke="#cbd5e1" stroke-opacity=".5" stroke-width="1.5"/>
+            </g>
+            <g transform="translate(260,40)">
+              <rect x="0" y="0" width="170" height="70" fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+              <text x="85" y="20" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="800">CLICK NOW</text>
+              <text x="85" y="38" text-anchor="middle" fill="#fecaca" font-size="10">FOMO · "they'll run"</text>
+              <text x="85" y="55" text-anchor="middle" fill="#fecaca" font-size="10">~40–50% win rate</text>
+            </g>
+            <g transform="translate(260,120)">
+              <rect x="0" y="0" width="170" height="70" fill="rgba(34,197,94,0.08)" stroke="#22c55e" stroke-width="1.5" rx="6"/>
+              <text x="85" y="20" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">WAIT FOR CLOSE</text>
+              <text x="85" y="38" text-anchor="middle" fill="#bbf7d0" font-size="10">Patience · discipline</text>
+              <text x="85" y="55" text-anchor="middle" fill="#bbf7d0" font-size="10">~55–65% win rate</text>
+            </g>
+            <g transform="translate(450,30)">
+              <path d="M 0,80 Q 20,70 40,80 L 40,88 L 50,80 L 40,72 L 40,78 Q 20,62 0,72 Z" fill="#94a3b8" opacity=".7"/>
+              <text x="70" y="30" fill="#fca5a5" font-size="11" font-weight="700">Trap risk</text>
+              <text x="70" y="46" fill="#fecaca" font-size="9">Wick trips you in,</text>
+              <text x="70" y="58" fill="#fecaca" font-size="9">close reverses</text>
+              <text x="70" y="135" fill="#86efac" font-size="11" font-weight="700">Confirmed move</text>
+              <text x="70" y="151" fill="#bbf7d0" font-size="9">Pullback usually</text>
+              <text x="70" y="163" fill="#bbf7d0" font-size="9">gives better entry</text>
+            </g>
+          </svg>
+          <figcaption>The <strong>fear</strong> says "it's running away." The <strong>arithmetic</strong> says missed trades cost zero — getting trapped costs real money.</figcaption>
+        </figure>
+
         <h3 class="plan-h3">The Fear Behind the Impulse</h3>
         <p class="plan-prose">The driving feeling isn't "I'll make more money if I get in early." The driving feeling is: <strong>"It's going up so fast and so high — they'll just run away from me and I'll never be able to get in."</strong> Fear of permanent loss of opportunity.</p>
         <p class="plan-prose">This is universal. Every trader learning confirmation entry feels this. The psychological term is FOMO, but that undersells the power of the feeling. It's a primal "the herd is leaving without me" signal.</p>
@@ -9800,6 +10079,35 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <p class="plan-prose">This doesn't happen every time. But it happens often enough that "15 seconds left looking strong" is not equivalent to "closed above the neckline."</p>
 
         <h3 class="plan-h3">The Four Realities That Dissolve the Fear</h3>
+
+        <figure class="plan-illus long">
+          <svg viewBox="0 0 640 220" role="img" aria-label="85 percent of breakouts pull back giving a better entry">
+            <title>Reality 2 — 85% of Breakouts Pull Back Before Continuing</title>
+            <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3">
+              <line x1="0" y1="130" x2="640" y2="130"/><line x1="0" y1="70" x2="640" y2="70"/>
+            </g>
+            <line x1="0" y1="130" x2="640" y2="130" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="10" y="122" fill="#eab308" font-size="10" font-weight="700">Neckline</text>
+            <path d="M 20,185 L 60,170 L 100,160 L 140,155 L 180,145 L 220,130 L 260,100 L 300,75 L 325,85 L 350,105 L 380,95 L 420,75 L 460,55 L 500,45 L 540,35 L 580,28 L 620,20" stroke="#cbd5e1" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+            <circle cx="300" cy="75" r="6" fill="#fbbf24" stroke="#0f172a" stroke-width="1.5"/>
+            <text x="300" y="60" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="800">Breakout close</text>
+            <text x="300" y="48" text-anchor="middle" fill="#fef9c3" font-size="9">(the fear moment)</text>
+            <rect x="310" y="78" width="60" height="35" fill="rgba(251,191,36,0.1)" stroke="#fbbf24" stroke-opacity=".4" stroke-dasharray="3 2"/>
+            <text x="340" y="132" text-anchor="middle" fill="#fde68a" font-size="9" font-weight="700">pullback zone</text>
+            <circle cx="350" cy="105" r="7" fill="#22c55e" stroke="#fff" stroke-width="2"/>
+            <text x="350" y="158" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">YOUR ENTRY ✓</text>
+            <text x="350" y="172" text-anchor="middle" fill="#bbf7d0" font-size="9">(same price or better)</text>
+            <path d="M 460 55 L 500 45 L 540 35 L 580 28 L 620 20" stroke="#22c55e" stroke-width="3" fill="none" stroke-linejoin="round" opacity=".85"/>
+            <text x="580" y="10" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">continuation</text>
+            <g transform="translate(20,196)">
+              <rect x="0" y="0" width="12" height="12" fill="#22c55e"/>
+              <text x="18" y="10" fill="#bbf7d0" font-size="10">~85–90% of breakouts pull back or retest</text>
+              <rect x="260" y="0" width="12" height="12" fill="#ef4444"/>
+              <text x="278" y="10" fill="#fecaca" font-size="10">~10–15% run away without looking back</text>
+            </g>
+          </svg>
+          <figcaption>Your brain remembers the runaways vividly (availability bias). In reality the <strong>vast majority</strong> of breakouts pull back in the first 15–30 seconds of the next candle.</figcaption>
+        </figure>
         <div class="plan-callout key">
           <span class="plan-callout-label">Reality 1 · The Pullback</span>
           The next candle almost always pulls back in the first 15–30 seconds. When a 2-minute candle closes with an explosive move, early entrants take quick profits. Price dips. That dip is your entry — often at the same price or better than jumping in with 15 seconds left.
@@ -9852,6 +10160,79 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <p class="plan-prose">Buy stops can serve as a disaster recovery tool — placed well above the neckline with significant buffer to catch truly strong moves you'd otherwise miss entirely if stepping away from the screen. But this should be the exception, not the standard entry method.</p>
 
         <h3 class="plan-h3">Entry Mechanics — The Correct Workflow</h3>
+
+        <figure class="plan-illus key">
+          <svg viewBox="0 0 640 240" role="img" aria-label="Five step entry mechanics workflow">
+            <title>The 5-Step Entry Workflow — Candle Close to Market Order</title>
+            <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="100" x2="640" y2="100"/></g>
+            <line x1="0" y1="100" x2="640" y2="100" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="10" y="92" fill="#eab308" font-size="10" font-weight="700">Neckline</text>
+            <g transform="translate(30,40)">
+              <circle cx="20" cy="20" r="18" fill="#14b8a6" stroke="#5eead4" stroke-width="2"/>
+              <text x="20" y="26" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="800">1</text>
+              <text x="20" y="58" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="700">WATCH</text>
+              <text x="20" y="72" text-anchor="middle" fill="#94a3b8" font-size="9">Countdown</text>
+              <text x="20" y="84" text-anchor="middle" fill="#94a3b8" font-size="9">timer</text>
+              <rect x="10" y="100" width="20" height="50" fill="#22c55e" stroke="#86efac"/>
+              <line x1="20" y1="90" x2="20" y2="100" stroke="#86efac"/>
+            </g>
+            <path d="M 90,60 L 125,60" stroke="#5eead4" stroke-width="2" marker-end="url(#arrA)"/>
+            <defs><marker id="arrA" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#5eead4"/></marker></defs>
+            <g transform="translate(150,40)">
+              <circle cx="20" cy="20" r="18" fill="#14b8a6" stroke="#5eead4" stroke-width="2"/>
+              <text x="20" y="26" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="800">2</text>
+              <text x="20" y="58" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="700">CLOSE?</text>
+              <text x="20" y="72" text-anchor="middle" fill="#94a3b8" font-size="9">Body above</text>
+              <text x="20" y="84" text-anchor="middle" fill="#94a3b8" font-size="9">neckline?</text>
+              <rect x="10" y="95" width="20" height="40" fill="#22c55e" stroke="#86efac"/>
+              <line x1="20" y1="85" x2="20" y2="95" stroke="#86efac"/>
+              <line x1="20" y1="135" x2="20" y2="145" stroke="#86efac"/>
+            </g>
+            <path d="M 210,60 L 245,60" stroke="#5eead4" stroke-width="2" marker-end="url(#arrA)"/>
+            <g transform="translate(270,40)">
+              <circle cx="20" cy="20" r="18" fill="#14b8a6" stroke="#5eead4" stroke-width="2"/>
+              <text x="20" y="26" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="800">3</text>
+              <text x="20" y="58" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="700">WICK?</text>
+              <text x="20" y="72" text-anchor="middle" fill="#94a3b8" font-size="9">Quick quality</text>
+              <text x="20" y="84" text-anchor="middle" fill="#94a3b8" font-size="9">check</text>
+              <g transform="translate(10,100)">
+                <rect x="0" y="10" width="8" height="40" fill="#22c55e"/>
+                <rect x="12" y="5" width="8" height="25" fill="#fbbf24"/>
+              </g>
+            </g>
+            <path d="M 330,60 L 365,60" stroke="#5eead4" stroke-width="2" marker-end="url(#arrA)"/>
+            <g transform="translate(390,40)">
+              <circle cx="20" cy="20" r="18" fill="#14b8a6" stroke="#5eead4" stroke-width="2"/>
+              <text x="20" y="26" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="800">4</text>
+              <text x="20" y="58" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="700">CLICK</text>
+              <text x="20" y="72" text-anchor="middle" fill="#94a3b8" font-size="9">Next candle</text>
+              <text x="20" y="84" text-anchor="middle" fill="#94a3b8" font-size="9">open · market</text>
+              <g transform="translate(5,100)">
+                <rect x="0" y="5" width="30" height="40" fill="#22c55e" stroke="#bbf7d0" stroke-width="1.5"/>
+                <text x="15" y="30" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">BUY</text>
+              </g>
+            </g>
+            <path d="M 450,60 L 485,60" stroke="#5eead4" stroke-width="2" marker-end="url(#arrA)"/>
+            <g transform="translate(510,40)">
+              <circle cx="20" cy="20" r="18" fill="#e6b859" stroke="#fde68a" stroke-width="2"/>
+              <text x="20" y="26" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="800">5</text>
+              <text x="20" y="58" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="700">PRE-STAGE</text>
+              <text x="20" y="72" text-anchor="middle" fill="#94a3b8" font-size="9">Size loaded,</text>
+              <text x="20" y="84" text-anchor="middle" fill="#94a3b8" font-size="9">finger ready</text>
+              <g transform="translate(5,100)">
+                <rect x="0" y="10" width="30" height="20" fill="rgba(230,184,89,0.2)" stroke="#e6b859" rx="3"/>
+                <circle cx="25" cy="36" r="8" fill="#fde68a" opacity=".9"/>
+              </g>
+            </g>
+            <g transform="translate(30,185)">
+              <rect x="0" y="0" width="580" height="40" fill="rgba(20,184,166,0.08)" stroke="#14b8a6" stroke-width="1.2" rx="6"/>
+              <text x="290" y="18" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="800">🔑 The Calm-But-Ready State</text>
+              <text x="290" y="32" text-anchor="middle" fill="#94a3b8" font-size="10">Discipline of confirmation + readiness of pre-staged execution · total elapsed: 3–5 seconds</text>
+            </g>
+          </svg>
+          <figcaption>The whole execution is <strong>three to five seconds</strong>. Pre-staging the order is what turns a disciplined entry into a fast one.</figcaption>
+        </figure>
+
         <ol class="plan-prose">
           <li>Watch the 2-minute candle. Price is above the neckline. Watch the countdown timer on NinjaTrader.</li>
           <li>Candle closes. Confirm: did the BODY close above the neckline?</li>
@@ -9893,6 +10274,40 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           New stop: <strong>5-tick stop = $15 risk at 6 contracts.</strong>
         </div>
 
+        <figure class="plan-illus gold">
+          <svg viewBox="0 0 640 280" role="img" aria-label="Traditional wide stop vs tight neckline stop comparison">
+            <title>Traditional Stop vs Tight Neckline Stop — The Breakthrough</title>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="80" x2="640" y2="80"/><line x1="0" y1="150" x2="640" y2="150"/><line x1="0" y1="220" x2="640" y2="220"/>
+            </g>
+            <line x1="320" y1="20" x2="320" y2="270" stroke="#475569" stroke-opacity=".5" stroke-dasharray="2 4"/>
+            <text x="160" y="22" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="800">❌ TRADITIONAL STOP</text>
+            <path d="M 20,90 L 50,110 L 80,150 L 110,220 L 140,190 L 170,150 L 200,180 L 230,220 L 260,180 L 290,130 L 300,75" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+            <line x1="10" y1="150" x2="310" y2="150" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="160" y="145" text-anchor="middle" fill="#eab308" font-size="10" font-weight="700">Neckline 2300</text>
+            <circle cx="300" cy="75" r="6" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+            <text x="300" y="60" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">ENTRY 2301</text>
+            <line x1="10" y1="230" x2="310" y2="230" stroke="#ef4444" stroke-width="2.5"/>
+            <text x="160" y="248" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">STOP 2268 · below W bottom</text>
+            <rect x="8" y="150" width="302" height="80" fill="#ef4444" fill-opacity="0.1" stroke="none"/>
+            <text x="160" y="195" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">33 ticks · $99 risk @6 contracts</text>
+            <text x="160" y="265" text-anchor="middle" fill="#fca5a5" font-size="10">R:R ≈ 1:1</text>
+            <text x="480" y="22" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">✅ NECKLINE STOP (4–6 ticks)</text>
+            <path d="M 340,90 L 370,110 L 400,150 L 430,220 L 460,190 L 490,150 L 520,180 L 550,220 L 580,180 L 610,130 L 620,75" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+            <line x1="330" y1="150" x2="630" y2="150" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="480" y="145" text-anchor="middle" fill="#eab308" font-size="10" font-weight="700">Neckline 2300</text>
+            <circle cx="620" cy="75" r="6" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+            <text x="620" y="60" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">ENTRY 2301</text>
+            <line x1="330" y1="162" x2="630" y2="162" stroke="#22c55e" stroke-width="2.5"/>
+            <text x="480" y="180" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">STOP 2295 · 5 ticks below neckline</text>
+            <rect x="328" y="150" width="302" height="12" fill="#22c55e" fill-opacity="0.18" stroke="none"/>
+            <text x="480" y="210" text-anchor="middle" fill="#bbf7d0" font-size="11" font-weight="700">5 ticks · $15 risk @6 contracts</text>
+            <text x="480" y="235" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">R:R ≈ 5:1</text>
+            <text x="480" y="252" text-anchor="middle" fill="#bbf7d0" font-size="9" font-style="italic">risking $15 to make $90</text>
+          </svg>
+          <figcaption><strong>Same trade, two stop choices.</strong> The breakthrough: once your confirmation entry is already past the neckline, if price closes back below that neckline the breakout has <em>already failed</em> — no reason to let it prove it by draining all the way to the W bottom.</figcaption>
+        </figure>
+
         <h3 class="plan-h3">The Risk-Reward Transformation</h3>
         <p class="plan-prose">With a 6-tick stop and a measured move target of 30 ticks:</p>
         <ul class="plan-prose">
@@ -9931,6 +10346,33 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <h3 class="plan-h3">The Pattern</h3>
         <p class="plan-prose">M-shaped reversal: left top, middle valley (neckline), right top, breakdown.</p>
+
+        <figure class="plan-illus short">
+          <svg viewBox="0 0 640 280" role="img" aria-label="Double Top anatomy mirroring the Double Bottom">
+            <title>Double Top — Anatomy (Mirror of Double Bottom)</title>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="70" x2="640" y2="70"/><line x1="0" y1="140" x2="640" y2="140"/><line x1="0" y1="210" x2="640" y2="210"/>
+            </g>
+            <rect x="70" y="55" width="460" height="22" fill="#ef4444" fill-opacity=".10" stroke="#ef4444" stroke-opacity=".4" stroke-dasharray="3 3"/>
+            <text x="300" y="48" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">Tolerance zone — equal highs</text>
+            <path d="M 25,220 L 75,185 L 130,140 L 185,75 L 230,105 L 285,140 L 340,115 L 395,80 L 445,105 L 495,150 L 545,195 L 605,235" stroke="#cbd5e1" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+            <line x1="185" y1="140" x2="495" y2="140" stroke="#eab308" stroke-width="2.2" stroke-dasharray="5 3"/>
+            <text x="340" y="132" text-anchor="middle" fill="#eab308" font-size="12" font-weight="800">NECKLINE — support</text>
+            <circle cx="185" cy="75" r="7" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+            <text x="185" y="58" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">TOP 1</text>
+            <circle cx="395" cy="80" r="7" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+            <text x="395" y="63" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">TOP 2</text>
+            <circle cx="285" cy="140" r="6" fill="#eab308" stroke="#0f172a" stroke-width="1.5"/>
+            <text x="285" y="163" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="700">MIDDLE VALLEY</text>
+            <circle cx="545" cy="195" r="9" fill="#f87171" stroke="#fff" stroke-width="2"/>
+            <text x="545" y="218" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="800">BREAKDOWN ↓</text>
+            <line x1="615" y1="75" x2="615" y2="140" stroke="#f87171" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <line x1="615" y1="140" x2="615" y2="205" stroke="#f87171" stroke-width="1.8"/>
+            <text x="625" y="110" fill="#fca5a5" font-size="10" font-weight="700">Height</text>
+            <text x="625" y="175" fill="#fca5a5" font-size="10" font-weight="700">= Target</text>
+          </svg>
+          <figcaption>The <strong>M</strong> shape: every DB rule flips. Stop goes 4–6 ticks <em>above</em> neckline. Grade the <em>lower</em> wick. Check the 15-min trend — shorting against uptrend bias requires extra care.</figcaption>
+        </figure>
 
         <h3 class="plan-h3">All Same Rules, Mirrored</h3>
         <ul class="plan-prose">
@@ -9971,6 +10413,53 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <h3 class="plan-h3">What a Bull Flag Is</h3>
         <p class="plan-prose">Continuation pattern. Prior strong up-move (flagpole) + brief consolidation drifting slightly down or sideways (flag) + resumption of uptrend.</p>
         <p class="plan-prose">On 2-minute M2K/MES, a complete bull flag typically forms over 4–12 candles (8–24 minutes).</p>
+
+        <figure class="plan-illus long">
+          <svg viewBox="0 0 640 260" role="img" aria-label="Bull Flag anatomy with flagpole, flag consolidation, and breakout target">
+            <title>Bull Flag — Anatomy</title>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="60" x2="640" y2="60"/><line x1="0" y1="130" x2="640" y2="130"/><line x1="0" y1="200" x2="640" y2="200"/>
+            </g>
+            <g>
+              <rect x="80" y="218" width="10" height="16" fill="#22c55e"/>
+              <rect x="98" y="200" width="10" height="34" fill="#22c55e"/>
+              <rect x="116" y="168" width="10" height="40" fill="#22c55e"/>
+              <rect x="134" y="130" width="10" height="45" fill="#22c55e"/>
+              <rect x="152" y="95" width="10" height="42" fill="#22c55e"/>
+            </g>
+            <line x1="95" y1="230" x2="160" y2="105" stroke="#22c55e" stroke-width="2" stroke-opacity=".4" stroke-dasharray="4 3"/>
+            <text x="75" y="248" fill="#86efac" font-size="11" font-weight="800">FLAGPOLE</text>
+            <text x="75" y="262" fill="#bbf7d0" font-size="9">strong up-thrust</text>
+            <g transform="translate(175,0)">
+              <rect x="0" y="105" width="10" height="28" fill="#ef4444"/>
+              <rect x="18" y="112" width="10" height="25" fill="#22c55e"/>
+              <rect x="36" y="118" width="10" height="20" fill="#ef4444"/>
+              <rect x="54" y="122" width="10" height="20" fill="#22c55e"/>
+              <rect x="72" y="125" width="10" height="18" fill="#ef4444"/>
+              <rect x="90" y="128" width="10" height="16" fill="#22c55e"/>
+              <rect x="108" y="130" width="10" height="14" fill="#ef4444"/>
+              <line x1="0" y1="105" x2="125" y2="132" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <line x1="0" y1="138" x2="125" y2="148" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <text x="60" y="170" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="800">FLAG (25–50% pullback)</text>
+              <text x="60" y="184" text-anchor="middle" fill="#fef9c3" font-size="9">volatility + volume compressing</text>
+            </g>
+            <g transform="translate(305,0)">
+              <rect x="0" y="92" width="12" height="44" fill="#22c55e" stroke="#86efac" stroke-width="1"/>
+              <text x="6" y="82" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">BREAKOUT ↑</text>
+              <rect x="18" y="78" width="10" height="30" fill="#22c55e"/>
+              <rect x="36" y="60" width="10" height="28" fill="#22c55e"/>
+              <rect x="54" y="42" width="10" height="28" fill="#22c55e"/>
+              <rect x="72" y="28" width="10" height="24" fill="#22c55e"/>
+              <rect x="90" y="15" width="10" height="22" fill="#22c55e"/>
+              <rect x="108" y="5" width="10" height="20" fill="#22c55e"/>
+            </g>
+            <line x1="95" y1="230" x2="160" y2="105" stroke="#5eead4" stroke-width="1.5" stroke-dasharray="4 3" opacity=".6"/>
+            <line x1="317" y1="92" x2="382" y2="-15" stroke="#5eead4" stroke-width="1.5" stroke-dasharray="4 3" opacity=".6"/>
+            <text x="565" y="48" fill="#5eead4" font-size="10" font-weight="700">projected ≈ pole</text>
+            <text x="565" y="62" fill="#5eead4" font-size="10" font-weight="700">length</text>
+          </svg>
+          <figcaption>Flagpole + flag + breakout. Target projection: project the <strong>flagpole height</strong> from the breakout point. If the flag retraces &gt;61.8% Fib, it's no longer a flag.</figcaption>
+        </figure>
 
         <h3 class="plan-h3">Anatomy of a Quality Bull Flag</h3>
         <h4 class="plan-h4">Flagpole</h4>
@@ -10101,6 +10590,51 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <li>Breakdown below lower flag trendline</li>
         </ul>
 
+        <figure class="plan-illus short">
+          <svg viewBox="0 0 640 260" role="img" aria-label="Bear Flag anatomy — violent downward continuation">
+            <title>Bear Flag — Anatomy (Faster and More Violent)</title>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="60" x2="640" y2="60"/><line x1="0" y1="130" x2="640" y2="130"/><line x1="0" y1="200" x2="640" y2="200"/>
+            </g>
+            <g>
+              <rect x="80" y="20" width="10" height="18" fill="#ef4444"/>
+              <rect x="98" y="28" width="10" height="32" fill="#ef4444"/>
+              <rect x="116" y="52" width="10" height="38" fill="#ef4444"/>
+              <rect x="134" y="86" width="10" height="42" fill="#ef4444"/>
+              <rect x="152" y="124" width="10" height="40" fill="#ef4444"/>
+            </g>
+            <line x1="95" y1="22" x2="160" y2="162" stroke="#ef4444" stroke-width="2" stroke-opacity=".4" stroke-dasharray="4 3"/>
+            <text x="75" y="8" fill="#fca5a5" font-size="11" font-weight="800">FLAGPOLE ↓</text>
+            <text x="75" y="248" fill="#fecaca" font-size="9">strong down-thrust</text>
+            <g transform="translate(175,0)">
+              <rect x="0" y="133" width="10" height="25" fill="#22c55e"/>
+              <rect x="18" y="127" width="10" height="25" fill="#ef4444"/>
+              <rect x="36" y="121" width="10" height="22" fill="#22c55e"/>
+              <rect x="54" y="117" width="10" height="20" fill="#ef4444"/>
+              <rect x="72" y="114" width="10" height="18" fill="#22c55e"/>
+              <rect x="90" y="112" width="10" height="16" fill="#ef4444"/>
+              <rect x="108" y="110" width="10" height="14" fill="#22c55e"/>
+              <line x1="0" y1="110" x2="125" y2="134" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <line x1="0" y1="158" x2="125" y2="168" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <text x="60" y="100" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="800">FLAG (upward drift)</text>
+              <text x="60" y="195" text-anchor="middle" fill="#fef9c3" font-size="9">short-covering rally fades</text>
+            </g>
+            <g transform="translate(305,0)">
+              <rect x="0" y="168" width="12" height="54" fill="#ef4444" stroke="#fca5a5" stroke-width="1"/>
+              <text x="6" y="238" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">BREAKDOWN ↓</text>
+              <rect x="18" y="180" width="10" height="36" fill="#ef4444"/>
+              <rect x="36" y="200" width="10" height="34" fill="#ef4444"/>
+              <rect x="54" y="220" width="10" height="32" fill="#ef4444"/>
+              <rect x="72" y="238" width="10" height="28" fill="#ef4444"/>
+              <rect x="90" y="252" width="10" height="24" fill="#ef4444"/>
+            </g>
+            <text x="10" y="15" fill="#fca5a5" font-size="11" font-weight="700">⚡ FAST · VIOLENT</text>
+            <text x="560" y="225" text-anchor="end" fill="#fca5a5" font-size="9">cascading stops trigger</text>
+            <text x="560" y="238" text-anchor="end" fill="#fca5a5" font-size="9">below the flag</text>
+          </svg>
+          <figcaption>Fear moves faster than greed. Bear flags resolve <strong>faster</strong> and <strong>harder</strong> than bull flags — don't get greedy with targets, take profits aggressively.</figcaption>
+        </figure>
+
         <h3 class="plan-h3">Win Rates (Slightly Worse Than Bull Flags)</h3>
         <p class="plan-prose">Markets have upward bias. Trading against it requires more selectivity.</p>
         <ul class="plan-prose">
@@ -10141,6 +10675,55 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <!-- ============ PART 9 ============ -->
       <section class="plan-part" id="part-9">
         <div class="plan-part-header gold">Part 9 · Unified Research Principles</div>
+
+        <figure class="plan-illus gold">
+          <svg viewBox="0 0 640 240" role="img" aria-label="Four patterns compared in a unified grid — double bottom, double top, bull flag, bear flag">
+            <title>The Four Patterns — One Logic, Four Shapes</title>
+            <g stroke="#475569" stroke-opacity=".35" stroke-dasharray="2 3">
+              <line x1="0" y1="120" x2="640" y2="120"/>
+              <line x1="160" y1="10" x2="160" y2="230"/>
+              <line x1="320" y1="10" x2="320" y2="230"/>
+              <line x1="480" y1="10" x2="480" y2="230"/>
+            </g>
+            <g transform="translate(10,0)">
+              <text x="70" y="22" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">DOUBLE BOTTOM</text>
+              <path d="M 10,120 L 35,160 L 70,180 L 100,140 L 130,175 L 145,100" stroke="#22c55e" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <line x1="10" y1="140" x2="145" y2="140" stroke="#eab308" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <circle cx="35" cy="160" r="3.5" fill="#22c55e"/>
+              <circle cx="100" cy="140" r="3.5" fill="#eab308"/>
+              <circle cx="130" cy="175" r="3.5" fill="#22c55e"/>
+              <text x="70" y="218" text-anchor="middle" fill="#bbf7d0" font-size="9">reversal · LONG</text>
+              <text x="70" y="232" text-anchor="middle" fill="#94a3b8" font-size="8">W — stop below neckline</text>
+            </g>
+            <g transform="translate(170,0)">
+              <text x="70" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">DOUBLE TOP</text>
+              <path d="M 10,180 L 35,145 L 70,100 L 100,140 L 130,105 L 145,190" stroke="#ef4444" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <line x1="10" y1="140" x2="145" y2="140" stroke="#eab308" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <circle cx="70" cy="100" r="3.5" fill="#ef4444"/>
+              <circle cx="100" cy="140" r="3.5" fill="#eab308"/>
+              <circle cx="130" cy="105" r="3.5" fill="#ef4444"/>
+              <text x="70" y="218" text-anchor="middle" fill="#fecaca" font-size="9">reversal · SHORT</text>
+              <text x="70" y="232" text-anchor="middle" fill="#94a3b8" font-size="8">M — stop above neckline</text>
+            </g>
+            <g transform="translate(330,0)">
+              <text x="70" y="22" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">BULL FLAG</text>
+              <path d="M 10,190 L 30,150 L 55,110 L 75,75 L 85,90 L 100,100 L 115,105 L 125,75 L 145,30" stroke="#22c55e" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <line x1="85" y1="88" x2="125" y2="100" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <line x1="85" y1="102" x2="125" y2="118" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <text x="70" y="218" text-anchor="middle" fill="#bbf7d0" font-size="9">continuation · LONG</text>
+              <text x="70" y="232" text-anchor="middle" fill="#94a3b8" font-size="8">stop below flag trendline</text>
+            </g>
+            <g transform="translate(490,0)">
+              <text x="70" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">BEAR FLAG</text>
+              <path d="M 10,40 L 30,80 L 55,120 L 75,155 L 85,140 L 100,130 L 115,125 L 125,155 L 145,200" stroke="#ef4444" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <line x1="85" y1="138" x2="125" y2="122" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <line x1="85" y1="152" x2="125" y2="140" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <text x="70" y="218" text-anchor="middle" fill="#fecaca" font-size="9">continuation · SHORT</text>
+              <text x="70" y="232" text-anchor="middle" fill="#94a3b8" font-size="8">stop above flag trendline</text>
+            </g>
+          </svg>
+          <figcaption>Four patterns, <strong>one logic</strong>: confirmation close → grade the wick → tight stop at the broken level → project target = pattern height.</figcaption>
+        </figure>
 
         <p class="plan-prose">The research consistently shows these 10 principles across every pattern:</p>
 
@@ -10195,6 +10778,30 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="pph-meta">10 steps · 6 contracts · 5–6 tick stop</div>
         </div>
         <div class="pattern-plan-body">
+          <div class="pattern-hero-chart">
+            <svg viewBox="0 0 560 170" role="img" aria-label="Double Bottom at-a-glance: W with entry, stop, target, breakeven move">
+              <title>Double Bottom — At a Glance</title>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3">
+                <line x1="0" y1="45" x2="560" y2="45"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="135" x2="560" y2="135"/>
+              </g>
+              <path d="M 20,40 L 60,75 L 110,120 L 160,135 L 200,110 L 250,90 L 300,120 L 350,135 L 395,110 L 440,65 L 490,30 L 535,15" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <line x1="160" y1="90" x2="440" y2="90" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="300" y="83" text-anchor="middle" fill="#eab308" font-size="10" font-weight="800">Neckline</text>
+              <circle cx="160" cy="135" r="5" fill="#22c55e" stroke="#fff" stroke-width="1.2"/>
+              <text x="160" y="157" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">Bottom 1</text>
+              <circle cx="350" cy="135" r="5" fill="#22c55e" stroke="#fff" stroke-width="1.2"/>
+              <text x="350" y="157" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">Bottom 2</text>
+              <circle cx="455" cy="55" r="6" fill="#14b8a6" stroke="#fff" stroke-width="1.5"/>
+              <text x="455" y="42" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="800">ENTRY ✓</text>
+              <line x1="440" y1="97" x2="540" y2="97" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="3 2"/>
+              <text x="490" y="112" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP (5 ticks)</text>
+              <line x1="540" y1="15" x2="540" y2="90" stroke="#22c55e" stroke-width="1.8"/>
+              <text x="528" y="55" text-anchor="end" fill="#86efac" font-size="9" font-weight="700">TARGET</text>
+              <line x1="475" y1="75" x2="475" y2="90" stroke="#5eead4" stroke-width="1" stroke-dasharray="2 2"/>
+              <circle cx="475" cy="75" r="3" fill="#5eead4"/>
+              <text x="475" y="30" text-anchor="middle" fill="#5eead4" font-size="8">BE@+10t</text>
+            </svg>
+          </div>
 
           <div class="step-card">
             <div class="step-num">1</div>
@@ -10310,6 +10917,31 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="pph-meta">11 steps · 6 contracts · HTF filter mandatory</div>
         </div>
         <div class="pattern-plan-body">
+          <div class="pattern-hero-chart">
+            <svg viewBox="0 0 560 170" role="img" aria-label="Double Top at-a-glance: M with entry, stop, target">
+              <title>Double Top — At a Glance</title>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3">
+                <line x1="0" y1="45" x2="560" y2="45"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="135" x2="560" y2="135"/>
+              </g>
+              <path d="M 20,140 L 60,105 L 110,60 L 160,45 L 200,70 L 250,90 L 300,60 L 350,45 L 395,70 L 440,115 L 490,150 L 535,165" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <line x1="160" y1="90" x2="440" y2="90" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+              <text x="300" y="83" text-anchor="middle" fill="#eab308" font-size="10" font-weight="800">Neckline</text>
+              <circle cx="160" cy="45" r="5" fill="#ef4444" stroke="#fff" stroke-width="1.2"/>
+              <text x="160" y="33" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">Top 1</text>
+              <circle cx="350" cy="45" r="5" fill="#ef4444" stroke="#fff" stroke-width="1.2"/>
+              <text x="350" y="33" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">Top 2</text>
+              <circle cx="455" cy="125" r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+              <text x="455" y="145" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">ENTRY ✓</text>
+              <line x1="440" y1="83" x2="540" y2="83" stroke="#fca5a5" stroke-width="1.8" stroke-dasharray="3 2"/>
+              <text x="490" y="77" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP (5 ticks)</text>
+              <line x1="540" y1="90" x2="540" y2="165" stroke="#ef4444" stroke-width="1.8"/>
+              <text x="528" y="130" text-anchor="end" fill="#fca5a5" font-size="9" font-weight="700">TARGET</text>
+              <g transform="translate(10,12)">
+                <rect x="0" y="0" width="80" height="18" rx="4" fill="rgba(251,191,36,0.15)" stroke="#fbbf24"/>
+                <text x="40" y="12" text-anchor="middle" fill="#fde68a" font-size="9" font-weight="700">HTF filter ⚠</text>
+              </g>
+            </svg>
+          </div>
 
           <div class="step-card">
             <div class="step-num">1</div>
@@ -10440,6 +11072,47 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="pph-meta">11 steps · 6 contracts · Stop 4–6 ticks below trendline</div>
         </div>
         <div class="pattern-plan-body">
+          <div class="pattern-hero-chart">
+            <svg viewBox="0 0 560 170" role="img" aria-label="Bull Flag at-a-glance: flagpole, flag, breakout, entry, stop, target">
+              <title>Bull Flag — At a Glance</title>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3">
+                <line x1="0" y1="45" x2="560" y2="45"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="135" x2="560" y2="135"/>
+              </g>
+              <g>
+                <rect x="40" y="125" width="8" height="20" fill="#22c55e"/>
+                <rect x="55" y="110" width="8" height="25" fill="#22c55e"/>
+                <rect x="70" y="90" width="8" height="28" fill="#22c55e"/>
+                <rect x="85" y="68" width="8" height="30" fill="#22c55e"/>
+                <rect x="100" y="55" width="8" height="22" fill="#22c55e"/>
+              </g>
+              <text x="75" y="160" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">FLAGPOLE</text>
+              <g transform="translate(125,0)">
+                <rect x="0" y="55" width="7" height="18" fill="#ef4444"/>
+                <rect x="14" y="60" width="7" height="16" fill="#22c55e"/>
+                <rect x="28" y="63" width="7" height="15" fill="#ef4444"/>
+                <rect x="42" y="66" width="7" height="14" fill="#22c55e"/>
+                <rect x="56" y="68" width="7" height="14" fill="#ef4444"/>
+                <rect x="70" y="70" width="7" height="12" fill="#22c55e"/>
+                <line x1="0" y1="55" x2="85" y2="73" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <line x1="0" y1="73" x2="85" y2="82" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 2"/>
+              </g>
+              <text x="165" y="105" text-anchor="middle" fill="#fde68a" font-size="9" font-weight="700">FLAG</text>
+              <g transform="translate(220,0)">
+                <rect x="0" y="40" width="10" height="35" fill="#22c55e" stroke="#bbf7d0" stroke-width="1.2"/>
+                <rect x="15" y="25" width="8" height="30" fill="#22c55e"/>
+                <rect x="30" y="15" width="8" height="25" fill="#22c55e"/>
+                <rect x="45" y="8" width="8" height="22" fill="#22c55e"/>
+              </g>
+              <circle cx="236" cy="40" r="5" fill="#14b8a6" stroke="#fff" stroke-width="1.5"/>
+              <text x="236" y="30" text-anchor="middle" fill="#5eead4" font-size="9" font-weight="800">ENTRY ✓</text>
+              <line x1="218" y1="80" x2="290" y2="80" stroke="#fca5a5" stroke-width="1.8" stroke-dasharray="3 2"/>
+              <text x="254" y="93" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP</text>
+              <path d="M 290,30 L 340,10 L 390,0" stroke="#22c55e" stroke-width="2.5" fill="none" opacity=".85"/>
+              <line x1="490" y1="0" x2="490" y2="45" stroke="#22c55e" stroke-width="1.8"/>
+              <text x="475" y="25" text-anchor="end" fill="#86efac" font-size="9" font-weight="700">TARGET</text>
+              <text x="475" y="36" text-anchor="end" fill="#bbf7d0" font-size="8">= pole length</text>
+            </svg>
+          </div>
 
           <div class="step-card">
             <div class="step-num">1</div>
@@ -10573,6 +11246,51 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="pph-meta">12 steps · HTF filter mandatory · 2-candle time stop</div>
         </div>
         <div class="pattern-plan-body">
+          <div class="pattern-hero-chart">
+            <svg viewBox="0 0 560 170" role="img" aria-label="Bear Flag at-a-glance: violent pole down, flag drift up, breakdown, entry, stop, target">
+              <title>Bear Flag — At a Glance</title>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3">
+                <line x1="0" y1="45" x2="560" y2="45"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="135" x2="560" y2="135"/>
+              </g>
+              <g>
+                <rect x="40" y="15" width="8" height="20" fill="#ef4444"/>
+                <rect x="55" y="22" width="8" height="28" fill="#ef4444"/>
+                <rect x="70" y="45" width="8" height="32" fill="#ef4444"/>
+                <rect x="85" y="70" width="8" height="32" fill="#ef4444"/>
+                <rect x="100" y="95" width="8" height="22" fill="#ef4444"/>
+              </g>
+              <text x="75" y="160" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">FLAGPOLE ↓</text>
+              <g transform="translate(125,0)">
+                <rect x="0" y="90" width="7" height="18" fill="#22c55e"/>
+                <rect x="14" y="85" width="7" height="16" fill="#ef4444"/>
+                <rect x="28" y="82" width="7" height="15" fill="#22c55e"/>
+                <rect x="42" y="78" width="7" height="14" fill="#ef4444"/>
+                <rect x="56" y="75" width="7" height="14" fill="#22c55e"/>
+                <rect x="70" y="73" width="7" height="12" fill="#ef4444"/>
+                <line x1="0" y1="85" x2="85" y2="70" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <line x1="0" y1="103" x2="85" y2="87" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3 2"/>
+              </g>
+              <text x="165" y="65" text-anchor="middle" fill="#fde68a" font-size="9" font-weight="700">FLAG ↗</text>
+              <g transform="translate(220,0)">
+                <rect x="0" y="85" width="10" height="45" fill="#ef4444" stroke="#fca5a5" stroke-width="1.2"/>
+                <rect x="15" y="105" width="8" height="40" fill="#ef4444"/>
+                <rect x="30" y="122" width="8" height="35" fill="#ef4444"/>
+                <rect x="45" y="135" width="8" height="30" fill="#ef4444"/>
+              </g>
+              <circle cx="236" cy="130" r="5" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+              <text x="236" y="148" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="800">ENTRY ✓</text>
+              <line x1="218" y1="78" x2="290" y2="78" stroke="#fca5a5" stroke-width="1.8" stroke-dasharray="3 2"/>
+              <text x="254" y="72" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP</text>
+              <path d="M 290,140 L 340,155 L 390,165" stroke="#ef4444" stroke-width="2.5" fill="none" opacity=".85"/>
+              <line x1="490" y1="125" x2="490" y2="165" stroke="#ef4444" stroke-width="1.8"/>
+              <text x="475" y="147" text-anchor="end" fill="#fca5a5" font-size="9" font-weight="700">TARGET</text>
+              <text x="475" y="158" text-anchor="end" fill="#fecaca" font-size="8">= pole length</text>
+              <g transform="translate(470,12)">
+                <rect x="0" y="0" width="80" height="18" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444"/>
+                <text x="40" y="12" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">⚡ FAST · VIOLENT</text>
+              </g>
+            </svg>
+          </div>
 
           <div class="step-card">
             <div class="step-num">1</div>
@@ -10787,6 +11505,28 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
       <div class="mindset-trap">
         <div class="mindset-trap-title">Trap 1 · The "Runaway" Fear</div>
+        <figure class="plan-illus short" style="margin: 14px 0;">
+          <svg viewBox="0 0 640 170" role="img" aria-label="Parabolic chase vs calm pullback entry">
+            <title>The Runaway Fear — The Chase vs the Wait</title>
+            <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="90" x2="640" y2="90"/></g>
+            <line x1="320" y1="10" x2="320" y2="160" stroke="#475569" stroke-opacity=".5" stroke-dasharray="2 4"/>
+            <text x="160" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">❌ Chase the Parabola</text>
+            <path d="M 20,140 L 50,120 L 90,100 L 130,70 L 170,45 L 210,25 L 250,15 L 275,40 L 295,80 L 310,130" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <circle cx="248" cy="16" r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+            <text x="248" y="155" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">FOMO ENTRY · top</text>
+            <path d="M 265 90 L 305 130" stroke="#ef4444" stroke-width="2.2"/>
+            <text x="305" y="145" text-anchor="end" fill="#fca5a5" font-size="10">→ underwater 2 bars later</text>
+            <text x="480" y="22" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">✅ Wait for the Pullback</text>
+            <path d="M 340,140 L 370,115 L 405,95 L 440,70 L 465,55 L 485,65 L 500,75 L 520,55 L 555,35 L 590,20 L 620,10" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <circle cx="465" cy="55" r="5" fill="#fbbf24" stroke="#0f172a" stroke-width="1.2"/>
+            <text x="465" y="42" text-anchor="middle" fill="#fde68a" font-size="9" font-weight="700">close</text>
+            <rect x="475" y="60" width="35" height="25" fill="rgba(251,191,36,0.1)" stroke="#fbbf24" stroke-opacity=".5" stroke-dasharray="2 2"/>
+            <text x="492" y="100" text-anchor="middle" fill="#fde68a" font-size="9">pullback</text>
+            <circle cx="500" cy="75" r="6" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+            <text x="500" y="155" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">CALM ENTRY · fair price</text>
+          </svg>
+          <figcaption>Your brain says "it's gone forever." The tape says <strong>85–90% of breakouts pull back</strong> within 15–30 seconds of the next candle.</figcaption>
+        </figure>
         <div class="mindset-trap-body">
           When you see a big green candle explode above the neckline with 15 seconds left, your brain screams "it'll run away without me forever!" <strong>85–90% of the time the next candle pulls back and gives you a fair entry.</strong> The 10–15% that truly run away are often the most dangerous to chase — parabolic moves exhaust themselves quickly.
         </div>
@@ -10795,6 +11535,35 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
       <div class="mindset-trap">
         <div class="mindset-trap-title">Trap 2 · The Buy Stop Comfort</div>
+        <figure class="plan-illus short" style="margin: 14px 0;">
+          <svg viewBox="0 0 640 160" role="img" aria-label="Buy stop trips on wick vs confirmation close entry">
+            <title>The Buy Stop Comfort — Wick Trigger vs Confirmation Close</title>
+            <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="80" x2="640" y2="80"/></g>
+            <line x1="320" y1="10" x2="320" y2="150" stroke="#475569" stroke-opacity=".5" stroke-dasharray="2 4"/>
+            <text x="160" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">❌ Buy Stop (on wick)</text>
+            <line x1="10" y1="60" x2="310" y2="60" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="4 2"/>
+            <text x="20" y="52" fill="#fca5a5" font-size="9" font-weight="700">BUY STOP @ neckline</text>
+            <line x1="10" y1="80" x2="310" y2="80" stroke="#eab308" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <g>
+              <line x1="160" y1="40" x2="160" y2="110" stroke="#cbd5e1"/>
+              <rect x="152" y="85" width="16" height="25" fill="#ef4444"/>
+            </g>
+            <circle cx="160" cy="60" r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+            <text x="160" y="35" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">wick tripped fill</text>
+            <text x="160" y="140" text-anchor="middle" fill="#fecaca" font-size="9">→ close red · instant loss</text>
+            <text x="480" y="22" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">✅ Confirmation Close</text>
+            <line x1="330" y1="80" x2="630" y2="80" stroke="#eab308" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <text x="340" y="72" fill="#fde68a" font-size="9" font-weight="700">NECKLINE</text>
+            <g>
+              <line x1="480" y1="40" x2="480" y2="110" stroke="#cbd5e1"/>
+              <rect x="472" y="45" width="16" height="35" fill="#22c55e" stroke="#86efac" stroke-width="1.2"/>
+            </g>
+            <circle cx="510" cy="55" r="6" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+            <text x="510" y="40" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">click at open</text>
+            <text x="480" y="140" text-anchor="middle" fill="#bbf7d0" font-size="9">→ runs in your direction</text>
+          </svg>
+          <figcaption>The buy stop <strong>doesn't care</strong> whether a wick or a body crossed the neckline. That's the whole problem.</figcaption>
+        </figure>
         <div class="mindset-trap-body">
           Buy stops feel calm because they remove the decision. But they trigger on wicks, which is incompatible with confirmation entries. Comfort and profitability are not the same thing. <strong>The decision IS the edge.</strong> You are now a confirmation trader.
         </div>

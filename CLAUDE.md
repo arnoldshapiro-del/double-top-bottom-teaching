@@ -26,6 +26,7 @@ https://arnie-double-top-bottom.netlify.app
 - Firebase Google Auth locked to `arnold.shapiro@gmail.com`
 
 ## Current Status
+**v4.2 THE PLAN illustration pass (2026-04-21).** 16 inline SVG figures added across Research + Final Plan tabs. Matches existing visual language.
 **v4.1 THE PLAN section added (2026-04-21).** Purely additive — no existing sections modified.
 **v4.0 Unified LIVE (2026-04-20).** All 11 merge branches shipped in one session.
 

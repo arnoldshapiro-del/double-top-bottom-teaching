@@ -27,7 +27,41 @@
 - Content transferred verbatim from both source .md files per Arnie's explicit requirement — no paraphrasing or trimming.
 
 **Problems encountered:**
-- None during edits. Pending: Netlify deploy-preview URL will trigger Firebase unauthorized-domain error on first load; will pre-authorize via Identity Toolkit PATCH before handing URL to Arnie (per `feedback_netlify_deploy_preview_urls.md` memory).
+- None during edits. Netlify-only-builds-master: added `feature/add-the-plan` to `allowed_branches`, triggered build via API, pre-authorized the `feature-add-the-plan--arnie-double-top-bottom.netlify.app` domain in Firebase via Identity Toolkit PATCH.
+
+---
+
+## Session — 2026-04-21 — v4.2 🎨 THE PLAN illustration pass
+
+**What we did (follow-up to v4.1):** Arnie reviewed the preview URL, approved the content, and asked for "an incredible number of incredibly helpful illustrations" across both new tabs before merge. Did a full illustration pass:
+
+**Research tab — 10 inline SVG figures:**
+- Part 1 · Hero W-anatomy (bottoms, neckline, breakout, target projection)
+- Part 1 · Method 1 vs Method 2 side-by-side comparison (false breakout vs confirmed close)
+- Part 2 · Body-vs-wick neckline diagram showing same candle produces two different necklines
+- Part 2 · Four-scenario wick-grading candle chart (①strongest / ②caution / ③warning / ④trap)
+- Part 3 · 15-seconds dilemma decision diagram (click-now vs wait-for-close with clock + candle)
+- Part 3 · 85% pullback reality showing fair-price calm entry
+- Part 4 · 5-step entry mechanics workflow (watch → close? → wick? → click → pre-stage)
+- Part 5 · Traditional wide stop vs tight neckline stop side-by-side with $99 vs $15 risk callouts
+- Part 6 · Double Top mirror hero
+- Part 7 · Bull Flag anatomy (flagpole, flag channel, breakout, target projection)
+- Part 8 · Bear Flag anatomy (violent downward with fast/violent banner)
+- Part 9 · Unified 4-pattern comparison grid (DB / DT / BF / BEF in one frame)
+
+**Final Plan tab — 4 pattern hero mini-charts + 2 mindset trap visuals:**
+- Double Bottom hero (W with entry/stop/target/BE marker)
+- Double Top hero (M with HTF filter badge)
+- Bull Flag hero (flagpole+flag+breakout with target projection)
+- Bear Flag hero (pole down + rising flag + breakdown with FAST · VIOLENT badge)
+- Trap 1 "Runaway Fear" — chase-parabola vs wait-pullback side-by-side
+- Trap 2 "Buy Stop Comfort" — wick-triggered stop vs confirmation close side-by-side
+
+**CSS added:** `.plan-illus` (with .long/.short/.gold/.key variants), `.plan-compare` two-column grid that collapses to one on mobile, `.pattern-hero-chart` for compact pattern card heroes, light-mode overrides.
+
+**Files modified:** `index.html` (CSS block + 16 inline SVG figures inserted), `SESSION_NOTES.md`.
+
+**What's working:** All SVGs use existing color palette (teal #14b8a6, gold #eab308/#e6b859, green #22c55e, red #ef4444) and match the visual language of the existing 55+ SVGs in the LEARN section setups.
 
 ---
 
