@@ -3738,108 +3738,124 @@
   .tts-read-btn:hover { background: #0d9488; }
   .tts-float-bar {
     position: fixed;
-    bottom: 0; left: 0; right: 0;
+    bottom: 20px; right: 20px;
+    left: auto;
     z-index: 9999;
-    background: #0c1420;
-    border-top: 1px solid rgba(20,184,166,.4);
-    padding: 10px 24px;
-    box-shadow: 0 -4px 20px rgba(0,0,0,.5);
+    background: linear-gradient(180deg, #0f1424 0%, #0a0e1a 100%);
+    border: 1px solid rgba(20,184,166,.35);
+    border-radius: 14px;
+    padding: 10px 12px;
+    box-shadow: 0 8px 28px rgba(0,0,0,.55), 0 0 0 1px rgba(20,184,166,.08);
+    max-width: 380px;
   }
   body.light-mode .tts-float-bar {
-    background: #f0fdf8;
-    border-top-color: #14b8a6;
-    box-shadow: 0 -4px 20px rgba(0,0,0,.1);
+    background: linear-gradient(180deg, #ffffff 0%, #f0fdf8 100%);
+    border-color: rgba(13,148,136,.4);
+    box-shadow: 0 8px 28px rgba(0,0,0,.18);
   }
   .tts-float-inner {
     display: flex;
     align-items: center;
-    gap: 14px;
-    max-width: 880px;
-    margin: 0 auto;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .tts-anim-bars {
     display: flex;
     align-items: flex-end;
-    gap: 3px;
-    height: 20px;
+    gap: 2px;
+    height: 18px;
     flex-shrink: 0;
   }
   .tts-bar-item {
     display: block;
-    width: 4px;
+    width: 3px;
     border-radius: 2px;
     background: #14b8a6;
-    height: 6px;
+    height: 5px;
   }
   .tts-float-bar:not(.paused) .tts-bar-item:nth-child(1) { animation: ttsBarAnim .8s ease-in-out 0s infinite alternate; }
   .tts-float-bar:not(.paused) .tts-bar-item:nth-child(2) { animation: ttsBarAnim .8s ease-in-out .15s infinite alternate; }
   .tts-float-bar:not(.paused) .tts-bar-item:nth-child(3) { animation: ttsBarAnim .8s ease-in-out .3s infinite alternate; }
   .tts-float-bar:not(.paused) .tts-bar-item:nth-child(4) { animation: ttsBarAnim .8s ease-in-out .45s infinite alternate; }
-  @keyframes ttsBarAnim { from { height: 4px; } to { height: 18px; } }
+  @keyframes ttsBarAnim { from { height: 3px; } to { height: 16px; } }
   .tts-status-label {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
     color: #14b8a6;
     white-space: nowrap;
+    letter-spacing: .3px;
   }
   body.light-mode .tts-status-label { color: #0d9488; }
   .tts-ctrl-btn {
-    background: rgba(255,255,255,.08);
-    color: #e2e8f0;
-    border: 1px solid rgba(255,255,255,.18);
-    padding: 5px 16px;
-    border-radius: 6px;
+    background: rgba(20,184,166,.1);
+    color: #5eead4;
+    border: 1px solid rgba(20,184,166,.35);
+    padding: 5px 10px;
+    border-radius: 8px;
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 11px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background .15s;
+    transition: all .15s;
     white-space: nowrap;
   }
-  .tts-ctrl-btn:hover { background: rgba(255,255,255,.16); }
-  body.light-mode .tts-ctrl-btn { background: rgba(0,0,0,.06); color: #1e293b; border-color: rgba(0,0,0,.18); }
-  body.light-mode .tts-ctrl-btn:hover { background: rgba(0,0,0,.12); }
-  .tts-stop-btn { color: #f87171; border-color: rgba(248,113,113,.3); }
-  .tts-stop-btn:hover { background: rgba(248,113,113,.14) !important; }
+  .tts-ctrl-btn:hover { background: rgba(20,184,166,.22); border-color: rgba(20,184,166,.55); }
+  body.light-mode .tts-ctrl-btn { background: rgba(13,148,136,.08); color: #0d9488; border-color: rgba(13,148,136,.32); }
+  body.light-mode .tts-ctrl-btn:hover { background: rgba(13,148,136,.18); }
+  #tts-pause-btn { background: #14b8a6; color: #0a0e1a; border-color: #14b8a6; font-weight: 700; padding: 5px 14px; }
+  #tts-pause-btn:hover { background: #0d9488; border-color: #0d9488; }
+  body.light-mode #tts-pause-btn { background: #0d9488; color: #fff; border-color: #0d9488; }
+  .tts-stop-btn { color: #f87171 !important; border-color: rgba(248,113,113,.4) !important; background: rgba(248,113,113,.08) !important; }
+  .tts-stop-btn:hover { background: rgba(248,113,113,.2) !important; border-color: rgba(248,113,113,.65) !important; }
   .tts-seek-group {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
     flex-shrink: 0;
   }
   .tts-seek-btn {
-    padding: 5px 9px !important;
-    font-size: 12px !important;
+    padding: 4px 7px !important;
+    font-size: 10px !important;
     color: #5eead4 !important;
     border-color: rgba(94,234,212,.28) !important;
+    background: rgba(94,234,212,.06) !important;
     min-width: 0;
+    font-weight: 600;
   }
-  .tts-seek-btn:hover { background: rgba(94,234,212,.14) !important; }
+  .tts-seek-btn:hover { background: rgba(94,234,212,.18) !important; }
   body.light-mode .tts-seek-btn {
     color: #0d9488 !important;
-    border-color: rgba(13,148,136,.35) !important;
+    border-color: rgba(13,148,136,.32) !important;
+    background: rgba(13,148,136,.05) !important;
   }
-  body.light-mode .tts-seek-btn:hover { background: rgba(13,148,136,.12) !important; }
-  @media (max-width: 760px) {
-    .tts-float-inner { flex-wrap: wrap; gap: 8px; justify-content: center; }
-    .tts-speed-wrap { margin-left: 0; }
-    .tts-seek-btn { padding: 4px 7px !important; font-size: 11px !important; }
+  body.light-mode .tts-seek-btn:hover { background: rgba(13,148,136,.15) !important; }
+  @media (max-width: 500px) {
+    .tts-float-bar { left: 10px; right: 10px; max-width: none; bottom: 10px; }
+    .tts-seek-btn { padding: 3px 6px !important; font-size: 10px !important; }
   }
   .tts-speed-wrap {
     display: flex;
     align-items: center;
-    gap: 7px;
-    margin-left: auto;
+    gap: 5px;
     flex-shrink: 0;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(20,184,166,.14);
   }
+  body.light-mode .tts-speed-wrap { border-top-color: rgba(13,148,136,.18); }
   .tts-rate-label {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--ink-faint);
     white-space: nowrap;
-    min-width: 38px;
+    min-width: 34px;
     text-align: right;
+    font-weight: 600;
   }
   .tts-rate-slider {
-    width: 80px;
+    width: 90px;
     accent-color: #14b8a6;
     cursor: pointer;
   }
@@ -11609,7 +11625,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <div>LEARN · TRADE · REVIEW — the complete 2-minute scalping workflow in one app</div>
   </footer>
 
-  <!-- TTS Float Control Bar (Branch 15) — fixed to bottom when reading aloud -->
+  <!-- TTS Float Control Bar (Branch 15) — compact bottom-right widget -->
   <div id="tts-float-bar" class="tts-float-bar" style="display:none;">
     <div class="tts-float-inner">
       <div class="tts-anim-bars">
@@ -11622,15 +11638,13 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="tts-seek-group" title="Rewind">
         <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(-60)" title="Rewind 1 minute">⏪ 1m</button>
         <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(-30)" title="Rewind 30 seconds">⏪ 30s</button>
-        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(-15)" title="Rewind 15 seconds">⏪ 15s</button>
       </div>
-      <button id="tts-pause-btn" class="tts-ctrl-btn" onclick="ttsPauseResume()">⏸ Pause</button>
-      <button class="tts-ctrl-btn tts-stop-btn" onclick="ttsStop()">⏹ Stop</button>
+      <button id="tts-pause-btn" class="tts-ctrl-btn" onclick="ttsPauseResume()">⏸</button>
       <div class="tts-seek-group" title="Fast-forward">
-        <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(15)" title="Forward 15 seconds">15s ⏩</button>
         <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(30)" title="Forward 30 seconds">30s ⏩</button>
         <button class="tts-ctrl-btn tts-seek-btn" onclick="ttsSeek(60)" title="Forward 1 minute">1m ⏩</button>
       </div>
+      <button class="tts-ctrl-btn tts-stop-btn" onclick="ttsStop()" title="Stop">⏹</button>
       <div class="tts-speed-wrap">
         <span id="tts-rate-label" class="tts-rate-label">0.95×</span>
         <input type="range" id="tts-rate-slider" class="tts-rate-slider" min="0.6" max="1.4" step="0.05" value="0.95" oninput="ttsSetRate(parseFloat(this.value))">
