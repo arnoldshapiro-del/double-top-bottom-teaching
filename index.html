@@ -45,6 +45,10 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  /* Disable browser scroll anchoring — it was restoring scrollTop after switchTab
+     on the long pattern tabs (1-4), defeating the scroll-to-top reset. */
+  html, body { overflow-anchor: none; }
+
   body {
     background: var(--bg);
     color: var(--ink);
@@ -8957,6 +8961,18 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
 <script>
   // ========== TAB NAVIGATION ==========
+  // Force the page to top via every known method. Belt-and-suspenders —
+  // Edge/Chrome scroll-anchoring was silently restoring position on tabs 1-4
+  // (the long pattern tabs) after we reset scrollTop. Firing through rAF +
+  // setTimeout covers the case where a later relayout (TTS innerText, etc.)
+  // triggers a re-anchor.
+  function _scrollPageToTop() {
+    try { window.scrollTo(0, 0); } catch (_) {}
+    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+
   function switchTab(tabName) {
     // Deactivate all buttons and panels
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -8970,10 +8986,13 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     const panel = document.getElementById(`tab-${tabName}`);
     if (panel) panel.classList.add('active');
 
-    // Scroll to top of content — instant is required; smooth can be
-    // cancelled by a synchronous relayout on the large pattern tabs.
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0; // Safari fallback
+    // Fire scroll-to-top in three waves so no relayout can cancel it.
+    _scrollPageToTop();
+    requestAnimationFrame(() => {
+      _scrollPageToTop();
+      requestAnimationFrame(_scrollPageToTop);
+    });
+    setTimeout(_scrollPageToTop, 150);
   }
 
   // Wire up tab buttons on load
