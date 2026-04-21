@@ -13101,6 +13101,15 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   let ttsIsSpeaking = false;
   let ttsIsPaused = false;
   let ttsIsCancelled = false;
+  let ttsPendingTimeout = null;
+  let ttsSessionToken = 0;
+
+  function ttsClearPendingTimeout() {
+    if (ttsPendingTimeout !== null) {
+      clearTimeout(ttsPendingTimeout);
+      ttsPendingTimeout = null;
+    }
+  }
 
   function ttsBuildTimings() {
     ttsSentenceTimings = [];
@@ -13129,9 +13138,15 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     }
     if (newIdx >= ttsSentenceQueue.length) { ttsStop(); return; }
     const wasPaused = ttsIsPaused;
+    const mySession = ttsSessionToken;
     ttsIsCancelled = true;
+    ttsClearPendingTimeout();
     window.speechSynthesis.cancel();
-    setTimeout(() => {
+    ttsPendingTimeout = setTimeout(() => {
+      ttsPendingTimeout = null;
+      // If Stop (or another seek) happened during the 120ms gap, bail out.
+      if (mySession !== ttsSessionToken) return;
+      if (!ttsIsSpeaking || !ttsSentenceQueue.length) return;
       ttsCurrentIdx = newIdx;
       ttsIsCancelled = false;
       ttsIsPaused = false;
@@ -13139,6 +13154,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       ttsSpeakNext();
       if (wasPaused) {
         setTimeout(() => {
+          if (mySession !== ttsSessionToken) return;
           window.speechSynthesis.pause();
           ttsIsPaused = true;
           ttsUpdateFloatBar();
@@ -13235,9 +13251,20 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     u.rate = ttsSpeechRate;
     u.pitch = ttsSpeechPitch;
     u.volume = 1.0;
-    u.onstart = () => { ttsSentenceStartWall = Date.now(); };
-    u.onend = () => { ttsCurrentIdx++; setTimeout(ttsSpeakNext, 150); };
-    u.onerror = () => { ttsCurrentIdx++; setTimeout(ttsSpeakNext, 150); };
+    const mySession = ttsSessionToken;
+    u.onstart = () => { if (mySession === ttsSessionToken) ttsSentenceStartWall = Date.now(); };
+    u.onend = () => {
+      if (mySession !== ttsSessionToken || ttsIsCancelled) return;
+      ttsCurrentIdx++;
+      ttsClearPendingTimeout();
+      ttsPendingTimeout = setTimeout(() => { ttsPendingTimeout = null; ttsSpeakNext(); }, 150);
+    };
+    u.onerror = () => {
+      if (mySession !== ttsSessionToken || ttsIsCancelled) return;
+      ttsCurrentIdx++;
+      ttsClearPendingTimeout();
+      ttsPendingTimeout = setTimeout(() => { ttsPendingTimeout = null; ttsSpeakNext(); }, 150);
+    };
     window.speechSynthesis.speak(u);
   }
 
@@ -13275,7 +13302,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     const tabName = activePanel.id.replace('tab-', '');
     const text = ttsGetTabText(tabName);
     if (!text) return;
-    window.speechSynthesis.cancel();
+    ttsSessionToken++;
+    ttsClearPendingTimeout();
+    try { window.speechSynthesis.cancel(); } catch (e) {}
     ttsIsCancelled = false;
     // Split into sentences for reliable playback
     const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
@@ -13300,10 +13329,21 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   }
 
   function ttsStop() {
+    // Bump the session token FIRST so any in-flight setTimeouts or utterance
+    // callbacks (onstart/onend/onerror) from the previous session short-circuit.
+    ttsSessionToken++;
     ttsIsCancelled = true;
-    window.speechSynthesis.cancel();
+    ttsClearPendingTimeout();
+    try { window.speechSynthesis.cancel(); } catch (e) {}
+    // Belt-and-suspenders re-cancel: on some Windows/SAPI voices the first
+    // cancel() doesn't fully halt the current utterance, so cancel again after
+    // a tick and once more later to catch any utterance that was mid-start.
+    setTimeout(() => { try { window.speechSynthesis.cancel(); } catch (e) {} }, 60);
+    setTimeout(() => { try { window.speechSynthesis.cancel(); } catch (e) {} }, 250);
     ttsSentenceQueue = [];
+    ttsSentenceTimings = [];
     ttsCurrentIdx = 0;
+    ttsSentenceStartWall = 0;
     ttsSetSpeakingState(false);
   }
 
