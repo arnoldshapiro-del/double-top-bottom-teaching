@@ -1,5 +1,36 @@
 # Session Notes — Arnie's Day Trading Setup Playbook
 
+## Session — 2026-04-21 — v4.1 🏁 THE PLAN section added (Research + Final Plan)
+
+**What we did:**
+- Added a brand-new **THE PLAN** section to the left sidebar (4th section, below REVIEW) with gold 🏁 header, styled consistently with LEARN / TRADE / REVIEW but visually distinct (gold accent).
+- Added two new tabs inside THE PLAN:
+  - **🧠 The Research Behind the Plan** (`tab-research-plan`) — Full content from `The_Research_Behind_The_Plan.md` transferred verbatim. 9-part scholarly document with sticky table of contents at top, numbered sections, "back to top" links between sections, teal/green/red color-coded callouts matching app palette. Covers: Double Bottoms research, wick-vs-body neckline decision, "15 seconds left" dilemma, buy stops/entry mechanics, stop placement breakthrough, Double Tops, Bull Flags, Bear Flags, Unified research principles. TTS-enabled.
+  - **🏆 Final Trading Plan** (`tab-final-plan`) — Full content from `Final_Trading_Plan.md` transferred verbatim. Designed as a LIVE TRADING REFERENCE checklist (distinct from rest of app which teaches). Features: prominent "LIVE TRADING REFERENCE" banner, 4 pattern cards (Double Bottom 10 steps, Double Top 11 steps, Bull Flag 11 steps, Bear Flag 12 steps) each with numbered step cards color-coded by pattern, the 10 Universal Rules in a highlighted gold box, clean Quick Reference table at the end, two Mindset Trap callout boxes.
+- Mobile-responsive: large step numbers, scannable layout, narrow-viewport testing built into CSS.
+- All work done on branch `feature/add-the-plan` (branched from master). NO existing sections modified — purely additive.
+- Updated CLAUDE.md to document the new section as Branch B16.
+
+**Files modified:**
+- `index.html` — 5 edits: CSS additions for `.nav-section.plan` + all `.plan-*`/`.pattern-plan`/`.step-card`/`.universal-rules`/`.quick-ref`/`.mindset-trap` classes + light-mode + mobile responsive rules; sidebar HTML addition (THE PLAN section with 2 tab buttons); TTS registration for `research-plan`; two new tab-panel divs before toast.
+- `CLAUDE.md` — Updated Current Status to v4.1, added B16 feature entry, added THE PLAN to Purpose section.
+- `SESSION_NOTES.md` — This entry.
+
+**What's working:** All CSS classes added without conflicts; sidebar structure preserved; tab switching works via existing `switchTab()`; TTS works on research tab; no existing sections touched.
+
+**What's next:** Push branch → verify Netlify preview build → add preview domain to Firebase authorized domains via Identity Toolkit API → Arnie reviews preview URL → merge to master after his approval.
+
+**Important decisions:**
+- Branched from `master` (repo default), not `main` as prompt stated — flagged this to Arnie who gave full autonomous authorization.
+- Flagged tech stack discrepancy: prompt said Vite+React+TS+Tailwind but repo is vanilla HTML single-file — proceeded with vanilla HTML matching existing architecture.
+- Used gold (#e6b859) as THE PLAN accent color — reuses existing palette color (from Pattern Quiz / Neckline annotations) rather than introducing a new color.
+- Content transferred verbatim from both source .md files per Arnie's explicit requirement — no paraphrasing or trimming.
+
+**Problems encountered:**
+- None during edits. Pending: Netlify deploy-preview URL will trigger Firebase unauthorized-domain error on first load; will pre-authorize via Identity Toolkit PATCH before handing URL to Arnie (per `feedback_netlify_deploy_preview_urls.md` memory).
+
+---
+
 ## Session — 2026-04-20 — v3.1 ⚡ Aggressive Entry Tab
 
 **What we did:**
