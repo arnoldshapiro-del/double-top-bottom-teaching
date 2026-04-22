@@ -15619,12 +15619,22 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   // Browser Web Speech API — same mechanism as Uni's TA Bootcamp, ported to vanilla JS
   // No external API, no cost, works in Chrome and Edge.
 
+  // Every tab in the program is readable. If a tab has minimal text the
+  // reading-time just reads as short — the button still appears so the UX is consistent.
   const TTS_READABLE_TABS = new Set([
-    'double-top','double-bottom','bull-flag','bear-flag',
+    // LEARN
+    'double-bottom','double-top','bull-flag','bear-flag',
+    'hammer-star','engulfing','morning-star',
     'failed-breakout','orb-retest','vwap-mr',
-    'aggressive-entry','unified','masterclass',
-    'red-flags','clock-matrix','decision-tree','checklist',
-    'research-plan'
+    'aggressive-entry','pattern-stacking','unified','masterclass',
+    'pattern-quiz','calculators','flashcards',
+    // TRADE
+    'red-flags','state-gate','premarket','clock-matrix','decision-tree',
+    'checklist','live-checklist','daily-gates',
+    // REVIEW
+    'journal','edge-dashboard',
+    // THE PLAN
+    'research-plan','final-plan'
   ]);
 
   const TTS_FEMALE_NAMES = [
