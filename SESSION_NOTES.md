@@ -1,5 +1,62 @@
 # Session Notes — Arnie's Day Trading Setup Playbook
 
+## Session — 2026-04-22 — v5.1 + TTS everywhere + Position Calculator deployed
+
+**What we did:**
+
+### Part 1 — v5.1: Rebuilt 3 candle-pattern tabs to full DB/DT depth (continued from previous session)
+- **Hammer & Shooting Star tab** — Rebuilt to full depth matching Double Bottom/Top standard: 5 SVG illustrations (anatomy, quality, entry/stop, scale-out, bust), 5-criterion interactive quality score, context gates with "What this means" explainers, Classic + Tight stop variants.
+- **Bullish & Bearish Engulfing tab** — Same full treatment: anatomy hero, quality scoring, entry/stop/scale-out SVGs, explainer blocks, kill switches.
+- **Morning & Evening Star tab** — Full rebuild: 3-candle anatomy, quality scoring, context gates, target projections, bust conditions.
+- **Pattern Stacking tab** — Expanded from 5 sections to 9: added 3-tier evidence model SVG, 4 classic elite stack visuals (hammer+DB, shooting star+DT, engulfing+neckline, morning star+flag), probability-tree SVG showing why stacks compound, size-ladder SVG (4/6/8 contracts), stack-failure bust section, full pre-market→session→journal workflow diagram.
+- **v5 Appendix in Final Trading Plan** — Rebuilt with 5 illustrated sections: Daily Hunt List (4-block session map), Stop Rules (Classic vs Tight visual), Stacking Workflow (decision flow), Calculator Workflow (3-mode panel), Kill Switches with new stack-failure protection rule.
+- JavaScript updated: `updateScore('hammer')`, `updateScore('engulfing')`, `updateScore('morning')`, `updateScore('stack')` added to init and resetAll.
+- Commit: `b56c8f9` "v5.1: rebuild 3 candle pattern tabs to full DB depth + expand Pattern Stacking + integrate v5 Appendix" — verified live on Netlify.
+
+### Part 2 — Gallery updated
+- Gallery tagline changed from "v5.0 EXPANDED" → "v5.1 FULL DEPTH" with new comprehensive description.
+- Puppeteer screenshot retaken and committed to arnies-app-showcase.
+
+### Part 3 — Standalone Position Calculator v2 deployed (NEW APP)
+- Created `arnie-position-calculator` as a standalone single-file HTML app at `https://arnie-position-calculator.netlify.app`.
+- Source: `C:\Users\arnol\Desktop\Project Files Do Not Delete\arnie-position-calculator\index.html`
+- GitHub: `arnoldshapiro-del/arnie-position-calculator` (master branch)
+- Based on `position-calculator-v2.jsx` from Desktop — all 4 modes (forward/reverse/Fib/EV), all 6 instruments (MES/MNQ/M2K/ES/NQ/RTY), all 6 presets, scale-out simulator, saved plans in localStorage.
+- React 18 UMD + Babel standalone (no build step), `window.storage` replaced with localStorage `arnie_calc_plan:` prefix.
+- PWA-ready (manifest.json, theme-color #d4a574, Apple tags).
+- Netlify two-way sync via API (installation_id 77160536).
+- **Bug fixed:** Initial deploy had `X-Frame-Options: SAMEORIGIN` in netlify.toml which blocked it from loading inside the Playbook's Calculators tab iframe. Fixed by replacing with `Content-Security-Policy: frame-ancestors 'self' https://arnie-double-top-bottom.netlify.app https://*.netlify.app`.
+- URL shortcut created: `Arnie's Position Calculator v2.url` in `All Of My Working Apps That Are Beautiful\`.
+- Gallery card added with Puppeteer screenshot (189KB).
+
+### Part 4 — TTS "Read this lesson" button added to ALL 29 tabs
+- **The bug:** `TTS_READABLE_TABS` Set at line 15622 only included 15 of 29 tabs. The other 14 (hammer-star, engulfing, morning-star, pattern-stacking, state-gate, premarket, live-checklist, daily-gates, journal, edge-dashboard, pattern-quiz, calculators, flashcards, final-plan) never showed the read bar.
+- **Fix:** Expanded TTS_READABLE_TABS to include all 29 tab names. One-line Set change.
+- Commit: `ee3daf7` "TTS: enable 'Read this lesson' button on all 29 tabs (was 15)" — verified live.
+
+**What's working:**
+- v5.1 Playbook live at https://arnie-double-top-bottom.netlify.app
+- Standalone Position Calculator live at https://arnie-position-calculator.netlify.app
+- TTS "Read this lesson" button visible on every single tab in the Playbook
+- Gallery updated with both apps
+
+**What's next:**
+- Nothing explicitly requested. Possible additions Arnie may want:
+  - Position Calculator could be Firebase-locked if he wants it private
+  - Final Trading Plan tab could get TTS voice-over test to confirm it reads well
+  - Pattern Quiz and Flashcard Trainer could get enhanced interactivity
+
+**Important decisions:**
+- Position Calc uses localStorage instead of `window.storage` (Anthropic sandbox API) — localStorage is permanent and persists across sessions for real user data.
+- CSP `frame-ancestors` instead of removing the header entirely — allows embedding from any netlify.app subdomain, prevents third-party embedding.
+- TTS enabled on ALL tabs including interactive ones (pattern-quiz, calculators, flashcards) per Arnie's explicit instruction "every word in this entire program."
+
+**Problems encountered:**
+- Position Calculator iframe showed "Site not found" initially — deploy hadn't propagated when Arnie first opened it. Then showed "refused to connect" — X-Frame-Options was blocking the embed. Both fixed.
+- Session context compaction mid-session — continued seamlessly from summary.
+
+---
+
 ## Session — 2026-04-21 — v4.1 🏁 THE PLAN section added (Research + Final Plan)
 
 **What we did:**

@@ -1,8 +1,8 @@
 # Arnie's Day Trading Setup Playbook — UNIFIED
 
 ## Project Name
-Arnie's Day Trading Setup Playbook — v4.0 Unified (MES · M2K · RTY · 2-min scalping)
-The merged successor to three previous apps — Double Top/Bottom teaching playbook (this repo, the base), Arnie's Edge System, and Arnie's Trading Academy. Merged April 20, 2026.
+Arnie's Day Trading Setup Playbook — v5.1 (MES · M2K · RTY · 2-min scalping)
+The merged successor to three previous apps — Double Top/Bottom teaching playbook (this repo, the base), Arnie's Edge System, and Arnie's Trading Academy. Merged April 20, 2026. v5.1 shipped April 22, 2026 — all 3 new candle-pattern tabs rebuilt to full DB/DT depth.
 
 ## Purpose
 A single unified 2-minute futures scalping program covering the full workflow in four sidebar sections:
@@ -26,8 +26,9 @@ https://arnie-double-top-bottom.netlify.app
 - Firebase Google Auth locked to `arnold.shapiro@gmail.com`
 
 ## Current Status
-**v4.2 THE PLAN illustration pass (2026-04-21).** 16 inline SVG figures added across Research + Final Plan tabs. Matches existing visual language.
-**v4.1 THE PLAN section added (2026-04-21).** Purely additive — no existing sections modified.
+**v5.1 LIVE (2026-04-22).** All 3 new candle-pattern tabs (Hammer/Star, Engulfing, Morning/Evening Star) rebuilt to full DB/DT teaching depth. Pattern Stacking expanded to 9 sections. v5 Appendix integrated into Final Trading Plan. TTS "Read this lesson" button now appears on ALL 29 tabs (was 15). Companion standalone Position Calculator v2 deployed at https://arnie-position-calculator.netlify.app and embedded in the Calculators tab.
+**v4.2 THE PLAN illustration pass (2026-04-21).** 16 inline SVG figures added across Research + Final Plan tabs.
+**v4.1 THE PLAN section added (2026-04-21).** Research Behind the Plan + Final Trading Plan tabs.
 **v4.0 Unified LIVE (2026-04-20).** All 11 merge branches shipped in one session.
 
 The three predecessor apps remain live as safety nets during the transition period:
