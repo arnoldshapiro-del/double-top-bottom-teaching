@@ -4310,6 +4310,22 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             Measure the height of the pattern (distance from the peaks down to the neckline). Then subtract that same distance below the neckline — that's where you expect price to go. Example: Peak = 2350, Neckline = 2340. Pattern height = 10 points. Target = 2340 − 10 = 2330. The logic: patterns tend to produce follow-through roughly equal to the pattern that formed them. Not a guarantee, but a reasonable first profit target.
           </span>
         </div>
+
+        <!-- NEW in v5: Tight Stop Variant -->
+        <div class="data-block" style="border-left-color:#e6b859">
+          <div class="dlabel">4b · Tight Stop Variant (v5) · Neckline Stop Instead of Peak 2</div>
+          <div class="dvalue">
+            The classic rule says "stop 1–2 ticks above peak 2." Still valid. But once price has confirmed the breakdown by closing below the neckline, the neckline itself becomes resistance — and a close back above it invalidates the pattern. So an alternative (tighter) stop placement is: <strong>a small buffer above the neckline</strong>.
+            <br><br>
+            <strong>Point-based buffers (not ticks):</strong><br>
+            MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts above the neckline.
+          </div>
+          <span class="explain"><strong>Why it works</strong>
+            If price reclaims the neckline as resistance, the thesis is intact even if price bounces toward peak 2. A neckline-break pattern that re-breaks the neckline back up IS a failure — no reason to wait for peak 2. Tighter stop = smaller per-contract risk = same dollar risk with more contracts = bigger win.
+            <br><br><strong>Which variant to use:</strong> Classic (peak 2) for standalone A-grade patterns. Tight (neckline) for A+/A++ stacked setups where R:R gain is meaningful.
+          </span>
+        </div>
+
         <div class="check-row">
           <input type="checkbox">
           <label>Scale 50% at midpoint of move; trail the rest
@@ -4790,6 +4806,25 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             Measure the height of the pattern (distance from the troughs up to the neckline). Then add that same distance <em>above</em> the neckline — that's where you expect price to go. Example: Trough = 2320, Neckline = 2330. Pattern height = 10 points. Target = 2330 + 10 = 2340. The logic: breakouts tend to produce follow-through roughly equal to the pattern that formed them. Not guaranteed, but a reasonable first profit target.
           </span>
         </div>
+
+        <!-- NEW in v5: Tight Stop Variant -->
+        <div class="data-block" style="border-left-color:#e6b859">
+          <div class="dlabel">4b · Tight Stop Variant (v5) · Neckline Stop Instead of Trough 2</div>
+          <div class="dvalue">
+            The classic rule says "stop 1–2 ticks below trough 2." Still valid. But once price has confirmed the breakout by closing above the neckline, the neckline itself becomes support — and a close back below it invalidates the pattern. So an alternative (tighter) stop placement is: <strong>a small buffer below the neckline</strong>.
+            <br><br>
+            <strong>Point-based buffers (not ticks):</strong><br>
+            MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts below the neckline.
+          </div>
+          <span class="explain"><strong>Why it works</strong>
+            If price reclaims the neckline as support, the thesis is still intact even if price dips toward trough 2. A neckline-break pattern that re-breaks the neckline in the opposite direction IS a failure of the pattern — no reason to wait for trough 2. Tighter stop = smaller per-contract risk = same dollar risk with more contracts = bigger win when it works.
+            <br><br><strong>Tradeoff:</strong> tighter stops mean higher chance of being stopped out on noise before the breakout works. Win rate is slightly lower per trade. But R:R improves significantly, and over many trades the math favors the tighter variant on M2K and MES specifically.
+            <br><br><strong>Which variant to use:</strong>
+            · <em>Classic (trough 2 stop):</em> A-grade patterns where you want maximum "survive the shake" probability and size for the wider stop.
+            · <em>Tight (neckline stop):</em> A+/A++ stacked setups where conviction is high and the R:R gain from a tighter stop is meaningful.
+          </span>
+        </div>
+
         <div class="check-row">
           <input type="checkbox">
           <label>Scale 50% at midpoint; trail the rest
@@ -5284,6 +5319,20 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="dlabel">What professionals do</div>
             <div class="dvalue">Almost universally <strong>Stop Method A</strong> — let chart structure define the stop, then adjust contract count so dollar risk stays consistent. Wide flag = fewer contracts. Tight flag = more contracts.</div>
           </div>
+
+          <!-- NEW in v5: Tight Stop Variant -->
+          <div class="data-block" style="border-left-color:#e6b859">
+            <div class="dlabel">4b · Tight Stop Variant (v5) · Trendline-Break Stop</div>
+            <div class="dvalue">
+              Same principle as the neckline stop on double bottoms. Once price has closed above the flag trendline, that trendline becomes support for the continuation. An alternative (tighter) stop is a small buffer below the broken trendline.
+              <br><br>
+              <strong>Point-based buffers (not ticks):</strong><br>
+              MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts below the broken trendline.
+            </div>
+            <span class="explain"><strong>When to use it</strong>
+              Use the tight trendline-break stop on A+/A++ stacked setups (e.g., bull flag + morning star at PDL) where conviction is high and you want the R:R gain. Keep Stop A (below flag low) for standalone A-grade patterns where you want maximum room to work.
+            </span>
+          </div>
         </div>
 
         <!-- SECTION 5 · M2K vs MES -->
@@ -5737,6 +5786,20 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="data-block">
             <div class="dlabel">What professionals do</div>
             <div class="dvalue">Stop Method A — chart-structure-based — and adjust contract count to keep dollar risk consistent.</div>
+          </div>
+
+          <!-- NEW in v5: Tight Stop Variant -->
+          <div class="data-block" style="border-left-color:#e6b859">
+            <div class="dlabel">4b · Tight Stop Variant (v5) · Trendline-Break Stop</div>
+            <div class="dvalue">
+              Mirror of bull flag. Once price has closed below the flag trendline, that trendline becomes resistance for the continuation down. An alternative (tighter) stop is a small buffer above the broken trendline.
+              <br><br>
+              <strong>Point-based buffers (not ticks):</strong><br>
+              MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts above the broken trendline.
+            </div>
+            <span class="explain"><strong>When to use it</strong>
+              Use the tight trendline-break stop on A+/A++ stacked setups (e.g., bear flag + evening star at PDH) where conviction is high. Keep Stop A (above flag high) for standalone A-grade patterns. Because bear flags move violently, the tight variant gets stopped less often than the symmetric bull-flag case — sellers rarely come back to retest the broken trendline from below.
+            </span>
           </div>
         </div>
 
