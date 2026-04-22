@@ -6013,8 +6013,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="pattern-shape">🔨 / ⭐</div>
         </div>
         <div class="data-block" style="border-left-color:#14b8a6">
-          <div class="dlabel">1-candle signals · MES &amp; M2K &amp; MNQ 2-min · 55–62% win rate with confirmation</div>
-          <div class="dvalue">The fastest reversal signals in the playbook. One candle tells you buyers (hammer) or sellers (shooting star) just crushed the opposing side. No waiting for a double bottom to form — when the rejection is already on the screen, the only thing left is confirmation.</div>
+          <div class="dlabel">1-candle signals · MES &amp; M2K &amp; MNQ 2-min · 58–67% win rate with confirmation stack</div>
+          <div class="dvalue">The fastest reversal signals in the playbook. One candle tells you buyers (hammer) or sellers (shooting star) just crushed the opposing side. No waiting for a double bottom to form — when the rejection is already on the screen, the only thing left is confirmation. This tab goes deep: structure, psychology, Bulkowski stats, context, five-point quality score, entry trigger, point-based stops, tight-stop variant, three-level scale-out, bust rules, kill switches, and the A++ pattern stack.</div>
         </div>
 
         <figure class="illus">
@@ -6047,6 +6047,41 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <figcaption>Hammer = long lower wick rejecting lower prices at the bottom of a downtrend. Shooting star = long upper wick rejecting higher prices at the top of an uptrend. Same signal, mirrored.</figcaption>
         </figure>
 
+        <!-- SECTION 0 · Proportion anatomy -->
+        <figure class="illus">
+          <svg viewBox="0 0 560 240" role="img" aria-labelledby="hs-anat-t hs-anat-d">
+            <title id="hs-anat-t">Wick-to-body proportion anatomy</title>
+            <desc id="hs-anat-d">Three hammer candles showing invalid (wick too short), valid (wick 2x body), and A-grade (wick 3x body).</desc>
+            <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="120" x2="560" y2="120"/><line x1="0" y1="200" x2="560" y2="200"/></g>
+            <text x="280" y="20" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="800">Wick-to-Body Proportion — the single most important measurement</text>
+            <g transform="translate(30,0)">
+              <text x="70" y="50" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">INVALID (1× wick)</text>
+              <line x1="70" y1="75" x2="70" y2="100" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="62" y="100" width="16" height="30" fill="#22c55e" stroke="#86efac"/>
+              <line x1="70" y1="130" x2="70" y2="155" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="70" y="180" text-anchor="middle" fill="#fca5a5" font-size="9">body &gt; wick</text>
+              <text x="70" y="195" text-anchor="middle" fill="#fca5a5" font-size="9">→ SKIP</text>
+            </g>
+            <g transform="translate(220,0)">
+              <text x="70" y="50" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="800">VALID (2× wick)</text>
+              <line x1="70" y1="75" x2="70" y2="95" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="62" y="95" width="16" height="20" fill="#22c55e" stroke="#86efac"/>
+              <line x1="70" y1="115" x2="70" y2="165" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="70" y="180" text-anchor="middle" fill="#fde68a" font-size="9">wick = 2× body</text>
+              <text x="70" y="195" text-anchor="middle" fill="#fde68a" font-size="9">→ TRADE</text>
+            </g>
+            <g transform="translate(410,0)">
+              <text x="70" y="50" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">A-GRADE (3× wick)</text>
+              <line x1="70" y1="75" x2="70" y2="90" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="62" y="90" width="16" height="15" fill="#22c55e" stroke="#86efac"/>
+              <line x1="70" y1="105" x2="70" y2="175" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="70" y="190" text-anchor="middle" fill="#86efac" font-size="9">wick ≥ 3× body</text>
+              <text x="70" y="205" text-anchor="middle" fill="#86efac" font-size="9">→ SIZE UP</text>
+            </g>
+          </svg>
+          <figcaption>The wick <em>is</em> the rejection story. Longer wick = louder story. 2× body = minimum viable. 3×+ = A-grade — this is the candle you want to be on the right side of.</figcaption>
+        </figure>
+
         <!-- SECTION 1 · What It Is -->
         <div class="section">
           <div class="section-label">1 · What a Hammer / Shooting Star Is <span>Single-candle rejection</span></div>
@@ -6072,57 +6107,203 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 2 · Context Gate -->
         <div class="section">
-          <div class="section-label">2 · Context Gate <span>ALL required — no exceptions</span></div>
-          <div class="data-block">
-            <div class="dlabel">Prior trend present</div>
-            <div class="dvalue">A hammer needs a real downtrend above it (at least 2 legs down on 2-min) and a shooting star needs a real uptrend below it.</div>
-            <span class="explain"><strong>What this means</strong>
-              A hammer in the middle of a flat range is just a bar with a long wick — no rejection story. There's nothing to reverse. Trend first, signal second.
-            </span>
+          <div class="section-label">2 · Context Gate <span class="gate-required">ALL required — no exceptions</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="hs-ctx-t hs-ctx-d">
+              <title id="hs-ctx-t">Hammer context — prior downtrend into a named level</title>
+              <desc id="hs-ctx-d">Two legs down into a prior day low, then a hammer forms with a long lower wick at that level.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 20,30 L 55,55 L 90,40 L 125,75 L 160,60 L 195,100 L 230,85 L 265,130 L 300,110 L 335,150 L 370,135 L 405,165" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <line x1="10" y1="165" x2="540" y2="165" stroke="#eab308" stroke-width="1.8" stroke-dasharray="5 3"/>
+              <text x="20" y="158" fill="#eab308" font-size="10" font-weight="800">PDL — prior day low</text>
+              <text x="90" y="210" fill="#ef4444" font-size="10" font-weight="800">LEG DOWN 1</text>
+              <text x="260" y="210" fill="#ef4444" font-size="10" font-weight="800">LEG DOWN 2</text>
+              <line x1="430" y1="130" x2="430" y2="168" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="423" y="120" width="14" height="14" fill="#22c55e" stroke="#86efac" stroke-width="1.2"/>
+              <line x1="430" y1="134" x2="430" y2="180" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="450" y="140" fill="#86efac" font-size="10" font-weight="800">🔨 HAMMER</text>
+              <text x="450" y="152" fill="#cbd5e1" font-size="9">at PDL with</text>
+              <text x="450" y="162" fill="#cbd5e1" font-size="9">long lower wick</text>
+            </svg>
+            <figcaption>A valid hammer needs <strong>prior trend</strong> + <strong>named level</strong> + <strong>credible wick length</strong>. Miss any of those and the candle is just a candle.</figcaption>
+          </figure>
+          <div class="check-row">
+            <input type="checkbox" id="hs-ctx-1" class="gate" data-side="hammer" data-gate="1">
+            <label for="hs-ctx-1">Prior trend present — hammer needs ≥2 legs down, shooting star needs ≥2 legs up
+              <span class="hint">Trend first, signal second.</span>
+              <span class="explain"><strong>What this means</strong>
+                A "leg" = a sustained move of 3+ bars in one direction before a meaningful pause. Two legs down = the market has been genuinely selling for at least 10–15 minutes. A hammer in the middle of a flat range is just a bar with a long wick — nothing to reverse. You can't "reverse" a market that wasn't going anywhere. Without the preceding trend, the rejection has no story.
+              </span>
+            </label>
           </div>
-          <div class="data-block">
-            <div class="dlabel">At a known level</div>
-            <div class="dvalue">PDH/PDL, ORH/ORL, VWAP, prior swing, round number.</div>
-            <span class="explain"><strong>What this means</strong>
-              Rejection at a random price ≠ a trade. Rejection at PDL with a hammer = a trade. Institutions defend the levels everyone can see. Candles at those levels tell you they just showed up.
-            </span>
+          <div class="check-row">
+            <input type="checkbox" id="hs-ctx-2" class="gate" data-side="hammer" data-gate="1">
+            <label for="hs-ctx-2">Rejection is happening AT a named level (PDH/PDL/ORH/ORL/VWAP/prior swing/round number)
+              <span class="hint">Institutions defend levels everyone can see.</span>
+              <span class="explain"><strong>What this means</strong>
+                "Named level" = a price that every serious trader is already watching. PDH/PDL = yesterday's high/low (intraday targets for all). ORH/ORL = opening range high/low — the first 30 min of the session, used as a day's pivot. VWAP = volume-weighted average price, the fair-value line. Prior swing = a prior bar's high or low that stopped the market before. Round numbers (2300 on M2K, 6000 on MES) = psychological magnets. A hammer at a random price is just wick noise. A hammer at PDL is <em>institutions defending a known level</em>. That distinction is 90% of the edge.
+              </span>
+            </label>
           </div>
-          <div class="data-block">
-            <div class="dlabel">Wick length credible</div>
-            <div class="dvalue">On MES the wick should be at least <strong>2 points</strong>, on MNQ at least <strong>3 points</strong>, on M2K at least <strong>1.0 point</strong>.</div>
-            <span class="explain"><strong>What this means</strong>
-              Tiny wicks don't carry enough narrative. A 0.25-point "wick" on MES is noise, not rejection. The wick must look visually significant on the chart.
-            </span>
+          <div class="check-row">
+            <input type="checkbox" id="hs-ctx-3" class="gate" data-side="hammer" data-gate="1">
+            <label for="hs-ctx-3">Wick length is credible (MES ≥2 pts · MNQ ≥3 pts · M2K ≥1.0 pt · ES ≥2 pts · NQ ≥4 pts · RTY ≥1.0 pt)
+              <span class="hint">Tiny wicks don't carry enough narrative.</span>
+              <span class="explain"><strong>What this means</strong>
+                The wick length = the distance from the body's low to the bar's absolute low (for a hammer). That distance is literally <em>how far price traveled down before buyers rejected it</em>. A 0.25-point wick on MES is the market taking a breath — not a rejection. A 3-point wick on MES means buyers fought back against a meaningful push. The minimums above are tuned to each instrument's noise floor. If the wick is smaller than the threshold, it doesn't matter how textbook the shape looks — it's not a hammer, it's noise.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" id="hs-ctx-4" class="gate" data-side="hammer" data-gate="1">
+            <label for="hs-ctx-4">No scheduled macro event within 30 minutes (CPI, FOMC, NFP, PCE, PPI)
+              <span class="hint">News candles create fake hammers and stars.</span>
+              <span class="explain"><strong>What this means</strong>
+                Around scheduled macro releases, the market makes violent, non-informative moves. A "hammer" that forms 4 minutes after a CPI print isn't buyer defense — it's a liquidity vacuum being filled. The wick is real, but the story isn't "buyers stepping in at support." It's "thin books got swept both ways and landed somewhere." Skip all candle patterns in the 30-minute window around named releases, no matter how pretty they look.
+              </span>
+            </label>
           </div>
         </div>
 
         <!-- SECTION 3 · Setup Quality Score -->
         <div class="section">
-          <div class="section-label">3 · Setup Quality Score (0–5) <span>Score before you enter</span></div>
-          <div class="method-block">
-            <div class="method-title">Five criteria · each worth 1 point</div>
-            <ul>
-              <li class="pro"><strong>1 · Prior trend of ≥2 legs</strong> in the correct direction.</li>
-              <li class="pro"><strong>2 · Rejection at a named level</strong> (PDH/PDL/ORH/ORL/VWAP/round #).</li>
-              <li class="pro"><strong>3 · Wick ≥ 2× body length</strong> — the classic proportion rule.</li>
-              <li class="pro"><strong>4 · Volume on the hammer/star ≥ 1.5× recent average</strong> — real capitulation/exhaustion leaves a volume spike.</li>
-              <li class="pro"><strong>5 · Stochastics divergence</strong> — bullish divergence on hammer (stoch higher low, price lower low), bearish divergence on star.</li>
-            </ul>
+          <div class="section-label">3 · Setup Quality Score <span>0–5 · score before you enter</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="hs-qs-t hs-qs-d">
+              <title id="hs-qs-t">Hammer quality criteria — wick, volume, divergence</title>
+              <desc id="hs-qs-d">Hammer at PDL with a volume spike underneath and stochastics divergence making a higher low.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 20,30 L 55,55 L 90,70 L 125,95 L 160,85 L 195,115 L 230,100 L 265,140 L 300,120 L 335,155 L 370,130" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <line x1="10" y1="155" x2="540" y2="155" stroke="#eab308" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="20" y="148" fill="#eab308" font-size="9" font-weight="800">PDL</text>
+              <line x1="370" y1="110" x2="370" y2="140" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="363" y="115" width="14" height="12" fill="#22c55e" stroke="#86efac"/>
+              <line x1="370" y1="127" x2="370" y2="165" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="395" y="125" fill="#86efac" font-size="10" font-weight="800">🔨 HAMMER</text>
+              <rect x="260" y="175" width="10" height="22" fill="#ef4444" fill-opacity=".6"/>
+              <rect x="275" y="180" width="10" height="17" fill="#ef4444" fill-opacity=".6"/>
+              <rect x="290" y="175" width="10" height="22" fill="#ef4444" fill-opacity=".6"/>
+              <rect x="360" y="160" width="10" height="37" fill="#22c55e" fill-opacity=".9"/>
+              <text x="365" y="212" text-anchor="middle" fill="#86efac" font-size="9" font-weight="800">↑ VOL SPIKE</text>
+              <text x="280" y="212" text-anchor="middle" fill="#cbd5e1" font-size="9">avg vol</text>
+              <path d="M 265 60 Q 320 45 370 50" stroke="#14b8a6" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+              <circle cx="265" cy="60" r="4" fill="#14b8a6"/>
+              <circle cx="370" cy="50" r="4" fill="#14b8a6"/>
+              <text x="475" y="45" fill="#14b8a6" font-size="9" font-weight="800">Stoch higher low</text>
+              <text x="475" y="56" fill="#14b8a6" font-size="9" font-weight="800">= bullish divergence</text>
+            </svg>
+            <figcaption>A-grade hammer stack: price at PDL, wick ≥ 2× body, volume spike on the bar, stochastics making a higher low while price made a lower low. Five criteria below.</figcaption>
+          </figure>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="hammer" data-gate="2">
+            <label>Prior trend of ≥2 legs in the correct direction
+              <span class="hint">Without a trend, there's no reversal to trade.</span>
+              <span class="explain"><strong>What this means</strong>
+                Same as the Context Gate requirement, but here we <em>count</em> it toward quality. The stronger and more obvious the prior trend, the more exhausted the current side is, and the bigger the pool of traders who will flip once rejection shows up. Three legs down beats two; two legs down beats one.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="hammer" data-gate="2">
+            <label>Rejection at a named level (PDH/PDL/ORH/ORL/VWAP/round #/prior swing)
+              <span class="hint">Random-price rejection ≠ setup. Level-based rejection = setup.</span>
+              <span class="explain"><strong>What this means</strong>
+                A hammer is a clue that buyers defended <em>something</em>. The named level tells you <em>what</em> they defended and <em>why</em> others will join them. Rejection at PDL is traders saying "yesterday's floor still holds." Rejection at VWAP is institutions rebalancing toward the day's fair price. Every named level comes with a built-in story. Random-price rejection has no story, no story = no follow-through.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="hammer" data-gate="2">
+            <label>Wick ≥ 2× body length (A-grade: ≥ 3× body)
+              <span class="hint">Longer wick = louder rejection story.</span>
+              <span class="explain"><strong>What this means</strong>
+                Wick = rejection distance. Body = commitment distance. When wick is 2× body, the losing side traveled twice as far as the winning side ended up closing — that's a real fight. When wick is 3×+ body, it was a rout. On a 2-min MES chart, a 4-point wick with a 1-point body is the kind of hammer that precedes a reliable 5–10 point bounce. A 2-point wick with a 2-point body is a dragonfly — it's not even a hammer, skip it.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="hammer" data-gate="2">
+            <label>Volume on the hammer/star ≥ 1.5× recent bar average
+              <span class="hint">Real capitulation leaves a volume fingerprint.</span>
+              <span class="explain"><strong>What this means</strong>
+                Volume = contracts traded per bar. A hammer formed on average volume is suspicious — it means nobody was fighting. A hammer formed on 1.5×–2× average volume means both sides showed up in force and the winning side dominated the final minute. "Recent bar average" = eyeball the last 10–15 bars' volume heights. The hammer's bar should stick up noticeably taller than that. No spike = no conviction = no trade.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="hammer" data-gate="2">
+            <label>Stochastics divergence on the hammer/star bar
+              <span class="hint">Momentum stronger than price = reversal fuel.</span>
+              <span class="explain"><strong>What this means</strong>
+                Stochastics (settings 5,3,3 for 2-min) = a 0–100 momentum oscillator shown below your price chart. Bullish divergence on a hammer = price made a new low (or equal low) but stochastics printed a <em>higher</em> low than at the prior bottom. Translation: price looks as weak as before, but the selling force underneath is dying. Divergences are the earliest tell that a trend is losing fuel — often visible before any price reversal starts. A hammer with divergence is the early warning plus the trigger, stacked.
+              </span>
+            </label>
+          </div>
+          <div class="score-box">
+            <div>
+              <div class="score-label">Score</div>
+              <div class="score-value"><span id="score-hammer">0</span><span class="denom">/5</span></div>
+            </div>
+            <div class="score-verdict" id="verdict-hammer">WAIT</div>
           </div>
           <div class="data-block">
             <div class="dlabel">How to use the score</div>
-            <div class="dvalue"><strong>4–5 = A-grade setup, size up.</strong> &nbsp;·&nbsp; <strong>3 = take it with reduced size.</strong> &nbsp;·&nbsp; <strong>0–2 = skip.</strong></div>
+            <div class="dvalue"><strong>4–5 = A-grade · size up.</strong> &nbsp;·&nbsp; <strong>3 = B-grade · reduced size.</strong> &nbsp;·&nbsp; <strong>0–2 = skip.</strong></div>
+            <span class="explain"><strong>What this means</strong>
+              The score is not decoration — it's the single filter between you and a losing trade. Every hammer on the screen looks tradeable. Only the ones scoring 4–5 actually are. Being honest with yourself at the score stage is the difference between 58% win rate and 67% win rate.
+            </span>
           </div>
         </div>
 
         <!-- SECTION 4 · Entry Trigger -->
         <div class="section">
           <div class="section-label">4 · Entry Trigger <span>Recommended + Expert Backup</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="hs-entry-t hs-entry-d">
+              <title id="hs-entry-t">Hammer entry trigger — confirmation candle close above high</title>
+              <desc id="hs-entry-d">Hammer followed by a confirmation green candle that closes above the hammer's high, with entry at the open of the next bar.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 20,40 L 55,60 L 90,80 L 125,105 L 160,130" stroke="#ef4444" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <line x1="200" y1="90" x2="200" y2="130" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="193" y="95" width="14" height="12" fill="#22c55e" stroke="#86efac"/>
+              <line x1="200" y1="107" x2="200" y2="160" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="200" y="180" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">🔨 HAMMER</text>
+              <line x1="230" y1="88" x2="540" y2="88" stroke="#eab308" stroke-width="1.8" stroke-dasharray="4 3"/>
+              <text x="545" y="86" text-anchor="end" fill="#eab308" font-size="9" font-weight="800">hammer's high — the line to break</text>
+              <line x1="280" y1="70" x2="280" y2="105" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="273" y="70" width="14" height="30" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <text x="280" y="125" text-anchor="middle" fill="#86efac" font-size="9" font-weight="800">CONFIRM ✓</text>
+              <text x="280" y="138" text-anchor="middle" fill="#cbd5e1" font-size="8">closes above line</text>
+              <circle cx="330" cy="65" r="6" fill="#14b8a6" stroke="#fff" stroke-width="1.5"/>
+              <text x="345" y="60" fill="#14b8a6" font-size="10" font-weight="800">ENTRY</text>
+              <text x="345" y="72" fill="#cbd5e1" font-size="8">open of next bar</text>
+              <path d="M 330,65 L 480,45" stroke="#86efac" stroke-width="2" fill="none"/>
+            </svg>
+            <figcaption>Trigger sequence: hammer prints → next bar's close is above the hammer's high → enter at the open of the bar after that. No wick-break entries. Closes are committed money.</figcaption>
+          </figure>
           <div class="you-recommend-callout">
             <span class="recommend-label">Recommended entry</span>
             <div class="recommend-body">
               <strong>Wait for the next 2-min candle to close above the hammer's high</strong> (for long) or <strong>below the shooting star's low</strong> (for short), then enter at the open of the bar after that confirmation close.
             </div>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="entry" data-side="hammer">
+            <label>Confirmation bar fully closed — body above hammer high (or below star low), not just a wick
+              <span class="hint">Wicks lie. Closes tell the truth.</span>
+              <span class="explain"><strong>What this means</strong>
+                "Fully closed" means the 2-minute bar is complete, not still forming. A bar's body is its open-to-close range; its wick is the excursion outside that body. You want the body's top (for longs) to sit above the hammer's high. A wick-only break is a bar that spiked through the high mid-minute but snapped back before the close — buyers couldn't hold it. That's a failed test, not a confirmation. Watch the clock at the bottom of the bar — wait the full two minutes before doing anything.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="entry" data-side="hammer">
+            <label>Entering at the OPEN of the bar after the confirmation bar (not chasing mid-bar)
+              <span class="hint">Discipline beats chasing.</span>
+              <span class="explain"><strong>What this means</strong>
+                The bar that confirmed is already done — don't try to pile in on the next bar's second or third tick hoping it dips. Enter at the open (the first tick) of the next bar. If the market is already running hard in your direction and you missed the open, skip it — chasing kills your R:R. A missed hammer is fine. A chased hammer is a loss.
+              </span>
+            </label>
           </div>
           <div class="method-block">
             <div class="method-title">Why the close, not the touch</div>
@@ -6144,12 +6325,40 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 5 · Stop Placement -->
         <div class="section">
-          <div class="section-label">5 · Stop Placement <span class="gate-required">THE UPDATED RULE — points, not ticks</span></div>
+          <div class="section-label">5 · Stop &amp; Target <span class="gate-required">Points, not ticks · R:R ≥ 2:1</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 240" role="img" aria-labelledby="hs-stop-t hs-stop-d">
+              <title id="hs-stop-t">Hammer stop placement with risk and reward zones</title>
+              <desc id="hs-stop-d">Entry above hammer high with stop below the wick tip plus buffer, and measured-move target projected upward. Risk zone small, reward zone 2-3x larger.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 20,40 L 55,60 L 90,80 L 125,105 L 160,130" stroke="#ef4444" stroke-width="2" fill="none"/>
+              <line x1="200" y1="90" x2="200" y2="130" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="193" y="95" width="14" height="12" fill="#22c55e" stroke="#86efac"/>
+              <line x1="200" y1="107" x2="200" y2="175" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="200" y="197" text-anchor="middle" fill="#86efac" font-size="9" font-weight="800">🔨 hammer</text>
+              <line x1="260" y1="70" x2="260" y2="105" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="253" y="70" width="14" height="30" fill="#22c55e" stroke="#86efac" stroke-width="1.2"/>
+              <text x="260" y="125" text-anchor="middle" fill="#86efac" font-size="9">confirm</text>
+              <line x1="10" y1="67" x2="540" y2="67" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="63" fill="#14b8a6" font-size="9" font-weight="800">ENTRY</text>
+              <line x1="10" y1="185" x2="540" y2="185" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="198" fill="#ef4444" font-size="9" font-weight="800">STOP — wick tip + buffer</text>
+              <line x1="10" y1="12" x2="540" y2="12" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="9" fill="#22c55e" font-size="9" font-weight="800">T1 · T2 · T3 zone (2–3R)</text>
+              <rect x="450" y="67" width="50" height="118" fill="#ef4444" fill-opacity=".18" stroke="#ef4444" stroke-opacity=".6"/>
+              <text x="475" y="130" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">RISK</text>
+              <text x="475" y="144" text-anchor="middle" fill="#fca5a5" font-size="9">1R</text>
+              <rect x="510" y="12" width="40" height="55" fill="#22c55e" fill-opacity=".18" stroke="#22c55e" stroke-opacity=".6"/>
+              <text x="530" y="37" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">REWARD</text>
+              <text x="530" y="51" text-anchor="middle" fill="#86efac" font-size="9">2.5R</text>
+            </svg>
+            <figcaption>Stop = just below the hammer's wick tip + the instrument's point buffer. Target = ≥ 2× the stop distance, projected up. If the math doesn't give you 2:1 before you click, don't click.</figcaption>
+          </figure>
           <div class="prose-block">
             <p>Stop goes <strong>just below the hammer's wick tip</strong> (for longs) or <strong>just above the shooting star's wick tip</strong> (for shorts). The wick tip IS the invalidation — if price trades back down to and through the wick tip, the rejection failed and there's no thesis left.</p>
           </div>
           <div class="data-block">
-            <div class="dlabel">Buffer below the wick tip (by instrument · points, not ticks)</div>
+            <div class="dlabel">Buffer below the wick tip — by instrument (points, not ticks)</div>
             <div class="dvalue">
               · MES: <strong>1.0 pt</strong> below the wick tip<br>
               · MNQ: <strong>1.5 pt</strong> below (noisier)<br>
@@ -6159,46 +6368,116 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               · RTY: <strong>0.4 pt</strong> below
             </div>
             <span class="explain"><strong>What this means</strong>
-              The old conventional wisdom says "3 ticks below." Throw that away. On MES 3 ticks is 0.75 points — too tight for normal 2-min wick-noise on a volatile instrument. On M2K 3 ticks is only 0.30 points — also too tight. The point-based buffers above are tuned to each instrument's actual noise floor.
+              The old conventional wisdom says "3 ticks below." Throw that away. On MES 3 ticks is 0.75 points — too tight for normal 2-min wick-noise on a volatile instrument. On M2K 3 ticks is only 0.30 points — also too tight. The point-based buffers above are tuned to each instrument's actual noise floor. A properly placed stop gets hit only when the pattern <em>actually</em> failed, not because of a 2-tick wick poke.
             </span>
           </div>
           <div class="data-block" style="border-left-color:#eab308">
             <div class="dlabel">⚠ Critical pre-trade filter — the wick-length test</div>
             <div class="dvalue">
-              Before taking any hammer/star, calculate: <strong>(distance from entry to stop) vs (distance from entry to nearest logical target)</strong>. If (target distance) ÷ (stop distance) &lt; 2, <strong>skip the trade</strong>.
+              Before taking any hammer/star, calculate: <strong>(distance from entry to nearest logical target) ÷ (distance from entry to stop)</strong>. If that ratio &lt; 2, <strong>skip the trade</strong>.
             </div>
             <span class="explain"><strong>Why this matters</strong>
-              A textbook hammer with a 12-point wick into a 5-point-away resistance is a bad trade even though the pattern is pretty. The wick length <em>is</em> the risk. Do the math before you click.
+              A textbook hammer with a 12-point wick into a 5-point-away resistance is a bad trade even though the pattern is pretty. The wick length <em>is</em> the risk. Do the math before you click. This is the single filter that keeps beautiful losing trades off your account.
             </span>
+          </div>
+          <!-- TIGHT STOP VARIANT -->
+          <div class="method-block" style="border-left:4px solid #c4b5fd;padding-left:12px;margin-top:14px;">
+            <div class="method-title" style="color:#c4b5fd">Tight-Stop Variant <span class="expert-backup-label">For A-grade hammers with 4× wick</span></div>
+            <ul>
+              <li><strong>What:</strong> Instead of placing the stop below the wick tip, place it at the <em>hammer's body midpoint</em> + the instrument's buffer.</li>
+              <li class="pro"><strong>Why:</strong> When the wick is 4×+ the body length, the whole wick distance is insurance you don't need — if price even returns to the body, the rejection is already failing. A midpoint-body stop cuts risk roughly in half, doubling effective R:R.</li>
+              <li class="con"><strong>Trade-off:</strong> Higher stop-out rate (~15–20% more) because normal 2-min noise can clip the midpoint on a healthy trade.</li>
+              <li class="who"><strong>When to use:</strong> ONLY with A-grade setups (score 4–5), wick ≥ 4× body, and an obvious momentum follow-through expected. Never on B-grade setups.</li>
+            </ul>
           </div>
         </div>
 
         <!-- SECTION 6 · Target Management -->
         <div class="section">
-          <div class="section-label">6 · Target Management <span>Scale out in thirds</span></div>
+          <div class="section-label">6 · Target Management <span>Scale out in thirds · BE after T1</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="hs-tgt-t hs-tgt-d">
+              <title id="hs-tgt-t">Hammer scale-out at 1.5R, 2.5R, and runner</title>
+              <desc id="hs-tgt-d">Entry above hammer, stop below wick, three target levels — T1 at 1.5R, T2 at 2.5R, T3 trailing runner.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="95" x2="560" y2="95"/><line x1="0" y1="150" x2="560" y2="150"/></g>
+              <line x1="100" y1="150" x2="100" y2="175" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="93" y="155" width="14" height="12" fill="#22c55e" stroke="#86efac"/>
+              <line x1="100" y1="167" x2="100" y2="200" stroke="#cbd5e1" stroke-width="1.5"/>
+              <circle cx="140" cy="140" r="5" fill="#14b8a6"/><text x="155" y="145" fill="#14b8a6" font-size="9" font-weight="800">ENTRY</text>
+              <path d="M 140,140 L 260,120 L 380,75 L 500,30" stroke="#86efac" stroke-width="2" fill="none"/>
+              <line x1="30" y1="200" x2="540" y2="200" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <text x="35" y="212" fill="#ef4444" font-size="9" font-weight="800">STOP (1R below entry)</text>
+              <line x1="30" y1="115" x2="540" y2="115" stroke="#22c55e" stroke-opacity=".6" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <circle cx="260" cy="120" r="6" fill="#22c55e"/>
+              <text x="275" y="118" fill="#86efac" font-size="10" font-weight="800">T1 · 50% @ 1.5R</text>
+              <text x="275" y="130" fill="#cbd5e1" font-size="8">→ move stop to BE</text>
+              <line x1="30" y1="70" x2="540" y2="70" stroke="#22c55e" stroke-opacity=".6" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <circle cx="380" cy="75" r="6" fill="#22c55e"/>
+              <text x="395" y="73" fill="#86efac" font-size="10" font-weight="800">T2 · 25% @ 2.5R</text>
+              <circle cx="500" cy="30" r="6" fill="#14b8a6"/>
+              <text x="510" y="30" text-anchor="end" fill="#14b8a6" font-size="10" font-weight="800">T3 · 25% RUNNER</text>
+              <text x="510" y="42" text-anchor="end" fill="#cbd5e1" font-size="8">trail 2-min swings</text>
+            </svg>
+            <figcaption>Three-tier scale-out. T1 pays for the trade and de-risks. T2 is the bulk profit. T3 is the upside surprise. Never bet the whole size on one target.</figcaption>
+          </figure>
           <div class="data-block">
             <div class="dlabel">T1 · 50% scale at 1.5R</div>
-            <div class="dvalue">Move stop to break-even after T1. You are now risk-free on the remaining runners.</div>
+            <div class="dvalue">Move stop to <strong>break-even</strong> after T1. You are now risk-free on the remaining runners. This is the single most important exit rule in the playbook.</div>
+            <span class="explain"><strong>What this means</strong>
+              "1.5R" means 1.5 times your original stop distance in your favor. If your stop was 2 points away, T1 is 3 points above entry. Scaling 50% off here covers a portion of your theoretical max profit early and locks in emotional certainty that this trade is no longer a loser. Moving the stop to break-even then removes downside entirely — the remaining 50% rides for free.
+            </span>
           </div>
           <div class="data-block">
-            <div class="dlabel">T2 · 25% scale at 2.5R or next visible level</div>
-            <div class="dvalue">Whichever comes first.</div>
+            <div class="dlabel">T2 · 25% scale at 2.5R (or next visible level)</div>
+            <div class="dvalue">Whichever comes first. "Next visible level" = PDH/PDL, VWAP on the opposite side, prior swing, round number. If a known level sits between 1.5R and 2.5R, take T2 there — never let a good target pass expecting a better one.</div>
           </div>
           <div class="data-block">
             <div class="dlabel">T3 · 25% runner</div>
-            <div class="dvalue">Trail behind 2-min swing points. Exit on close through trailing stop.</div>
+            <div class="dvalue">Trail behind 2-min swing points. Exit on close through the trailing stop. This is the ticket that occasionally doubles the trade's profit when follow-through is unusually strong.</div>
           </div>
           <div class="data-block" style="border-left-color:#eab308">
-            <div class="dlabel">Time stop · 3 candles (6 min)</div>
-            <div class="dvalue">If price hasn't moved ≥1R in your favor within 3 candles of entry, exit at scratch. A real hammer/star breakout should show follow-through quickly.</div>
+            <div class="dlabel">⏱ Time stop · 3 candles (6 min)</div>
+            <div class="dvalue">If price hasn't moved ≥1R in your favor within 3 candles of entry, exit at scratch. A real hammer/star breakout should show follow-through quickly — if it's still hanging around entry after 6 minutes, the bounce wasn't real.</div>
+            <span class="explain"><strong>Why time matters on single-candle patterns</strong>
+              Hammers/stars are supposed to produce immediate follow-through because they are pure momentum signals. If six minutes pass and the move hasn't materialized, the market has already told you the pattern didn't take. Exiting at scratch is free — eating a full stop-out when momentum died is not.
+            </span>
           </div>
         </div>
 
         <!-- SECTION 7 · Bust / Failure -->
         <div class="section">
-          <div class="section-label">7 · Bust / Failure <span>When it doesn't work</span></div>
+          <div class="section-label">7 · Bust / Failure <span>Invalidation and the flip option</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="hs-bust-t hs-bust-d">
+              <title id="hs-bust-t">Failed hammer with close back below wick tip</title>
+              <desc id="hs-bust-d">Hammer forms at support, confirmation attempt fails, price closes back below the hammer's wick tip — pattern invalidated, flip-short opportunity.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <line x1="100" y1="85" x2="100" y2="115" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="93" y="90" width="14" height="10" fill="#22c55e" stroke="#86efac"/>
+              <line x1="100" y1="100" x2="100" y2="158" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="100" y="180" text-anchor="middle" fill="#86efac" font-size="9" font-weight="800">🔨 hammer</text>
+              <line x1="10" y1="158" x2="540" y2="158" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="4 3"/>
+              <text x="15" y="152" fill="#ef4444" font-size="9" font-weight="800">wick tip</text>
+              <line x1="160" y1="95" x2="160" y2="140" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="153" y="120" width="14" height="20" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="220" y1="135" x2="220" y2="170" stroke="#cbd5e1" stroke-width="1.5"/>
+              <rect x="213" y="145" width="14" height="22" fill="#ef4444" stroke="#fca5a5"/>
+              <text x="225" y="190" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="800">CLOSE BELOW WICK ✗</text>
+              <path d="M 230,167 L 380,175 L 510,185" stroke="#ef4444" stroke-width="2" fill="none"/>
+              <circle cx="510" cy="185" r="5" fill="#ef4444"/>
+              <text x="520" y="188" text-anchor="end" fill="#fca5a5" font-size="10" font-weight="800">FLIP — short</text>
+            </svg>
+            <figcaption>Failed hammer = close back past the wick tip within 2 candles. Now you have edge in the <em>opposite</em> direction — a failed bullish reversal often becomes a short setup, because trapped longs have to unwind.</figcaption>
+          </figure>
           <div class="prose-block">
             <p>Invalidation = <strong>close back past the wick tip within 2 candles of entry</strong>. Bust follow-through is meaningful — consider a <em>flip</em> (short after failed hammer, long after failed shooting star) if there's a follow-up candle closing beyond the wick in the opposite direction, AND higher-timeframe context supports it.</p>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">The psychology of a flipped hammer</div>
+            <div class="dvalue">When a hammer forms, every observer assumes buyers just won. Stops collect below the wick tip. Longs pile in on the confirmation. When price then closes <em>back</em> below the wick, those longs are trapped — their stops fire, momentum accelerates downward, and you get a clean trend continuation. This is why failed reversals often produce the cleanest continuations.</div>
+            <span class="explain"><strong>How to trade the flip</strong>
+              Wait for the close back past the wick. Enter short at the open of the next bar. Stop at the high of the failed hammer. Target the prior swing low, or 2R — whichever comes first. Size <em>reduced</em> relative to the original setup — flips are secondary confirmations, not A-grade primaries.
+            </span>
           </div>
         </div>
 
@@ -6209,10 +6488,13 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="method-title">Skip the trade if ANY of these are true</div>
             <ul>
               <li class="con">Wick is less than 2× the body → not a real hammer/star, skip</li>
-              <li class="con">No prior trend → nothing to reverse, skip</li>
-              <li class="con">Random level → no institutional interest, no trap, skip</li>
-              <li class="con">News candle (CPI, FOMC, NFP, PCE within 30 min) → random volatility, skip</li>
-              <li class="con">R:R below 2:1 after stop placement → the math doesn't work, skip</li>
+              <li class="con">No prior trend (≥2 legs in the opposite direction) → nothing to reverse, skip</li>
+              <li class="con">Random price level (no PDH/PDL/ORH/ORL/VWAP/round # within 1R) → no institutional interest, skip</li>
+              <li class="con">News candle — CPI, FOMC, NFP, PCE, PPI within 30 minutes → random volatility, skip</li>
+              <li class="con">R:R below 2:1 after the point-based stop placement → the math doesn't work, skip</li>
+              <li class="con">Wick length below instrument minimum (MES 2 · MNQ 3 · M2K 1.0 · ES 2 · NQ 4 · RTY 1.0 pts) → noise, not signal, skip</li>
+              <li class="con">Volume on the hammer/star bar is <em>below</em> recent average → no conviction, skip</li>
+              <li class="con">Already hit daily limit (2 losses or 3 trades) → stop trading, not negotiable</li>
             </ul>
           </div>
         </div>
@@ -6314,10 +6596,37 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 1 · What It Is -->
         <div class="section">
-          <div class="section-label">1 · What an Engulfing Is <span>Two candles, committed takeover</span></div>
-          <div class="prose-block">
-            <p>A bullish engulfing is a two-candle formation:</p>
-          </div>
+          <div class="section-label">1 · What an Engulfing Is <span>Two candles · committed takeover</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="eng-anat-t eng-anat-d">
+              <title id="eng-anat-t">Engulfing anatomy — body size comparison</title>
+              <desc id="eng-anat-d">Three scenarios: barely-engulfing (invalid), 120% engulfing (valid), 150%+ engulfing (A-grade).</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="180" x2="560" y2="180"/></g>
+              <text x="280" y="20" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="800">Engulfing Body Ratio — the 120% rule</text>
+              <g transform="translate(30,0)">
+                <text x="70" y="50" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">INVALID (~100%)</text>
+                <rect x="55" y="100" width="14" height="40" fill="#ef4444" stroke="#fca5a5"/>
+                <rect x="75" y="95" width="14" height="45" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+                <text x="70" y="165" text-anchor="middle" fill="#fca5a5" font-size="9">barely covers</text>
+                <text x="70" y="180" text-anchor="middle" fill="#fca5a5" font-size="9">→ SKIP</text>
+              </g>
+              <g transform="translate(220,0)">
+                <text x="70" y="50" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="800">VALID (120%)</text>
+                <rect x="55" y="100" width="14" height="40" fill="#ef4444" stroke="#fca5a5"/>
+                <rect x="75" y="90" width="14" height="55" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+                <text x="70" y="165" text-anchor="middle" fill="#fde68a" font-size="9">1.2× prior body</text>
+                <text x="70" y="180" text-anchor="middle" fill="#fde68a" font-size="9">→ TRADE</text>
+              </g>
+              <g transform="translate(410,0)">
+                <text x="70" y="50" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">A-GRADE (≥150%)</text>
+                <rect x="55" y="100" width="14" height="40" fill="#ef4444" stroke="#fca5a5"/>
+                <rect x="75" y="80" width="14" height="70" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+                <text x="70" y="165" text-anchor="middle" fill="#86efac" font-size="9">1.5×+ prior body</text>
+                <text x="70" y="180" text-anchor="middle" fill="#86efac" font-size="9">→ SIZE UP</text>
+              </g>
+            </svg>
+            <figcaption>Body size is the decisive measurement. &lt;120% = marginal takeover, skip. 120–149% = valid engulfing. ≥150% = A-grade, size up.</figcaption>
+          </figure>
           <div class="data-block">
             <div class="dlabel">Bullish engulfing structure</div>
             <div class="dvalue">· <strong>Candle 1:</strong> red (any size — larger is cleaner)<br>· <strong>Candle 2:</strong> green, and its <strong>body</strong> (open-to-close) completely swallows candle 1's body from below open to above close.<br>· Wicks don't count for engulfing — <strong>only bodies</strong>.</div>
@@ -6329,121 +6638,379 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="data-block">
             <div class="dlabel">Why body, not wicks</div>
             <div class="dvalue">Bodies represent <strong>committed money</strong> — they're where most of the session's trading happened and where positions got accumulated. Wicks are test-and-rejected prices. An engulfing signal that's built on bodies tells you the new side is actually trading at sustained prices beyond where the old side could hold.</div>
-            <span class="explain"><strong>Bulkowski's reliability data</strong>
-              Bullish engulfing: 63% reversal rate (rank 22 of 103 — respectable). Bearish engulfing: lower rank in raw data because markets have upward bias. With confirmation close, support/resistance context, and volume expansion, practical scalping win rates land at ~62–66% bullish, ~58–62% bearish.
+            <span class="explain"><strong>The psychology of takeover</strong>
+              On candle 1, sellers pushed price to a new low with full conviction — the body is the evidence of how much they committed. On candle 2, buyers showed up and didn't just fight back — they pushed price <em>all the way through</em> the committed selling range and closed above where candle 1 began. That's not a defense, that's a rout. Every seller who opened a position during candle 1 is now trapped underwater by the close of candle 2. They'll have to cover, and that covering fuels follow-through.
+            </span>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">Bulkowski's reliability data</div>
+            <div class="dvalue">Bullish engulfing: 63% reversal rate (rank 22 of 103 candlestick patterns — respectable). Bearish engulfing: slightly lower raw rank because markets have long-term upward bias. With confirmation close, support/resistance context, and volume expansion, practical 2-min scalping win rates land at <strong>~62–66% bullish, ~58–62% bearish</strong>.</div>
+            <span class="explain"><strong>Why engulfing beats hammer</strong>
+              Hammers rely on one bar's worth of evidence. Engulfings rely on two bars of evidence AND require the second to override the first in both direction and magnitude. That extra requirement is a harder bar to clear — which is exactly why fewer pretty patterns make it through, and the ones that do have a higher conversion rate.
             </span>
           </div>
         </div>
 
         <!-- SECTION 2 · Context Gate -->
         <div class="section">
-          <div class="section-label">2 · Context Gate <span>ALL required</span></div>
-          <div class="data-block">
-            <div class="dlabel">Prior trend present</div>
-            <div class="dvalue">≥2 legs down for bullish engulfing · ≥2 legs up for bearish.</div>
+          <div class="section-label">2 · Context Gate <span class="gate-required">ALL required</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="eng-ctx-t eng-ctx-d">
+              <title id="eng-ctx-t">Engulfing context — prior trend into named level</title>
+              <desc id="eng-ctx-d">Downtrend with two legs down into VWAP, bullish engulfing forms at VWAP.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 20,30 L 55,60 L 90,45 L 125,80 L 160,65 L 195,105 L 230,90 L 265,135 L 300,115 L 335,160 L 370,140" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+              <line x1="10" y1="160" x2="540" y2="160" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="20" y="153" fill="#14b8a6" font-size="10" font-weight="800">VWAP — named level</text>
+              <text x="90" y="200" fill="#ef4444" font-size="10" font-weight="800">LEG DOWN 1</text>
+              <text x="260" y="200" fill="#ef4444" font-size="10" font-weight="800">LEG DOWN 2</text>
+              <line x1="400" y1="128" x2="400" y2="158" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="393" y="130" width="14" height="25" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="430" y1="105" x2="430" y2="162" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="423" y="108" width="14" height="45" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <text x="445" y="128" fill="#86efac" font-size="10" font-weight="800">🫂 ENGULF at VWAP</text>
+              <text x="445" y="142" fill="#86efac" font-size="9">body 150% of prior</text>
+            </svg>
+            <figcaption>Bullish engulfing requires: prior 2-leg downtrend, location at a named level (VWAP shown here), and engulfing body ≥120% of the prior body.</figcaption>
+          </figure>
+          <div class="check-row">
+            <input type="checkbox" id="eng-ctx-1" class="gate" data-side="engulfing" data-gate="1">
+            <label for="eng-ctx-1">Prior trend present — ≥2 legs down for bullish engulfing, ≥2 legs up for bearish
+              <span class="hint">No trend = no reversal to trade.</span>
+              <span class="explain"><strong>What this means</strong>
+                Like hammers, engulfings are reversal patterns — they require something to reverse. "Two legs" means two sustained multi-bar moves in one direction with a pause between them. If price has been chopping sideways, a green bar engulfing a red bar is just normal range-bar noise, not a signal of anything changing. Engulfings only "mean" something when they interrupt an established move.
+              </span>
+            </label>
           </div>
-          <div class="data-block">
-            <div class="dlabel">At a known level</div>
-            <div class="dvalue">PDH/PDL/ORH/ORL/VWAP/round #.</div>
+          <div class="check-row">
+            <input type="checkbox" id="eng-ctx-2" class="gate" data-side="engulfing" data-gate="1">
+            <label for="eng-ctx-2">At a named level — PDH/PDL/ORH/ORL/VWAP/prior swing/round number
+              <span class="hint">Location gives the engulfing its story.</span>
+              <span class="explain"><strong>What this means</strong>
+                An engulfing at a random price is a two-bar event with no narrative backing. An engulfing at PDL or VWAP is the same two-bar event plus the knowledge that institutions, funds, and every serious retail trader is watching that exact line. Their reaction to the engulfing becomes part of the follow-through. Location is not "nice to have" — it is 60% of whether the pattern works.
+              </span>
+            </label>
           </div>
-          <div class="data-block">
-            <div class="dlabel">Engulfing body ≥ 120% of prior body</div>
-            <div class="dvalue">No "barely engulfing" half-signals. Body size matters.</div>
-            <span class="explain"><strong>What this means</strong>
-              A green body that just barely covers the prior red body doesn't prove overwhelming takeover — it proves marginal takeover. Demand 120%+ for a real signal, 150%+ for an A-grade setup.
-            </span>
+          <div class="check-row">
+            <input type="checkbox" id="eng-ctx-3" class="gate" data-side="engulfing" data-gate="1">
+            <label for="eng-ctx-3">Engulfing body ≥ 120% of the prior body (ideally ≥150%)
+              <span class="hint">Barely-engulfing = barely trading.</span>
+              <span class="explain"><strong>What this means</strong>
+                Measure the body length (open-to-close, not wick-to-wick) of candle 1. The engulfing candle 2's body must be at least 1.2× that length. 120% is the minimum — below that, the "takeover" is marginal and follow-through tends to fizzle. 150%+ means the new side didn't just edge past the old side, they overwhelmed them. Those are the setups that produce clean trend initiations.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" id="eng-ctx-4" class="gate" data-side="engulfing" data-gate="1">
+            <label for="eng-ctx-4">Not in the 30-minute macro-release window
+              <span class="hint">News-driven engulfings don't follow through.</span>
+              <span class="explain"><strong>What this means</strong>
+                A giant green bar after a CPI surprise isn't committed buying — it's algorithms unwinding short liquidity in milliseconds. The "body" is a mechanical artifact, not a story. These bars often reverse within minutes as the real positioning plays out. Skip every engulfing within 30 min of scheduled releases, even if it looks perfect.
+              </span>
+            </label>
           </div>
         </div>
 
         <!-- SECTION 3 · Setup Quality Score -->
         <div class="section">
-          <div class="section-label">3 · Setup Quality Score (0–5)</div>
-          <div class="method-block">
-            <div class="method-title">Five criteria · each worth 1 point</div>
-            <ul>
-              <li class="pro"><strong>1 · Prior trend of ≥2 legs</strong></li>
-              <li class="pro"><strong>2 · Location is a named level</strong></li>
-              <li class="pro"><strong>3 · Engulfing body ≥ 120% of prior body</strong> (ideally 150%+)</li>
-              <li class="pro"><strong>4 · Volume on engulfing bar ≥ 1.5× recent average</strong></li>
-              <li class="pro"><strong>5 · Stochastics divergence</strong></li>
-            </ul>
+          <div class="section-label">3 · Setup Quality Score <span>0–5 · score before you enter</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="eng-qs-t eng-qs-d">
+              <title id="eng-qs-t">Engulfing quality — volume and divergence stack</title>
+              <desc id="eng-qs-d">Bullish engulfing at a named level with a big volume spike on the engulfing bar and stochastics divergence above.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 20,35 L 60,55 L 100,75 L 140,100 L 180,120 L 220,145 L 260,160" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+              <line x1="10" y1="160" x2="540" y2="160" stroke="#eab308" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="20" y="153" fill="#eab308" font-size="9" font-weight="800">PDL</text>
+              <line x1="300" y1="130" x2="300" y2="162" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="293" y="132" width="14" height="25" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="340" y1="105" x2="340" y2="165" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="333" y="108" width="14" height="50" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <text x="355" y="130" fill="#86efac" font-size="10" font-weight="800">🫂 150% engulf</text>
+              <rect x="200" y="180" width="10" height="14" fill="#ef4444" fill-opacity=".5"/>
+              <rect x="215" y="178" width="10" height="16" fill="#ef4444" fill-opacity=".5"/>
+              <rect x="230" y="180" width="10" height="14" fill="#ef4444" fill-opacity=".5"/>
+              <rect x="290" y="180" width="10" height="14" fill="#ef4444" fill-opacity=".7"/>
+              <rect x="333" y="162" width="14" height="32" fill="#22c55e" fill-opacity=".9"/>
+              <text x="340" y="210" text-anchor="middle" fill="#86efac" font-size="9" font-weight="800">↑ VOL 2×</text>
+              <path d="M 260 60 Q 305 45 340 50" stroke="#14b8a6" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+              <circle cx="260" cy="60" r="4" fill="#14b8a6"/>
+              <circle cx="340" cy="50" r="4" fill="#14b8a6"/>
+              <text x="450" y="50" fill="#14b8a6" font-size="9" font-weight="800">Stoch divergence</text>
+            </svg>
+            <figcaption>A-grade engulfing stack: named level + 150% body + volume spike + divergence. Any four of these five together = the highest-conviction setup in the book.</figcaption>
+          </figure>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="engulfing" data-gate="2">
+            <label>Prior trend of ≥2 legs in the correct direction
+              <span class="hint">More trend = more trapped traders = more fuel.</span>
+              <span class="explain"><strong>What this means</strong>
+                Same rule as context gate — and counted again here because the depth of the prior trend scales directly with how much latent energy sits in the reversal. A 2-leg downtrend with ~10 bars of selling is enough. A 3-leg drop with 20 bars of selling is an even stronger setup, because more shorts got on board and more of them are about to cover.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="engulfing" data-gate="2">
+            <label>Location is a named level (PDH/PDL/ORH/ORL/VWAP/round #/prior swing)
+              <span class="hint">No location, no story, no trade.</span>
+              <span class="explain"><strong>What this means</strong>
+                The named level is the reason the engulfing "matters" to anyone but you. Institutions, algos, and professional traders all watch the same named levels. When the engulfing occurs <em>at</em> one of those levels, a whole layer of participants reacts to it immediately — buying pressure builds from multiple sources, not just your click.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="engulfing" data-gate="2">
+            <label>Engulfing body ≥ 150% of prior body (not just 120%)
+              <span class="hint">150%+ = rout, not skirmish.</span>
+              <span class="explain"><strong>What this means</strong>
+                120% is the minimum to qualify as "engulfing." 150% is the threshold that distinguishes a strong takeover from a marginal one. A 150%+ engulfing bar tells you the new side's commitment was overwhelming, not just enough. These are the bars that start 8–15 point moves on MES, not 3-point wobbles.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="engulfing" data-gate="2">
+            <label>Volume on the engulfing bar ≥ 1.5× recent bar average (ideally 2×+)
+              <span class="hint">Big body + big volume = real commitment.</span>
+              <span class="explain"><strong>What this means</strong>
+                A large body on small volume means one big trader pushed the price and nobody fought back — suspicious, often retraces. A large body on 2× volume means lots of participants traded through that range — that's real accumulation (bullish engulfing) or distribution (bearish). Volume confirms that the body wasn't a fluke.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="engulfing" data-gate="2">
+            <label>Stochastics divergence on the engulfing bar
+              <span class="hint">Momentum turning before price = leading indicator.</span>
+              <span class="explain"><strong>What this means</strong>
+                Price printed a fresh low on candle 1, but stochastics (5,3,3) made a <em>higher</em> low than at the prior swing. That divergence means the selling force is weakening underneath. When candle 2 engulfs, you now have two layers of evidence — momentum was already turning, and now price is confirming it. Divergence without engulfing = early. Engulfing without divergence = momentum-less. Both together = the full signal.
+              </span>
+            </label>
+          </div>
+          <div class="score-box">
+            <div>
+              <div class="score-label">Score</div>
+              <div class="score-value"><span id="score-engulfing">0</span><span class="denom">/5</span></div>
+            </div>
+            <div class="score-verdict" id="verdict-engulfing">WAIT</div>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">How to use the score</div>
+            <div class="dvalue"><strong>4–5 = A-grade · size up.</strong> &nbsp;·&nbsp; <strong>3 = B-grade · reduced size.</strong> &nbsp;·&nbsp; <strong>0–2 = skip.</strong></div>
           </div>
         </div>
 
         <!-- SECTION 4 · Entry Trigger -->
         <div class="section">
           <div class="section-label">4 · Entry Trigger <span>Faster than hammer — enter on the close</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="eng-entry-t eng-entry-d">
+              <title id="eng-entry-t">Engulfing entry at the close of the engulfing bar</title>
+              <desc id="eng-entry-d">Red candle 1, green engulfing candle 2, entry marker placed at the close of candle 2.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="150" x2="560" y2="150"/></g>
+              <path d="M 20,30 L 60,50 L 100,70 L 140,95 L 180,125" stroke="#ef4444" stroke-width="2" fill="none"/>
+              <line x1="220" y1="100" x2="220" y2="135" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="213" y="103" width="14" height="28" fill="#ef4444" stroke="#fca5a5"/>
+              <text x="220" y="175" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="800">Candle 1 (red)</text>
+              <line x1="270" y1="70" x2="270" y2="140" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="263" y="73" width="14" height="55" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <text x="270" y="175" text-anchor="middle" fill="#86efac" font-size="9" font-weight="800">Candle 2 — engulf</text>
+              <circle cx="278" cy="73" r="6" fill="#14b8a6" stroke="#fff" stroke-width="1.5"/>
+              <text x="290" y="68" fill="#14b8a6" font-size="10" font-weight="800">ENTRY at C2 close</text>
+              <line x1="283" y1="73" x2="540" y2="40" stroke="#86efac" stroke-width="2" fill="none"/>
+              <text x="540" y="38" text-anchor="end" fill="#86efac" font-size="10" font-weight="800">follow-through</text>
+            </svg>
+            <figcaption>Key difference vs. hammer: engulfings complete at their own close (no extra confirmation bar needed). Enter at the close of candle 2 — waiting for a next-bar confirmation gives up part of the initial move.</figcaption>
+          </figure>
           <div class="you-recommend-callout">
             <span class="recommend-label">Recommended entry</span>
             <div class="recommend-body">
               <strong>At the close of the engulfing candle</strong> (not the next bar). Engulfing signals are complete at their own close — waiting for the next bar often gives up a meaningful chunk of the initial move.
             </div>
           </div>
+          <div class="check-row">
+            <input type="checkbox" class="entry" data-side="engulfing">
+            <label>Candle 2 has fully closed (two-minute bar complete, not still forming)
+              <span class="hint">Entering before the close is trading the wick.</span>
+              <span class="explain"><strong>What this means</strong>
+                Until the 2-min bar's final tick, it's still "the active bar" and could finish anywhere. A bar that looks like a big engulfing with 30 seconds left can collapse back inside candle 1 before the close. Wait the full 120 seconds. The rule is ironclad: no entries on forming bars.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="entry" data-side="engulfing">
+            <label>Body ratio verified after close (eyeballed or measured)
+              <span class="hint">If body ≤ 120%, the signal is invalid — skip.</span>
+              <span class="explain"><strong>What this means</strong>
+                The moment candle 2 closes, mentally compare its body length to candle 1's. If it's clearly 1.2× or more, trade. If it's visually close to 1:1, skip even if it technically engulfs — you're at the edge of the signal where follow-through is unreliable.
+              </span>
+            </label>
+          </div>
           <div class="method-block">
             <div class="method-title">Expert Backup — Market-on-open of next bar <span class="expert-backup-label">For bracket-order traders</span></div>
             <ul>
               <li><strong>What:</strong> Enter on the first tick of the next bar at market.</li>
               <li class="pro">Same timing, slightly different execution style for traders with pre-programmed bracket orders.</li>
-              <li class="con">Tiny slippage vs. close entry.</li>
+              <li class="con">Tiny slippage vs. close entry — usually 0.25 points on MES.</li>
             </ul>
           </div>
         </div>
 
         <!-- SECTION 5 · Stop Placement -->
         <div class="section">
-          <div class="section-label">5 · Stop Placement <span class="gate-required">Points, not ticks</span></div>
+          <div class="section-label">5 · Stop &amp; Target <span class="gate-required">Points, not ticks · R:R ≥ 2:1</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 240" role="img" aria-labelledby="eng-stop-t eng-stop-d">
+              <title id="eng-stop-t">Engulfing stop placement with risk-reward zones</title>
+              <desc id="eng-stop-d">Stop below the engulfing bar's low plus instrument buffer, reward zone projected upward to next resistance.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <line x1="180" y1="115" x2="180" y2="145" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="173" y="118" width="14" height="25" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="230" y1="85" x2="230" y2="165" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="223" y="88" width="14" height="55" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <line x1="10" y1="88" x2="540" y2="88" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="82" fill="#14b8a6" font-size="9" font-weight="800">ENTRY — engulfing close</text>
+              <line x1="10" y1="180" x2="540" y2="180" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="195" fill="#ef4444" font-size="9" font-weight="800">STOP — engulfing low + buffer</text>
+              <line x1="10" y1="20" x2="540" y2="20" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="16" fill="#22c55e" font-size="9" font-weight="800">T2 · next resistance (2.5R+)</text>
+              <rect x="460" y="88" width="45" height="92" fill="#ef4444" fill-opacity=".18" stroke="#ef4444" stroke-opacity=".6"/>
+              <text x="482" y="140" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">RISK 1R</text>
+              <rect x="515" y="20" width="40" height="68" fill="#22c55e" fill-opacity=".18" stroke="#22c55e" stroke-opacity=".6"/>
+              <text x="535" y="56" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">REW 2.5R</text>
+              <path d="M 237 88 L 460 25" stroke="#86efac" stroke-width="2" fill="none"/>
+            </svg>
+            <figcaption>Stop = just below the engulfing bar's low + instrument buffer. Target = next resistance level OR 2.5R projected upward. If you can't find 2:1 before entry, skip.</figcaption>
+          </figure>
           <div class="prose-block">
-            <p>Stop goes <strong>just below the engulfing candle's low</strong> (bullish) or <strong>just above its high</strong> (bearish).</p>
+            <p>Stop goes <strong>just below the engulfing candle's low</strong> (bullish) or <strong>just above its high</strong> (bearish) — using the extreme of candle 2's wick, not candle 1's.</p>
           </div>
           <div class="data-block">
             <div class="dlabel">Point-based buffers (same as hammer)</div>
-            <div class="dvalue">· MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts beyond the extreme.</div>
+            <div class="dvalue">· MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts beyond the engulfing bar's extreme.</div>
+            <span class="explain"><strong>Why candle 2's extreme, not candle 1's</strong>
+              Candle 2 is the "new" information. If price closes back below candle 2's low, the takeover reversed — the thesis is dead. Candle 1's low is already far enough away to make the R:R unfavorable, and it's no longer the active invalidation point.
+            </span>
+          </div>
+          <!-- TIGHT STOP VARIANT -->
+          <div class="method-block" style="border-left:4px solid #c4b5fd;padding-left:12px;margin-top:14px;">
+            <div class="method-title" style="color:#c4b5fd">Tight-Stop Variant <span class="expert-backup-label">For A-grade engulfings with ≥150% body</span></div>
+            <ul>
+              <li><strong>What:</strong> Place stop at the midpoint of the engulfing candle's body + instrument buffer, instead of at its low.</li>
+              <li class="pro"><strong>Why:</strong> For a 150%+ engulfing bar, a close back below the midpoint already means the takeover failed. The full-bar-low stop is insurance you don't need.</li>
+              <li class="con"><strong>Trade-off:</strong> Stop-out rate rises ~15% because normal post-engulfing retracement can clip the midpoint.</li>
+              <li class="who"><strong>When to use:</strong> Only with score 4–5 AND body ≥ 150% AND clear next-level target that allows 3:1+ R:R with the tight stop.</li>
+            </ul>
+          </div>
+          <div class="data-block" style="border-left-color:#eab308">
+            <div class="dlabel">⚠ R:R sanity check</div>
+            <div class="dvalue">(Target distance) ÷ (stop distance) must be ≥ 2. If it's 1.8 or 1.9, <strong>skip</strong>. A prettier setup will come.</div>
           </div>
         </div>
 
         <!-- SECTION 6 · Target Management -->
         <div class="section">
-          <div class="section-label">6 · Target Management</div>
+          <div class="section-label">6 · Target Management <span>Scale out in thirds · BE after T1</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="eng-tgt-t eng-tgt-d">
+              <title id="eng-tgt-t">Engulfing scale-out at 1.5R, 2.5R, runner</title>
+              <desc id="eng-tgt-d">Three target levels with scale-out labels and stop-to-BE move after T1.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="140" x2="560" y2="140"/></g>
+              <circle cx="100" cy="135" r="5" fill="#14b8a6"/><text x="115" y="140" fill="#14b8a6" font-size="9" font-weight="800">ENTRY</text>
+              <path d="M 100,135 L 220,110 L 360,65 L 500,25" stroke="#86efac" stroke-width="2" fill="none"/>
+              <line x1="20" y1="180" x2="540" y2="180" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <text x="30" y="192" fill="#ef4444" font-size="9" font-weight="800">STOP (1R below)</text>
+              <line x1="20" y1="108" x2="540" y2="108" stroke="#22c55e" stroke-opacity=".6" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <circle cx="220" cy="110" r="6" fill="#22c55e"/>
+              <text x="235" y="108" fill="#86efac" font-size="10" font-weight="800">T1 · 50% @ 1.5R → BE stop</text>
+              <line x1="20" y1="60" x2="540" y2="60" stroke="#22c55e" stroke-opacity=".6" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <circle cx="360" cy="65" r="6" fill="#22c55e"/>
+              <text x="375" y="63" fill="#86efac" font-size="10" font-weight="800">T2 · 25% @ 2.5R</text>
+              <circle cx="500" cy="25" r="6" fill="#14b8a6"/>
+              <text x="510" y="25" text-anchor="end" fill="#14b8a6" font-size="10" font-weight="800">T3 · 25% RUNNER</text>
+            </svg>
+            <figcaption>Identical scale-out to the hammer tab. Engulfing bars tend to produce slightly faster follow-through — T1 often fills within 1–2 bars.</figcaption>
+          </figure>
           <div class="data-block">
-            <div class="dlabel">Scale out · 50% / 25% / 25%</div>
-            <div class="dvalue">· T1 at 1.5R (50%) · move stop to BE<br>· T2 at 2.5R or next resistance/support (25%)<br>· T3 runner trail 2-min swings (25%)<br>· Time stop: <strong>3 candles</strong></div>
+            <div class="dlabel">T1 · 50% scale at 1.5R · move stop to BE</div>
+            <div class="dvalue">Same rule, same discipline. This is the exit that de-risks the trade and lets the remaining half ride without stress.</div>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">T2 · 25% scale at 2.5R or next visible level</div>
+            <div class="dvalue">Whichever comes first. Engulfings often cross named levels cleanly — if T2 would land <em>just past</em> PDH, take it at PDH instead.</div>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">T3 · 25% runner</div>
+            <div class="dvalue">Trail 2-min swings. Exit on close through trailing stop.</div>
+          </div>
+          <div class="data-block" style="border-left-color:#eab308">
+            <div class="dlabel">⏱ Time stop · 3 candles (6 min)</div>
+            <div class="dvalue">Engulfings are fast signals — if there's no ≥1R progress in 6 minutes, the takeover didn't stick. Scratch.</div>
           </div>
         </div>
 
         <!-- SECTION 7 · Bust / Failure -->
         <div class="section">
-          <div class="section-label">7 · Bust / Failure</div>
+          <div class="section-label">7 · Bust / Failure <span>Failed engulfings often flip cleanly</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 180" role="img" aria-labelledby="eng-bust-t eng-bust-d">
+              <title id="eng-bust-t">Failed bullish engulfing</title>
+              <desc id="eng-bust-d">Engulfing bar followed by a close back below its own low, invalidating the pattern.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="140" x2="560" y2="140"/></g>
+              <line x1="100" y1="110" x2="100" y2="140" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="93" y="113" width="14" height="25" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="160" y1="80" x2="160" y2="145" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="153" y="83" width="14" height="50" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <line x1="220" y1="105" x2="220" y2="145" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="213" y="115" width="14" height="25" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="280" y1="130" x2="280" y2="160" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="273" y="140" width="14" height="20" fill="#ef4444" stroke="#fca5a5"/>
+              <text x="285" y="170" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">CLOSES BELOW ENGULFING LOW ✗</text>
+              <path d="M 290,160 L 430,160 L 530,165" stroke="#ef4444" stroke-width="2" fill="none"/>
+              <circle cx="530" cy="165" r="5" fill="#ef4444"/>
+              <text x="540" y="168" text-anchor="end" fill="#fca5a5" font-size="10" font-weight="800">FLIP short</text>
+            </svg>
+            <figcaption>When a bullish engulfing fails, the trapped-longs selloff tends to accelerate quickly. Failed engulfings are among the cleanest flip-setups in the book.</figcaption>
+          </figure>
           <div class="prose-block">
-            <p>Close back past the engulfing bar's extreme = bust. Consider flip if higher-timeframe supports it.</p>
+            <p>Close back past the engulfing bar's extreme (low for bullish, high for bearish) = <strong>bust</strong>. Consider flip if higher-timeframe supports it.</p>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">Why failed engulfings flip cleanly</div>
+            <div class="dvalue">The engulfing bar is a magnet for aggressive longs. When price closes back below it, every long who bought in on the signal is instantly offside. Their stops cluster just below the engulfing bar's low. One more bar closing below that level = stop cascade = easy continuation short. Among failed reversal patterns, engulfing busts have the highest flip conversion rate (~65%).</div>
           </div>
         </div>
 
         <!-- SECTION 8 · Kill Switches -->
         <div class="section">
-          <div class="section-label">8 · Kill Switches</div>
+          <div class="section-label">8 · Kill Switches <span>Skip the trade</span></div>
           <div class="method-block">
             <div class="method-title">Skip if ANY of these are true</div>
             <ul>
               <li class="con">Engulfing body &lt; 120% of prior body → not a real engulfing, skip</li>
-              <li class="con">No prior trend</li>
-              <li class="con">Random level</li>
-              <li class="con">News candle</li>
-              <li class="con">R:R &lt; 2:1</li>
+              <li class="con">Bodies span &lt; 50% of the average recent range → too small to matter, skip</li>
+              <li class="con">No prior trend of ≥2 legs → nothing to reverse, skip</li>
+              <li class="con">Random location (no PDH/PDL/ORH/ORL/VWAP/round # within 1R) → no story, skip</li>
+              <li class="con">News window (30 min around CPI/FOMC/NFP/PCE/PPI) → random volatility, skip</li>
+              <li class="con">R:R &lt; 2:1 after point-based stop placement → math doesn't work, skip</li>
+              <li class="con">Volume on the engulfing bar is <em>below</em> recent average → body without conviction, skip</li>
+              <li class="con">Already hit daily limit → stop trading, not negotiable</li>
             </ul>
           </div>
         </div>
 
         <!-- SECTION 9 · Win Rate -->
         <div class="section">
-          <div class="section-label">9 · Win Rate Context</div>
+          <div class="section-label">9 · Win Rate Context <span>Know where the edge lives</span></div>
           <div class="data-block">
-            <div class="dlabel">Break entry</div><div class="dvalue"><strong>50–55%</strong></div>
+            <div class="dlabel">Break entry (no confirmation)</div><div class="dvalue"><strong>50–55%</strong> — near coin-flip</div>
           </div>
           <div class="data-block">
-            <div class="dlabel">Engulfing-close entry</div><div class="dvalue"><strong>60–65%</strong></div>
+            <div class="dlabel">Engulfing-close entry</div><div class="dvalue"><strong>60–65%</strong> — the recommended method</div>
           </div>
           <div class="data-block">
-            <div class="dlabel">+ level + divergence</div><div class="dvalue"><strong>64–68%</strong></div>
+            <div class="dlabel">+ level + volume + divergence (A-grade)</div><div class="dvalue"><strong>64–68%</strong> — stacked edge</div>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">+ stacked with another pattern (DB/DT/flag)</div><div class="dvalue"><strong>70–75%</strong> — pattern stack (see 🔗 Pattern Stacking tab)</div>
           </div>
         </div>
 
@@ -6513,10 +7080,34 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 1 · What It Is -->
         <div class="section">
-          <div class="section-label">1 · What a Morning / Evening Star Is</div>
+          <div class="section-label">1 · What a Morning / Evening Star Is <span>Three acts · one reversal</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 260" role="img" aria-labelledby="ms-anat-t ms-anat-d">
+              <title id="ms-anat-t">Morning star psychology in three acts</title>
+              <desc id="ms-anat-d">Three-candle sequence showing exhaustion, hesitation, and commitment with midpoint reclaim line.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="130" x2="560" y2="130"/><line x1="0" y1="210" x2="560" y2="210"/></g>
+              <text x="280" y="20" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="800">Three-Act Reversal — the power of sequence</text>
+              <line x1="100" y1="60" x2="100" y2="215" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="92" y="70" width="16" height="130" fill="#ef4444" stroke="#fca5a5" stroke-width="1.2"/>
+              <text x="100" y="238" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">ACT 1 · EXHAUSTION</text>
+              <text x="100" y="252" text-anchor="middle" fill="#cbd5e1" font-size="8">sellers push hard</text>
+              <line x1="250" y1="195" x2="250" y2="225" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="243" y="205" width="14" height="18" fill="#eab308" fill-opacity=".7" stroke="#fde68a" stroke-width="1.2"/>
+              <text x="250" y="248" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="800">ACT 2 · HESITATION</text>
+              <text x="250" y="260" text-anchor="middle" fill="#cbd5e1" font-size="8">small body · pause</text>
+              <line x1="400" y1="75" x2="400" y2="210" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="392" y="85" width="16" height="115" fill="#22c55e" stroke="#86efac" stroke-width="1.2"/>
+              <text x="400" y="238" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">ACT 3 · COMMITMENT</text>
+              <text x="400" y="252" text-anchor="middle" fill="#cbd5e1" font-size="8">green reclaims midpoint</text>
+              <line x1="80" y1="135" x2="430" y2="135" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="445" y="140" fill="#c4b5fd" font-size="9" font-weight="800">CANDLE 1 MIDPOINT</text>
+              <text x="445" y="152" fill="#cbd5e1" font-size="8">← C3 must close above this line</text>
+            </svg>
+            <figcaption>Three distinct acts over six minutes: long red (exhaustion of the down-move) → small body (sellers paused) → strong green (buyers seized control and <strong>reclaimed</strong> more than half of candle 1's body). Each act adds a new layer of evidence.</figcaption>
+          </figure>
           <div class="data-block">
             <div class="dlabel">Morning star · three-candle formation</div>
-            <div class="dvalue">· <strong>Candle 1:</strong> a long red candle (strong selling)<br>· <strong>Candle 2:</strong> a small-body candle (either color, sometimes called a doji if open = close). Represents indecision — the downtrend has stalled.<br>· <strong>Candle 3:</strong> a strong green candle that closes <strong>above the midpoint of candle 1's body</strong> (ideally above its open).</div>
+            <div class="dvalue">· <strong>Candle 1:</strong> a long red candle (strong selling)<br>· <strong>Candle 2:</strong> a small-body candle (either color, sometimes a doji if open = close). Represents indecision — the downtrend has stalled.<br>· <strong>Candle 3:</strong> a strong green candle that closes <strong>above the midpoint of candle 1's body</strong> (ideally above its open).</div>
           </div>
           <div class="data-block">
             <div class="dlabel">Evening star · mirror</div>
@@ -6525,124 +7116,384 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="data-block">
             <div class="dlabel">The psychology in three acts</div>
             <div class="dvalue">
-              · <strong>Candle 1:</strong> sellers in full control, no hesitation.<br>
-              · <strong>Candle 2:</strong> sellers exhausted. Nobody's willing to push further. That pause is the <em>first</em> tell that the downtrend is dying.<br>
-              · <strong>Candle 3:</strong> buyers step in with conviction — not just defending the prior low, but <em>reclaiming</em> half of the last red candle's range. That's the confirmation that the tide has turned.
+              · <strong>Candle 1:</strong> sellers in full control, no hesitation. They print a long red bar and look strong.<br>
+              · <strong>Candle 2:</strong> sellers exhausted. Nobody's willing to push further. The body is small because buyers and sellers fought to a draw. That pause is the <em>first</em> tell that the downtrend is dying.<br>
+              · <strong>Candle 3:</strong> buyers step in with conviction — not just defending the prior low, but <em>reclaiming</em> more than half of the last red candle's range. Every seller who opened during candle 1 is now pinned underwater.
             </div>
             <span class="explain"><strong>Why three candles beats one</strong>
-              The beauty of the pattern is that each candle adds a new layer of evidence. By the close of candle 3 you've seen: exhaustion → hesitation → commitment. That's why it's more reliable than a hammer (1 candle) or engulfing (2 candles) despite being slower to form.
+              The beauty of the pattern is that each candle adds a new layer of evidence. By the close of candle 3 you've seen: exhaustion → hesitation → commitment. That's why morning star beats hammer in reliability despite being slower. The trade-off: you give up the first 1.5–2 minutes of the move to earn the extra confidence. Most traders get that trade-off wrong and chase hammers they should have skipped.
             </span>
           </div>
           <div class="data-block">
             <div class="dlabel">Bulkowski reliability</div>
-            <div class="dvalue">Bulkowski's data places the morning star at <strong>60–65% bullish reversal rate</strong> on raw stats, climbing to <strong>~72%</strong> when combined with support-level context and other indicators. On a 2-min chart with scalping timeframes this practical accuracy lands near <strong>62–68%</strong>.</div>
+            <div class="dvalue">Bulkowski's data places the morning star at <strong>60–65% bullish reversal rate</strong> on raw stats, climbing to <strong>~72%</strong> when combined with support-level context and other indicators. On a 2-min chart with scalping timeframes this practical accuracy lands near <strong>62–68%</strong> with confirmation, <strong>66–72%</strong> stacked with divergence and named level.</div>
           </div>
         </div>
 
         <!-- SECTION 2 · Context Gate -->
         <div class="section">
-          <div class="section-label">2 · Context Gate <span>Requires a 3-leg prior trend</span></div>
-          <div class="data-block">
-            <div class="dlabel">Prior trend of ≥3 legs down</div>
-            <div class="dvalue">This is the only 3-leg requirement — morning stars work best after <strong>extended moves</strong>, not after minor pullbacks.</div>
+          <div class="section-label">2 · Context Gate <span class="gate-required">Requires 3-leg prior trend · ALL required</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="ms-ctx-t ms-ctx-d">
+              <title id="ms-ctx-t">Morning star context — extended 3-leg downtrend into support</title>
+              <desc id="ms-ctx-d">Three legs down into PDL, then the morning star sequence forms.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 20,30 L 55,50 L 90,35 L 125,75 L 160,55 L 195,100 L 230,80 L 265,125 L 300,105 L 335,150 L 370,130" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+              <text x="80" y="200" fill="#ef4444" font-size="10" font-weight="800">LEG 1</text>
+              <text x="200" y="200" fill="#ef4444" font-size="10" font-weight="800">LEG 2</text>
+              <text x="320" y="200" fill="#ef4444" font-size="10" font-weight="800">LEG 3 ← required</text>
+              <line x1="10" y1="155" x2="540" y2="155" stroke="#eab308" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="148" fill="#eab308" font-size="9" font-weight="800">PDL</text>
+              <line x1="410" y1="100" x2="410" y2="155" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="402" y="103" width="16" height="50" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="445" y1="140" x2="445" y2="160" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="438" y="148" width="14" height="12" fill="#eab308" fill-opacity=".7" stroke="#fde68a"/>
+              <line x1="480" y1="70" x2="480" y2="145" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="472" y="80" width="16" height="50" fill="#22c55e" stroke="#86efac" stroke-width="1.2"/>
+              <text x="445" y="40" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">⭐ MORNING STAR</text>
+            </svg>
+            <figcaption>Morning stars work best after <strong>extended</strong> down-moves — 3 legs, not 2. The longer the preceding decline, the more exhausted sellers are, and the more trapped they'll be when candle 3 reclaims.</figcaption>
+          </figure>
+          <div class="check-row">
+            <input type="checkbox" id="ms-ctx-1" class="gate" data-side="morning" data-gate="1">
+            <label for="ms-ctx-1">Prior trend of ≥3 legs down (morning star) or ≥3 legs up (evening star)
+              <span class="hint">This is the only 3-leg requirement in the book.</span>
+              <span class="explain"><strong>What this means</strong>
+                Hammers and engulfings work after 2 legs because they are faster, more reactive signals. Morning stars need a bigger backdrop because the pattern itself is slower — it takes 6 minutes to form. The longer the preceding down-move, the deeper the exhaustion, and the more meaningful the three-act reversal becomes. Two-leg moves just aren't worn down enough to reverse via morning star reliably.
+              </span>
+            </label>
           </div>
-          <div class="data-block">
-            <div class="dlabel">At a known level</div>
-            <div class="dvalue">PDL/PDH/VWAP/round #/prior swing.</div>
+          <div class="check-row">
+            <input type="checkbox" id="ms-ctx-2" class="gate" data-side="morning" data-gate="1">
+            <label for="ms-ctx-2">Location at a named level (PDL/PDH/VWAP/round #/prior swing)
+              <span class="hint">Location + extended trend = the combo that works.</span>
+              <span class="explain"><strong>What this means</strong>
+                Same named-level requirement as all patterns. The named level is the reason institutions and serious traders will react to your pattern. Without the level, you're alone on your setup — not enough liquidity to push follow-through. Morning stars at PDL after a 3-leg down day are among the highest-conviction setups available.
+              </span>
+            </label>
           </div>
-          <div class="data-block">
-            <div class="dlabel">Candle 1 is meaningful-sized</div>
-            <div class="dvalue">Body ≥ 60% of recent average bar size.</div>
+          <div class="check-row">
+            <input type="checkbox" id="ms-ctx-3" class="gate" data-side="morning" data-gate="1">
+            <label for="ms-ctx-3">Candle 1 body ≥ 60% of recent average bar size
+              <span class="hint">Small-body C1 = weak exhaustion case.</span>
+              <span class="explain"><strong>What this means</strong>
+                Candle 1 represents the "final act" of the downtrend. If that bar is small — a doji-ish 0.5-point body on MES — there was no real selling exhaustion, because nobody sold much. The reversal has nothing to rebel against. Candle 1 must be a meaningful bar relative to the chart's recent rhythm. A good rule of thumb: it should visually look bigger than most of the last 10 bars.
+              </span>
+            </label>
           </div>
-          <div class="data-block">
-            <div class="dlabel">Candle 3 reclaims the midpoint</div>
-            <div class="dvalue">Closes above the midpoint of candle 1's body (≥50% retracement of candle 1).</div>
+          <div class="check-row">
+            <input type="checkbox" id="ms-ctx-4" class="gate" data-side="morning" data-gate="1">
+            <label for="ms-ctx-4">Candle 3 closes above candle 1's midpoint (the pattern's <em>defining</em> requirement)
+              <span class="hint">No midpoint reclaim = no morning star.</span>
+              <span class="explain"><strong>What this means</strong>
+                The "midpoint reclaim" is what separates a morning star from a weak green bar. Draw a mental line at the exact middle of candle 1's body (open+close÷2). Candle 3's close must sit <em>above</em> that line. This proves that buyers didn't just defend — they reclaimed at least half of what sellers took on candle 1. A C3 close below the midpoint = you've got a green bar in a downtrend, not a morning star. Different pattern, different probability.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" id="ms-ctx-5" class="gate" data-side="morning" data-gate="1">
+            <label for="ms-ctx-5">Not within 30-minute macro-release window
+              <span class="hint">News creates random 3-bar sequences that look like stars.</span>
+              <span class="explain"><strong>What this means</strong>
+                In the minutes around scheduled macro prints, it's common to see a big red bar, a tiny indecision bar, and a big green bar just from algorithms cycling through a news shock — no human decision-making involved. These look like textbook morning stars but have no follow-through because they weren't driven by real trader psychology. Skip all candle patterns in the 30-min macro window.
+              </span>
+            </label>
           </div>
         </div>
 
         <!-- SECTION 3 · Setup Quality Score -->
         <div class="section">
-          <div class="section-label">3 · Setup Quality Score (0–5)</div>
-          <div class="method-block">
-            <div class="method-title">Five criteria</div>
-            <ul>
-              <li class="pro"><strong>1 · Prior trend of ≥3 legs</strong></li>
-              <li class="pro"><strong>2 · Named level</strong></li>
-              <li class="pro"><strong>3 · Candle 2 is a true small body</strong> (≤30% of candle 1's range)</li>
-              <li class="pro"><strong>4 · Candle 3 closes above candle 1's midpoint</strong> (classic) or above candle 1's open (textbook)</li>
-              <li class="pro"><strong>5 · Volume on candle 3 ≥ volume of candle 1</strong></li>
-            </ul>
+          <div class="section-label">3 · Setup Quality Score <span>0–5 · score before you enter</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="ms-qs-t ms-qs-d">
+              <title id="ms-qs-t">Morning star quality — small C2 body + strong C3 reclaim + volume</title>
+              <desc id="ms-qs-d">Textbook A-grade morning star with small hammered C2 and volume spike on C3.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <line x1="130" y1="55" x2="130" y2="175" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="120" y="65" width="20" height="100" fill="#ef4444" stroke="#fca5a5"/>
+              <text x="130" y="200" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="800">C1 · large red</text>
+              <line x1="260" y1="155" x2="260" y2="180" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="253" y="162" width="14" height="10" fill="#eab308" fill-opacity=".7" stroke="#fde68a"/>
+              <text x="260" y="200" text-anchor="middle" fill="#fde68a" font-size="9" font-weight="800">C2 · tiny body</text>
+              <line x1="390" y1="60" x2="390" y2="175" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="381" y="70" width="18" height="90" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <text x="390" y="200" text-anchor="middle" fill="#86efac" font-size="9" font-weight="800">C3 · strong green</text>
+              <line x1="110" y1="115" x2="410" y2="115" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="425" y="112" fill="#c4b5fd" font-size="9" font-weight="800">C1 midpoint</text>
+              <text x="425" y="125" fill="#86efac" font-size="9" font-weight="800">← C3 closes above ✓</text>
+              <rect x="115" y="180" width="16" height="30" fill="#ef4444" fill-opacity=".7"/>
+              <rect x="253" y="195" width="14" height="15" fill="#eab308" fill-opacity=".5"/>
+              <rect x="381" y="175" width="18" height="35" fill="#22c55e" fill-opacity=".9"/>
+              <text x="400" y="220" text-anchor="middle" fill="#86efac" font-size="8" font-weight="800">VOL C3 ≥ C1 ✓</text>
+            </svg>
+            <figcaption>Five-point quality check in one picture: big red C1 → tiny body C2 → strong green C3 reclaiming the midpoint, with volume on C3 matching or exceeding C1.</figcaption>
+          </figure>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="morning" data-gate="2">
+            <label>Prior trend of ≥3 legs in the correct direction
+              <span class="hint">More legs = more exhaustion = more reversal fuel.</span>
+              <span class="explain"><strong>What this means</strong>
+                A 3-leg downtrend means sellers have executed three distinct selling pushes. Each push fewer sellers left at the bottom. By the time candle 1 forms, the easy sellers are gone — only the reluctant ones are left, which is why hesitation (candle 2) shows up right here. The longer the prior trend, the deeper that exhaustion.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="morning" data-gate="2">
+            <label>Named level anchoring the pattern
+              <span class="hint">Level gives the story a venue.</span>
+              <span class="explain"><strong>What this means</strong>
+                A morning star that happens to form at PDL, VWAP, or a round number benefits from layered participants all reacting to the same line. Without a named level, you're hoping candle 3's close alone will drive follow-through — possible, but harder.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="morning" data-gate="2">
+            <label>Candle 2 body ≤ 30% of candle 1's range (true small-body "star")
+              <span class="hint">Big C2 = no exhaustion pause.</span>
+              <span class="explain"><strong>What this means</strong>
+                The "star" in morning star is literally the small-body middle candle. Its smallness is the evidence of selling exhaustion. If candle 2 is half the size of candle 1, sellers weren't exhausted at all — they just slowed down briefly. That's not a morning star pattern, it's just a weak downtrend bar. Strict rule: C2 body ≤ 30% of C1's total range (wick-to-wick).
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="morning" data-gate="2">
+            <label>Candle 3 closes ABOVE candle 1's midpoint (classic) or above C1's open (textbook)
+              <span class="hint">Above open = A-grade. Above midpoint = valid.</span>
+              <span class="explain"><strong>What this means</strong>
+                Two thresholds: the <em>minimum</em> is C3 closing above C1's midpoint (the halfway point of C1's body). The <em>textbook ideal</em> is C3 closing above C1's <em>open</em> — i.e., fully erasing candle 1's selling. The closer to textbook, the stronger the signal. Closes between C1's midpoint and C1's open = valid but borderline; closes above C1's open = A-grade.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="score" data-side="morning" data-gate="2">
+            <label>Volume on candle 3 ≥ volume on candle 1 (ideally 1.5×)
+              <span class="hint">Matching/exceeding volume = real handoff.</span>
+              <span class="explain"><strong>What this means</strong>
+                Candle 1 happened on high selling volume (sellers were active). For the reversal to be real, candle 3 needs to show equal or greater buying volume — i.e., buyers put in at least as much money as sellers did. A weak-volume candle 3 after a high-volume candle 1 means buyers showed up briefly but without the firepower to sustain the move. Match or exceed C1 volume = legitimate handoff of control.
+              </span>
+            </label>
+          </div>
+          <div class="score-box">
+            <div>
+              <div class="score-label">Score</div>
+              <div class="score-value"><span id="score-morning">0</span><span class="denom">/5</span></div>
+            </div>
+            <div class="score-verdict" id="verdict-morning">WAIT</div>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">How to use the score</div>
+            <div class="dvalue"><strong>5 = A-grade · size up confidently.</strong> &nbsp;·&nbsp; <strong>4 = still strong, take with full size.</strong> &nbsp;·&nbsp; <strong>3 = reduced size only.</strong> &nbsp;·&nbsp; <strong>0–2 = skip.</strong></div>
+            <span class="explain"><strong>Why morning stars have a higher score bar</strong>
+              Because the pattern requires three candles to form, you're committing 6 minutes of chart time to the setup before entering. That's a longer window for something to go wrong. Demand higher quality before clicking.
+            </span>
           </div>
         </div>
 
         <!-- SECTION 4 · Entry Trigger -->
         <div class="section">
-          <div class="section-label">4 · Entry Trigger</div>
+          <div class="section-label">4 · Entry Trigger <span>At the close of candle 3 — pattern is complete</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="ms-entry-t ms-entry-d">
+              <title id="ms-entry-t">Morning star entry at close of candle 3</title>
+              <desc id="ms-entry-d">Three-candle sequence with entry marker placed at the close of the third candle.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="100" x2="560" y2="100"/><line x1="0" y1="160" x2="560" y2="160"/></g>
+              <line x1="120" y1="55" x2="120" y2="170" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="112" y="60" width="16" height="100" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="230" y1="150" x2="230" y2="175" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="223" y="155" width="14" height="15" fill="#eab308" fill-opacity=".7" stroke="#fde68a"/>
+              <line x1="350" y1="55" x2="350" y2="165" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="341" y="65" width="18" height="90" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <circle cx="360" cy="65" r="7" fill="#14b8a6" stroke="#fff" stroke-width="2"/>
+              <text x="375" y="60" fill="#14b8a6" font-size="11" font-weight="800">ENTRY — close of C3</text>
+              <text x="375" y="72" fill="#cbd5e1" font-size="9">no 4th-bar confirmation needed</text>
+              <path d="M 367,65 L 540,25" stroke="#86efac" stroke-width="2" fill="none"/>
+            </svg>
+            <figcaption>No 4th-bar confirmation. The pattern completes at C3's close, and the signal is its own confirmation — three candles IS the confirmation sequence.</figcaption>
+          </figure>
           <div class="you-recommend-callout">
             <span class="recommend-label">Recommended entry</span>
             <div class="recommend-body">
               <strong>At the close of candle 3.</strong> The pattern is complete at that moment — don't wait for a fourth-bar confirmation.
             </div>
           </div>
+          <div class="check-row">
+            <input type="checkbox" class="entry" data-side="morning">
+            <label>Candle 3 fully closed (2-min bar complete, not still forming)
+              <span class="hint">Enter on committed prints, not projections.</span>
+              <span class="explain"><strong>What this means</strong>
+                Same rule as every other pattern — never enter on a bar that is still forming. Wait the full 120 seconds of candle 3. A bar that looks like a perfect morning star with 30 seconds left can dissolve into a doji before the close.
+              </span>
+            </label>
+          </div>
+          <div class="check-row">
+            <input type="checkbox" class="entry" data-side="morning">
+            <label>Midpoint reclaim verified on the close
+              <span class="hint">Eyeball: does C3's close sit above C1's middle?</span>
+              <span class="explain"><strong>What this means</strong>
+                The moment C3 closes, mentally draw a horizontal line at the exact middle of C1's body. Is C3's close above it? If yes, valid morning star. If visually it sits <em>at</em> the line or slightly below, the pattern didn't fully complete — skip even though the three candles "look right." The midpoint reclaim is the definitional requirement.
+              </span>
+            </label>
+          </div>
           <div class="method-block">
             <div class="method-title">Expert Backup — Pullback to candle 2's high <span class="expert-backup-label">Better price</span></div>
             <ul>
-              <li><strong>What:</strong> Enter on a small retracement back to candle 2's high, for a better price.</li>
-              <li class="pro">Tighter stop, better R:R.</li>
-              <li class="con">Often missed after strong candle 3 closes.</li>
+              <li><strong>What:</strong> Enter on a small retracement back to candle 2's high, for a better price and tighter stop.</li>
+              <li class="pro">Better fill, better R:R.</li>
+              <li class="con">Often missed entirely after a strong candle 3 closes — the market rarely pulls back that deep.</li>
+              <li class="who">Graduate into this only after the recommended method is automatic.</li>
             </ul>
           </div>
         </div>
 
         <!-- SECTION 5 · Stop Placement -->
         <div class="section">
-          <div class="section-label">5 · Stop Placement <span class="gate-required">Below candle 2's low · point-based</span></div>
+          <div class="section-label">5 · Stop &amp; Target <span class="gate-required">Below candle 2's low · point-based</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 240" role="img" aria-labelledby="ms-stop-t ms-stop-d">
+              <title id="ms-stop-t">Morning star stop and reward zones</title>
+              <desc id="ms-stop-d">Stop placed below candle 2's low plus buffer, reward zone projected to 2.5R or next resistance.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <line x1="100" y1="60" x2="100" y2="175" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="92" y="65" width="16" height="100" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="200" y1="155" x2="200" y2="180" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="193" y="162" width="14" height="12" fill="#eab308" fill-opacity=".7" stroke="#fde68a"/>
+              <line x1="300" y1="60" x2="300" y2="170" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="292" y="70" width="16" height="90" fill="#22c55e" stroke="#86efac" stroke-width="1.5"/>
+              <line x1="10" y1="70" x2="540" y2="70" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="64" fill="#14b8a6" font-size="9" font-weight="800">ENTRY — C3 close</text>
+              <line x1="10" y1="190" x2="540" y2="190" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="205" fill="#ef4444" font-size="9" font-weight="800">STOP — C2 low + buffer</text>
+              <line x1="10" y1="12" x2="540" y2="12" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="15" y="9" fill="#22c55e" font-size="9" font-weight="800">T2 · 2.5R or next R</text>
+              <rect x="460" y="70" width="45" height="120" fill="#ef4444" fill-opacity=".18" stroke="#ef4444" stroke-opacity=".6"/>
+              <text x="482" y="135" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">RISK 1R</text>
+              <rect x="515" y="12" width="40" height="58" fill="#22c55e" fill-opacity=".18" stroke="#22c55e" stroke-opacity=".6"/>
+              <text x="535" y="45" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">REW 2.5R+</text>
+            </svg>
+            <figcaption>Stop = just below C2's low + point buffer. Because morning stars produce larger follow-through than hammers/engulfings, the T3 runner usually makes the full average trade size <em>larger</em>.</figcaption>
+          </figure>
           <div class="prose-block">
             <p>Stop goes <strong>just below candle 2's low</strong> (the "star"). Candle 2 is the actual bottom of the pattern, and a close back below it means the pattern failed — the "exhaustion" was just a pause, not a turn.</p>
           </div>
           <div class="data-block">
-            <div class="dlabel">Point-based buffers (same table)</div>
-            <div class="dvalue">· MES 1.0 · MNQ 1.5 · M2K 0.4 · ES 1.0 · NQ 2.0 · RTY 0.4 pts beyond candle 2's extreme.</div>
+            <div class="dlabel">Point-based buffers (same table across all patterns)</div>
+            <div class="dvalue">· MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts beyond candle 2's extreme.</div>
+            <span class="explain"><strong>Why C2's low, not C1's low</strong>
+              Candle 2 is the lowest point of the <em>formed</em> pattern. If price closes below C2, the pattern structure is broken — no more "three-act sequence." Candle 1's low is farther down and using it as the stop unnecessarily doubles risk. The point of a morning star stop is: "invalidate at the structural bottom of the pattern, not the bottom of the prior trend."
+            </span>
+          </div>
+          <!-- TIGHT STOP VARIANT -->
+          <div class="method-block" style="border-left:4px solid #c4b5fd;padding-left:12px;margin-top:14px;">
+            <div class="method-title" style="color:#c4b5fd">Tight-Stop Variant <span class="expert-backup-label">For score=5 A-grade morning stars</span></div>
+            <ul>
+              <li><strong>What:</strong> Place stop at the midpoint between C2's low and C1's midpoint + instrument buffer.</li>
+              <li class="pro"><strong>Why:</strong> For a textbook A-grade setup where C3 closed above C1's open, price re-touching C2's low is already a serious warning sign. Waiting for the full stop gives up too much R:R.</li>
+              <li class="con"><strong>Trade-off:</strong> ~15–20% higher stop-out rate.</li>
+              <li class="who"><strong>When:</strong> Only score=5 morning stars with obvious T2 level within 3R, making the tighter stop produce clean 3:1 R:R.</li>
+            </ul>
           </div>
         </div>
 
         <!-- SECTION 6 · Target Management -->
         <div class="section">
           <div class="section-label">6 · Target Management <span>Larger follow-through — give the runner room</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 200" role="img" aria-labelledby="ms-tgt-t ms-tgt-d">
+              <title id="ms-tgt-t">Morning star scale-out</title>
+              <desc id="ms-tgt-d">Entry above candle 3 close with targets at 1.5R, 2.5R, and trailing runner up to 4R+.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="140" x2="560" y2="140"/></g>
+              <circle cx="80" cy="135" r="5" fill="#14b8a6"/><text x="95" y="140" fill="#14b8a6" font-size="9" font-weight="800">ENTRY C3 close</text>
+              <path d="M 80,135 L 200,115 L 330,70 L 460,30 L 540,15" stroke="#86efac" stroke-width="2" fill="none"/>
+              <line x1="10" y1="180" x2="540" y2="180" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <text x="15" y="195" fill="#ef4444" font-size="9" font-weight="800">STOP (C2 low)</text>
+              <circle cx="200" cy="115" r="6" fill="#22c55e"/>
+              <text x="215" y="113" fill="#86efac" font-size="10" font-weight="800">T1 · 50% @ 1.5R · BE stop</text>
+              <circle cx="330" cy="70" r="6" fill="#22c55e"/>
+              <text x="345" y="68" fill="#86efac" font-size="10" font-weight="800">T2 · 25% @ 2.5R</text>
+              <circle cx="460" cy="30" r="6" fill="#14b8a6"/>
+              <text x="475" y="28" fill="#14b8a6" font-size="10" font-weight="800">T3 · 25% → 4R+</text>
+              <text x="475" y="40" fill="#cbd5e1" font-size="8">trail 2-min swings</text>
+            </svg>
+            <figcaption>Same scale-out structure, but morning star runners often reach 3.5–5R when the prior downtrend was long — give the T3 runner room.</figcaption>
+          </figure>
           <div class="data-block">
-            <div class="dlabel">Scale out · 50% / 25% / 25%</div>
-            <div class="dvalue">T1 1.5R · T2 2.5R · T3 runner. Morning stars tend to produce larger follow-through than hammers/engulfings — give the runner more room.</div>
+            <div class="dlabel">T1 · 50% scale at 1.5R · move stop to BE</div>
+            <div class="dvalue">Same de-risk rule as all patterns. Morning stars often hit T1 within 2 bars of entry because the pattern releases a lot of pent-up energy.</div>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">T2 · 25% scale at 2.5R or next visible level</div>
+            <div class="dvalue">Morning stars frequently reach VWAP or an overhead resistance level quickly — if that level lies between 1.5R and 2.5R, take T2 there instead.</div>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">T3 · 25% runner — let it run to 4R+</div>
+            <div class="dvalue">This is where morning stars pay for the slower formation time. After an extended 3-leg down-move, the reversal often carries for 15–20 bars. Trail wider stops on the runner (prior 4-bar swing lows instead of immediate swings) to let the move develop.</div>
+          </div>
+          <div class="data-block" style="border-left-color:#eab308">
+            <div class="dlabel">⏱ Time stop · 5 candles (10 min)</div>
+            <div class="dvalue">Morning stars get slightly more time than hammer/engulfing (5 candles instead of 3) because the setup is already slower and follow-through can take longer to develop. If no ≥1R progress in 10 minutes, exit at scratch.</div>
           </div>
         </div>
 
         <!-- SECTION 7 · Bust / Failure -->
         <div class="section">
-          <div class="section-label">7 · Bust / Failure</div>
+          <div class="section-label">7 · Bust / Failure <span>Failed morning stars often continue the downtrend</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 180" role="img" aria-labelledby="ms-bust-t ms-bust-d">
+              <title id="ms-bust-t">Failed morning star — close below candle 2 low</title>
+              <desc id="ms-bust-d">Morning star sequence followed by a close back below candle 2's low, invalidating the reversal.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="90" x2="560" y2="90"/><line x1="0" y1="140" x2="560" y2="140"/></g>
+              <line x1="90" y1="45" x2="90" y2="140" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="82" y="55" width="16" height="80" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="170" y1="125" x2="170" y2="148" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="163" y="130" width="14" height="15" fill="#eab308" fill-opacity=".7" stroke="#fde68a"/>
+              <line x1="250" y1="55" x2="250" y2="135" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="242" y="65" width="16" height="65" fill="#22c55e" stroke="#86efac"/>
+              <line x1="320" y1="100" x2="320" y2="145" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="313" y="110" width="14" height="30" fill="#ef4444" stroke="#fca5a5"/>
+              <line x1="390" y1="125" x2="390" y2="165" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="383" y="140" width="14" height="22" fill="#ef4444" stroke="#fca5a5"/>
+              <text x="400" y="175" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">CLOSES BELOW C2 LOW ✗</text>
+              <path d="M 400,162 L 530,170" stroke="#ef4444" stroke-width="2" fill="none"/>
+              <circle cx="530" cy="170" r="5" fill="#ef4444"/>
+              <text x="540" y="173" text-anchor="end" fill="#fca5a5" font-size="10" font-weight="800">FLIP short</text>
+            </svg>
+            <figcaption>Failed morning stars often produce some of the cleanest flip-shorts because the original downtrend was extended — sellers re-engage aggressively once the "bottom" is invalidated.</figcaption>
+          </figure>
           <div class="prose-block">
-            <p>Close below candle 2's low = bust. Failed morning stars often lead to <strong>continuation of the original downtrend</strong> — good flip setup.</p>
+            <p>Close below candle 2's low = bust. Failed morning stars often lead to <strong>continuation of the original downtrend</strong> — the pause was a trap, and the return to downside pressure tends to be fast because all the bottom-pickers are now trapped long.</p>
+          </div>
+          <div class="data-block">
+            <div class="dlabel">Why failed morning stars produce clean flips</div>
+            <div class="dvalue">The morning star is a magnet for bottom-pickers. When it fails after a 3-leg downtrend, those bottom-pickers unload their longs the moment C2's low breaks — their stops sit right there. That sell pressure stacks with the continuation of the original trend, often producing 3–4R down-moves within 10–15 bars. Flip-shorts after failed morning stars are among the highest-win-rate short setups in the book.</div>
           </div>
         </div>
 
         <!-- SECTION 8 · Kill Switches -->
         <div class="section">
-          <div class="section-label">8 · Kill Switches</div>
+          <div class="section-label">8 · Kill Switches <span>Skip the trade</span></div>
           <div class="method-block">
             <div class="method-title">Skip if ANY of these are true</div>
             <ul>
               <li class="con">Candle 3 doesn't close above candle 1's midpoint → not a valid morning star, skip</li>
               <li class="con">Candle 2 is too big (&gt;30% of candle 1's range) → no "exhaustion pause" evidence, skip</li>
-              <li class="con">No prior 3-leg trend</li>
-              <li class="con">News window</li>
+              <li class="con">Candle 1 is too small (body &lt;60% of recent average) → no exhaustion case, skip</li>
+              <li class="con">No prior 3-leg trend → not enough exhaustion, skip</li>
+              <li class="con">Random location (no named level within 1R) → no story, skip</li>
+              <li class="con">News window (30 min around CPI/FOMC/NFP/PCE/PPI) → random 3-bar sequence, skip</li>
+              <li class="con">R:R below 2:1 after point-based stop placement → math doesn't work, skip</li>
+              <li class="con">Volume on C3 is <em>below</em> volume of C1 → weak handoff, skip</li>
+              <li class="con">Already hit daily limit → stop trading, not negotiable</li>
             </ul>
           </div>
         </div>
 
         <!-- SECTION 9 · Win Rate -->
         <div class="section">
-          <div class="section-label">9 · Win Rate Context</div>
-          <div class="data-block"><div class="dlabel">Break / anticipation entry</div><div class="dvalue"><strong>55–60%</strong></div></div>
-          <div class="data-block"><div class="dlabel">Close-of-candle-3 entry</div><div class="dvalue"><strong>62–68%</strong></div></div>
-          <div class="data-block"><div class="dlabel">+ level + volume</div><div class="dvalue"><strong>66–72%</strong></div></div>
+          <div class="section-label">9 · Win Rate Context <span>Know where the edge lives</span></div>
+          <div class="data-block"><div class="dlabel">Break / anticipation entry (before C3 closes)</div><div class="dvalue"><strong>55–60%</strong> — premature, don't do this</div></div>
+          <div class="data-block"><div class="dlabel">Close-of-candle-3 entry</div><div class="dvalue"><strong>62–68%</strong> — recommended method</div></div>
+          <div class="data-block"><div class="dlabel">+ named level + volume match</div><div class="dvalue"><strong>66–72%</strong> — quality-gated setup</div></div>
+          <div class="data-block"><div class="dlabel">+ stacked with divergence (A-grade)</div><div class="dvalue"><strong>70–75%</strong> — elite setup (see 🔗 Pattern Stacking tab)</div></div>
         </div>
 
         <!-- SECTION 10 · Arnie's Approach -->
@@ -8727,91 +9578,402 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 1 · What Pattern Stacking Means -->
         <div class="section">
-          <div class="section-label">1 · What Pattern Stacking Means</div>
+          <div class="section-label">1 · What Pattern Stacking Means <span>The 3-layer model</span></div>
           <div class="prose-block">
-            <p>Any two (or three) valid patterns that all point to the same direction at the same price level. <strong>Not</strong> "both look bearish" — they must be specific, named setups firing at the same location.</p>
+            <p>Any two (or three) valid patterns that all point to the same direction at the same price level. <strong>Not</strong> "both look bearish" — they must be specific, named setups firing at the same location. The best stacks layer evidence across three tiers:</p>
           </div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="stack-tiers-t stack-tiers-d">
+              <title id="stack-tiers-t">The three tiers of evidence</title>
+              <desc id="stack-tiers-d">Three layers stacked: named level (structural), multi-candle pattern (contextual), single-candle trigger (entry).</desc>
+              <rect x="30" y="30" width="500" height="40" fill="#14b8a6" fill-opacity=".15" stroke="#14b8a6" stroke-width="1.5" rx="4"/>
+              <text x="45" y="48" fill="#5eead4" font-size="11" font-weight="800">TIER 1 · THE LEVEL</text>
+              <text x="45" y="62" fill="#cbd5e1" font-size="10">PDH · PDL · ONH · ONL · VWAP · major swing · overnight midpoint · weekly pivot</text>
+              <rect x="30" y="85" width="500" height="40" fill="#eab308" fill-opacity=".15" stroke="#eab308" stroke-width="1.5" rx="4"/>
+              <text x="45" y="103" fill="#fde68a" font-size="11" font-weight="800">TIER 2 · THE MULTI-CANDLE PATTERN</text>
+              <text x="45" y="117" fill="#cbd5e1" font-size="10">Double bottom/top · bull flag · bear flag · range rejection · failed breakout</text>
+              <rect x="30" y="140" width="500" height="40" fill="#22c55e" fill-opacity=".15" stroke="#22c55e" stroke-width="1.5" rx="4"/>
+              <text x="45" y="158" fill="#86efac" font-size="11" font-weight="800">TIER 3 · THE SINGLE-CANDLE TRIGGER</text>
+              <text x="45" y="172" fill="#cbd5e1" font-size="10">Hammer · shooting star · engulfing · morning star · evening star · piercing</text>
+              <text x="280" y="205" text-anchor="middle" fill="#e6b859" font-size="10" font-weight="800">Stack tiers 1+2+3 = A++. Tier 1+3 or 1+2 = A+. Single tier only = A-grade.</text>
+            </svg>
+            <figcaption>Read stacks top-down: the <strong>level</strong> tells you "this price matters"; the <strong>pattern</strong> tells you "the market is contesting it"; the <strong>trigger</strong> tells you "the fight just resolved."</figcaption>
+          </figure>
+
           <div class="data-block">
-            <div class="dlabel">Elite LONG stacks</div>
+            <div class="dlabel">Elite LONG stacks <span class="hint">(alphabetized by trigger)</span></div>
             <div class="dvalue">
-              · 🔨 Hammer + double bottom's second low at PDL (3-layer stack)<br>
-              · 🫂 Bullish engulfing + neckline break of a double bottom<br>
-              · ⭐ Morning star + bull flag trendline break<br>
-              · 🔨 Hammer + failed breakdown at PDL<br>
-              · 🫂 Bullish engulfing + VWAP mean-reversion long at lower Bollinger
+              · 🫂 <strong>Bullish engulfing</strong> + neckline break of a double bottom <span class="hint">Tier 2+3</span><br>
+              · 🫂 <strong>Bullish engulfing</strong> + VWAP mean-reversion long at lower Bollinger <span class="hint">Tier 1+3</span><br>
+              · 🔨 <strong>Hammer</strong> + double bottom's second low at PDL <span class="hint">Tier 1+2+3 · A++</span><br>
+              · 🔨 <strong>Hammer</strong> + failed breakdown at PDL <span class="hint">Tier 1+3</span><br>
+              · ⭐ <strong>Morning star</strong> + bull flag trendline break after extended downtrend <span class="hint">Tier 2+3</span>
             </div>
           </div>
           <div class="data-block">
-            <div class="dlabel">Elite SHORT stacks</div>
+            <div class="dlabel">Elite SHORT stacks <span class="hint">(alphabetized by trigger)</span></div>
             <div class="dvalue">
-              · ⭐ Shooting star + double top's second high at PDH<br>
-              · 🫂 Bearish engulfing + neckline break of a double top<br>
-              · ⭐ Evening star + bear flag trendline break<br>
-              · ⭐ Shooting star + failed breakout at PDH<br>
-              · 🫂 Bearish engulfing + VWAP mean-reversion short at upper Bollinger
+              · 🫂 <strong>Bearish engulfing</strong> + neckline break of a double top <span class="hint">Tier 2+3</span><br>
+              · 🫂 <strong>Bearish engulfing</strong> + VWAP mean-reversion short at upper Bollinger <span class="hint">Tier 1+3</span><br>
+              · ⭐ <strong>Evening star</strong> + bear flag trendline break after extended uptrend <span class="hint">Tier 2+3</span><br>
+              · ⭐ <strong>Shooting star</strong> + double top's second high at PDH <span class="hint">Tier 1+2+3 · A++</span><br>
+              · ⭐ <strong>Shooting star</strong> + failed breakout at PDH <span class="hint">Tier 1+3</span>
             </div>
           </div>
         </div>
 
-        <!-- SECTION 2 · Why It Compounds -->
+        <!-- SECTION 2 · Visual Examples of Elite Stacks -->
         <div class="section">
-          <div class="section-label">2 · Why It Compounds Rather Than Adds</div>
+          <div class="section-label">2 · Four Classic Elite Stacks · Visualized</div>
           <div class="prose-block">
-            <p>If hammer wins 60% and double bottom wins 55%, you might intuit the stack wins 60+55 = 115% — obviously impossible. You might also intuit the average 57.5% — also wrong. The correct math is closer to probabilistic independence:</p>
+            <p>These are the four stacks Arnie should learn to spot on sight. Each visual shows all three tiers firing at the same price — the structural level, the multi-candle pattern, and the single-candle trigger.</p>
           </div>
+
+          <figure class="illus">
+            <svg viewBox="0 0 560 260" role="img" aria-labelledby="stk1-t stk1-d">
+              <title id="stk1-t">Hammer + Double Bottom at PDL</title>
+              <desc id="stk1-d">Three-tier LONG stack: PDL level, double bottom shape, hammer candle at the second trough.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="130" x2="560" y2="130"/><line x1="0" y1="210" x2="560" y2="210"/></g>
+              <line x1="30" y1="200" x2="530" y2="200" stroke="#14b8a6" stroke-width="2" stroke-dasharray="6 3"/>
+              <text x="40" y="194" fill="#14b8a6" font-size="10" font-weight="800">PDL · Tier 1</text>
+              <path d="M 60,70 L 105,110 L 150,200 L 200,160 L 250,120 L 300,198 L 360,140 L 420,80 L 480,40" stroke="#cbd5e1" stroke-width="1.8" fill="none"/>
+              <circle cx="150" cy="200" r="5" fill="#eab308" stroke="#fff" stroke-width="1"/>
+              <circle cx="300" cy="198" r="5" fill="#eab308" stroke="#fff" stroke-width="1"/>
+              <text x="210" y="230" fill="#fde68a" font-size="10" font-weight="800">Double Bottom · Tier 2</text>
+              <line x1="300" y1="160" x2="300" y2="215" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="294" y="180" width="12" height="10" fill="#22c55e" stroke="#86efac"/>
+              <text x="315" y="185" fill="#86efac" font-size="10" font-weight="800">Hammer · Tier 3</text>
+              <text x="280" y="25" text-anchor="middle" fill="#22c55e" font-size="12" font-weight="800">★ A++ LONG STACK · ~75% historical</text>
+              <line x1="300" y1="215" x2="480" y2="60" stroke="#22c55e" stroke-width="1.2" stroke-dasharray="3 2" opacity=".6"/>
+            </svg>
+            <figcaption>🔨 <strong>Hammer at PDL inside a double bottom</strong> — the holy grail LONG. The level says "buyers defend here"; the double bottom says "buyers have already defended here once"; the hammer says "buyers just defended again, right now."</figcaption>
+          </figure>
+
+          <figure class="illus">
+            <svg viewBox="0 0 560 260" role="img" aria-labelledby="stk2-t stk2-d">
+              <title id="stk2-t">Shooting star + Double Top at PDH</title>
+              <desc id="stk2-d">Three-tier SHORT stack: PDH level, double top shape, shooting star candle at the second peak.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="130" x2="560" y2="130"/><line x1="0" y1="210" x2="560" y2="210"/></g>
+              <line x1="30" y1="60" x2="530" y2="60" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 3"/>
+              <text x="40" y="54" fill="#ef4444" font-size="10" font-weight="800">PDH · Tier 1</text>
+              <path d="M 60,200 L 105,150 L 150,60 L 200,110 L 250,160 L 300,62 L 360,130 L 420,180 L 480,230" stroke="#cbd5e1" stroke-width="1.8" fill="none"/>
+              <circle cx="150" cy="60" r="5" fill="#eab308" stroke="#fff" stroke-width="1"/>
+              <circle cx="300" cy="62" r="5" fill="#eab308" stroke="#fff" stroke-width="1"/>
+              <text x="210" y="40" fill="#fde68a" font-size="10" font-weight="800">Double Top · Tier 2</text>
+              <line x1="300" y1="45" x2="300" y2="100" stroke="#cbd5e1" stroke-width="1.2"/>
+              <rect x="294" y="72" width="12" height="10" fill="#ef4444" stroke="#fca5a5"/>
+              <text x="315" y="77" fill="#fca5a5" font-size="10" font-weight="800">Shooting Star · Tier 3</text>
+              <text x="280" y="245" text-anchor="middle" fill="#ef4444" font-size="12" font-weight="800">★ A++ SHORT STACK · ~75% historical</text>
+              <line x1="300" y1="100" x2="480" y2="220" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2" opacity=".6"/>
+            </svg>
+            <figcaption>⭐ <strong>Shooting star at PDH inside a double top</strong> — the mirror-image A++ SHORT. Same logic, opposite direction. This is the short Arnie should wait for all day.</figcaption>
+          </figure>
+
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="stk3-t stk3-d">
+              <title id="stk3-t">Bullish engulfing + double-bottom neckline break</title>
+              <desc id="stk3-d">Two-tier stack: the neckline break of a double bottom confirmed by a bullish engulfing candle.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <line x1="30" y1="90" x2="530" y2="90" stroke="#c4b5fd" stroke-width="1.8" stroke-dasharray="5 3"/>
+              <text x="40" y="84" fill="#c4b5fd" font-size="10" font-weight="800">Neckline · Tier 2 (pattern event)</text>
+              <path d="M 60,70 L 100,110 L 140,170 L 180,130 L 220,90 L 260,140 L 300,170 L 340,150 L 380,90 L 420,60" stroke="#cbd5e1" stroke-width="1.6" fill="none"/>
+              <circle cx="140" cy="170" r="4" fill="#eab308"/><circle cx="300" cy="170" r="4" fill="#eab308"/>
+              <rect x="395" y="70" width="16" height="35" fill="#22c55e" stroke="#86efac" stroke-width="1.4"/>
+              <rect x="373" y="92" width="16" height="28" fill="#ef4444" stroke="#fca5a5" stroke-width="1" opacity=".7"/>
+              <text x="400" y="50" fill="#86efac" font-size="10" font-weight="800">Engulfing · Tier 3</text>
+              <text x="280" y="205" text-anchor="middle" fill="#22c55e" font-size="11" font-weight="800">A+ LONG · big engulfing body closes above the neckline</text>
+            </svg>
+            <figcaption>🫂 <strong>Bullish engulfing breaking the double bottom's neckline</strong> — the pattern that closes above the failure-zone line IS the trigger. Neckline break and the candle that breaks it are the same event.</figcaption>
+          </figure>
+
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="stk4-t stk4-d">
+              <title id="stk4-t">Morning star + bull flag breakout</title>
+              <desc id="stk4-d">Two-tier LONG stack: descending bull flag trendline break confirmed by a morning star three-candle pattern.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+              <path d="M 60,80 L 110,70 L 160,100 L 210,130 L 260,155 L 310,170" stroke="#cbd5e1" stroke-width="1.6" fill="none"/>
+              <text x="120" y="60" fill="#5eead4" font-size="10" font-weight="800">Impulse up (flagpole)</text>
+              <line x1="160" y1="100" x2="380" y2="175" stroke="#c4b5fd" stroke-width="1.6" stroke-dasharray="5 3"/>
+              <text x="220" y="150" fill="#c4b5fd" font-size="10" font-weight="800">Flag trendline · Tier 2</text>
+              <rect x="320" y="150" width="10" height="22" fill="#ef4444" opacity=".7"/>
+              <rect x="340" y="158" width="10" height="10" fill="#64748b"/>
+              <rect x="360" y="100" width="10" height="60" fill="#22c55e" stroke="#86efac"/>
+              <text x="335" y="85" fill="#86efac" font-size="10" font-weight="800">Morning star · Tier 3</text>
+              <path d="M 360,100 L 480,60" stroke="#22c55e" stroke-width="1.4" stroke-dasharray="3 2"/>
+              <text x="280" y="205" text-anchor="middle" fill="#22c55e" font-size="11" font-weight="800">A+ LONG · price breaks flag trendline via 3-candle reversal</text>
+            </svg>
+            <figcaption>⭐ <strong>Morning star breaking a bull flag trendline</strong> — continuation pattern stacked with a reversal pattern. The flag's pullback is also the "bear candle" of the morning star.</figcaption>
+          </figure>
+        </div>
+
+        <!-- SECTION 3 · Why It Compounds -->
+        <div class="section">
+          <div class="section-label">3 · Why It Compounds Rather Than Adds <span>The independence trick</span></div>
+          <div class="prose-block">
+            <p>If hammer wins 60% and double bottom wins 55%, you might intuit the stack wins 60+55 = 115% — obviously impossible. You might also intuit the average 57.5% — also wrong. The real math treats the patterns as <strong>partially independent lines of evidence</strong>: each one can fail on its own, but for the <em>trade</em> to fail, BOTH have to fail at the same time.</p>
+          </div>
+
+          <figure class="illus">
+            <svg viewBox="0 0 560 240" role="img" aria-labelledby="prob-tree-t prob-tree-d">
+              <title id="prob-tree-t">Probability tree: why stacks compound</title>
+              <desc id="prob-tree-d">Decision tree showing how each pattern can succeed or fail independently, and how the compound failure rate is smaller than either alone.</desc>
+              <rect x="30" y="20" width="150" height="34" fill="#1e293b" stroke="#475569" rx="4"/>
+              <text x="105" y="42" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="800">Stack fires</text>
+              <path d="M 180,37 L 250,80" stroke="#22c55e" stroke-width="1.5"/>
+              <path d="M 180,37 L 250,190" stroke="#ef4444" stroke-width="1.5"/>
+              <text x="195" y="55" fill="#86efac" font-size="9" font-weight="700">Pattern 1 OK (60%)</text>
+              <text x="195" y="175" fill="#fca5a5" font-size="9" font-weight="700">Pattern 1 fails (40%)</text>
+              <rect x="250" y="65" width="130" height="30" fill="#064e3b" stroke="#22c55e" rx="3"/>
+              <text x="315" y="85" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">TRADE WINS</text>
+              <rect x="250" y="175" width="130" height="30" fill="#1e293b" stroke="#475569" rx="3"/>
+              <text x="315" y="194" text-anchor="middle" fill="#cbd5e1" font-size="9">Second chance →</text>
+              <path d="M 380,190 L 440,150" stroke="#22c55e" stroke-width="1.5"/>
+              <path d="M 380,200 L 440,225" stroke="#ef4444" stroke-width="1.5"/>
+              <text x="395" y="170" fill="#86efac" font-size="9" font-weight="700">P2 OK (55%)</text>
+              <text x="395" y="235" fill="#fca5a5" font-size="9" font-weight="700">P2 fails (45%)</text>
+              <rect x="440" y="130" width="110" height="28" fill="#064e3b" stroke="#22c55e" rx="3"/>
+              <text x="495" y="148" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">WINS</text>
+              <rect x="440" y="215" width="110" height="28" fill="#7f1d1d" stroke="#ef4444" rx="3"/>
+              <text x="495" y="233" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">LOSES</text>
+              <text x="280" y="125" text-anchor="middle" fill="#e6b859" font-size="10" font-weight="800">Both fail = 0.40 × 0.45 = 18% · Stack wins 82%</text>
+            </svg>
+            <figcaption>The math: if Pattern 1 wins 60% and Pattern 2 wins 55% <em>independently</em>, the trade only loses when <strong>both</strong> patterns fail — 0.40 × 0.45 = 18%. That's why the combined win rate lifts to ~75–82% in the idealized case.</figcaption>
+          </figure>
+
           <div class="data-block" style="border-left-color:#c4b5fd">
-            <div class="dlabel">The math</div>
-            <div class="dvalue">P(both patterns real and following through) ≈ P(pattern 1) + P(pattern 2) − P(both fail)</div>
+            <div class="dlabel">The honest math</div>
+            <div class="dvalue">Patterns aren't perfectly independent — they share underlying reasons (both respond to the same level, same order flow, same news). So real-world stack win rates aren't the full 82% the math predicts. Empirically, pro scalpers log <strong>70–78% on legal 2-pattern stacks</strong> and <strong>up to 82% on 3-pattern A++ setups</strong>. That's still a 10–20 percentage-point lift over single patterns.</div>
           </div>
-          <div class="prose-block">
-            <p>The practical effect: <strong>well-stacked setups empirically run at 70–78% win rate</strong> across professional scalpers' records — a meaningful jump over the individual pattern stats. And the R:R is often better too, because the level providing the "stack point" is usually a major level that price runs away from decisively once confirmed.</p>
+          <div class="data-block" style="border-left-color:#fb923c">
+            <div class="dlabel">The asymmetry that matters most</div>
+            <div class="dvalue">Stacks don't just win more often — they also produce <strong>larger average winners</strong>, because the "stack point" is usually a major level price runs away from decisively. Meanwhile, losses stay the same size (stop is stop). The expectancy lift is almost always understated by win-rate alone.</div>
           </div>
         </div>
 
-        <!-- SECTION 3 · Hierarchy of Stack Quality -->
+        <!-- SECTION 4 · Stack Quality Score -->
         <div class="section">
-          <div class="section-label">3 · The Hierarchy of Stack Quality <span>Size matches probability, not emotion</span></div>
+          <div class="section-label">4 · Stack Quality Score <span>0–5 before sizing</span></div>
+          <div class="prose-block">
+            <p>Before sizing up on any claimed stack, grade the stack itself. Not every "two patterns" is a real stack — if it fails the rules, treat it as a single pattern. Use this scorecard in real time on every stacked setup:</p>
+          </div>
+          <div class="check-row"><label><input type="checkbox" class="score" data-side="stack"> Both patterns are <strong>named</strong> — I can say each one out loud without hedging. <span class="explain"><strong>What this means</strong> — "Looks bearish" and "looks like it's rolling over" aren't names. "Bearish engulfing at the second top of a double top" is a name. If you can't name it, it's vibes, not a stack.</span></label></div>
+          <div class="check-row"><label><input type="checkbox" class="score" data-side="stack"> Both patterns point in the <strong>same direction</strong>. <span class="explain"><strong>What this means</strong> — A bullish hammer inside a developing double top is a contradiction, not a stack. Skip both patterns and wait for agreement.</span></label></div>
+          <div class="check-row"><label><input type="checkbox" class="score" data-side="stack"> Both patterns fire at the <strong>same price</strong> (within 2 pts MES · 4 MNQ · 1 M2K · 1 RTY). <span class="explain"><strong>What this means</strong> — Same zone isn't enough. A hammer at 4320 and a double bottom at 4317 on MES is a 3-point gap — that's a pass. The tighter the price alignment, the more the two patterns are actually responding to the same thing.</span></label></div>
+          <div class="check-row"><label><input type="checkbox" class="score" data-side="stack"> Timing: both patterns completed <strong>within 4 candles of each other</strong> (8 minutes on 2-min chart). <span class="explain"><strong>What this means</strong> — A hammer 20 minutes before the double bottom completes is stale — the rejection has dissipated. Stacks degrade fast once the second pattern forms; keep them tight in time.</span></label></div>
+          <div class="check-row"><label><input type="checkbox" class="score" data-side="stack"> Higher timeframe <strong>agrees or is neutral</strong> — not actively opposing. <span class="explain"><strong>What this means</strong> — A perfect hammer + double bottom stack on 2-min with a fresh HTF downtrend breakdown just above you is a stack fighting a freight train. Neutral or with-trend stacks only.</span></label></div>
+          <div class="score-box">
+            <span class="score-label">Stack quality:</span>
+            <span class="score-value" id="score-stack">0 / 5</span>
+            <span class="score-verdict" id="verdict-stack">—</span>
+          </div>
+          <div class="data-block" style="border-left-color:#22c55e">
+            <div class="dlabel">Verdict scoring</div>
+            <div class="dvalue">≥4: <strong>HIGH QUALITY STACK</strong> — size up per the hierarchy · ≥3: <strong>TREAT AS SINGLE PATTERN</strong> — take with standard size, do not size up · ≥2: <strong>MARGINAL — WAIT</strong> for a cleaner version · &lt;2: <strong>SKIP</strong> — this isn't a real stack, it's wishful thinking.</div>
+          </div>
+        </div>
+
+        <!-- SECTION 5 · Hierarchy of Stack Quality -->
+        <div class="section">
+          <div class="section-label">5 · The Hierarchy of Stack Quality <span>Size matches probability, not emotion</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 180" role="img" aria-labelledby="size-ladder-t size-ladder-d">
+              <title id="size-ladder-t">Size ladder by stack count</title>
+              <desc id="size-ladder-d">Three-step ladder: single pattern at standard size, 2-pattern at +50%, 3-pattern at +100% — all inside the daily risk cap.</desc>
+              <rect x="20" y="120" width="160" height="40" fill="#3b82f6" fill-opacity=".25" stroke="#60a5fa" rx="4"/>
+              <text x="100" y="138" text-anchor="middle" fill="#dbeafe" font-size="11" font-weight="800">1 pattern · A</text>
+              <text x="100" y="152" text-anchor="middle" fill="#cbd5e1" font-size="9">4 M2K · $200 risk · standard</text>
+              <rect x="200" y="75" width="160" height="85" fill="#eab308" fill-opacity=".25" stroke="#eab308" rx="4"/>
+              <text x="280" y="94" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="800">2 patterns · A+</text>
+              <text x="280" y="108" text-anchor="middle" fill="#cbd5e1" font-size="9">6 M2K · +50% size</text>
+              <text x="280" y="122" text-anchor="middle" fill="#cbd5e1" font-size="9">Same dollar risk</text>
+              <text x="280" y="138" text-anchor="middle" fill="#cbd5e1" font-size="9">(uses tight stop)</text>
+              <rect x="380" y="30" width="160" height="130" fill="#e6b859" fill-opacity=".25" stroke="#e6b859" rx="4"/>
+              <text x="460" y="49" text-anchor="middle" fill="#e6b859" font-size="11" font-weight="800">3 patterns · A++ ★</text>
+              <text x="460" y="63" text-anchor="middle" fill="#cbd5e1" font-size="9">8 M2K · +100% size</text>
+              <text x="460" y="77" text-anchor="middle" fill="#cbd5e1" font-size="9">Still inside daily cap</text>
+              <text x="460" y="95" text-anchor="middle" fill="#cbd5e1" font-size="9">Rare · 2–3x/week</text>
+              <text x="460" y="115" text-anchor="middle" fill="#fde68a" font-size="10" font-weight="800">★ Arnie's target ★</text>
+              <text x="280" y="175" text-anchor="middle" fill="#cbd5e1" font-size="9" font-weight="700">Probability determines size. Size never breaks the $600 daily risk cap — stops tighten instead.</text>
+            </svg>
+            <figcaption>The ladder: standard size on singles, +50% on clean 2-pattern stacks, +100% on the rare A++ 3-stack. Always within the daily risk budget.</figcaption>
+          </figure>
           <div class="data-block">
             <div class="dlabel">1 pattern alone · A-grade</div>
-            <div class="dvalue">Take it with standard size (4 M2K contracts at $200 risk).</div>
+            <div class="dvalue">Take it with <strong>standard size</strong> (4 M2K contracts · $200 risk). Classic stop. Normal expectations.</div>
           </div>
           <div class="data-block" style="border-left-color:#eab308">
             <div class="dlabel">2 patterns stacking · A+ setup</div>
-            <div class="dvalue">Take it with <strong>+50% size</strong> (6 contracts), or +33% position.</div>
+            <div class="dvalue">Take it with <strong>+50% size</strong> (6 contracts). Use the <strong>tight-stop variant</strong> (1-point buffer on M2K instead of 2) so dollar risk stays the same. Higher R:R on the same trade.</div>
           </div>
           <div class="data-block" style="border-left-color:#e6b859">
             <div class="dlabel">3 patterns stacking · A++ setup · rare (2–3x/week)</div>
-            <div class="dvalue">Take it with <strong>+100% size</strong> (8 contracts), still within daily risk budget.</div>
+            <div class="dvalue">Take it with <strong>+100% size</strong> (8 contracts). Dollar risk stays within the $600 daily cap by combining tight-stop and partial-scale-out at 1R. These are the trades that pay the week.</div>
           </div>
           <div class="data-block" style="border-left-color:#ef4444">
             <div class="dlabel">⚠ Never exceed daily risk budget</div>
-            <div class="dvalue">The edge is in <em>probability</em>, not size — use the <strong>Position Calculator v2</strong> to size appropriately for your risk ceiling. Stack count modifies size within that ceiling; it never breaks it.</div>
+            <div class="dvalue">The edge is in <em>probability</em>, not size — use the <strong>Position Calculator v2</strong> to size appropriately for your risk ceiling. Stack count modifies size <em>within</em> that ceiling; it never breaks it. After a loss, sizes compress regardless of stack quality.</div>
           </div>
         </div>
 
-        <!-- SECTION 4 · Stacking Rules -->
+        <!-- SECTION 6 · Stacking Rules -->
         <div class="section">
-          <div class="section-label">4 · Arnie's Stacking Rules <span>Non-negotiable</span></div>
+          <div class="section-label">6 · Arnie's Stacking Rules <span>Non-negotiable</span></div>
           <div class="method-block">
             <div class="method-title">Five rules for legal stacks</div>
             <ul>
               <li class="pro"><strong>1 · Named patterns only.</strong> "Looks bearish" doesn't stack with anything. You must be able to name both patterns out loud.</li>
               <li class="pro"><strong>2 · Same direction.</strong> A bullish candle pattern at a double-top setup isn't a stack — it's a contradiction. Skip both.</li>
-              <li class="pro"><strong>3 · Same level.</strong> Patterns must fire at the same price (within 2 pts on MES, 4 on MNQ, 1 on M2K). Not "in the same zone" — <em>at the same price</em>.</li>
+              <li class="pro"><strong>3 · Same level.</strong> Patterns must fire at the same price (within 2 pts on MES, 4 on MNQ, 1 on M2K/RTY). Not "in the same zone" — <em>at the same price</em>.</li>
               <li class="pro"><strong>4 · Timing within 4 candles.</strong> If the hammer fired 20 minutes before the double bottom completed, the rejection has dissipated. Keep stacks tight in time.</li>
-              <li class="pro"><strong>5 · Higher timeframe agrees or is neutral.</strong> Stacks don't cancel out HTF trends.</li>
+              <li class="pro"><strong>5 · Higher timeframe agrees or is neutral.</strong> Stacks don't cancel out HTF trends — they ride with them or pass.</li>
+            </ul>
+          </div>
+
+          <div class="method-block" style="border-left-color:#ef4444">
+            <div class="method-title">What is <em>not</em> a stack — common fakes</div>
+            <ul>
+              <li class="con"><strong>Same candle counted twice.</strong> A bullish engulfing that breaks the neckline of a double bottom is ONE event, not two stacked patterns. Beautiful setup — but it's a 2-tier stack (pattern + trigger), not a 3-tier.</li>
+              <li class="con"><strong>Two bearish candles = "double-bearish" stack.</strong> No such thing. Two shooting stars aren't stacked; that's repetition.</li>
+              <li class="con"><strong>Pattern on 2-min + same pattern on 5-min.</strong> Same price action graded twice. That's confluence, not stacking. Useful — but don't size up for it.</li>
+              <li class="con"><strong>Price "respected VWAP and PDL."</strong> If VWAP and PDL are 5 points apart, that's not a stack — it's a zone. Call it a zone, size normal.</li>
             </ul>
           </div>
         </div>
 
-        <!-- SECTION 5 · Logging Stacks -->
+        <!-- SECTION 7 · Stack Failure Patterns -->
         <div class="section">
-          <div class="section-label">5 · Logging Stacks for Edge Discovery</div>
+          <div class="section-label">7 · How Stacks Fail <span>Bust patterns to respect</span></div>
+          <div class="prose-block">
+            <p>Even A++ stacks fail. The difference between a winning trader and a losing one on stacks isn't the stack score — it's how fast you exit when the stack busts. Here's what failure looks like:</p>
+          </div>
+
+          <figure class="illus">
+            <svg viewBox="0 0 560 210" role="img" aria-labelledby="stack-bust-t stack-bust-d">
+              <title id="stack-bust-t">Failed A++ stack</title>
+              <desc id="stack-bust-d">Hammer + double bottom at PDL, but price closes through PDL on the next candle — the stack is invalid.</desc>
+              <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="120" x2="560" y2="120"/><line x1="0" y1="180" x2="560" y2="180"/></g>
+              <line x1="30" y1="155" x2="530" y2="155" stroke="#14b8a6" stroke-width="2" stroke-dasharray="6 3"/>
+              <text x="40" y="149" fill="#14b8a6" font-size="10" font-weight="800">PDL · was support</text>
+              <path d="M 60,60 L 100,90 L 140,150 L 180,120 L 220,80 L 260,150 L 300,155" stroke="#cbd5e1" stroke-width="1.8" fill="none"/>
+              <circle cx="140" cy="150" r="4" fill="#eab308"/><circle cx="260" cy="150" r="4" fill="#eab308"/>
+              <rect x="274" y="140" width="12" height="15" fill="#22c55e" stroke="#86efac"/>
+              <line x1="280" y1="140" x2="280" y2="112" stroke="#86efac" stroke-width="1"/>
+              <text x="175" y="45" fill="#fde68a" font-size="10" font-weight="800">Hammer + DB fired — A++ stack</text>
+              <rect x="310" y="155" width="14" height="38" fill="#ef4444" stroke="#fca5a5" stroke-width="1.4"/>
+              <line x1="317" y1="155" x2="317" y2="148" stroke="#fca5a5"/>
+              <text x="330" y="200" fill="#fca5a5" font-size="11" font-weight="800">NEXT CANDLE CLOSES BELOW PDL</text>
+              <path d="M 324,193 L 500,170" stroke="#ef4444" stroke-width="1.6" stroke-dasharray="4 2"/>
+              <text x="400" y="160" fill="#fca5a5" font-size="10" font-weight="800">Stop hits · exit fast</text>
+            </svg>
+            <figcaption>Even the A++ stack fails about 20% of the time. When price closes below PDL on the candle after your hammer, the entire thesis is invalid — exit immediately, don't wait for the stop.</figcaption>
+          </figure>
+
+          <div class="method-block" style="border-left-color:#ef4444">
+            <div class="method-title">Five signs your stack is busting</div>
+            <ul>
+              <li class="con"><strong>1 · Level breaks.</strong> Any close below PDL (for long stacks) or above PDH (for short stacks) invalidates the whole stack — the structural tier is gone.</li>
+              <li class="con"><strong>2 · No follow-through in 3 candles.</strong> Hammer + DB formed, but 6 minutes later price hasn't moved 1R toward target. Probability decays fast; exit at breakeven.</li>
+              <li class="con"><strong>3 · Reverse trigger fires.</strong> You entered on a bullish engulfing; the next candle is a bearish engulfing at your entry. Pattern reversed → thesis reversed → exit.</li>
+              <li class="con"><strong>4 · Volume evaporates.</strong> Pattern formed on low volume, then volume dries up further. The buyers or sellers you were hoping would show up aren't there.</li>
+              <li class="con"><strong>5 · News hits.</strong> CPI print, Fed headline, Powell remark drops in the middle of your trade. All stacks are off the moment a macro event fires — exit regardless of position.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 8 · Workflow -->
+        <div class="section">
+          <div class="section-label">8 · Pattern Stacking Workflow <span>Pre-market → session → journal</span></div>
+          <figure class="illus">
+            <svg viewBox="0 0 560 220" role="img" aria-labelledby="stack-workflow-t stack-workflow-d">
+              <title id="stack-workflow-t">Pattern Stacking Workflow</title>
+              <desc id="stack-workflow-d">Three-phase workflow: pre-market level marking, session pattern spotting, post-trade logging.</desc>
+              <rect x="20" y="30" width="160" height="150" fill="#0e7490" fill-opacity=".2" stroke="#14b8a6" rx="6"/>
+              <text x="100" y="55" text-anchor="middle" fill="#5eead4" font-size="11" font-weight="800">PRE-MARKET</text>
+              <text x="100" y="75" text-anchor="middle" fill="#cbd5e1" font-size="9">Before 9:30 ET</text>
+              <text x="100" y="95" text-anchor="middle" fill="#e2e8f0" font-size="9">· Mark PDH/PDL/ONH/ONL</text>
+              <text x="100" y="110" text-anchor="middle" fill="#e2e8f0" font-size="9">· Draw VWAP anchor line</text>
+              <text x="100" y="125" text-anchor="middle" fill="#e2e8f0" font-size="9">· Note HTF bias</text>
+              <text x="100" y="140" text-anchor="middle" fill="#e2e8f0" font-size="9">· Check econ calendar</text>
+              <text x="100" y="155" text-anchor="middle" fill="#e2e8f0" font-size="9">· Write daily hunt list</text>
+              <path d="M 180,105 L 205,105" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowStk)"/>
+              <rect x="205" y="30" width="160" height="150" fill="#7c3aed" fill-opacity=".15" stroke="#a78bfa" rx="6"/>
+              <text x="285" y="55" text-anchor="middle" fill="#c4b5fd" font-size="11" font-weight="800">DURING SESSION</text>
+              <text x="285" y="75" text-anchor="middle" fill="#cbd5e1" font-size="9">Watch the marked levels</text>
+              <text x="285" y="95" text-anchor="middle" fill="#e2e8f0" font-size="9">· Pattern forms → name it</text>
+              <text x="285" y="110" text-anchor="middle" fill="#e2e8f0" font-size="9">· Check for stacking tier</text>
+              <text x="285" y="125" text-anchor="middle" fill="#e2e8f0" font-size="9">· Score the stack · 0–5</text>
+              <text x="285" y="140" text-anchor="middle" fill="#e2e8f0" font-size="9">· Size per hierarchy</text>
+              <text x="285" y="155" text-anchor="middle" fill="#e2e8f0" font-size="9">· Execute per playbook</text>
+              <path d="M 365,105 L 390,105" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowStk)"/>
+              <rect x="390" y="30" width="150" height="150" fill="#e6b859" fill-opacity=".2" stroke="#e6b859" rx="6"/>
+              <text x="465" y="55" text-anchor="middle" fill="#e6b859" font-size="11" font-weight="800">POST-TRADE</text>
+              <text x="465" y="75" text-anchor="middle" fill="#cbd5e1" font-size="9">Journal immediately</text>
+              <text x="465" y="95" text-anchor="middle" fill="#e2e8f0" font-size="9">· Log stack type/count</text>
+              <text x="465" y="110" text-anchor="middle" fill="#e2e8f0" font-size="9">· Log stack score</text>
+              <text x="465" y="125" text-anchor="middle" fill="#e2e8f0" font-size="9">· Log R multiple</text>
+              <text x="465" y="140" text-anchor="middle" fill="#e2e8f0" font-size="9">· Weekly: stack vs single</text>
+              <text x="465" y="155" text-anchor="middle" fill="#e2e8f0" font-size="9">· Discover YOUR edge</text>
+              <defs>
+                <marker id="arrowStk" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                  <polygon points="0 0, 8 4, 0 8" fill="#94a3b8"/>
+                </marker>
+              </defs>
+              <text x="280" y="205" text-anchor="middle" fill="#cbd5e1" font-size="9" font-weight="700">Discipline is the loop: pre-mark levels → stalk stacks → log stack data → weekly review → repeat.</text>
+            </svg>
+            <figcaption>The stacking workflow is a weekly loop. Pre-market discipline marks the levels; session discipline waits for stacks at those levels; post-trade discipline logs the stack so weekly review can discover personal edges.</figcaption>
+          </figure>
+
+          <div class="method-block">
+            <div class="method-title">Pre-market phase — do BEFORE 9:30 ET</div>
+            <ul>
+              <li class="pro">Mark PDH, PDL, ONH, ONL, daily VWAP anchor, and major swing levels on MES, MNQ, M2K, RTY</li>
+              <li class="pro">Note HTF bias (up / down / neutral) from 15-min and 60-min charts</li>
+              <li class="pro">Check econ calendar — red folder events block all stacking for that window</li>
+              <li class="pro">Write 2–3 "hunt" entries in the pre-market prep: "Hunt hammer or engulfing long at MES PDL near 4317" etc.</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Session phase — during RTH</div>
+            <ul>
+              <li class="pro">When price approaches a marked level, start watching for a multi-candle pattern</li>
+              <li class="pro">When a pattern starts forming, start watching for a single-candle trigger at its completion</li>
+              <li class="pro">When a trigger fires, score the stack with the 5-criterion checklist above</li>
+              <li class="pro">Size per the hierarchy: 4/6/8 contracts for 1/2/3-pattern stacks</li>
+              <li class="pro">Execute per the individual pattern playbook (stop, target, scale-out, time stop — all as defined per pattern)</li>
+            </ul>
+          </div>
+
+          <div class="method-block">
+            <div class="method-title">Post-trade phase — within 2 minutes of exit</div>
+            <ul>
+              <li class="pro">Log stack type: "None / 2-pattern / 3-pattern" in journal</li>
+              <li class="pro">Log stack score (0–5) from the checklist</li>
+              <li class="pro">Log the names: e.g., "hammer + DB at PDL"</li>
+              <li class="pro">Log outcome: R multiple, whether time stop hit, whether T1/T2/T3 hit</li>
+              <li class="pro">On weekly review: sort journal by stack count and compare win rate / avg R / expectancy. If 3-stack setups aren't outperforming 1-stack, recalibrate your stack grading — you're being too generous.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 9 · Logging Stacks -->
+        <div class="section">
+          <div class="section-label">9 · Logging Stacks for Edge Discovery <span>Your data beats any book</span></div>
           <div class="prose-block">
             <p>Add a <strong>"Stack" field to the trade journal</strong>: none / 2-pattern / 3-pattern. Over 100 trades, compare the win rate by stack count. This is where you'll discover YOUR own highest-edge personal setups — the ones that consistently work for your eye, style, and timing. That data is worth more than any book.</p>
           </div>
+          <div class="data-block" style="border-left-color:#c4b5fd">
+            <div class="dlabel">What to compare weekly</div>
+            <div class="dvalue">
+              · Win rate by stack count (1/2/3-pattern)<br>
+              · Avg R by stack count<br>
+              · Expectancy = win rate × avg win R − loss rate × avg loss R<br>
+              · Which SPECIFIC stack types work best for you (hammer+DB? engulfing+neckline?)<br>
+              · Which times of day stacks show up most (9:30–10:30 is usually the #1 window)
+            </div>
+          </div>
           <div class="xref"><strong>Next step</strong>
-            Every trade journal entry going forward should tag stack count. Weekly review should compare win rate and avg R across stack levels. If 3-stack setups aren't outperforming 1-stack setups in your own data, something's off with how you're grading stacks — recalibrate.
+            Every trade journal entry going forward should tag stack count. Weekly review should compare win rate and avg R across stack levels. If 3-stack setups aren't outperforming 1-stack setups in your own data, something's off with how you're grading stacks — recalibrate (be stricter about what counts as a stack).
           </div>
         </div>
 
@@ -12555,44 +13717,232 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       </div>
 
       <!-- ==================== v5 APPENDIX ==================== -->
-      <h2 class="plan-h2" id="final-plan-v5">🆕 v5 Appendix · Candle Patterns · Stacking · Calculator Workflow</h2>
+      <h2 class="plan-h2" id="final-plan-v5">🆕 v5 Appendix · Candle Patterns · Stacking · Calculator · Kill Switches</h2>
+      <p class="plan-prose">The v5 expansion adds three single/multi-candle reversal patterns (Hammer·Shooting Star, Engulfing, Morning·Evening Star), a formal pattern-stacking framework, a standalone position calculator, and one new daily kill switch. Everything below integrates into the same 2-minute workflow — no changes to the DB/DT/BF/BEF cards above.</p>
 
-      <h3 class="plan-h3">New Entries for the Daily Hunt List</h3>
-      <ul class="plan-list">
-        <li>🔨 <strong>Hammer / Shooting Star</strong> at named levels · midday and afternoon blocks</li>
-        <li>🫂 <strong>Bullish / Bearish Engulfing</strong> at named levels · all session blocks</li>
-        <li>⭐ <strong>Morning / Evening Star</strong> after extended moves · any session block</li>
-      </ul>
+      <!-- ===== HUNT LIST ===== -->
+      <h3 class="plan-h3" id="final-plan-v5-hunt">📋 The Daily Hunt List (v5)</h3>
+      <p class="plan-prose">Before 9:30 ET you write a hunt list: 2–5 named setups you'll <em>actively look for</em> today. If none fire, you don't trade — that's discipline, not missed opportunity. v5 adds three new hunt categories:</p>
 
-      <h3 class="plan-h3">Updated Stop Rule Summary</h3>
-      <p class="plan-prose">All patterns now support <strong>two stop variants</strong>:</p>
-      <ul class="plan-list">
-        <li><strong>Classic:</strong> below trough 2 / above peak 2 / below flag low / above flag high / below wick tip</li>
-        <li><strong>Tight (v5):</strong> below neckline / above neckline / below trendline / above trendline</li>
-      </ul>
-      <p class="plan-prose">Use <strong>point-based buffers</strong> (not ticks) — see per-instrument table in each pattern's section 4b. MES 1.0 · MNQ 1.5 · M2K 0.4 · ES 1.0 · NQ 2.0 · RTY 0.4 pts.</p>
+      <figure class="plan-illus">
+        <svg viewBox="0 0 560 280" role="img" aria-labelledby="hunt-list-t hunt-list-d">
+          <title id="hunt-list-t">Daily Hunt List — time blocks and patterns</title>
+          <desc id="hunt-list-d">Three time blocks of the session mapped to the patterns that work best in each block.</desc>
+          <rect x="20" y="20" width="520" height="50" fill="#134e4a" fill-opacity=".3" stroke="#14b8a6" rx="6"/>
+          <text x="35" y="42" fill="#5eead4" font-size="12" font-weight="800">9:30–11:30 · OPEN &amp; MORNING</text>
+          <text x="35" y="60" fill="#e2e8f0" font-size="10">Best for: Double Bottom/Top · Bull Flag · Bear Flag · Bullish/Bearish Engulfing at PDH/PDL</text>
+          <rect x="20" y="85" width="520" height="50" fill="#3730a3" fill-opacity=".3" stroke="#818cf8" rx="6"/>
+          <text x="35" y="107" fill="#c7d2fe" font-size="12" font-weight="800">11:30–13:30 · MIDDAY (LUNCH LOCK)</text>
+          <text x="35" y="125" fill="#e2e8f0" font-size="10">Best for: Hammer/Shooting Star at named levels · Engulfing at range extremes · low-volume setups only</text>
+          <rect x="20" y="150" width="520" height="50" fill="#7c2d12" fill-opacity=".3" stroke="#fb923c" rx="6"/>
+          <text x="35" y="172" fill="#fdba74" font-size="12" font-weight="800">13:30–16:00 · AFTERNOON &amp; CLOSE</text>
+          <text x="35" y="190" fill="#e2e8f0" font-size="10">Best for: Morning/Evening Star after extended moves · Hammer/Shooting Star · Engulfing at major levels</text>
+          <rect x="20" y="205" width="520" height="60" fill="#581c87" fill-opacity=".3" stroke="#c084fc" rx="6"/>
+          <text x="35" y="227" fill="#e9d5ff" font-size="12" font-weight="800">ALL SESSIONS · A++ STACK WATCH</text>
+          <text x="35" y="245" fill="#e2e8f0" font-size="10">Hammer + DB at PDL · Shooting Star + DT at PDH · Engulfing at neckline break</text>
+          <text x="35" y="258" fill="#e2e8f0" font-size="10">Morning Star after flagpole + bull flag · Evening Star at top of bear flag</text>
+        </svg>
+        <figcaption>Session blocks and the patterns that tend to work best in each. Midday is the new high-value window for candle patterns — when trends are thinner and named levels matter more.</figcaption>
+      </figure>
 
-      <h3 class="plan-h3">Pattern Stacking Workflow</h3>
-      <ol class="plan-list">
-        <li>During pre-market prep (before 9:30 EST), mark all named levels (PDH/PDL/ORH/ORL/round #s/prior week highs/lows/VWAP anchor).</li>
-        <li>During session, when any pattern fires, ask: <em>"Is another pattern also firing at this level right now, same direction?"</em></li>
-        <li>If yes → <strong>stacked setup</strong> → increase size within daily risk budget.</li>
-        <li>If no → <strong>standard setup</strong> → standard size.</li>
-        <li>Log the stack type (none / 2-pattern / 3-pattern) in the journal every trade.</li>
-      </ol>
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">🔨 Hammer / Shooting Star — at named levels · midday + afternoon</span>
+        Best used when the market is flat-ish or range-bound. Requires: prior 3+ candle directional move INTO a named level (PDH, PDL, ONH, ONL, VWAP, whole number), wick ≥2× body, body within 20% of the opposite extreme, volume ≥1.2× 20-period avg. <strong>Kill switch if no volume confirmation.</strong>
+      </div>
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">🫂 Bullish / Bearish Engulfing — at named levels · all session blocks</span>
+        The most versatile candle pattern. Requires: body completely engulfs prior candle's body (wicks don't count), close in top/bottom 25% of candle range, ≥1.2× avg volume, clear prior trend of 3+ candles. <strong>Best when it fires AT the neckline break of a DB/DT.</strong> That's where engulfing earns its keep.
+      </div>
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">⭐ Morning / Evening Star — after extended moves · any block</span>
+        The rarest but highest-probability pattern. Requires: 3 specific candles (strong directional + small indecision + strong reversal), middle candle gaps or holds, reversal candle recaptures ≥50% of first candle's range. <strong>Best after 5+ candle trends or at exhaustion volume spikes.</strong>
+      </div>
 
-      <h3 class="plan-h3">Calculator Workflow</h3>
-      <p class="plan-prose">Every trade, before clicking, run through the <a href="https://arnie-position-calculator.netlify.app/" target="_blank" rel="noopener" style="color:#60a5fa;">Position Calculator v2</a>:</p>
-      <ol class="plan-list">
-        <li><strong>Reverse mode:</strong> enter target risk ($200 default), stop distance from the chart. Calc returns contract count.</li>
-        <li><strong>Fibonacci mode</strong> (optional): enter pattern low/high, get TP ladder automatically.</li>
-        <li><strong>EV mode</strong> (weekly review): plug in last week's win rate and avg R, confirm you're still +EV.</li>
-      </ol>
+      <!-- ===== STOP RULES ===== -->
+      <h3 class="plan-h3" id="final-plan-v5-stops">🛑 Updated Stop Rule Summary</h3>
+      <p class="plan-prose">Every pattern in v5 now supports <strong>two stop variants</strong>. Classic is safer; Tight is smaller dollar risk per contract, enabling bigger size on stacked setups within the daily risk cap.</p>
 
-      <h3 class="plan-h3">Updated Daily Kill Switches</h3>
-      <ul class="plan-list">
-        <li><strong>New:</strong> Max 2 losing stacked trades in a row → stop trading A+ setups for the session, only take A-grade with reduced size.</li>
-      </ul>
+      <figure class="plan-illus">
+        <svg viewBox="0 0 560 220" role="img" aria-labelledby="stops-compare-t stops-compare-d">
+          <title id="stops-compare-t">Classic vs Tight stop variants</title>
+          <desc id="stops-compare-d">Two versions of a double-bottom breakout: classic stop below trough 2 vs tight stop below neckline.</desc>
+          <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="50" x2="560" y2="50"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="170" x2="560" y2="170"/></g>
+          <path d="M 40,70 L 80,110 L 120,170 L 160,130 L 200,110 L 240,170 L 290,90 L 340,40" stroke="#cbd5e1" stroke-width="1.8" fill="none"/>
+          <line x1="40" y1="110" x2="340" y2="110" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+          <text x="50" y="104" fill="#fde68a" font-size="10" font-weight="800">Neckline</text>
+          <line x1="290" y1="120" x2="340" y2="120" stroke="#fbbf24" stroke-width="2"/>
+          <text x="345" y="124" fill="#fbbf24" font-size="10" font-weight="800">TIGHT STOP · below neckline · smaller $</text>
+          <line x1="240" y1="180" x2="340" y2="180" stroke="#ef4444" stroke-width="2"/>
+          <text x="345" y="184" fill="#fca5a5" font-size="10" font-weight="800">CLASSIC STOP · below trough 2 · safer</text>
+          <text x="170" y="210" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">Classic = ~12 ticks · Tight = ~4 ticks</text>
+          <text x="430" y="210" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">3× the size on tight, same $ risk</text>
+        </svg>
+        <figcaption>The two stop variants produce the same dollar risk at different contract counts. Tight stop lets you size up on stacked setups without breaking the daily cap.</figcaption>
+      </figure>
+
+      <div class="plan-callout decision">
+        <span class="plan-callout-label">📐 Point-based buffers — v5 update</span>
+        All stops are now measured in <strong>points</strong> (not ticks). Per-instrument buffer from the chosen stop anchor:
+        <ul style="margin:8px 0 0 0;">
+          <li><strong>MES</strong> — 1.0 pt (= 4 ticks)</li>
+          <li><strong>MNQ</strong> — 1.5 pt (= 6 ticks)</li>
+          <li><strong>M2K</strong> — 0.4 pt (= 4 ticks)</li>
+          <li><strong>ES</strong> — 1.0 pt (= 4 ticks)</li>
+          <li><strong>NQ</strong> — 2.0 pt (= 8 ticks)</li>
+          <li><strong>RTY</strong> — 0.4 pt (= 4 ticks)</li>
+        </ul>
+        Each pattern's section 4b shows the exact point calculation for both Classic and Tight variants.
+      </div>
+
+      <div class="plan-callout key">
+        <span class="plan-callout-label">🔑 Which variant when?</span>
+        <ul style="margin:8px 0 0 0;">
+          <li><strong>Classic:</strong> single-pattern trades, new to a setup, morning trades, higher volatility</li>
+          <li><strong>Tight:</strong> stacked A+/A++ setups, patterns you've logged 20+ wins on, midday trades, after a winning streak gives you confidence in the level</li>
+        </ul>
+      </div>
+
+      <!-- ===== STACKING WORKFLOW ===== -->
+      <h3 class="plan-h3" id="final-plan-v5-stacking">🔗 Pattern Stacking Workflow</h3>
+      <p class="plan-prose">Stacking is what turns A-grade trades into A+ and A++ trades. The workflow is deliberate and repeatable:</p>
+
+      <figure class="plan-illus">
+        <svg viewBox="0 0 560 170" role="img" aria-labelledby="stk-flow-t stk-flow-d">
+          <title id="stk-flow-t">Pattern stacking decision flow</title>
+          <desc id="stk-flow-d">Flow chart: pattern fires, check for second pattern same price same direction, if yes stack+size up, if no standard size.</desc>
+          <rect x="20" y="20" width="150" height="44" fill="#1e293b" stroke="#475569" rx="6"/>
+          <text x="95" y="40" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="800">Pattern fires</text>
+          <text x="95" y="55" text-anchor="middle" fill="#94a3b8" font-size="9">at a named level</text>
+          <path d="M 170,42 L 210,42" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowAp)"/>
+          <rect x="210" y="10" width="170" height="65" fill="#3730a3" fill-opacity=".25" stroke="#818cf8" rx="6"/>
+          <text x="295" y="30" text-anchor="middle" fill="#c7d2fe" font-size="11" font-weight="800">2nd pattern also firing?</text>
+          <text x="295" y="45" text-anchor="middle" fill="#e2e8f0" font-size="9">· same price (±2 MES/1 M2K pts)</text>
+          <text x="295" y="57" text-anchor="middle" fill="#e2e8f0" font-size="9">· same direction</text>
+          <text x="295" y="68" text-anchor="middle" fill="#e2e8f0" font-size="9">· within 4 candles</text>
+          <path d="M 380,30 L 420,15" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrowAp)"/>
+          <path d="M 380,60 L 420,85" stroke="#fb923c" stroke-width="1.5" marker-end="url(#arrowAp)"/>
+          <text x="390" y="15" fill="#86efac" font-size="9" font-weight="700">YES</text>
+          <text x="390" y="100" fill="#fdba74" font-size="9" font-weight="700">NO</text>
+          <rect x="420" y="0" width="130" height="46" fill="#064e3b" stroke="#22c55e" rx="6"/>
+          <text x="485" y="20" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">STACKED</text>
+          <text x="485" y="36" text-anchor="middle" fill="#e2e8f0" font-size="9">+50% or +100% size</text>
+          <rect x="420" y="85" width="130" height="46" fill="#78350f" fill-opacity=".4" stroke="#fb923c" rx="6"/>
+          <text x="485" y="105" text-anchor="middle" fill="#fdba74" font-size="11" font-weight="800">STANDARD</text>
+          <text x="485" y="121" text-anchor="middle" fill="#e2e8f0" font-size="9">standard size (4 M2K)</text>
+          <path d="M 485,46 L 485,85" stroke="#475569" stroke-width="1" stroke-dasharray="3 2"/>
+          <text x="260" y="145" text-anchor="middle" fill="#cbd5e1" font-size="10" font-weight="700">Log stack type every trade: none / 2-pattern / 3-pattern</text>
+          <defs>
+            <marker id="arrowAp" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <polygon points="0 0, 8 4, 0 8" fill="#94a3b8"/>
+            </marker>
+          </defs>
+        </svg>
+        <figcaption>The stacking workflow is a single decision: is a second named pattern firing at this same price in the same direction right now? Everything flows from that yes/no.</figcaption>
+      </figure>
+
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">Step 1 · Pre-market mark-up (before 9:30 ET)</span>
+        Mark on every chart: PDH, PDL, ONH, ONL, daily VWAP anchor, round numbers, prior week highs/lows. Write 2–3 hunt entries: "Hunt hammer long at MES PDL near 4317" etc. These become your stacking candidates — stacks only form at marked levels.
+      </div>
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">Step 2 · Session trigger watch</span>
+        When price approaches a marked level, start watching for a multi-candle pattern (DB, DT, bull flag, bear flag). When that pattern starts forming, start watching for a single-candle trigger (hammer, star, engulfing) at its completion. Each tier adds a layer.
+      </div>
+      <div class="plan-callout decision">
+        <span class="plan-callout-label">Step 3 · Score the stack (0–5)</span>
+        Run the 5-criterion quality check from the <em>Pattern Stacking</em> tab before sizing: named / same direction / same price / within 4 candles / HTF agrees. Score ≥4 = size up. Score &lt;4 = treat as single pattern, standard size.
+      </div>
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">Step 4 · Size per hierarchy</span>
+        Single pattern = 4 contracts (standard). 2-pattern stack = 6 contracts (+50%). 3-pattern A++ stack = 8 contracts (+100%). Always run the Position Calculator to confirm dollar risk is inside the $600 daily cap — never break that, even on A++.
+      </div>
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">Step 5 · Log the stack type every trade</span>
+        Journal field: "Stack — none / 2-pattern / 3-pattern" + stack score 0–5 + pattern names ("hammer + DB at PDL"). Weekly review: compare win rate / avg R across stack counts. If 3-stack isn't outperforming 1-stack, you're being too generous with what counts as a stack — recalibrate.
+      </div>
+
+      <!-- ===== CALCULATOR ===== -->
+      <h3 class="plan-h3" id="final-plan-v5-calc">🧮 Calculator Workflow</h3>
+      <p class="plan-prose">The <a href="https://arnie-position-calculator.netlify.app/" target="_blank" rel="noopener" style="color:#60a5fa;">Position Calculator v2</a> is the enforcement layer. It's not optional — every trade, before clicking, it tells you exactly how many contracts you can take for $200 risk given the stop on the chart.</p>
+
+      <figure class="plan-illus">
+        <svg viewBox="0 0 560 230" role="img" aria-labelledby="calc-modes-t calc-modes-d">
+          <title id="calc-modes-t">Calculator v2 — three modes</title>
+          <desc id="calc-modes-d">Three panels: Reverse mode (risk+stop→contracts), Fibonacci mode (low/high→TP ladder), EV mode (win%+avgR→expectancy).</desc>
+          <rect x="20" y="20" width="170" height="190" fill="#0e7490" fill-opacity=".2" stroke="#14b8a6" rx="6"/>
+          <text x="105" y="42" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="800">REVERSE MODE</text>
+          <text x="105" y="58" text-anchor="middle" fill="#cbd5e1" font-size="9">(default · every trade)</text>
+          <text x="35" y="85" fill="#e2e8f0" font-size="10">Input:</text>
+          <text x="45" y="100" fill="#cbd5e1" font-size="9">· Risk $ ($200)</text>
+          <text x="45" y="115" fill="#cbd5e1" font-size="9">· Stop distance (pts)</text>
+          <text x="45" y="130" fill="#cbd5e1" font-size="9">· Instrument (M2K)</text>
+          <text x="35" y="155" fill="#e2e8f0" font-size="10">Output:</text>
+          <text x="45" y="170" fill="#86efac" font-size="10" font-weight="800">5 contracts</text>
+          <text x="45" y="187" fill="#cbd5e1" font-size="9">(sized to $200 risk)</text>
+          <rect x="200" y="20" width="170" height="190" fill="#7c3aed" fill-opacity=".15" stroke="#a78bfa" rx="6"/>
+          <text x="285" y="42" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="800">FIBONACCI MODE</text>
+          <text x="285" y="58" text-anchor="middle" fill="#cbd5e1" font-size="9">(TP ladder · optional)</text>
+          <text x="215" y="85" fill="#e2e8f0" font-size="10">Input:</text>
+          <text x="225" y="100" fill="#cbd5e1" font-size="9">· Pattern low</text>
+          <text x="225" y="115" fill="#cbd5e1" font-size="9">· Pattern high</text>
+          <text x="215" y="140" fill="#e2e8f0" font-size="10">Output ladder:</text>
+          <text x="225" y="155" fill="#c4b5fd" font-size="9">· T1 @ 0.5  (R=1.5)</text>
+          <text x="225" y="170" fill="#c4b5fd" font-size="9">· T2 @ 0.618 (R=2.5)</text>
+          <text x="225" y="185" fill="#c4b5fd" font-size="9">· T3 @ 1.272 (R=3.5)</text>
+          <rect x="380" y="20" width="160" height="190" fill="#e6b859" fill-opacity=".2" stroke="#e6b859" rx="6"/>
+          <text x="460" y="42" text-anchor="middle" fill="#e6b859" font-size="12" font-weight="800">EV MODE</text>
+          <text x="460" y="58" text-anchor="middle" fill="#cbd5e1" font-size="9">(weekly review)</text>
+          <text x="395" y="85" fill="#e2e8f0" font-size="10">Input:</text>
+          <text x="405" y="100" fill="#cbd5e1" font-size="9">· Last week win %</text>
+          <text x="405" y="115" fill="#cbd5e1" font-size="9">· Avg win R</text>
+          <text x="405" y="130" fill="#cbd5e1" font-size="9">· Avg loss R</text>
+          <text x="395" y="155" fill="#e2e8f0" font-size="10">Output:</text>
+          <text x="405" y="170" fill="#86efac" font-size="10" font-weight="800">Expectancy +0.35R</text>
+          <text x="405" y="187" fill="#cbd5e1" font-size="9">(+EV · keep trading)</text>
+        </svg>
+        <figcaption>Three modes covering every trade decision: Reverse sizes the trade, Fibonacci sets TP levels, EV confirms you're still profitable weekly.</figcaption>
+      </figure>
+
+      <div class="plan-callout decision">
+        <span class="plan-callout-label">⚡ Reverse mode — use every trade, before entry</span>
+        <ol style="margin:8px 0 0 0;">
+          <li>Enter <strong>target risk</strong> ($200 default · $100 after a loss · $50 after two losses)</li>
+          <li>Enter <strong>stop distance</strong> from the chart (measure pts from entry to your chosen Classic or Tight stop)</li>
+          <li>Pick the instrument (MES / MNQ / M2K / RTY / ES / NQ)</li>
+          <li>Calculator returns <strong>contract count</strong> — use that exact number, no rounding up</li>
+        </ol>
+      </div>
+      <div class="plan-callout key">
+        <span class="plan-callout-label">📐 Fibonacci mode — use for TP ladders</span>
+        Enter the pattern low and high (e.g., DB's deeper low and neckline peak). Calculator returns 0.5 / 0.618 / 1.272 / 1.618 extensions as T1/T2/T3/T4 targets with R multiples. Handy when price is moving fast and you don't want to math it in your head.
+      </div>
+      <div class="plan-callout pro">
+        <span class="plan-callout-label">📊 EV mode — use during weekly review</span>
+        Expectancy = (win% × avg win R) − (loss% × avg loss R). Plug in last week's journal numbers. If +EV, keep trading. If flat or −EV, reduce size and investigate — most likely culprits: grading stacks too generously, skipping quality score, or trading outside the hunt list.
+      </div>
+
+      <!-- ===== KILL SWITCHES ===== -->
+      <h3 class="plan-h3" id="final-plan-v5-kill">🛑 Updated Daily Kill Switches</h3>
+      <p class="plan-prose">Existing kill switches remain (2-loss lockout, max 3 trades, 11:30–13:30 lunch lock). v5 adds one:</p>
+
+      <div class="plan-callout warn">
+        <span class="plan-callout-label">🆕 v5 Kill Switch — Stack Failure Protection</span>
+        <strong>Rule:</strong> Max 2 losing stacked trades in a row → stop trading A+ setups for the rest of the session. You can still take A-grade (single-pattern) setups, but at <strong>reduced size</strong> (half standard) and only from your original hunt list.<br><br>
+        <strong>Why:</strong> Two losing stacks in a row is rare and signals either (a) your stack-grading is miscalibrated today or (b) market conditions invalidate the stacking edge (news, low-liquidity, structural shift). Either way, the expensive mistake is taking a third sized-up trade. Step down until tomorrow.
+      </div>
+
+      <div class="plan-callout warn">
+        <span class="plan-callout-label">🛑 Full v5 Kill-Switch List — memorize</span>
+        <ul style="margin:8px 0 0 0;">
+          <li><strong>2 losses</strong> on the day → lock out for the session (full lockout)</li>
+          <li><strong>3 trades</strong> taken (win or lose) → no more trades today</li>
+          <li><strong>11:30–13:30 ET</strong> → no trades (lunch lock) unless A++ stack at named level</li>
+          <li><strong>2 losing stacks</strong> in a row → no more A+ trades today · A-grade only at half size</li>
+          <li><strong>News event</strong> within next 15 min → flatten all positions · no new entries until 5 min after release</li>
+          <li><strong>State &gt; Calm</strong> on the State Gate → no new entries until re-gate to Calm</li>
+          <li><strong>Non-hunt-list trade</strong> — if the setup isn't on today's hunt list, it's automatically disqualified</li>
+        </ul>
+      </div>
 
       <div class="plan-closing">
         This is the plan. Follow it. Trust the process. Trust the research.
@@ -13857,11 +15207,19 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
     updateScore('short');
     updateScore('long');
+    updateScore('hammer');
+    updateScore('engulfing');
+    updateScore('morning');
+    updateScore('stack');
   }
 
-  // Init scores
+  // Init scores (v4 + v5 candle patterns + stack)
   updateScore('short');
   updateScore('long');
+  updateScore('hammer');
+  updateScore('engulfing');
+  updateScore('morning');
+  updateScore('stack');
 
   // ========== JOURNAL SYSTEM ==========
   const STORAGE_KEY = 'playbook_trades';
