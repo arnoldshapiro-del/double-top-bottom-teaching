@@ -3066,6 +3066,26 @@
     margin: 14px 0 20px;
     flex-wrap: wrap;
   }
+  /* v5.0 pattern-knowledge quiz cards */
+  .v5q-card { background: rgba(10,14,26,0.55); border: 1px solid rgba(71,85,105,0.5); border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+  .v5q-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:10px; font-size:11.5px; }
+  .v5q-num { background:#475569; color:#e2e8f0; padding:2px 9px; border-radius:999px; font-weight:700; letter-spacing:0.3px; }
+  .v5q-chip { background:rgba(230,184,89,0.15); color:#fcd34d; padding:2px 9px; border-radius:999px; border:1px solid rgba(230,184,89,0.4); }
+  .v5q-chip.type { background:rgba(196,181,253,0.12); color:#c4b5fd; border-color:rgba(196,181,253,0.35); }
+  .v5q-q { color:#e2e8f0; font-size:14.5px; line-height:1.6; margin-bottom:14px; }
+  .v5q-opts { display:flex; flex-direction:column; gap:8px; }
+  .v5q-opt { display:flex; align-items:flex-start; gap:10px; background:rgba(15,23,42,0.8); color:#cbd5e1; border:1px solid rgba(71,85,105,0.6); border-radius:8px; padding:10px 14px; text-align:left; cursor:pointer; font-family:inherit; font-size:13.5px; line-height:1.5; transition: background 0.15s, border-color 0.15s; }
+  .v5q-opt:hover:not(:disabled) { background:rgba(20,184,166,0.08); border-color:#14b8a6; color:#e2e8f0; }
+  .v5q-opt:disabled { cursor:default; opacity:0.85; }
+  .v5q-letter { flex-shrink:0; width:22px; height:22px; background:#334155; color:#e2e8f0; border-radius:5px; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:11.5px; }
+  .v5q-opt.v5q-correct-opt { background:rgba(34,197,94,0.14); border-color:#22c55e; color:#86efac; }
+  .v5q-opt.v5q-correct-opt .v5q-letter { background:#22c55e; color:#0a0e1a; }
+  .v5q-opt.v5q-wrong-opt { background:rgba(239,68,68,0.12); border-color:#ef4444; color:#fca5a5; }
+  .v5q-opt.v5q-wrong-opt .v5q-letter { background:#ef4444; color:#0a0e1a; }
+  .v5q-feedback { margin-top:12px; padding:10px 14px; border-radius:8px; font-size:13px; line-height:1.55; }
+  .v5q-feedback.correct { background:rgba(34,197,94,0.10); border:1px solid rgba(34,197,94,0.45); color:#bbf7d0; }
+  .v5q-feedback.wrong { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.4); color:#fecaca; }
+  .v5q-feedback strong { display:block; margin-bottom:4px; }
   .pq-stat { text-align: center; }
   .pq-stat .pq-val {
     font-family: 'Fraunces', serif;
@@ -3994,7 +4014,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <button class="tab-btn tab-tool" data-tab="premarket"><span class="tab-num">📋</span>Pre-Market Prep</button>
         <button class="tab-btn tab-tool" data-tab="clock-matrix"><span class="tab-num">🕐</span>Clock Matrix</button>
         <button class="tab-btn tab-tool" data-tab="decision-tree"><span class="tab-num">🌳</span>Decision Tree</button>
-        <button class="tab-btn tab-tool" data-tab="checklist"><span class="tab-num">✅</span>24-Item Checklist</button>
+        <button class="tab-btn tab-tool" data-tab="checklist"><span class="tab-num">✅</span>25-Item Checklist</button>
         <button class="tab-btn tab-tool" data-tab="live-checklist"><span class="tab-num">🎚️</span>6-Box Live Checklist</button>
         <button class="tab-btn tab-tool" data-tab="daily-gates"><span class="tab-num">🔒</span>Daily Gates</button>
       </div>
@@ -7862,35 +7882,35 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="clock-time">9:45 – 11:00 AM<span class="session-label">Morning Drive</span></div>
             <div class="clock-setups">
               <span class="clock-edge-badge high">High Edge</span>
-              <strong>Prime hunting window.</strong> Hunt: <strong>🌅 ORB Retest</strong> (the signature play — break of opening range with pullback-and-retest), <strong>🚩 Bull Flag / Bear Flag</strong> after the first thrust, <strong>🎯 Failed Breakout Reversal</strong> if the opening range break fails and price re-enters. Volume is peak. Trends are cleanest. Max conviction trades here.
+              <strong>Prime hunting window.</strong> Hunt: <strong>🌅 ORB Retest</strong> (the signature play — break of opening range with pullback-and-retest), <strong>🚩 Bull Flag / Bear Flag</strong> after the first thrust, <strong>🎯 Failed Breakout Reversal</strong> if the opening range break fails and price re-enters. <strong>🫂 Bullish/Bearish Engulfing at ORH/ORL</strong> (v5). Hammers are less common in the morning drive (trends dominate) but still valid at PDH/PDL on overshoots. Volume is peak. Trends are cleanest. Max conviction trades here.
             </div>
           </div>
           <div class="clock-row medium-edge">
             <div class="clock-time">11:00 – 11:30 AM<span class="session-label">Transition</span></div>
             <div class="clock-setups">
               <span class="clock-edge-badge medium">Selective</span>
-              <strong>Winding down the morning drive.</strong> Late-morning flags and continuations can still work. <strong>Double Bottom / Double Top</strong> at morning session levels (ORH, ORL, prior session highs/lows). Avoid new trend initiations — drive is losing steam. If you had a good morning, lock it in.
+              <strong>Winding down the morning drive.</strong> Late-morning flags and continuations can still work. <strong>Double Bottom / Double Top</strong> at morning session levels (ORH, ORL, prior session highs/lows). <strong>🔨 Hammer / Shooting Star at morning session highs/lows and first VWAP test</strong> (v5). Avoid new trend initiations — drive is losing steam. If you had a good morning, lock it in.
             </div>
           </div>
           <div class="clock-row" style="border-left-color: #a855f7; background: linear-gradient(90deg, rgba(168,85,247,0.10), var(--panel-2) 40%);">
             <div class="clock-time">11:30 AM – 2:00 PM<span class="session-label">Midday Chop</span></div>
             <div class="clock-setups">
               <span class="clock-edge-badge" style="background: #a855f7; color: #fff;">Range Only</span>
-              <strong>The VWAP Mean Reversion window.</strong> Hunt: <strong>🌀 VWAP MR with RSI</strong> as price rejects outer Bollinger/2σ bands. Secondary: <strong>DB/DT</strong> at VWAP or session levels with proper rejection. DO NOT trend-trade midday — volume is 40–60% below peak, trends fail, flags chop out. Max 3 VWAP MR trades per session. Lunch drift is real.
+              <strong>The VWAP Mean Reversion window.</strong> Hunt: <strong>🌀 VWAP MR with RSI</strong> as price rejects outer Bollinger/2σ bands. Secondary: <strong>DB/DT</strong> at VWAP or session levels with proper rejection. <strong>🔨 Hammer/Star at Bollinger bands</strong> and <strong>🫂 Engulfing at VWAP</strong> (v5) — this is the prime window for single-candle reversals. DO NOT trend-trade midday — volume is 40–60% below peak, trends fail, flags chop out. Max 3 trades per session. Lunch drift is real.
             </div>
           </div>
           <div class="clock-row medium-edge">
             <div class="clock-time">2:00 – 3:00 PM<span class="session-label">Afternoon Drive</span></div>
             <div class="clock-setups">
               <span class="clock-edge-badge medium">Medium Edge</span>
-              <strong>Market wakes up.</strong> Hunt: <strong>🚩 Bull Flag / Bear Flag</strong> on the afternoon trend, <strong>🎯 Failed Breakout</strong> at PDH/PDL or round numbers (6,500 MES, 2,500 M2K), <strong>ORB Retest</strong> if a new high/low is made and retested. Watch for 2:00 PM FOMC days — skip entirely during announcements.
+              <strong>Market wakes up.</strong> Hunt: <strong>🚩 Bull Flag / Bear Flag</strong> on the afternoon trend, <strong>🎯 Failed Breakout</strong> at PDH/PDL or round numbers (6,500 MES, 2,500 M2K), <strong>ORB Retest</strong> if a new high/low is made and retested. <strong>⭐ Morning/Evening Star for larger reversals after extended moves</strong>, <strong>🫂 Engulfing for sharper reversals</strong> (v5). Watch for 2:00 PM FOMC days — skip entirely during announcements.
             </div>
           </div>
           <div class="clock-row medium-edge">
             <div class="clock-time">3:00 – 3:30 PM<span class="session-label">Power Hour Start</span></div>
             <div class="clock-setups">
               <span class="clock-edge-badge medium">Selective</span>
-              <strong>Institutional activity picks up.</strong> Trend plays that have been building all afternoon often resolve here. <strong>Flags, breakouts, continuations</strong> — especially if aligned with the daily trend. Reduce size — position management matters more than new entries.
+              <strong>Institutional activity picks up.</strong> Trend plays that have been building all afternoon often resolve here. <strong>Flags, breakouts, continuations</strong> — especially if aligned with the daily trend. <strong>🫂 Engulfing at PDH/PDL for final trend turns</strong> (v5). Reduce size — position management matters more than new entries.
             </div>
           </div>
           <div class="clock-row low-edge">
@@ -7964,7 +7984,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <div class="tab-panel" id="tab-checklist">
       <div class="column neutral tool-panel">
         <h2 class="tool-title">✅ Pre-Trade Checklist · Tick Every Box</h2>
-        <p class="tool-subtitle">Run this printable, interactive checklist before every trade. 5 sections · 24 items. Tick them off as you verify each. When all are green, you have an A+ setup. If you can't honestly check a box, the trade isn't there yet.</p>
+        <p class="tool-subtitle">Run this printable, interactive checklist before every trade. 5 sections · 25 items (v5.0 — added point-based stop buffer item). Tick them off as you verify each. When all are green, you have an A+ setup. If you can't honestly check a box, the trade isn't there yet.</p>
 
         <div class="checklist-container">
           <!-- Section 1: Market Context -->
@@ -8020,6 +8040,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="chk-list" data-section="risk">
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Entry price identified.</strong> Written down or typed into the order ticket — not "I'll figure it out when it hits."</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop price identified.</strong> 1–2 ticks beyond the invalidation level (swing, band, neckline). Hard stop entered in platform.</span></div>
+              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop buffer uses the updated point-based rule (not tick-based).</strong> 1 pt MES/ES classic · 1.5 pt MNQ · 0.4 pt M2K/RTY · 2 pt NQ. Tight variants halve those. If you found yourself counting ticks, re-do the math in points.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Target price(s) identified.</strong> At least Target 1. Ideally Target 2 for a runner.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>R:R ≥ 1.5:1 (ideally ≥ 2:1).</strong> Reward in points divided by risk in points. Math done BEFORE entry.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Position size aligned with daily risk budget.</strong> Not oversized. Not undersized. Fixed rules for MES vs M2K contract count.</span></div>
@@ -8042,7 +8063,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           </div>
 
           <div class="chk-summary">
-            <div class="chk-progress"><strong id="chk-count">0</strong> / 24 confirmed</div>
+            <div class="chk-progress"><strong id="chk-count">0</strong> / 25 confirmed</div>
             <div class="chk-verdict incomplete" id="chk-verdict">⚠ Incomplete — tick every box or skip the trade</div>
             <button class="chk-clear-btn" onclick="clearChecklist()">Clear All</button>
           </div>
@@ -9819,6 +9840,31 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <h2>🧮 Trading Calculators</h2>
         <p class="calc-lead">Fast math for M2K, MES, and RTY. Turn "is this trade big enough?" and "can I size into this?" from gut feel into a number before you click.</p>
       </div>
+
+      <!-- v5.0 Position Calculator — Hero card with iframe embed -->
+      <div class="calc-hero-card" style="background: linear-gradient(135deg, rgba(20,184,166,0.12), rgba(96,165,250,0.08)); border: 2px solid #14b8a6; border-radius: 16px; padding: 24px; margin-bottom: 32px; box-shadow: 0 4px 24px rgba(20,184,166,0.15);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
+          <div style="flex: 1; min-width: 260px;">
+            <div style="display: inline-block; background: #14b8a6; color: #0a0e1a; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 10px;">⭐ NEW IN v5.0 · PRIMARY CALCULATOR</div>
+            <h3 style="margin: 0 0 8px 0; color: #5eead4; font-size: 22px;">🧮 Position Calculator v2 — Your Pre-Trade Command Center</h3>
+            <p style="margin: 0; color: #cbd5e1; font-size: 14px; line-height: 1.6;">The upgraded, standalone calculator that does everything the four below do — plus point-based stop buffers, daily loss-limit math, R-multiple-to-dollar conversion, and contract sizing for all 6 instruments (MES · MNQ · M2K · ES · NQ · RTY). Use this <strong>first</strong>, before you click buy. The cards below remain for quick one-off math.</p>
+          </div>
+          <a href="https://arnie-position-calculator.netlify.app/" target="_blank" rel="noopener" style="background: #14b8a6; color: #0a0e1a; padding: 12px 20px; border-radius: 10px; font-weight: 700; font-size: 14px; text-decoration: none; white-space: nowrap; align-self: center;">Open in new tab ↗</a>
+        </div>
+        <div style="background: #0a0e1a; border-radius: 10px; overflow: hidden; border: 1px solid rgba(71,85,105,0.4);">
+          <iframe
+            src="https://arnie-position-calculator.netlify.app/"
+            title="Position Calculator v2"
+            width="100%"
+            height="900"
+            style="border: 0; display: block; width: 100%; min-height: 900px;"
+            loading="lazy"
+            referrerpolicy="no-referrer"></iframe>
+        </div>
+        <p style="margin: 12px 0 0 0; color: #94a3b8; font-size: 12px; text-align: center;">If the calculator doesn't render above (some browsers block cross-site iframes on first load), <a href="https://arnie-position-calculator.netlify.app/" target="_blank" rel="noopener" style="color: #5eead4;">open it in a new tab →</a></p>
+      </div>
+
+      <h3 style="color: #c4b5fd; margin: 24px 0 12px 0; font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">Quick-math cards (legacy, still useful for one-off questions)</h3>
       <div class="calc-grid">
 
         <!-- Tick converter -->
@@ -9931,6 +9977,25 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <h2>🎯 Pattern Quiz</h2>
         <p class="pq-lead">30 true double bottoms and 30 false double bottoms (and the same for double tops). Click TRUE or FALSE on each chart. Correct answers + explanations + per-lesson takeaways. Pattern recognition is a muscle — this is how you train it.</p>
       </div>
+
+      <!-- v5.0 Pattern Knowledge Quiz — 9 multiple-choice questions for new candle patterns -->
+      <div class="v5quiz-wrap" style="background: linear-gradient(135deg, rgba(230,184,89,0.08), rgba(196,181,253,0.06)); border: 1px solid #e6b859; border-radius: 14px; padding: 20px 24px; margin: 24px 0 32px 0;">
+        <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px; flex-wrap:wrap;">
+          <span style="background:#e6b859; color:#0a0e1a; padding:3px 10px; border-radius:999px; font-size:10.5px; font-weight:800; letter-spacing:0.5px;">⭐ NEW IN v5.0</span>
+          <h3 style="margin:0; color:#fcd34d; font-size:18px;">v5.0 Pattern Knowledge Quiz · 🔨 Hammer/Star · 🫂 Engulfing · ⭐ Morning/Evening Star</h3>
+        </div>
+        <p style="margin:0 0 18px 0; color:#cbd5e1; font-size:13px; line-height:1.55;">Nine multiple-choice questions — 3 per new pattern (identification · stop placement · entry trigger). Pick one. Correct/incorrect feedback with teaching reason appears underneath.</p>
+
+        <div id="v5quiz-scoreboard" style="display:flex; gap:24px; padding:10px 14px; background:rgba(10,14,26,0.6); border-radius:8px; margin-bottom:18px; font-size:13px;">
+          <div><strong style="color:#86efac;" id="v5q-correct">0</strong> <span style="color:#94a3b8;">correct</span></div>
+          <div><strong style="color:#fcd34d;" id="v5q-total">0</strong> <span style="color:#94a3b8;">of 9 attempted</span></div>
+          <div><strong style="color:#5eead4;" id="v5q-pct">—</strong> <span style="color:#94a3b8;">accuracy</span></div>
+          <button onclick="resetV5Quiz()" style="margin-left:auto; background:transparent; color:#94a3b8; border:1px solid #475569; padding:4px 10px; border-radius:6px; font-size:11px; cursor:pointer;">Reset</button>
+        </div>
+
+        <div id="v5quiz-questions"></div>
+      </div>
+
       <div class="pq-scoreboard">
         <div class="pq-stat"><span class="pq-val" id="pq-score">0</span><span class="pq-label">Correct</span></div>
         <div class="pq-stat"><span class="pq-val" id="pq-total">0</span><span class="pq-label">Attempted</span></div>
@@ -11627,6 +11692,39 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <li><strong>Screenshot every trade</strong> — visual pattern recognition develops through review, not theory.</li>
         </ol>
 
+        <h2 class="plan-h2" id="research-v5-candles">🆕 v5 · Why Candle Patterns Matter — and Why They Don't</h2>
+        <p class="plan-prose">The raw statistics on single-candle patterns (hammer 60%, shooting star 59%) are only mildly better than coin-flips. That's exactly why most retail traders dismiss them. They miss the fundamental insight: candle patterns are <strong>confirmation signals, not standalone signals</strong>. Their value compounds when combined with location (named level) and context (prior trend).</p>
+        <p class="plan-prose">A hammer in the middle of a chop is noise. A hammer at PDL with a bullish engulfing confirmation bar is a professionally-tradable A+ setup with practical win rates in the high 60s. Same candle, totally different trade.</p>
+        <p class="plan-prose">The three patterns added in v5 (hammer/star, engulfing, morning/evening star) are intentionally layered from fastest (1-candle) to slowest (3-candle). This gives a continuum of trigger speed vs. reliability:</p>
+        <ul class="plan-list">
+          <li><strong>Need to act before the reversal develops?</strong> Hammer/star (fastest, lowest reliability alone).</li>
+          <li><strong>Want confirmation in one extra bar?</strong> Engulfing (middle ground).</li>
+          <li><strong>Want layered evidence and maximum reliability?</strong> Morning/evening star (slowest, highest reliability).</li>
+        </ul>
+        <p class="plan-prose">Different setups for different market contexts — and all three use the same stop philosophy, same sizing rules, same scaling rules.</p>
+        <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
+
+        <h2 class="plan-h2" id="research-v5-stops">🆕 v5 · Stop Placement Philosophy, Refined</h2>
+        <p class="plan-prose">The original playbook used "ticks below" language for stop placement. That's been updated to "points below" because:</p>
+        <ol class="plan-list">
+          <li><strong>Ticks mean different dollar amounts across instruments.</strong> 3 ticks on MES = $3.75/contract. 3 ticks on M2K = $1.50/contract. Same "3 ticks" rule produces different risk profiles.</li>
+          <li><strong>Ticks mean different distances across instruments.</strong> 3 ticks on MES = 0.75 points. 3 ticks on M2K = 0.30 points. Same rule produces wildly different chart distances.</li>
+          <li><strong>Point-based buffers are instrument-tuned.</strong> Each instrument gets a buffer calibrated to its actual noise floor (MNQ gets 1.5pt because it's twitchy, M2K gets 0.4pt because it's calmer).</li>
+        </ol>
+        <p class="plan-prose">The updated rule: a small buffer in points below the neckline / trendline / wick tip / star low. See each pattern's updated section 4b for exact values.</p>
+        <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
+
+        <h2 class="plan-h2" id="research-v5-stacking">🆕 v5 · The Case for Pattern Stacking</h2>
+        <p class="plan-prose">Solo patterns live in the 55–65% win-rate zone. Stacked patterns (two or more firing at the same level in the same direction) empirically run at 70–78% among professional scalpers. Why the jump?</p>
+        <p class="plan-prose">Independent pieces of evidence, each validating the same conclusion, multiply rather than average. It's the same logic as medical testing: two tests with 60% sensitivity individually yield &gt;80% combined sensitivity when they fail independently.</p>
+        <p class="plan-prose">This is also why Arnie's A++ setups (three-pattern stacks) are rare but worth hunting: the mathematical edge is unusually strong, even though the setup frequency drops.</p>
+        <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
+
+        <h2 class="plan-h2" id="research-v5-calculator">🆕 v5 · Why the Position Calculator Matters</h2>
+        <p class="plan-prose">The single most common reason retail futures traders fail isn't pattern recognition — it's position sizing. They enter a pattern-valid setup with the wrong number of contracts, either risking too much (blow-up) or too little (never compounds). The reverse-mode calculator solves this in one calculation: given your dollar risk target and stop distance, tell me how many contracts to trade.</p>
+        <p class="plan-prose">This flips the decision from "how many contracts?" (anxiety-inducing) to "what's my risk budget today?" (answerable). The contract count becomes a simple consequence of the other two numbers. The emotional weight of sizing evaporates.</p>
+        <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
+
         <h3 class="plan-h3">The Research Takeaway</h3>
         <p class="plan-prose">Everything in the Final Trading Plan comes from these research findings. The rules are not arbitrary — they reflect what professional scalpers have converged on through decades of collective experience, validated by the specific market microstructure of M2K and MES on 2-minute timeframes.</p>
         <p class="plan-prose">When you wonder "why this rule?" — come back here. When you're tempted to break a rule because "this time is different" — come back here. The research proved these rules work. Your job is to follow them consistently enough that your results reflect the research.</p>
@@ -12456,6 +12554,46 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         </div>
       </div>
 
+      <!-- ==================== v5 APPENDIX ==================== -->
+      <h2 class="plan-h2" id="final-plan-v5">🆕 v5 Appendix · Candle Patterns · Stacking · Calculator Workflow</h2>
+
+      <h3 class="plan-h3">New Entries for the Daily Hunt List</h3>
+      <ul class="plan-list">
+        <li>🔨 <strong>Hammer / Shooting Star</strong> at named levels · midday and afternoon blocks</li>
+        <li>🫂 <strong>Bullish / Bearish Engulfing</strong> at named levels · all session blocks</li>
+        <li>⭐ <strong>Morning / Evening Star</strong> after extended moves · any session block</li>
+      </ul>
+
+      <h3 class="plan-h3">Updated Stop Rule Summary</h3>
+      <p class="plan-prose">All patterns now support <strong>two stop variants</strong>:</p>
+      <ul class="plan-list">
+        <li><strong>Classic:</strong> below trough 2 / above peak 2 / below flag low / above flag high / below wick tip</li>
+        <li><strong>Tight (v5):</strong> below neckline / above neckline / below trendline / above trendline</li>
+      </ul>
+      <p class="plan-prose">Use <strong>point-based buffers</strong> (not ticks) — see per-instrument table in each pattern's section 4b. MES 1.0 · MNQ 1.5 · M2K 0.4 · ES 1.0 · NQ 2.0 · RTY 0.4 pts.</p>
+
+      <h3 class="plan-h3">Pattern Stacking Workflow</h3>
+      <ol class="plan-list">
+        <li>During pre-market prep (before 9:30 EST), mark all named levels (PDH/PDL/ORH/ORL/round #s/prior week highs/lows/VWAP anchor).</li>
+        <li>During session, when any pattern fires, ask: <em>"Is another pattern also firing at this level right now, same direction?"</em></li>
+        <li>If yes → <strong>stacked setup</strong> → increase size within daily risk budget.</li>
+        <li>If no → <strong>standard setup</strong> → standard size.</li>
+        <li>Log the stack type (none / 2-pattern / 3-pattern) in the journal every trade.</li>
+      </ol>
+
+      <h3 class="plan-h3">Calculator Workflow</h3>
+      <p class="plan-prose">Every trade, before clicking, run through the <a href="https://arnie-position-calculator.netlify.app/" target="_blank" rel="noopener" style="color:#60a5fa;">Position Calculator v2</a>:</p>
+      <ol class="plan-list">
+        <li><strong>Reverse mode:</strong> enter target risk ($200 default), stop distance from the chart. Calc returns contract count.</li>
+        <li><strong>Fibonacci mode</strong> (optional): enter pattern low/high, get TP ladder automatically.</li>
+        <li><strong>EV mode</strong> (weekly review): plug in last week's win rate and avg R, confirm you're still +EV.</li>
+      </ol>
+
+      <h3 class="plan-h3">Updated Daily Kill Switches</h3>
+      <ul class="plan-list">
+        <li><strong>New:</strong> Max 2 losing stacked trades in a row → stop trading A+ setups for the session, only take A-grade with reduced size.</li>
+      </ul>
+
       <div class="plan-closing">
         This is the plan. Follow it. Trust the process. Trust the research.
       </div>
@@ -13225,6 +13363,197 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   function initQuiz(){
     if (!SCENARIOS) SCENARIOS = buildQuizScenarios();
     if (quizList.length === 0) { quizList = getQuizPool(); renderQuizChart(); updateQuizScore(); }
+    renderV5Quiz();
+  }
+
+  // ========== v5.0 PATTERN KNOWLEDGE QUIZ (3 × 3 = 9 MC questions) ==========
+  const V5_QUESTIONS = [
+    // ---- HAMMER / SHOOTING STAR ----
+    {
+      id:'hs1', pattern:'🔨 Hammer / Shooting Star', type:'Identification',
+      q:"On the 2-min RTY chart at 10:18 EST, price has trended down 4 candles. The 5th candle makes a new low, then closes near its HIGH. Its lower wick is <strong>2.5× the body length</strong>, upper wick is tiny, and the body itself is small and green. Volume on this candle is 2.2× the 5-bar average. Which pattern is this?",
+      options:[
+        "Bullish engulfing",
+        "Hammer (valid reversal candidate)",
+        "Doji — no directional signal",
+        "Morning star (requires 3 candles)"
+      ],
+      correct:1,
+      why:"A Hammer is a single candle with a small body near the top, a lower wick at least 2× the body, and a short or absent upper wick, appearing after a downtrend. The volume expansion confirms participation. It's a reversal <em>candidate</em> — it still needs a confirming candle close above the hammer's high before you take the trade."
+    },
+    {
+      id:'hs2', pattern:'🔨 Hammer / Shooting Star', type:'Stop Placement',
+      q:"You just got long RTY on a hammer's confirmation candle. The hammer's low was 2352.0 and the confirmation candle closed at 2354.2. Per the v5 point-based rule, where does your <strong>classic</strong> stop go?",
+      options:[
+        "2353.9 — 3 ticks below entry",
+        "2351.8 — 0.2 points below the hammer's low",
+        "2351.6 — 0.4 points below the hammer's low (classic RTY buffer)",
+        "2350.0 — round number"
+      ],
+      correct:2,
+      why:"RTY's classic point-based stop buffer in v5 is 0.4 pt. Stops go below the <em>invalidation level</em> (the hammer's low), not below the entry. 2352.0 − 0.4 = 2351.6. Using tick-based math (e.g. 3 ticks) is exactly the mistake the v5 stop rule replaces — count in points, not ticks."
+    },
+    {
+      id:'hs3', pattern:'🔨 Hammer / Shooting Star', type:'Entry Trigger',
+      q:"A picture-perfect Shooting Star just printed at ORH on MES during morning drive. What's your correct entry trigger?",
+      options:[
+        "Short on the open of the very next candle — don't miss it",
+        "Short only after a candle CLOSES below the shooting star's body low (confirmation)",
+        "Short when MACD crosses down, regardless of candle structure",
+        "Short at the shooting star's midpoint — split the difference"
+      ],
+      correct:1,
+      why:"A single rejection candle is a <em>candidate</em>, not a trigger. The v5 rule is to wait for a confirming candle that closes below the star's body low — this filters out the wicks where price rejects the rejection. Entering on the very next candle's open is the classic retail trap that gets stopped out when the algo fades the initial move."
+    },
+
+    // ---- BULLISH / BEARISH ENGULFING ----
+    {
+      id:'en1', pattern:'🫂 Bullish / Bearish Engulfing', type:'Identification',
+      q:"On MES at 9:48 EST, you see a red candle (O 5985 → C 5982), then the next candle opens at 5981 and closes at 5989, with its body completely swallowing the prior candle's body and volume 2.7× the 5-bar average. What is this?",
+      options:[
+        "Hammer — the body swallowed the prior low",
+        "Bullish Engulfing — body fully engulfs prior body",
+        "Morning Star — needs a third indecision candle in between",
+        "Doji cluster"
+      ],
+      correct:1,
+      why:"A Bullish Engulfing requires the current green body to fully contain the prior red body (open below prior close, close above prior open). Wicks don't need to engulf — bodies do. The volume expansion validates it. Note that a Morning Star is a 3-candle pattern with an indecision candle in the middle; engulfing is 2 candles."
+    },
+    {
+      id:'en2', pattern:'🫂 Bullish / Bearish Engulfing', type:'Stop Placement',
+      q:"You short on a Bearish Engulfing at VWAP on MES. The engulfing candle's high is 6018.5. Per the v5 classic point-based rule for MES, where does your stop go?",
+      options:[
+        "6019.5 — 1.0 pt above the engulfing candle's high (classic MES)",
+        "6018.75 — 1 tick above",
+        "6020.0 — round number",
+        "6024.5 — 6.0 pt above (Bollinger upper)"
+      ],
+      correct:0,
+      why:"MES classic point-based stop buffer in v5 is 1.0 pt. Stop sits above the invalidation level (the engulfing candle's high), so 6018.5 + 1.0 = 6019.5. A 1-tick buffer (6018.75) is too tight — algos routinely run stops 2–3 ticks beyond the level. The 1.0 pt buffer balances tightness with survival."
+    },
+    {
+      id:'en3', pattern:'🫂 Bullish / Bearish Engulfing', type:'Entry Trigger',
+      q:"A clean Bullish Engulfing just completed at PDL on M2K during morning drive. What's the valid v5 entry?",
+      options:[
+        "Buy on the engulfing candle's close (recommended)",
+        "Buy only on a pullback to 50% of the engulfing candle's body (expert backup)",
+        "Buy at the engulfing candle's midpoint as soon as the body looks complete",
+        "Both A and B are valid — A is the recommended entry, B is the expert backup"
+      ],
+      correct:3,
+      why:"For engulfing patterns, the v5 playbook offers TWO valid entries: (A) recommended — buy on the engulfing candle's close, stop below its low; (B) expert backup — wait for a 50% retrace into the engulfing candle's body, buy there for a tighter stop. Both are valid; entering mid-candle before it closes (C) is a guess, not a trigger."
+    },
+
+    // ---- MORNING / EVENING STAR ----
+    {
+      id:'ms1', pattern:'⭐ Morning / Evening Star', type:'Identification',
+      q:"On RTY at 14:42 EST, you see: (1) a large red candle down, (2) a tiny-bodied doji-like candle that gaps down slightly, (3) a large green candle that closes above the midpoint of candle #1. This three-candle sequence is:",
+      options:[
+        "Morning Star — the classic 3-candle bullish reversal",
+        "Three White Soldiers",
+        "Bullish Engulfing (just the 2nd and 3rd candles)",
+        "Descending triangle"
+      ],
+      correct:0,
+      why:"A Morning Star is three candles: a strong down candle, a small-bodied indecision candle (ideally gapping down), then a strong up candle that closes above the midpoint of candle #1. The small middle candle is the 'exhaustion' — sellers ran out of ammo. The bullish close above the midpoint is the reversal trigger."
+    },
+    {
+      id:'ms2', pattern:'⭐ Morning / Evening Star', type:'Stop Placement',
+      q:"You go long on an Evening Star reversal — wait, that's a short signal. Let me re-ask: you go SHORT on a valid Evening Star at ORH on MES. The star's <strong>highest</strong> wick (across all 3 candles) is 6042.8. The classic v5 stop goes:",
+      options:[
+        "6043.8 — 1.0 pt above the highest wick of the 3-candle pattern",
+        "6042.9 — 1 tick above",
+        "Stop at the second candle's high only — the middle candle is irrelevant",
+        "6040.0 — at the open of candle #1"
+      ],
+      correct:0,
+      why:"The Evening Star's invalidation is the <em>highest wick of the entire 3-candle pattern</em>, because if price punches back above that, the reversal narrative is dead. MES classic buffer = 1.0 pt, so 6042.8 + 1.0 = 6043.8. Using only candle #2 (C) or candle #1 (D) ignores the pattern-as-a-whole rule."
+    },
+    {
+      id:'ms3', pattern:'⭐ Morning / Evening Star', type:'Entry Trigger',
+      q:"The third (confirming) candle of a Morning Star is still forming — currently it's green and HAS closed above the midpoint of candle #1, but it's only 10 seconds into the 2-min bar. What's the correct v5 entry protocol?",
+      options:[
+        "Enter now before the move gets away — aggressive entry rule applies",
+        "Wait for the 3rd candle to officially close, then enter at the next candle's open (standard)",
+        "Wait for a pullback into the 3rd candle's midpoint — tighter stop (expert backup)",
+        "Both B and C are valid — B is standard, C is the expert backup"
+      ],
+      correct:3,
+      why:"A candle that 'has closed above midpoint' but isn't a completed bar yet can still reverse before the bar officially closes. v5 offers two valid entries: (B) wait for the 3rd candle to close, enter at the next candle's open; (C) wait for a 50% retrace into the 3rd candle's body for a tighter stop. Aggressive entry (A) on Morning/Evening Star is not in the playbook — these are 3-candle patterns that need the final candle's close as the trigger."
+    }
+  ];
+
+  const V5_STATE_KEY = 'playbook_v5quiz_state';
+  function loadV5State(){ try{ return JSON.parse(localStorage.getItem(V5_STATE_KEY)) || {}; }catch(e){ return {}; } }
+  function saveV5State(s){ try{ localStorage.setItem(V5_STATE_KEY, JSON.stringify(s)); }catch(e){} }
+
+  function renderV5Quiz(){
+    const host = document.getElementById('v5quiz-questions');
+    if (!host) return;
+    if (host.dataset.rendered === '1') { updateV5Score(); return; }
+    const state = loadV5State();
+    host.innerHTML = V5_QUESTIONS.map((q, idx) => {
+      const answered = state[q.id];
+      const letters = ['A','B','C','D'];
+      const optsHtml = q.options.map((opt, i) => {
+        let cls = 'v5q-opt';
+        let locked = '';
+        if (answered != null) {
+          locked = ' disabled';
+          if (i === q.correct) cls += ' v5q-correct-opt';
+          if (i === answered && answered !== q.correct) cls += ' v5q-wrong-opt';
+        }
+        return '<button class="'+cls+'" onclick="answerV5('+"'"+q.id+"'"+','+i+')"'+locked+'>'
+          + '<span class="v5q-letter">'+letters[i]+'</span>'
+          + '<span class="v5q-opt-text">'+opt+'</span>'
+          + '</button>';
+      }).join('');
+      const feedback = answered != null
+        ? '<div class="v5q-feedback '+(answered===q.correct?'correct':'wrong')+'">'
+          + '<strong>'+(answered===q.correct?'✅ Correct.':'❌ Not quite — correct answer is '+letters[q.correct]+'.')+'</strong> '
+          + '<span>'+q.why+'</span></div>'
+        : '';
+      return ''
+        + '<div class="v5q-card" id="v5q-card-'+q.id+'">'
+        + '  <div class="v5q-meta"><span class="v5q-num">Q'+(idx+1)+' / 9</span>'
+        + '    <span class="v5q-chip">'+q.pattern+'</span>'
+        + '    <span class="v5q-chip type">'+q.type+'</span></div>'
+        + '  <div class="v5q-q">'+q.q+'</div>'
+        + '  <div class="v5q-opts">'+optsHtml+'</div>'
+        + '  '+feedback
+        + '</div>';
+    }).join('');
+    host.dataset.rendered = '1';
+    updateV5Score();
+  }
+
+  window.answerV5 = function(id, choice){
+    const state = loadV5State();
+    if (state[id] != null) return;
+    state[id] = choice;
+    saveV5State(state);
+    const host = document.getElementById('v5quiz-questions');
+    if (host) host.dataset.rendered = '0';
+    renderV5Quiz();
+  };
+
+  window.resetV5Quiz = function(){
+    saveV5State({});
+    const host = document.getElementById('v5quiz-questions');
+    if (host) host.dataset.rendered = '0';
+    renderV5Quiz();
+  };
+
+  function updateV5Score(){
+    const state = loadV5State();
+    const answered = Object.keys(state).length;
+    const correct = V5_QUESTIONS.filter(q => state[q.id] === q.correct).length;
+    const ce = document.getElementById('v5q-correct');
+    const te = document.getElementById('v5q-total');
+    const pe = document.getElementById('v5q-pct');
+    if (ce) ce.textContent = correct;
+    if (te) te.textContent = answered;
+    if (pe) pe.textContent = answered === 0 ? '—' : Math.round(correct/answered*100) + '%';
   }
 
   // ========== CALCULATORS (Branch 9 — from Academy, adapted for M2K/MES/RTY) ==========
@@ -13474,7 +13803,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     verdict.classList.remove('incomplete', 'complete');
     if (count === total) {
       verdict.classList.add('complete');
-      verdict.textContent = '✅ All 24 confirmed — A+ SETUP · execute with confidence';
+      verdict.textContent = '✅ All 25 confirmed — A+ SETUP · execute with confidence';
     } else {
       verdict.classList.add('incomplete');
       verdict.textContent = '⚠ Incomplete — tick every box or skip the trade';
