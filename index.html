@@ -8706,7 +8706,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <text x="555" y="148" text-anchor="middle">FLATTEN · no new</text>
               <text x="555" y="158" text-anchor="middle">STOP</text>
             </g>
-            <!-- Axis line with tick marks -->
+            <!-- Axis line with hour markers -->
             <line x1="30" y1="110" x2="590" y2="110" stroke="#475569" stroke-width="1"/>
             <g stroke="#64748b" stroke-width="1">
               <line x1="80" y1="108" x2="80" y2="114"/>
@@ -11045,14 +11045,14 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             </select>
           </div>
           <div class="calc-row">
-            <label for="c-tc-ticks">Points</label>
-            <input type="number" id="c-tc-ticks" step="0.1" placeholder="e.g. 2.5">
+            <label for="c-tc-points">Points</label>
+            <input type="number" id="c-tc-points" step="0.1" placeholder="e.g. 2.5">
           </div>
           <div class="calc-row">
             <label for="c-tc-contracts">Contracts</label>
             <input type="number" id="c-tc-contracts" value="1">
           </div>
-          <button class="calc-btn" onclick="calcTick()">Calculate</button>
+          <button class="calc-btn" onclick="calcPoints()">Calculate</button>
           <div id="c-tc-result"></div>
         </div>
 
@@ -14015,11 +14015,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   let _pinScrollStopAt = 0;
   function _pinScrollAtTop(durationMs) {
     _pinScrollStopAt = Math.max(_pinScrollStopAt, performance.now() + durationMs);
-    const tick = () => {
+    const frame = () => {
       _scrollPageToTop();
-      if (performance.now() < _pinScrollStopAt) requestAnimationFrame(tick);
+      if (performance.now() < _pinScrollStopAt) requestAnimationFrame(frame);
     };
-    requestAnimationFrame(tick);
+    requestAnimationFrame(frame);
   }
 
   function switchTab(tabName) {
@@ -14912,15 +14912,15 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
   // ========== CALCULATORS (Branch 9 — from Academy, adapted for M2K/MES/RTY) ==========
   const INSTRUMENTS = {
-    M2K: { tick: 0.10, dpt: 0.50, dpp: 5,  label: 'M2K' },
-    MES: { tick: 0.25, dpt: 1.25, dpp: 5,  label: 'MES' },
-    RTY: { tick: 0.10, dpt: 5.00, dpp: 50, label: 'RTY' }
+    M2K: { minInc: 0.10, dpt: 0.50, dpp: 5,  label: 'M2K' },
+    MES: { minInc: 0.25, dpt: 1.25, dpp: 5,  label: 'MES' },
+    RTY: { minInc: 0.10, dpt: 5.00, dpp: 50, label: 'RTY' }
   };
 
-  window.calcTick = function() {
+  window.calcPoints = function() {
     const inst = document.getElementById('c-tc-inst').value;
     const I = INSTRUMENTS[inst];
-    const points = parseFloat(document.getElementById('c-tc-ticks').value) || 0;
+    const points = parseFloat(document.getElementById('c-tc-points').value) || 0;
     const contracts = parseFloat(document.getElementById('c-tc-contracts').value) || 1;
     const dollars = points * I.dpp * contracts;
     document.getElementById('c-tc-result').innerHTML =
@@ -15897,7 +15897,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     try { window.speechSynthesis.cancel(); } catch (e) {}
     // Belt-and-suspenders re-cancel: on some Windows/SAPI voices the first
     // cancel() doesn't fully halt the current utterance, so cancel again after
-    // a tick and once more later to catch any utterance that was mid-start.
+    // a moment and once more later to catch any utterance that was mid-start.
     setTimeout(() => { try { window.speechSynthesis.cancel(); } catch (e) {} }, 60);
     setTimeout(() => { try { window.speechSynthesis.cancel(); } catch (e) {} }, 250);
     ttsSentenceQueue = [];
