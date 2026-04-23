@@ -861,6 +861,339 @@
     margin-top: 2px;
   }
 
+  /* ============ PLAN UPGRADE CALLOUT (2026-04-23: ATR stop + scale-out TP) ============ */
+  .plan-upgrade-callout {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.10), rgba(236, 72, 153, 0.06));
+    border: 2px solid #fbbf24;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 22px 0 32px;
+    box-shadow: 0 6px 22px rgba(251, 191, 36, 0.12);
+  }
+  .puc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(251, 191, 36, 0.35);
+  }
+  .puc-stamp {
+    background: #fbbf24;
+    color: #0f172a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .puc-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fde68a;
+  }
+  .puc-intro {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .puc-intro strong { color: #fde68a; }
+  .puc-rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .puc-rule {
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .puc-rule-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #fbbf24;
+    margin-bottom: 6px;
+  }
+  .puc-rule-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fef3c7;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .puc-rule-body {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .puc-rule-body strong { color: #fde68a; }
+  .puc-rule-body ul { margin: 6px 0 0 16px; padding: 0; }
+  .puc-rule-body li { margin-bottom: 4px; }
+  .puc-rule-body code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(251, 191, 36, 0.12);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #fde68a;
+  }
+  .puc-rule-example {
+    margin-top: 10px;
+    padding: 8px 10px;
+    background: rgba(34, 197, 94, 0.08);
+    border-left: 3px solid #22c55e;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #bbf7d0;
+  }
+  .puc-rule-example strong { color: #86efac; }
+  .puc-footer {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(251, 191, 36, 0.35);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+    text-align: center;
+    font-style: italic;
+  }
+  .puc-footer strong { color: #fde68a; font-style: normal; }
+
+  @media (max-width: 800px) {
+    .puc-rules { grid-template-columns: 1fr; }
+  }
+
+  /* ============ ECT R:R WORKFLOW TUTORIAL TAB ============ */
+  .ect-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 8px 4px 60px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .ect-hero {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.14), rgba(96, 165, 250, 0.08));
+    border: 1.5px solid rgba(20, 184, 166, 0.35);
+    border-radius: 14px;
+    padding: 26px 30px;
+    margin-bottom: 26px;
+  }
+  .ect-hero-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #14b8a6;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .ect-hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #5eead4;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .ect-hero-sub {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .ect-hero-sub strong { color: #5eead4; }
+  .ect-why-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 4px solid #14b8a6;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+  .ect-why-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #5eead4;
+    margin-bottom: 10px;
+  }
+  .ect-why-body {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .ect-why-body ul { margin: 10px 0 0 20px; padding: 0; }
+  .ect-why-body li { margin-bottom: 6px; }
+  .ect-why-body strong { color: #5eead4; }
+
+  .ect-section {
+    margin-bottom: 28px;
+  }
+  .ect-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(20, 184, 166, 0.25);
+  }
+  .ect-section-badge {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: #0f172a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    padding: 5px 12px;
+    border-radius: 4px;
+  }
+  .ect-section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #5eead4;
+  }
+
+  .ect-step {
+    display: flex;
+    gap: 18px;
+    padding: 18px 20px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+  .ect-step-num {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5eead4, #14b8a6);
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    font-weight: 800;
+  }
+  .ect-step-body { flex: 1; }
+  .ect-step-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 6px;
+  }
+  .ect-step-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .ect-step-text strong { color: #5eead4; }
+  .ect-step-text ul { margin: 8px 0 0 18px; padding: 0; }
+  .ect-step-text li { margin-bottom: 5px; }
+  .ect-step-text code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(20, 184, 166, 0.14);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #5eead4;
+  }
+  .ect-step-tip {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: rgba(251, 191, 36, 0.08);
+    border-left: 3px solid #fbbf24;
+    border-radius: 4px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #fde68a;
+  }
+  .ect-step-tip strong { color: #fbbf24; }
+
+  .ect-diagram {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 14px 0 4px;
+    text-align: center;
+  }
+  .ect-diagram svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .ect-diagram-caption {
+    font-size: 11.5px;
+    color: var(--ink-dim);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .ect-atm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 12.5px;
+  }
+  .ect-atm-table th {
+    text-align: left;
+    padding: 8px 10px;
+    background: rgba(20, 184, 166, 0.12);
+    color: #5eead4;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(20, 184, 166, 0.3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .ect-atm-table td {
+    padding: 8px 10px;
+    border-bottom: 1px dashed var(--line);
+    color: var(--ink);
+  }
+  .ect-atm-table tr:last-child td { border-bottom: none; }
+  .ect-atm-table td code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(20, 184, 166, 0.12);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: #5eead4;
+  }
+
+  .ect-cta {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.18), rgba(34, 197, 94, 0.10));
+    border: 1.5px solid #14b8a6;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .ect-cta-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #5eead4;
+    margin-bottom: 10px;
+  }
+  .ect-cta-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .ect-cta-body strong { color: #5eead4; }
+
   /* ============ MY TRADING DAY (Daily Reflection module) ============ */
   .mtd-container {
     max-width: 1100px;
@@ -4435,6 +4768,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <button class="tab-btn" data-tab="masterclass"><span class="tab-num">12 ·</span>📖 Visual Masterclass</button>
         <button class="tab-btn" data-tab="pattern-quiz"><span class="tab-num">🎯</span>Pattern Quiz</button>
         <button class="tab-btn" data-tab="calculators"><span class="tab-num">🧮</span>Calculators</button>
+        <button class="tab-btn" data-tab="ect-workflow"><span class="tab-num">🎬</span>ECT R:R Workflow</button>
         <button class="tab-btn" data-tab="flashcards"><span class="tab-num">🃏</span>Flashcard Trainer</button>
       </div>
 
@@ -11569,6 +11903,279 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     </div>
   </div>
 
+  <!-- ==================== TAB: ECT R:R WORKFLOW (Enhanced Chart Trader tutorial) ==================== -->
+  <div class="tab-panel" id="tab-ect-workflow">
+    <div class="ect-container">
+
+      <!-- Hero -->
+      <div class="ect-hero">
+        <div class="ect-hero-kicker">Enhanced Chart Trader · Affordable Indicators</div>
+        <div class="ect-hero-title">🎬 Drawing R:R on the Chart, Executing in One Click</div>
+        <div class="ect-hero-sub">
+          ECT is the paid tool you already own. It does <strong>two jobs in one workflow</strong>: it lets you draw your risk/reward on the chart before the trade (so you can see the math with your eyes), and then it executes the trade — entry, stop, and targets all at once — with <strong>one click</strong>. No more placing stops manually after you're already in. No more forgetting to set targets. No more drawn lines that don't connect to real orders.
+        </div>
+      </div>
+
+      <!-- Why ECT -->
+      <div class="ect-why-card">
+        <div class="ect-why-title">Why we're using ECT instead of hand-placing orders</div>
+        <div class="ect-why-body">
+          <strong>Your biggest leak is panic-closing before the target and moving stops wider in the middle of trades.</strong> ECT fixes both by removing the manual step:
+          <ul>
+            <li><strong>The stop is placed before you enter</strong> — you cannot "forget" to set it or delay it until "after the trade settles."</li>
+            <li><strong>The targets are pre-armed</strong> — the scale-out at +1R fires automatically. You do not have to click it in the moment.</li>
+            <li><strong>You see the R:R box visually before entering</strong> — if the reward box looks tiny next to the risk box, the trade is wrong and you'll see it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 1: One-time setup (ATM strategies) -->
+      <div class="ect-section">
+        <div class="ect-section-header">
+          <div class="ect-section-badge">ONE-TIME SETUP</div>
+          <div class="ect-section-title">Build Your ATM Strategies</div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">1</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Open the ATM Strategy dialog</div>
+            <div class="ect-step-text">
+              In NinjaTrader: top menu → <strong>Tools → ATM Strategy Explorer</strong>. Click <code>New</code>. You are going to build <strong>four presets</strong> — one for each combination of instrument and direction. You only do this once.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">2</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Build the four presets</div>
+            <div class="ect-step-text">
+              These match your plan exactly — 6 contracts, 0.5 pt stop, scale-out 50% at +1R, remaining targets at measured move. Save each with a clear name.
+            </div>
+            <table class="ect-atm-table">
+              <thead>
+                <tr>
+                  <th>Preset Name</th>
+                  <th>Qty</th>
+                  <th>Stop</th>
+                  <th>Target 1 (50%)</th>
+                  <th>Target 2 (50%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>M2K_LONG_6</code></td>
+                  <td>6</td>
+                  <td>0.5 pts</td>
+                  <td>+0.5 pts (3 contracts)</td>
+                  <td>+1.5 pts (3 contracts)</td>
+                </tr>
+                <tr>
+                  <td><code>M2K_SHORT_6</code></td>
+                  <td>6</td>
+                  <td>0.5 pts</td>
+                  <td>+0.5 pts (3 contracts)</td>
+                  <td>+1.5 pts (3 contracts)</td>
+                </tr>
+                <tr>
+                  <td><code>MES_LONG_4</code></td>
+                  <td>4</td>
+                  <td>2 pts</td>
+                  <td>+2 pts (2 contracts)</td>
+                  <td>+6 pts (2 contracts)</td>
+                </tr>
+                <tr>
+                  <td><code>MES_SHORT_4</code></td>
+                  <td>4</td>
+                  <td>2 pts</td>
+                  <td>+2 pts (2 contracts)</td>
+                  <td>+6 pts (2 contracts)</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="ect-step-tip">
+              <strong>Important:</strong> In the ATM dialog, under "Stop Strategy" set <strong>Auto-move to Breakeven</strong> = <code>+1 tick after Target 1 hits</code>. That is Rule 2 of the Plan Upgrade — automatic, no click required.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">3</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Confirm ECT is enabled on your chart</div>
+            <div class="ect-step-text">
+              Right-click on your 2-min chart → <strong>Chart Trader → Enhanced Chart Trader</strong>. The ECT panel should slide in on the right side of the chart. Set <strong>Default ATM Strategy</strong> to one of your four presets (you'll swap it per-trade).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Per-trade workflow (4 steps) -->
+      <div class="ect-section">
+        <div class="ect-section-header">
+          <div class="ect-section-badge">EVERY TRADE · 4 STEPS</div>
+          <div class="ect-section-title">The Live Workflow</div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">1</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Draw the R:R on the chart <em>before</em> the candle closes</div>
+            <div class="ect-step-text">
+              You're watching a potential Double Bottom. The right-side bottom just formed. You see a candle building above the neckline. Before it closes:
+              <ul>
+                <li>In the ECT panel, click the <strong>Long</strong> button dropdown and select <code>M2K_LONG_6</code>.</li>
+                <li>Hover your mouse at the price where you'd enter (just above the neckline).</li>
+                <li>ECT now draws a <strong>green reward box above</strong> (to the first target) and a <strong>red risk box below</strong> (to the stop) — right on the chart.</li>
+              </ul>
+            </div>
+            <div class="ect-step-tip">
+              <strong>This is the "see the math" step.</strong> If the green box is smaller than the red box — the trade is a loser before you enter. Do not take it. Wait for a better setup.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">2</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Wait for the candle close confirmation</div>
+            <div class="ect-step-text">
+              This step is unchanged from your plan. The R:R is drawn but <strong>no order has been placed yet.</strong> You are holding the mouse steady. You are not committed. Watch the last 10 seconds of the candle. Two outcomes:
+              <ul>
+                <li><strong>Candle closes above the neckline</strong> → go to Step 3.</li>
+                <li><strong>Candle wicks above and closes below</strong> → do nothing. Move the mouse away. The R:R box disappears. You just saved yourself a loss.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">3</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Click once to execute</div>
+            <div class="ect-step-text">
+              At the open of the next candle, <strong>left-click</strong> where the entry line is. ECT fires all three orders at once:
+              <ul>
+                <li>✅ <strong>Market buy 6 contracts</strong> (the entry)</li>
+                <li>✅ <strong>Stop-loss order</strong> at your stop line (0.5 pts below neckline)</li>
+                <li>✅ <strong>Two target orders</strong> — 3 contracts at +0.5 pts, 3 contracts at +1.5 pts</li>
+              </ul>
+              All three are now live orders on the CME. You are in the trade, protected and targeted. Total elapsed: ~1 second.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">4</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Hands off the mouse</div>
+            <div class="ect-step-text">
+              This is the part the tool cannot do for you. <strong>Physically move your hand off the mouse.</strong> The ATM is managing the trade now. Target 1 will hit → 3 contracts close automatically → stop moves to breakeven automatically. You do nothing. You watch.
+            </div>
+            <div class="ect-step-tip">
+              <strong>The only allowed click</strong> between entry and Target 1 is the ECT <code>CLOSE</code> button if a red-flag event fires (news spike, obvious reversal pattern, lost framework). Otherwise — hands off.
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual diagram of the R:R box workflow -->
+        <div class="ect-diagram">
+          <svg viewBox="0 0 600 260" role="img" aria-label="ECT R:R box workflow diagram">
+            <title>ECT R:R Box on the Chart</title>
+            <!-- Chart background -->
+            <rect x="20" y="20" width="560" height="200" fill="rgba(15,23,42,0.4)" stroke="rgba(100,116,139,0.3)" stroke-width="1" rx="4"/>
+            <!-- Grid lines -->
+            <g stroke="#475569" stroke-opacity=".2" stroke-dasharray="2 4">
+              <line x1="20" y1="70" x2="580" y2="70"/>
+              <line x1="20" y1="120" x2="580" y2="120"/>
+              <line x1="20" y1="170" x2="580" y2="170"/>
+            </g>
+            <!-- Double bottom price path -->
+            <path d="M 30,60 L 70,80 L 120,130 L 170,175 L 220,155 L 270,120 L 320,150 L 370,175 L 420,150 L 460,105" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <!-- Neckline -->
+            <line x1="170" y1="120" x2="460" y2="120" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="150" y="117" text-anchor="end" fill="#fde68a" font-size="10" font-weight="700">Neckline</text>
+
+            <!-- ECT R:R box: GREEN reward zone -->
+            <rect x="460" y="70" width="110" height="50" fill="#22c55e" fill-opacity="0.18" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <text x="515" y="98" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">REWARD</text>
+            <text x="515" y="112" text-anchor="middle" fill="#bbf7d0" font-size="9">+0.5 pts (3 off)</text>
+
+            <!-- Entry line -->
+            <line x1="450" y1="120" x2="570" y2="120" stroke="#14b8a6" stroke-width="2"/>
+            <circle cx="460" cy="120" r="5" fill="#14b8a6" stroke="#fff" stroke-width="1.5"/>
+            <text x="460" y="137" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="800">ENTRY</text>
+
+            <!-- ECT R:R box: RED risk zone -->
+            <rect x="460" y="120" width="110" height="28" fill="#ef4444" fill-opacity="0.18" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <text x="515" y="138" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="800">RISK</text>
+
+            <!-- Second reward (extended target) -->
+            <rect x="460" y="40" width="110" height="30" fill="#22c55e" fill-opacity="0.08" stroke="#22c55e" stroke-width="1" stroke-dasharray="2 2"/>
+            <text x="515" y="58" text-anchor="middle" fill="#86efac" font-size="10" font-weight="700">+1.5 pts (runner)</text>
+
+            <!-- Labels -->
+            <text x="570" y="35" text-anchor="end" fill="#fbbf24" font-size="10" font-style="italic">← What ECT draws before you click</text>
+
+            <!-- Step callout -->
+            <g transform="translate(30,230)">
+              <text x="0" y="0" fill="#5eead4" font-size="11" font-weight="700">1 click on the entry line → 3 orders live on CME</text>
+            </g>
+          </svg>
+          <div class="ect-diagram-caption">The green/red boxes are ECT's live R:R overlay. Click the entry line once — ECT fires entry, stop, and scale-out targets simultaneously.</div>
+        </div>
+      </div>
+
+      <!-- Section 3: After the trade -->
+      <div class="ect-section">
+        <div class="ect-section-header">
+          <div class="ect-section-badge">AFTER THE TRADE</div>
+          <div class="ect-section-title">Cleanup &amp; Chart Clarity</div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">1</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Close the ECT panel between trades</div>
+            <div class="ect-step-text">
+              You mentioned ECT "clutters up the chart" — that's because the panel stays visible even when you're not actively trading. Between setups, hit the small <strong>collapse arrow</strong> on the left edge of the ECT panel. The chart goes back to clean. When the next setup forms, one click re-opens it.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">2</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Check the residual lines</div>
+            <div class="ect-step-text">
+              After a trade closes, ECT leaves historical entry/stop/target lines on the chart. This is actually <strong>useful</strong> — you can see where your trade was placed and whether it hit target or stopped out. But if they pile up, right-click any line → <strong>Remove</strong> to clear the old ones once per session.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">3</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">Log the trade in the Journal tab</div>
+            <div class="ect-step-text">
+              ECT does not log trades automatically. After the trade closes, pop open your <strong>Trade Journal</strong> tab (REVIEW section), enter the entry price, exit price, and which rules you followed. This feeds the Edge Dashboard.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA: why this replaces RiskRewardPlus -->
+      <div class="ect-cta">
+        <div class="ect-cta-title">You already own the right tool</div>
+        <div class="ect-cta-body">
+          ECT does everything RiskRewardPlus does (drawing the R:R box on the chart) <strong>plus it executes the trade for you</strong>. RiskRewardPlus is drawing-only — you would still have to manually place the orders after visualizing. That's two tools doing what ECT does alone. <strong>Stick with ECT.</strong> The workflow above is the full training.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ==================== TAB: PATTERN QUIZ (Branch 8 — from Academy) ==================== -->
   <div class="tab-panel" id="tab-pattern-quiz">
     <div class="pq-inner">
@@ -13446,6 +14053,73 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="plan-page-intro">
         <strong>Purpose:</strong> This is the actionable plan. No debates, no alternatives, no "it depends." This is what you do. Every trade. Every time.<br><br>
         <strong>Companion document:</strong> See <em>"The Research Behind the Plan"</em> for the WHY behind every rule here.
+      </div>
+
+      <!-- ============ PLAN UPGRADE CALLOUT — ATR stop + scale-out TP ============ -->
+      <div class="plan-upgrade-callout">
+        <div class="puc-header">
+          <div class="puc-stamp">PLAN UPGRADE · 2026-04-23</div>
+          <div class="puc-title">The Two Rules That Stop Hurting You</div>
+        </div>
+        <div class="puc-intro">
+          These two upgrades apply to <strong>every one of the four pattern cards below</strong>. They replace any conflicting stop or exit rule in the old plan. Read them once. Print them. Follow them forever. The step-by-step cards still tell you how to <em>enter</em>; these rules tell you how to <em>stay in the trade</em> and <em>get out right.</em>
+        </div>
+
+        <div class="puc-rules">
+          <!-- Rule 1: ATR-gated stop -->
+          <div class="puc-rule">
+            <div class="puc-rule-num">RULE 1</div>
+            <div class="puc-rule-title">🎯 ATR-Gated Stop Placement</div>
+            <div class="puc-rule-body">
+              Before you enter, <strong>glance at the 2-min ATR(14) reading</strong> on your chart:
+              <ul>
+                <li><strong>ATR ≤ 1.2 pts</strong> → use your tight stop (<code>0.4–0.6 pts</code> beyond the structure line) — this is the default.</li>
+                <li><strong>ATR &gt; 1.2 pts</strong> → market is too noisy for a tight stop. Widen to <code>ATR × 0.5</code>, cap at <code>1.0 pt</code>. Reduce contracts to keep dollar risk constant.</li>
+              </ul>
+              <div class="puc-rule-example">
+                <strong>Example (M2K):</strong> ATR reads 1.5 pts. Stop becomes 0.75 pts. To keep $18 risk: drop from 6 contracts to 4 (0.75 × 4 × $5 = $15).
+              </div>
+            </div>
+          </div>
+
+          <!-- Rule 2: Scale-out TP -->
+          <div class="puc-rule">
+            <div class="puc-rule-num">RULE 2</div>
+            <div class="puc-rule-title">💰 Scale-Out Take-Profit</div>
+            <div class="puc-rule-body">
+              <strong>Kills the panic-close problem.</strong> Half the trade becomes profit you cannot lose:
+              <ul>
+                <li><strong>At +1R</strong> (profit equals risk) → exit <strong>50%</strong> of contracts.</li>
+                <li>At the same moment → <strong>move stop to breakeven</strong> on the remaining half.</li>
+                <li>Let the runners ride toward the <strong>measured move target</strong> or until the trend breaks.</li>
+              </ul>
+              <div class="puc-rule-example">
+                <strong>Example (6 M2K):</strong> +0.6 pts → close 3 contracts ($9 locked), stop to BE on the other 3. Worst case: $9 profit. Best case: runners hit measured move (+2–3 pts).
+              </div>
+            </div>
+          </div>
+
+          <!-- Rule 3: Walk away -->
+          <div class="puc-rule">
+            <div class="puc-rule-num">RULE 3</div>
+            <div class="puc-rule-title">🧘 Hands Off the Mouse</div>
+            <div class="puc-rule-body">
+              Once ECT places the stop and first target, <strong>physically move your hand off the mouse.</strong>
+              <ul>
+                <li>No closing early at +0.3 pts because "it feels weak."</li>
+                <li>No moving the stop wider because "it's about to turn."</li>
+                <li>The only allowed click between entry and +1R is the <strong>emergency exit</strong> if a red-flag event fires (news spike, obvious reversal pattern against you, lost framework).</li>
+              </ul>
+              <div class="puc-rule-example">
+                <strong>Why:</strong> Your panic closes and wider-stop moves are the single biggest leak. Plan placed it. Plan manages it. You watch.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="puc-footer">
+          These three rules <strong>override</strong> any step in the pattern cards below that says "take 3 off at 1:1" (Rule 2 is the same idea, now unified) or implies you should manage manually (Rule 3 says you should not). The pattern cards teach you to <em>enter</em>. These rules teach you to <em>exit</em>.
+        </div>
       </div>
 
       <!-- ============ DOUBLE BOTTOM ============ -->
