@@ -4282,7 +4282,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <label>Entry: short on break of the confirmation bar's low, OR short the retest
             <span class="hint">Retest entry = lower risk, often misses. Pick your lane.</span>
             <span class="explain"><strong>What this means — two ways to enter, pick one:</strong>
-              <b>Option A (aggressive):</b> The "confirmation bar" is the one that closed below the neckline. Place a sell-stop order 1 tick below <em>its</em> low. The moment the next bar ticks down through that level, you're short. Higher fill rate, slightly worse price.<br>
+              <b>Option A (aggressive):</b> The "confirmation bar" is the one that closed below the neckline. Place a sell-stop order just below <em>its</em> low (0.25 pt on ES/MES/NQ/MNQ · 0.10 pt on RTY/M2K). The moment the next bar trades down through that level, you're short. Higher fill rate, slightly worse price.<br>
               <b>Option B (retest):</b> Wait for price to bounce back UP to the neckline (now acting as resistance from above), then short when it rejects. Better price, tighter stop, but sometimes price never comes back and you miss the trade. Decide your preference <em>before</em> the setup so you're not negotiating with yourself in real time.
             </span>
           </label>
@@ -4311,11 +4311,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <text x="360" y="143" fill="#14b8a6" font-size="9" font-weight="700">Target =</text>
             <text x="360" y="155" fill="#14b8a6" font-size="9" font-weight="700">height down</text>
           </svg>
-          <figcaption>Stop = 1–2 ticks above peak 2. Target = neckline-to-peak height projected <em>down</em> from break. R:R ~1:3.</figcaption>
+          <figcaption>Stop = small point buffer above peak 2 (see per-instrument buffer table below). Target = neckline-to-peak height projected <em>down</em> from break. R:R ~1:3.</figcaption>
         </figure>
         <div class="data-block">
           <div class="dlabel">Stop</div>
-          <div class="dvalue">1–2 ticks above peak 2 (NOT peak 1 — smaller stop, more size)</div>
+          <div class="dvalue">Small point buffer above peak 2 — NOT peak 1 (smaller stop, more size). Buffer by instrument: ES/MES 1.0 pt · NQ 2.0 pt · MNQ 1.5 pt · RTY/M2K 0.4 pt.</div>
           <span class="explain"><strong>What this means</strong>
             A "stop" = a pre-placed order that closes your trade if price moves against you. For a short, place it <em>just above</em> Peak 2 (the most recent high). Why Peak 2 instead of Peak 1? Because if price closes above Peak 2, your whole thesis is wrong — it's making higher highs now, not failing. Putting the stop at the nearer level makes your risk per contract smaller, which means you can trade more contracts for the same dollar risk. Smaller, <em>tighter</em> stops (placed correctly) actually grow your account faster.
           </span>
@@ -4335,9 +4335,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="data-block" style="border-left-color:#e6b859">
           <div class="dlabel">4b · Tight Stop Variant (v5) · Neckline Stop Instead of Peak 2</div>
           <div class="dvalue">
-            The classic rule says "stop 1–2 ticks above peak 2." Still valid. But once price has confirmed the breakdown by closing below the neckline, the neckline itself becomes resistance — and a close back above it invalidates the pattern. So an alternative (tighter) stop placement is: <strong>a small buffer above the neckline</strong>.
+            The classic rule says "stop a small buffer above peak 2." Still valid. But once price has confirmed the breakdown by closing below the neckline, the neckline itself becomes resistance — and a close back above it invalidates the pattern. So an alternative (tighter) stop placement is: <strong>a small buffer above the neckline</strong>.
             <br><br>
-            <strong>Point-based buffers (not ticks):</strong><br>
+            <strong>Point-based buffers:</strong><br>
             MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts above the neckline.
           </div>
           <span class="explain"><strong>Why it works</strong>
@@ -4769,7 +4769,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <label>2-min bar CLOSED above the neckline (not wick)
             <span class="hint">Wick breaks fail. Patience beats FOMO.</span>
             <span class="explain"><strong>What this means</strong>
-              Each 2-min bar has a body (open-to-close) and wicks (the thin lines showing highest and lowest price touched during those 2 minutes). A "wick break" = price briefly poked above the neckline but snapped back before the bar finished — sellers defended it. A "closed break" = the bar finished with its body above the line — buyers won the 2 minutes. FOMO ("fear of missing out") makes traders jump on the first tick; patience means waiting the extra 30 seconds for the close. Wicks lie. Closes tell the truth.
+              Each 2-min bar has a body (open-to-close) and wicks (the thin lines showing highest and lowest price touched during those 2 minutes). A "wick break" = price briefly poked above the neckline but snapped back before the bar finished — sellers defended it. A "closed break" = the bar finished with its body above the line — buyers won the 2 minutes. FOMO ("fear of missing out") makes traders jump on the first trade of the bar; patience means waiting the extra 30 seconds for the close. Wicks lie. Closes tell the truth.
             </span>
           </label>
         </div>
@@ -4778,7 +4778,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <label>Entry: long on break of confirmation bar's high, OR long the retest
             <span class="hint">Shallow retest predicts stronger follow-through (Bulkowski).</span>
             <span class="explain"><strong>What this means — two ways to enter, pick one:</strong>
-              <b>Option A (aggressive):</b> The "confirmation bar" is the one that closed above the neckline. Place a buy-stop order 1 tick above <em>its</em> high. The moment the next bar ticks up through that level, you're long. Higher fill rate, slightly worse price.<br>
+              <b>Option A (aggressive):</b> The "confirmation bar" is the one that closed above the neckline. Place a buy-stop order just above <em>its</em> high (0.25 pt on ES/MES/NQ/MNQ · 0.10 pt on RTY/M2K). The moment the next bar trades up through that level, you're long. Higher fill rate, slightly worse price.<br>
               <b>Option B (retest):</b> Wait for price to pull back DOWN to the neckline (now acting as support from above), then buy when it holds and bounces. Better price, tighter stop, sometimes you miss the trade entirely. Bulkowski's research: when the retest is <em>shallow</em> (price doesn't dip far before resuming) and quick, follow-through tends to be stronger — it signals buyers are impatient and eager.
             </span>
           </label>
@@ -4807,11 +4807,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <text x="360" y="65" fill="#14b8a6" font-size="9" font-weight="700">Target =</text>
             <text x="360" y="77" fill="#14b8a6" font-size="9" font-weight="700">height up</text>
           </svg>
-          <figcaption>Stop = 1–2 ticks below trough 2. Target = trough-to-neckline height projected <em>up</em> from break. R:R ~1:3.</figcaption>
+          <figcaption>Stop = small point buffer below trough 2 (see per-instrument buffer table below). Target = trough-to-neckline height projected <em>up</em> from break. R:R ~1:3.</figcaption>
         </figure>
         <div class="data-block">
           <div class="dlabel">Stop</div>
-          <div class="dvalue">1–2 ticks below trough 2 (NOT trough 1 — smaller stop)</div>
+          <div class="dvalue">Small point buffer below trough 2 — NOT trough 1 (smaller stop, more size). Buffer by instrument: ES/MES 1.0 pt · NQ 2.0 pt · MNQ 1.5 pt · RTY/M2K 0.4 pt.</div>
           <span class="explain"><strong>What this means</strong>
             A "stop" = a pre-placed order that closes your trade if price moves against you. For a long, place it <em>just below</em> Trough 2 (the most recent low). Why Trough 2 instead of Trough 1? Because if price closes below Trough 2, your whole thesis is wrong — it's making lower lows now, not holding support. Placing the stop at the nearer level makes your per-contract risk smaller, which means you can size larger for the same dollar risk. Smaller stops (placed correctly) are how pros grow accounts.
           </span>
@@ -4831,9 +4831,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="data-block" style="border-left-color:#e6b859">
           <div class="dlabel">4b · Tight Stop Variant (v5) · Neckline Stop Instead of Trough 2</div>
           <div class="dvalue">
-            The classic rule says "stop 1–2 ticks below trough 2." Still valid. But once price has confirmed the breakout by closing above the neckline, the neckline itself becomes support — and a close back below it invalidates the pattern. So an alternative (tighter) stop placement is: <strong>a small buffer below the neckline</strong>.
+            The classic rule says "stop a small buffer below trough 2." Still valid. But once price has confirmed the breakout by closing above the neckline, the neckline itself becomes support — and a close back below it invalidates the pattern. So an alternative (tighter) stop placement is: <strong>a small buffer below the neckline</strong>.
             <br><br>
-            <strong>Point-based buffers (not ticks):</strong><br>
+            <strong>Point-based buffers:</strong><br>
             MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts below the neckline.
           </div>
           <span class="explain"><strong>Why it works</strong>
@@ -4953,7 +4953,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <li><strong>What:</strong> Wait for the full 2-minute candle to <em>close</em> above the neckline (the middle peak of the W) before entering long.</li>
             <li class="pro">Confirmation. A candle that closes above the neckline tells you buyers held control for the full 2-minute period.</li>
             <li class="pro">Filters out a huge percentage of false breakouts. Win rate goes up meaningfully vs. entering on the break.</li>
-            <li class="con">You give up some of the move — by the time the candle closes, price may already be 5–8 ticks above the neckline.</li>
+            <li class="con">You give up some of the move — by the time the candle closes, price may already be 1.25–2.00 pts above the neckline (ES/MES/NQ/MNQ) or 0.50–0.80 pts above (RTY/M2K).</li>
             <li class="con">Risk-reward on each individual trade gets a little worse — entry is higher, stop (below the W bottom) is relatively further away.</li>
             <li class="who">Who uses it: most professional and institutional short-term traders. They think in terms of <strong>expected value</strong>, not single-trade outcome. A slightly worse entry that filters out 30–40% of false signals is a massive edge over time.</li>
           </ul>
@@ -5251,7 +5251,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <li><strong>What:</strong> Draw a trendline across the highs of the pullback candles. Wait for a full 2-minute candle to <em>close</em> above that trendline — not just poke through — then enter long.</li>
               <li class="pro">Significant filter against false breakouts. Close above = buyers held control for the full 2 minutes.</li>
               <li class="pro">Same confirmation principle as double bottoms — applies even more strongly because flag breakouts fake out more often.</li>
-              <li class="con">Give up some entry price. M2K: 2–5 ticks worse. MES: 1–3 ticks worse.</li>
+              <li class="con">Give up some entry price. RTY/M2K: 0.20–0.50 pts worse. ES/MES/NQ/MNQ: 0.25–0.75 pts worse.</li>
               <li class="con">Occasionally the breakout candle is so large that entry is uncomfortably far from stop.</li>
               <li class="who">Who uses it: <strong>most popular method among competent retail day traders</strong> — balances confirmation with reasonable pricing.</li>
             </ul>
@@ -5307,11 +5307,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="method-block">
             <div class="method-title">Stop A · Below the Flag Low (recommended)</div>
             <ul>
-              <li><strong>What:</strong> Place stop 1–2 ticks below the lowest point of the flag consolidation.</li>
+              <li><strong>What:</strong> Place stop just below the lowest point of the flag consolidation (0.25 pt on ES/MES/NQ/MNQ · 0.10 pt on RTY/M2K).</li>
               <li class="pro">Most common placement. Gives trade the most room to work.</li>
-              <li class="pro">M2K: typically 10–20 tick stop · MES: ~6–15 ticks.</li>
+              <li class="pro">Typical stop distance: RTY/M2K 1.0–2.0 pts · ES/MES/NQ/MNQ 1.5–3.75 pts.</li>
               <li class="pro">Wider stop but higher probability — not getting shaken out by normal flag volatility.</li>
-              <li class="con">Larger dollar risk per trade. M2K 15-tick stop = $7.50/contract. MES 12-tick stop = $15/contract.</li>
+              <li class="con">Larger dollar risk per trade. M2K 1.5 pt stop = $7.50/contract. MES 3.0 pt stop = $15/contract. RTY 1.5 pt = $75/contract. ES 3.0 pt = $150/contract.</li>
             </ul>
           </div>
 
@@ -5326,9 +5326,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           </div>
 
           <div class="method-block">
-            <div class="method-title">Stop C · Fixed Dollar or Tick Stop</div>
+            <div class="method-title">Stop C · Fixed Dollar or Fixed-Point Stop</div>
             <ul>
-              <li><strong>What:</strong> Predetermined max loss (e.g., 8 ticks M2K, 6 ticks MES) regardless of chart structure.</li>
+              <li><strong>What:</strong> Predetermined max loss (e.g., 0.8 pts on RTY/M2K, 1.5 pts on ES/MES/NQ/MNQ) regardless of chart structure.</li>
               <li class="pro">Consistent risk management, easy position sizing.</li>
               <li class="con">Stop has no relationship to actual chart structure.</li>
               <li class="con">Sometimes too tight (stopped out right before the move). Sometimes too wide (risking more than necessary).</li>
@@ -5346,7 +5346,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="dvalue">
               Same principle as the neckline stop on double bottoms. Once price has closed above the flag trendline, that trendline becomes support for the continuation. An alternative (tighter) stop is a small buffer below the broken trendline.
               <br><br>
-              <strong>Point-based buffers (not ticks):</strong><br>
+              <strong>Point-based buffers:</strong><br>
               MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts below the broken trendline.
             </div>
             <span class="explain"><strong>When to use it</strong>
@@ -5440,7 +5440,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <li class="who">4. Enter at the open of the next candle.</li>
               <li class="who">5. Stop goes below the flag low.</li>
               <li class="who">6. Target is the flagpole height projected from the breakout point (the <strong>measured move</strong>).</li>
-              <li class="who">7. Take partial profits at 1:1 risk-reward. If stop is 12 ticks away, take some off at 12 ticks of profit.</li>
+              <li class="who">7. Take partial profits at 1:1 risk-reward. If stop is 1.2 points away, take some off at 1.2 points of profit.</li>
               <li class="who">8. Trail the remainder toward the full measured move target.</li>
             </ul>
           </div>
@@ -5512,7 +5512,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="data-block">
             <div class="dlabel">2 · Stop Method A — below the flag low</div>
             <div class="dvalue">
-              Let chart structure define risk. M2K at 6 contracts × $0.50/tick × 15-tick stop = <strong>$45 risk</strong>. If the flag is sloppy and stop would be 25 ticks ($75 risk), consider dropping to 4 contracts.
+              Let chart structure define risk. M2K at 6 contracts × $5/pt × 1.5-pt stop = <strong>$45 risk</strong>. If the flag is sloppy and stop would be 2.5 pts ($75 risk), consider dropping to 4 contracts. (RTY same math at $50/pt: 1.5-pt stop = $450 at 6 contracts — drop contract count for your risk budget.)
             </div>
           </div>
 
@@ -5528,12 +5528,12 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
           <div class="data-block">
             <div class="dlabel">4 · Measured move target — take half at 1:1</div>
-            <div class="dvalue">Target = flagpole height projected from breakout point. On M2K: take 3 contracts off at +12 ticks, let the other 3 ride toward the full target with a trailing stop.</div>
+            <div class="dvalue">Target = flagpole height projected from breakout point. On M2K: take 3 contracts off at +1.2 pts, let the other 3 ride toward the full target with a trailing stop.</div>
           </div>
 
           <div class="data-block">
             <div class="dlabel">5 · Time stop — exit if no movement in 3 candles</div>
-            <div class="dvalue">If trade hasn't moved at least 5–6 ticks in your direction within 3 candles (6 minutes), get out. This single rule will save you from a huge number of grinding, slow-bleed losers.</div>
+            <div class="dvalue">If trade hasn't moved at least 1.25–1.50 pts (ES/MES/NQ/MNQ) or 0.50–0.60 pts (RTY/M2K) in your direction within 3 candles (6 minutes), get out. This single rule will save you from a huge number of grinding, slow-bleed losers.</div>
           </div>
 
           <div class="data-block">
@@ -5720,10 +5720,10 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="method-block">
             <div class="method-title">Candle Close Below the Flag Trendline <span class="winrate-pill mid">Win rate 50–58%</span></div>
             <ul>
-              <li><strong>What:</strong> Draw a trendline across the lows of the bounce candles inside the flag. Wait for a full 2-minute candle to <em>close</em> below that trendline — not just tick through — then enter short.</li>
+              <li><strong>What:</strong> Draw a trendline across the lows of the bounce candles inside the flag. Wait for a full 2-minute candle to <em>close</em> below that trendline — not just poke through on a wick — then enter short.</li>
               <li class="pro">Confirmation that sellers held control for the full 2 minutes.</li>
               <li class="pro">Filters out a large portion of bear traps. Significantly higher win rate than entering on the break.</li>
-              <li class="con">Worse entry price (lower). M2K: 2–5 ticks worse · MES: 1–3 ticks worse.</li>
+              <li class="con">Worse entry price (lower). RTY/M2K: 0.20–0.50 pts worse · ES/MES/NQ/MNQ: 0.25–0.75 pts worse.</li>
               <li class="con">Bear flags move fast — sometimes a chunk of the move is already gone by the close.</li>
               <li class="who">Note: slightly lower win rate than the bull-flag version because of the speed factor — by the time you confirm, some moves are exhausted.</li>
             </ul>
@@ -5779,9 +5779,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="method-block">
             <div class="method-title">Stop A · Above the Flag High (recommended)</div>
             <ul>
-              <li><strong>What:</strong> Place stop 1–2 ticks above the highest point of the flag consolidation.</li>
+              <li><strong>What:</strong> Place stop just above the highest point of the flag consolidation (0.25 pt on ES/MES/NQ/MNQ · 0.10 pt on RTY/M2K).</li>
               <li class="pro">Most common. Gives trade most room to work.</li>
-              <li class="pro">M2K: typically 10–20 tick stop · MES: ~6–15 ticks.</li>
+              <li class="pro">Typical stop distance: RTY/M2K 1.0–2.0 pts · ES/MES/NQ/MNQ 1.5–3.75 pts.</li>
             </ul>
           </div>
 
@@ -5795,7 +5795,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           </div>
 
           <div class="method-block">
-            <div class="method-title">Stop C · Fixed Dollar or Tick Stop</div>
+            <div class="method-title">Stop C · Fixed Dollar or Fixed-Point Stop</div>
             <ul>
               <li><strong>What:</strong> Predetermined max loss regardless of structure.</li>
               <li class="pro">Easy position sizing.</li>
@@ -5814,7 +5814,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="dvalue">
               Mirror of bull flag. Once price has closed below the flag trendline, that trendline becomes resistance for the continuation down. An alternative (tighter) stop is a small buffer above the broken trendline.
               <br><br>
-              <strong>Point-based buffers (not ticks):</strong><br>
+              <strong>Point-based buffers:</strong><br>
               MES <strong>1.0</strong> · MNQ <strong>1.5</strong> · M2K <strong>0.4</strong> · ES <strong>1.0</strong> · NQ <strong>2.0</strong> · RTY <strong>0.4</strong> pts above the broken trendline.
             </div>
             <span class="explain"><strong>When to use it</strong>
@@ -5960,7 +5960,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="data-block">
             <div class="dlabel">2 · Stop Method A — above the flag high</div>
             <div class="dvalue">
-              Let chart structure define risk. M2K at 6 contracts × $0.50/tick × 15-tick stop = <strong>$45 risk</strong>. If stop would be 25 ticks ($75), drop to 4 contracts.
+              Let chart structure define risk. M2K at 6 contracts × $5/pt × 1.5-pt stop = <strong>$45 risk</strong>. If stop would be 2.5 pts ($75), drop to 4 contracts. (RTY at $50/pt: 1.5-pt stop = $450 at 6 contracts — scale contract count to fit your risk budget.)
             </div>
           </div>
 
@@ -5991,7 +5991,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
           <div class="data-block">
             <div class="dlabel">6 · Tighter time stop than bull flags</div>
-            <div class="dvalue">If trade hasn't moved 5–6 ticks in your direction within <strong>2 candles (4 minutes)</strong> of entry, exit. Bear flags either work fast or they don't work — don't sit in a stalled bear flag.</div>
+            <div class="dvalue">If trade hasn't moved at least 1.25–1.50 pts (ES/MES/NQ/MNQ) or 0.50–0.60 pts (RTY/M2K) in your direction within <strong>2 candles (4 minutes)</strong> of entry, exit. Bear flags either work fast or they don't work — don't sit in a stalled bear flag.</div>
           </div>
 
           <div class="data-block">
@@ -6301,7 +6301,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <label>Entering at the OPEN of the bar after the confirmation bar (not chasing mid-bar)
               <span class="hint">Discipline beats chasing.</span>
               <span class="explain"><strong>What this means</strong>
-                The bar that confirmed is already done — don't try to pile in on the next bar's second or third tick hoping it dips. Enter at the open (the first tick) of the next bar. If the market is already running hard in your direction and you missed the open, skip it — chasing kills your R:R. A missed hammer is fine. A chased hammer is a loss.
+                The bar that confirmed is already done — don't try to pile in on the next bar's first few trades hoping it dips. Enter at the open of the next bar. If the market is already running hard in your direction and you missed the open, skip it — chasing kills your R:R. A missed hammer is fine. A chased hammer is a loss.
               </span>
             </label>
           </div>
@@ -6325,7 +6325,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 5 · Stop Placement -->
         <div class="section">
-          <div class="section-label">5 · Stop &amp; Target <span class="gate-required">Points, not ticks · R:R ≥ 2:1</span></div>
+          <div class="section-label">5 · Stop &amp; Target <span class="gate-required">Point-based buffer · R:R ≥ 2:1</span></div>
           <figure class="illus">
             <svg viewBox="0 0 560 240" role="img" aria-labelledby="hs-stop-t hs-stop-d">
               <title id="hs-stop-t">Hammer stop placement with risk and reward zones</title>
@@ -6358,7 +6358,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <p>Stop goes <strong>just below the hammer's wick tip</strong> (for longs) or <strong>just above the shooting star's wick tip</strong> (for shorts). The wick tip IS the invalidation — if price trades back down to and through the wick tip, the rejection failed and there's no thesis left.</p>
           </div>
           <div class="data-block">
-            <div class="dlabel">Buffer below the wick tip — by instrument (points, not ticks)</div>
+            <div class="dlabel">Buffer below the wick tip — by instrument (all values in points)</div>
             <div class="dvalue">
               · MES: <strong>1.0 pt</strong> below the wick tip<br>
               · MNQ: <strong>1.5 pt</strong> below (noisier)<br>
@@ -6368,7 +6368,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               · RTY: <strong>0.4 pt</strong> below
             </div>
             <span class="explain"><strong>What this means</strong>
-              The old conventional wisdom says "3 ticks below." Throw that away. On MES 3 ticks is 0.75 points — too tight for normal 2-min wick-noise on a volatile instrument. On M2K 3 ticks is only 0.30 points — also too tight. The point-based buffers above are tuned to each instrument's actual noise floor. A properly placed stop gets hit only when the pattern <em>actually</em> failed, not because of a 2-tick wick poke.
+              The old conventional wisdom used fixed-unit buffers that measured differently across contracts. Throw that away. On MES, 0.75 points is too tight for normal 2-min wick-noise on a volatile instrument. On M2K, 0.30 points is also too tight. The point-based buffers above are tuned to each instrument's actual noise floor. A properly placed stop gets hit only when the pattern <em>actually</em> failed, not because of a small wick poke.
             </span>
           </div>
           <div class="data-block" style="border-left-color:#eab308">
@@ -6525,7 +6525,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           </div>
           <div class="data-block">
             <div class="dlabel">2 · Stop</div>
-            <div class="dvalue">Point-based buffer beyond wick tip (see table above). Never tick-math again.</div>
+            <div class="dvalue">Point-based buffer beyond wick tip (see table above). Everything is in points.</div>
           </div>
           <div class="data-block">
             <div class="dlabel">3 · Wick test before entry</div>
@@ -6831,7 +6831,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <label>Candle 2 has fully closed (two-minute bar complete, not still forming)
               <span class="hint">Entering before the close is trading the wick.</span>
               <span class="explain"><strong>What this means</strong>
-                Until the 2-min bar's final tick, it's still "the active bar" and could finish anywhere. A bar that looks like a big engulfing with 30 seconds left can collapse back inside candle 1 before the close. Wait the full 120 seconds. The rule is ironclad: no entries on forming bars.
+                Until the 2-min bar's close, it's still "the active bar" and could finish anywhere. A bar that looks like a big engulfing with 30 seconds left can collapse back inside candle 1 before the close. Wait the full 120 seconds. The rule is ironclad: no entries on forming bars.
               </span>
             </label>
           </div>
@@ -6847,7 +6847,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="method-block">
             <div class="method-title">Expert Backup — Market-on-open of next bar <span class="expert-backup-label">For bracket-order traders</span></div>
             <ul>
-              <li><strong>What:</strong> Enter on the first tick of the next bar at market.</li>
+              <li><strong>What:</strong> Enter at the open of the next bar at market.</li>
               <li class="pro">Same timing, slightly different execution style for traders with pre-programmed bracket orders.</li>
               <li class="con">Tiny slippage vs. close entry — usually 0.25 points on MES.</li>
             </ul>
@@ -6856,7 +6856,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 5 · Stop Placement -->
         <div class="section">
-          <div class="section-label">5 · Stop &amp; Target <span class="gate-required">Points, not ticks · R:R ≥ 2:1</span></div>
+          <div class="section-label">5 · Stop &amp; Target <span class="gate-required">Point-based buffer · R:R ≥ 2:1</span></div>
           <figure class="illus">
             <svg viewBox="0 0 560 240" role="img" aria-labelledby="eng-stop-t eng-stop-d">
               <title id="eng-stop-t">Engulfing stop placement with risk-reward zones</title>
@@ -7551,7 +7551,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             </g>
             <!-- Stop marker -->
             <line x1="335" y1="26" x2="370" y2="26" stroke="#ef4444" stroke-width="2"/>
-            <text x="372" y="29" fill="#fca5a5" font-size="9" font-weight="700">STOP 1-2 ticks above fail extreme</text>
+            <text x="372" y="29" fill="#fca5a5" font-size="9" font-weight="700">STOP · small point buffer above fail extreme</text>
           </svg>
           <figcaption>The Failed Breakout hero: price pokes above a significant level, closes a "reclaim candle" back inside the prior range, and you fade the trapped buyers with a tight stop above the failure extreme.</figcaption>
         </figure>
@@ -7778,7 +7778,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="dlabel">Entry methodology</div>
             <ul>
               <li><strong>Trigger:</strong> close of the reclaim candle (bar closes back inside the prior range).</li>
-              <li><strong>Fill:</strong> market order at the close, or stop order 1 tick on the reclaim-side of the candle body.</li>
+              <li><strong>Fill:</strong> market order at the close, or stop order just on the reclaim-side of the candle body (small point buffer).</li>
               <li><strong>Do NOT anticipate:</strong> don't short just because price dipped below the level. Wait for the CLOSE.</li>
             </ul>
             <div class="explain"><strong>Why "close, not touch"</strong>
@@ -7789,11 +7789,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <!-- SECTION 5 · STOP -->
         <div class="section">
-          <div class="section-label">5 · Stop Placement — 1–2 Ticks Beyond the Failed Extreme</div>
+          <div class="section-label">5 · Stop Placement — Small Point Buffer Beyond the Failed Extreme</div>
           <figure class="illus">
             <svg viewBox="0 0 560 200" role="img" aria-labelledby="fb-stop-t fb-stop-d">
               <title id="fb-stop-t">Stop placement beyond failed extreme</title>
-              <desc id="fb-stop-d">Short-trade example showing entry at reclaim close and stop 1-2 ticks above the highest point of the failed breakout.</desc>
+              <desc id="fb-stop-d">Short-trade example showing entry at reclaim close and stop a small point buffer above the highest point of the failed breakout.</desc>
               <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="90" x2="560" y2="90"/></g>
               <line x1="10" y1="90" x2="550" y2="90" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
               <text x="20" y="82" fill="#eab308" font-size="10" font-weight="800">Broken level</text>
@@ -7808,21 +7808,25 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <text x="250" y="150" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">reclaim · ENTRY</text>
               <!-- Stop line -->
               <line x1="40" y1="36" x2="520" y2="36" stroke="#ef4444" stroke-width="2"/>
-              <text x="50" y="28" fill="#fca5a5" font-size="11" font-weight="800">⌐ STOP — 1-2 ticks above fail extreme</text>
+              <text x="50" y="28" fill="#fca5a5" font-size="11" font-weight="800">⌐ STOP — small point buffer above fail extreme</text>
               <!-- Risk markers -->
               <line x1="520" y1="36" x2="520" y2="122" stroke="#f87171" stroke-width="1.5" stroke-dasharray="3 3"/>
               <text x="525" y="80" fill="#fca5a5" font-size="10" font-weight="700">risk</text>
               <text x="525" y="95" fill="#fca5a5" font-size="10" font-weight="700">(1R)</text>
-              <!-- MES tick math -->
+              <!-- MES point math -->
               <text x="280" y="185" text-anchor="middle" fill="#cbd5e1" font-size="10">Typical risk on MES: 4–10 points ($20–$50 per contract)</text>
             </svg>
-            <figcaption>Stop goes <strong>1–2 ticks beyond the highest point of the failed attempt</strong> — not the reclaim-candle extreme, the <em>failed breakout extreme</em>. This is your 1R.</figcaption>
+            <figcaption>Stop goes a <strong>small point buffer beyond the highest point of the failed attempt</strong> — not the reclaim-candle extreme, the <em>failed breakout extreme</em>. This is your 1R.</figcaption>
           </figure>
           <div class="data-block">
-            <div class="dlabel">Stop math by contract</div>
+            <div class="dlabel">Stop math by contract (all values in points)</div>
             <ul>
-              <li><strong>MES:</strong> 1 tick = 0.25 pts = $1.25 per contract. Typical stop = 4–10 pts = $20–$50 per contract.</li>
-              <li><strong>M2K:</strong> 1 tick = 0.10 pts = $0.50 per contract. Typical stop = 10–20 ticks = $5–$10 per contract.</li>
+              <li><strong>ES:</strong> $50/pt. Typical stop = 4–10 pts = $200–$500 per contract.</li>
+              <li><strong>MES:</strong> $5/pt. Typical stop = 4–10 pts = $20–$50 per contract.</li>
+              <li><strong>NQ:</strong> $20/pt. Typical stop = 5–12 pts = $100–$240 per contract.</li>
+              <li><strong>MNQ:</strong> $2/pt. Typical stop = 5–12 pts = $10–$24 per contract.</li>
+              <li><strong>RTY:</strong> $50/pt. Typical stop = 1.0–2.0 pts = $50–$100 per contract.</li>
+              <li><strong>M2K:</strong> $5/pt. Typical stop = 1.0–2.0 pts = $5–$10 per contract.</li>
             </ul>
             <div class="explain"><strong>Why "fail extreme," not reclaim extreme</strong>
               If the failed breakout is real, price should never revisit the failed extreme. If it does, your thesis is invalidated — the original direction is back in charge. That's the natural invalidation point and therefore the natural stop. Putting the stop closer than that gets you chopped out on noise; putting it farther than that wastes R.
@@ -7940,15 +7944,15 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <g><rect x="20" y="20" width="320" height="120" fill="#191d25" stroke="#3a4150" stroke-width="1"/><text x="180" y="42" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">MES (Micro S&amp;P 500)</text></g>
               <g><rect x="360" y="20" width="300" height="120" fill="#191d25" stroke="#3a4150" stroke-width="1"/><text x="510" y="42" text-anchor="middle" fill="#f472b6" font-size="13" font-weight="800">M2K (Micro Russell 2000)</text></g>
               <g fill="#d5d9e0" font-size="10">
-                <text x="35" y="65">• Tick: 0.25 pts = $1.25/contract</text>
+                <text x="35" y="65">• 1 point = $5/contract</text>
                 <text x="35" y="82">• Typical 2-min bar: 2-5 pts</text>
                 <text x="35" y="99">• Breakouts: slower, cleaner</text>
                 <text x="35" y="116">• Fails: more reliable, less whipsaw</text>
                 <text x="35" y="133" fill="#86efac" font-weight="700">→ A+ vehicle for this setup</text>
               </g>
               <g fill="#d5d9e0" font-size="10">
-                <text x="375" y="65">• Tick: 0.10 pts = $0.50/contract</text>
-                <text x="375" y="82">• Typical 2-min bar: 4-8 ticks</text>
+                <text x="375" y="65">• 1 point = $5/contract</text>
+                <text x="375" y="82">• Typical 2-min bar: 0.4-0.8 pts</text>
                 <text x="375" y="99">• Breakouts: fast, violent</text>
                 <text x="375" y="116">• Fails: quicker payoff but more noise</text>
                 <text x="375" y="133" fill="#f9a8d4" font-weight="700">→ Good vehicle but requires quicker hands</text>
@@ -8031,7 +8035,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <text x="690" y="9" text-anchor="end" fill="#14b8a6" font-size="10" font-weight="700">T3 · 3R+ · runner</text>
             <!-- Stop -->
             <line x1="350" y1="132" x2="700" y2="132" stroke="#ef4444" stroke-width="1.5"/>
-            <text x="690" y="144" text-anchor="end" fill="#fca5a5" font-size="10" font-weight="700">STOP · 1 tick below retest low · 4-8 MES pts</text>
+            <text x="690" y="144" text-anchor="end" fill="#fca5a5" font-size="10" font-weight="700">STOP · small point buffer below retest low · 4-8 MES pts</text>
             <!-- Time axis -->
             <text x="50" y="280" fill="#a8b0bc" font-size="9">9:30</text>
             <text x="175" y="280" fill="#a8b0bc" font-size="9">9:45 (ORB set)</text>
@@ -8052,9 +8056,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <g stroke="#475569" stroke-opacity=".3" stroke-dasharray="2 3"><line x1="0" y1="60" x2="680" y2="60"/><line x1="0" y1="140" x2="680" y2="140"/></g>
               <rect x="40" y="60" width="200" height="80" fill="#eab308" fill-opacity=".1" stroke="#eab308" stroke-dasharray="5 3" stroke-width="1.5"/>
               <line x1="40" y1="60" x2="640" y2="60" stroke="#eab308" stroke-width="2.2" stroke-dasharray="6 3"/>
-              <text x="50" y="52" fill="#eab308" font-size="11" font-weight="800">ORB HIGH — Highest tick between 9:30 and 9:45 EST</text>
+              <text x="50" y="52" fill="#eab308" font-size="11" font-weight="800">ORB HIGH — Highest price between 9:30 and 9:45 EST</text>
               <line x1="40" y1="140" x2="640" y2="140" stroke="#eab308" stroke-width="2.2" stroke-dasharray="6 3"/>
-              <text x="50" y="158" fill="#eab308" font-size="11" font-weight="800">ORB LOW — Lowest tick between 9:30 and 9:45 EST</text>
+              <text x="50" y="158" fill="#eab308" font-size="11" font-weight="800">ORB LOW — Lowest price between 9:30 and 9:45 EST</text>
               <!-- 2-min bars inside the range -->
               <g>
                 <rect x="48" y="100" width="12" height="24" fill="#22c55e"/>
@@ -8206,7 +8210,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <text x="90" y="220" text-anchor="middle" fill="#86efac" font-size="9">close of rejection candle</text>
               <!-- Stop -->
               <line x1="30" y1="195" x2="700" y2="195" stroke="#ef4444" stroke-width="1.8"/>
-              <text x="40" y="189" fill="#fca5a5" font-size="11" font-weight="800">STOP · 1 tick below retest low · 4-8 MES pts = 1R</text>
+              <text x="40" y="189" fill="#fca5a5" font-size="11" font-weight="800">STOP · small point buffer below retest low · 4-8 MES pts = 1R</text>
               <!-- T1 -->
               <line x1="30" y1="100" x2="700" y2="100" stroke="#93c5fd" stroke-width="2" stroke-dasharray="3 3"/>
               <text x="40" y="94" fill="#93c5fd" font-size="11" font-weight="800">T1 · 1R · take 50% + move stop to break-even ★</text>
@@ -8233,7 +8237,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="dlabel">Execution details (for LONG — flip for SHORT)</div>
             <ul>
               <li><strong>Entry:</strong> close of the retest reversal candle (pin bar / engulfing / inside bar at ORB High).</li>
-              <li><strong>Stop:</strong> 1 tick below the retest low (for long) or 1 tick above the retest high (for short). Typical distance: 4–8 MES pts.</li>
+              <li><strong>Stop:</strong> a small point buffer below the retest low (for long) or above the retest high (for short). Typical distance: 4–8 MES pts.</li>
               <li><strong>T1 = 1:1 R:R:</strong> take 50% off, move stop to break-even.</li>
               <li><strong>T2 = 1:2 R:R:</strong> base case — take another 25%.</li>
               <li><strong>T3 = 1:3+ R:R:</strong> runner — trail a stop behind 2-min swing lows (for long) or highs (for short). Exit on close through the trailing stop.</li>
@@ -8310,7 +8314,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <li><strong>Scan for kill switches first:</strong> is there FOMC/CPI/NFP today? Is the ORB range &gt;20 pts? Is it a half-day? If yes, close the setup and go to Clock Matrix / Failed Breakout tab instead.</li>
               <li><strong>Wait for a 2-min close outside the range:</strong> don't act. Just note it and start the retest stopwatch.</li>
               <li><strong>Within 20 minutes, watch for pullback to the broken line:</strong> if it gets there, look for pin / engulfing / inside bar.</li>
-              <li><strong>Close of the rejection candle = bracket order:</strong> entry + stop (1 tick below retest low for long) + T1 (1R) + T2 (2R) + runner to T3.</li>
+              <li><strong>Close of the rejection candle = bracket order:</strong> entry + stop (small point buffer below retest low for long) + T1 (1R) + T2 (2R) + runner to T3.</li>
               <li><strong>Strict one-and-done:</strong> max 1 ORB-R per day. If it stops out, I'm done with this setup for today — no "second attempt."</li>
             </ul>
           </div>
@@ -8495,7 +8499,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="data-block">
           <div class="data-row"><span class="dlabel">Entry (SHORT from upper band):</span><span class="dval">On the close of the rejection candle back inside the bands. Enter at the open of the NEXT bar.</span></div>
           <div class="data-row"><span class="dlabel">Entry (LONG from lower band):</span><span class="dval">On the close of the rejection candle (hammer/bullish engulfing) back inside the bands. Enter at the open of the NEXT bar.</span></div>
-          <div class="data-row"><span class="dlabel">Stop:</span><span class="dval">1–2 ticks beyond the rejection candle's extreme (above the high for shorts, below the low for longs). This is typically <strong>2–4 points on MES, 1.5–3 points on M2K.</strong></span></div>
+          <div class="data-row"><span class="dlabel">Stop:</span><span class="dval">A small point buffer beyond the rejection candle's extreme (above the high for shorts, below the low for longs). Per-instrument: <strong>1.0 pt ES/MES, 1.5 pt MNQ, 2.0 pt NQ, 0.4 pt RTY/M2K.</strong></span></div>
           <div class="data-row"><span class="dlabel">Target 1 (primary):</span><span class="dval">VWAP. This is where 70%+ of mean-reversion trades resolve. Take 1/2 to 2/3 of position off.</span></div>
           <div class="data-row"><span class="dlabel">Target 2 (runner):</span><span class="dval">Opposite band if price has clear range structure (bouncing between bands all day). Trail the rest of the position with the 20-EMA.</span></div>
           <div class="data-row"><span class="dlabel">R:R:</span><span class="dval">1.5:1 minimum. Don't accept less. If VWAP is only 1R away from entry, the trade is too tight — skip.</span></div>
@@ -8834,8 +8838,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <!-- ============ TAB: PRE-TRADE CHECKLIST ============ -->
     <div class="tab-panel" id="tab-checklist">
       <div class="column neutral tool-panel">
-        <h2 class="tool-title">✅ Pre-Trade Checklist · Tick Every Box</h2>
-        <p class="tool-subtitle">Run this printable, interactive checklist before every trade. 5 sections · 25 items (v5.0 — added point-based stop buffer item). Tick them off as you verify each. When all are green, you have an A+ setup. If you can't honestly check a box, the trade isn't there yet.</p>
+        <h2 class="tool-title">✅ Pre-Trade Checklist · Check Every Box</h2>
+        <p class="tool-subtitle">Run this printable, interactive checklist before every trade. 5 sections · 25 items (v5.0 — added point-based stop buffer item). Check them off as you verify each. When all are green, you have an A+ setup. If you can't honestly check a box, the trade isn't there yet.</p>
 
         <div class="checklist-container">
           <!-- Section 1: Market Context -->
@@ -8890,8 +8894,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             </div>
             <div class="chk-list" data-section="risk">
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Entry price identified.</strong> Written down or typed into the order ticket — not "I'll figure it out when it hits."</span></div>
-              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop price identified.</strong> 1–2 ticks beyond the invalidation level (swing, band, neckline). Hard stop entered in platform.</span></div>
-              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop buffer uses the updated point-based rule (not tick-based).</strong> 1 pt MES/ES classic · 1.5 pt MNQ · 0.4 pt M2K/RTY · 2 pt NQ. Tight variants halve those. If you found yourself counting ticks, re-do the math in points.</span></div>
+              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop price identified.</strong> A small point buffer beyond the invalidation level (swing, band, neckline). Hard stop entered in platform.</span></div>
+              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop buffer uses the point-based rule.</strong> 1 pt MES/ES classic · 1.5 pt MNQ · 0.4 pt M2K/RTY · 2 pt NQ. Tight variants halve those. Always measure in points.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Target price(s) identified.</strong> At least Target 1. Ideally Target 2 for a runner.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>R:R ≥ 1.5:1 (ideally ≥ 2:1).</strong> Reward in points divided by risk in points. Math done BEFORE entry.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Position size aligned with daily risk budget.</strong> Not oversized. Not undersized. Fixed rules for MES vs M2K contract count.</span></div>
@@ -8915,7 +8919,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
           <div class="chk-summary">
             <div class="chk-progress"><strong id="chk-count">0</strong> / 25 confirmed</div>
-            <div class="chk-verdict incomplete" id="chk-verdict">⚠ Incomplete — tick every box or skip the trade</div>
+            <div class="chk-verdict incomplete" id="chk-verdict">⚠ Incomplete — check every box or skip the trade</div>
             <button class="chk-clear-btn" onclick="clearChecklist()">Clear All</button>
           </div>
         </div>
@@ -9154,18 +9158,18 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <figcaption>The 5-gate checklist — memorize this. Scan all 5 in under 10 seconds. All 5 green = enter aggressively with tight stop. Any one red = wait for the close.</figcaption>
         </figure>
 
-        <!-- ================= SECTION 3: TICKER-SPECIFIC THRESHOLDS ================= -->
+        <!-- ================= SECTION 3: INSTRUMENT-SPECIFIC THRESHOLDS ================= -->
         <h3 class="ae-section-title"><span class="ae-num">3</span> Exact Thresholds — MES vs. M2K</h3>
         <div class="explain">
-          The 5 gates apply to every setup, but the <strong>body-past-level threshold</strong> differs by instrument because MES and M2K have different tick sizes and typical candle ranges. Here are the exact numbers to use in live trading:
+          The 5 gates apply to every setup, but the <strong>body-past-level threshold</strong> differs by instrument because MES and M2K have different point sizes and typical candle ranges. Here are the exact numbers to use in live trading:
         </div>
 
         <div class="ae-thresholds" style="grid-template-columns: 1fr 1fr;">
           <div class="ae-thresh-box mes" style="padding: 14px 18px;">
             <div class="ae-thresh-sym" style="font-size: 16px;">📈 MES — Micro E-mini S&amp;P 500</div>
             <div class="ae-thresh-val" style="font-size: 13px; line-height: 1.8; margin-top: 8px;">
-              Tick size: 0.25 pt · $1.25/tick<br>
-              Body past level: <strong style="color:#fff;">≥ 2.0 points (8 ticks)</strong><br>
+              Value: $5 per point<br>
+              Body past level: <strong style="color:#fff;">≥ 2.0 points</strong><br>
               Tight stop: 1.0–1.5 pt beyond level<br>
               Typical 2-min range: 3–5 pts normal, 6–10 impulse<br>
               Volume: avg ~400, impulse ≥ 1,200
@@ -9174,8 +9178,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="ae-thresh-box m2k" style="padding: 14px 18px;">
             <div class="ae-thresh-sym" style="font-size: 16px;">📉 M2K — Micro E-mini Russell 2000</div>
             <div class="ae-thresh-val" style="font-size: 13px; line-height: 1.8; margin-top: 8px;">
-              Tick size: 0.10 pt · $0.50/tick<br>
-              Body past level: <strong style="color:#fff;">≥ 1.5 points (15 ticks)</strong><br>
+              Value: $5 per point<br>
+              Body past level: <strong style="color:#fff;">≥ 1.5 points</strong><br>
               Tight stop: 0.8–1.2 pt beyond level<br>
               Typical 2-min range: 2–4 pts normal, 5–8 impulse<br>
               Volume: avg ~250, impulse ≥ 750
@@ -9343,7 +9347,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="ae-pattern-grid">
             <div class="ae-trigger-box valid">
               <div class="ae-trigger-label">✅ Valid Aggressive Entry</div>
-              <div class="ae-trigger-body">Price makes a false breakout above PDH (or below PDL), fails, and the <strong>reclaim candle</strong> re-enters with a large body and volume 3×+. Enter on the reclaim body clearing the level, stop 1–2 ticks beyond the failed extreme.</div>
+              <div class="ae-trigger-body">Price makes a false breakout above PDH (or below PDL), fails, and the <strong>reclaim candle</strong> re-enters with a large body and volume 3×+. Enter on the reclaim body clearing the level, stop a small point buffer beyond the failed extreme.</div>
             </div>
             <div class="ae-trigger-box invalid">
               <div class="ae-trigger-label">🚫 Invalid — Wait for Close</div>
@@ -11029,9 +11033,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <h3 style="color: #c4b5fd; margin: 24px 0 12px 0; font-size: 16px; text-transform: uppercase; letter-spacing: 1px;">Quick-math cards (legacy, still useful for one-off questions)</h3>
       <div class="calc-grid">
 
-        <!-- Tick converter -->
+        <!-- Point converter -->
         <div class="calc-card">
-          <h3>Tick Converter — Ticks → $</h3>
+          <h3>Point Converter — Points → $</h3>
           <div class="calc-row">
             <label for="c-tc-inst">Instrument</label>
             <select id="c-tc-inst">
@@ -11041,8 +11045,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             </select>
           </div>
           <div class="calc-row">
-            <label for="c-tc-ticks">Ticks</label>
-            <input type="number" id="c-tc-ticks" placeholder="e.g. 10">
+            <label for="c-tc-ticks">Points</label>
+            <input type="number" id="c-tc-ticks" step="0.1" placeholder="e.g. 2.5">
           </div>
           <div class="calc-row">
             <label for="c-tc-contracts">Contracts</label>
@@ -11068,8 +11072,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <input type="number" id="c-ps-risk" placeholder="e.g. 100">
           </div>
           <div class="calc-row">
-            <label for="c-ps-stop">Stop Distance (ticks)</label>
-            <input type="number" id="c-ps-stop" placeholder="e.g. 8">
+            <label for="c-ps-stop">Stop Distance (points)</label>
+            <input type="number" id="c-ps-stop" step="0.1" placeholder="e.g. 2.0">
           </div>
           <button class="calc-btn" onclick="calcPositionSize()">Calculate</button>
           <div id="c-ps-result"></div>
@@ -11254,7 +11258,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <div class="livecheck-inner">
       <div class="livecheck-header">
         <h2>🎚️ 6-Box Live Checklist</h2>
-        <p class="livecheck-lead">Six questions. Answer every one before you click the mouse. <strong>5 or 6 ticked = take it. 4 or fewer = pass.</strong> This is a Kahneman System-2 activator — the friction between impulse and execution is where your edge lives.</p>
+        <p class="livecheck-lead">Six questions. Answer every one before you click the mouse. <strong>5 or 6 checked = take it. 4 or fewer = pass.</strong> This is a Kahneman System-2 activator — the friction between impulse and execution is where your edge lives.</p>
       </div>
       <div id="livecheck-lock-wrap"></div>
       <div class="livecheck-card" id="livecheck-card">
@@ -11303,7 +11307,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
         <div class="decision-banner pass" id="decision-banner">
           <div class="dec-verdict" id="dec-verdict">PASS</div>
-          <div class="dec-sub" id="dec-sub">Not enough boxes ticked.</div>
+          <div class="dec-sub" id="dec-sub">Not enough boxes checked.</div>
         </div>
 
         <div class="lc-actions">
@@ -11404,7 +11408,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div>
           News/FOMC release within 15 min
           <div class="explain"><strong>What this means</strong>
-            FOMC = Federal Open Market Committee (the Fed's interest-rate meetings). When major news drops — FOMC decisions, CPI, jobs reports — price can spike violently in any direction regardless of chart patterns. Your stop can get blown through by 20+ ticks of slippage. Pattern trading depends on orderly price action. News destroys that order. Wait until after.
+            FOMC = Federal Open Market Committee (the Fed's interest-rate meetings). When major news drops — FOMC decisions, CPI, jobs reports — price can spike violently in any direction regardless of chart patterns. Your stop can get blown through by several points of slippage. Pattern trading depends on orderly price action. News destroys that order. Wait until after.
           </div>
         </div>
         <div>
@@ -11569,16 +11573,16 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     <div class="bottom-panel">
       <h3>M2K-Specific Notes</h3>
       <ul>
-        <li><strong>Tick size:</strong> 0.10 = $0.50 per contract</li>
+        <li><strong>Point value:</strong> $5 per point per contract</li>
       </ul>
       <div class="explain"><strong>What this means</strong>
-        On Micro Russell 2000 (M2K) futures, the smallest price change is 0.10 index points, and each tick is worth $0.50 per contract. So a 10-tick stop = $5.00 per contract. This is the math that drives your sizing — if your stop is 8 ticks (=$4), and your max risk is $80, you can trade 20 contracts.
+        On Micro Russell 2000 (M2K) futures, each 1.0 index point is worth $5 per contract. So a 1.0-point stop = $5 per contract. This is the math that drives your sizing — if your stop is 0.8 pts (=$4), and your max risk is $80, you can trade 20 contracts.
       </div>
       <ul>
-        <li><strong>Typical 2-min noise:</strong> 3–8 ticks of wick on either side — bake this into stop</li>
+        <li><strong>Typical 2-min noise:</strong> 0.3–0.8 pts of wick on either side — bake this into stop</li>
       </ul>
       <div class="explain"><strong>What this means</strong>
-        Even on a clean pattern, 2-min bars routinely have 3–8 ticks of random wick sticking above/below the bar body. That's noise, not signal. If you place your stop just 1 tick past peak/trough, normal noise will tag you out even on a winning setup. Give it room: stop 2–3 ticks beyond the extreme wick, not the body.
+        Even on a clean pattern, 2-min bars routinely have 0.3–0.8 pts of random wick sticking above/below the bar body. That's noise, not signal. If you place your stop just a hair past peak/trough, normal noise will tag you out even on a winning setup. Give it room: stop 0.2–0.3 pts beyond the extreme wick, not the body.
       </div>
       <ul>
         <li><strong>Best windows:</strong> 9:30–11:00 ET &amp; 2:00–3:30 ET</li>
@@ -11593,10 +11597,10 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         Midday is when desks go to lunch, volume dries up, and price drifts in a tight chop. Patterns that form in this window bust at an unusually high rate because there's not enough volume to produce real follow-through. Best practice: flat during lunch, or trade half-size at most.
       </div>
       <ul>
-        <li><strong>Slippage:</strong> 1–2 ticks common on stops in fast moves — size accordingly</li>
+        <li><strong>Slippage:</strong> 0.1–0.2 pts common on stops in fast moves — size accordingly</li>
       </ul>
       <div class="explain"><strong>What this means</strong>
-        "Slippage" = the difference between where you wanted to exit and where you actually got filled. When price is moving fast (the exact moment your stop triggers), there may be no buyer/seller at your exact price — the broker fills you at the next available price, usually 1–2 ticks worse. So your "10-tick stop" might actually cost you 11–12 ticks in real money. Assume this in your sizing math, or you'll consistently overshoot your risk plan.
+        "Slippage" = the difference between where you wanted to exit and where you actually got filled. When price is moving fast (the exact moment your stop triggers), there may be no buyer/seller at your exact price — the broker fills you at the next available price, usually 0.1–0.2 pts worse. So your "1.0-point stop" might actually cost you 1.1–1.2 pts in real money. Assume this in your sizing math, or you'll consistently overshoot your risk plan.
       </div>
       <ul>
         <li><strong>VWAP reclaim:</strong> treat as partial-profit cue, not full exit</li>
@@ -11904,9 +11908,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <p class="plan-prose">Enter the moment price trades through the middle peak of the W (the neckline).</p>
         <p class="plan-prose"><strong>Pros:</strong></p>
         <ul class="plan-prose">
-          <li>Better entry price, often several ticks cheaper than waiting for a close</li>
+          <li>Better entry price, often a fraction of a point cheaper than waiting for a close</li>
           <li>If the pattern works and rips, you capture more of the move</li>
-          <li>On fast-moving instruments like NQ, can mean 5–10 ticks of extra profit</li>
+          <li>On fast-moving instruments like NQ, can mean 1.25–2.50 pts of extra profit</li>
         </ul>
         <p class="plan-prose"><strong>Cons:</strong></p>
         <ul class="plan-prose">
@@ -11926,7 +11930,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         </ul>
         <p class="plan-prose"><strong>Cons:</strong></p>
         <ul class="plan-prose">
-          <li>Give up some of the move — price may already be 5–8 ticks above the neckline by close</li>
+          <li>Give up some of the move — price may already be 1.25–2.00 pts above the neckline by close</li>
           <li>Risk-reward on each individual trade gets slightly worse because entry is higher</li>
         </ul>
 
@@ -12186,7 +12190,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <h3 class="plan-h3">Why "15 Seconds Left" Is NOT the Same as Confirmed</h3>
         <p class="plan-prose">On M2K in particular:</p>
         <ul class="plan-prose">
-          <li>A single institutional sell order can drop M2K 8–15 ticks in under 5 seconds</li>
+          <li>A single institutional sell order can drop M2K 0.8–1.5 pts in under 5 seconds</li>
           <li>The Russell 2000 is thinner than ES/NQ — a single large order has more impact</li>
           <li>Algos hunting breakout entries can execute sell programs once enough breakout buyers commit</li>
         </ul>
@@ -12366,26 +12370,26 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="plan-part-header gold">Part 5 · Stop Placement — The Breakthrough Insight</div>
 
         <h3 class="plan-h3">The Traditional Teaching</h3>
-        <p class="plan-prose">Put your stop 1–2 ticks below the second bottom of the W (the right side low). If price comes all the way back down there, the pattern has failed.</p>
+        <p class="plan-prose">Put your stop a small point buffer below the second bottom of the W (the right side low). If price comes all the way back down there, the pattern has failed.</p>
 
         <h3 class="plan-h3">The Problem With the Traditional Stop</h3>
         <div class="plan-callout warn">
           <span class="plan-callout-label">⚠️ The Math</span>
           <strong>Example:</strong> neckline at 2300, W bottom at 2270, entry at 2301 after confirmation close.<br>
-          Traditional stop: 2268 (below W bottom) = <strong>33-tick stop = $99 risk at 6 contracts.</strong><br><br>
+          Traditional stop: 2268 (below W bottom) = <strong>3.3-point stop = $99 risk at 6 contracts.</strong><br><br>
           If price breaks back below the neckline (back below 2300), the breakout has already failed. Do you really want to sit there holding a losing position from 2301 all the way down to 2268, hoping it bounces? In most cases, once the breakout fails and price closes back below the neckline, it's going lower, not recovering.
         </div>
 
         <h3 class="plan-h3">The Key Insight: Stop Placement Must Match Entry Method</h3>
         <p class="plan-prose"><strong>If you entered using Method 1</strong> (on the break, before candle closes), your stop belongs below the W bottom — you don't yet have confirmation and the pattern needs room.</p>
-        <p class="plan-prose"><strong>If you entered using Method 2</strong> (candle close confirmation), you already HAVE your confirmation. The candle closed above the neckline. The breakout IS confirmed. If price immediately reverses and the next candle closes back below the neckline, the confirmation was FALSE. No reason to give the pattern another 30 ticks to fail even harder.</p>
+        <p class="plan-prose"><strong>If you entered using Method 2</strong> (candle close confirmation), you already HAVE your confirmation. The candle closed above the neckline. The breakout IS confirmed. If price immediately reverses and the next candle closes back below the neckline, the confirmation was FALSE. No reason to give the pattern another 3 points to fail even harder.</p>
 
         <h3 class="plan-h3">The Better Stop for Confirmation Entries</h3>
         <div class="plan-callout decision">
           <span class="plan-callout-label">✅ The Better Way</span>
-          <strong>Place stop 4–6 ticks BELOW the neckline</strong> (not at the W bottom).<br><br>
-          Same example: neckline at 2300, stop at 2295 (5 ticks below).<br>
-          New stop: <strong>5-tick stop = $15 risk at 6 contracts.</strong>
+          <strong>Place stop 0.4–0.6 pts BELOW the neckline</strong> (not at the W bottom).<br><br>
+          Same example: neckline at 2300, stop at 2299.5 (0.5 pts below).<br>
+          New stop: <strong>0.5-point stop = $15 risk at 6 contracts on M2K.</strong>
         </div>
 
         <figure class="plan-illus gold">
@@ -12404,18 +12408,18 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <line x1="10" y1="230" x2="310" y2="230" stroke="#ef4444" stroke-width="2.5"/>
             <text x="160" y="248" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">STOP 2268 · below W bottom</text>
             <rect x="8" y="150" width="302" height="80" fill="#ef4444" fill-opacity="0.1" stroke="none"/>
-            <text x="160" y="195" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">33 ticks · $99 risk @6 contracts</text>
+            <text x="160" y="195" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">3.3 pts · $99 risk @6 contracts</text>
             <text x="160" y="265" text-anchor="middle" fill="#fca5a5" font-size="10">R:R ≈ 1:1</text>
-            <text x="480" y="22" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">✅ NECKLINE STOP (4–6 ticks)</text>
+            <text x="480" y="22" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">✅ NECKLINE STOP (0.4–0.6 pts)</text>
             <path d="M 340,90 L 370,110 L 400,150 L 430,220 L 460,190 L 490,150 L 520,180 L 550,220 L 580,180 L 610,130 L 620,75" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
             <line x1="330" y1="150" x2="630" y2="150" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
             <text x="480" y="145" text-anchor="middle" fill="#eab308" font-size="10" font-weight="700">Neckline 2300</text>
             <circle cx="620" cy="75" r="6" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
             <text x="620" y="60" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">ENTRY 2301</text>
             <line x1="330" y1="162" x2="630" y2="162" stroke="#22c55e" stroke-width="2.5"/>
-            <text x="480" y="180" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">STOP 2295 · 5 ticks below neckline</text>
+            <text x="480" y="180" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">STOP 2299.5 · 0.5 pts below neckline</text>
             <rect x="328" y="150" width="302" height="12" fill="#22c55e" fill-opacity="0.18" stroke="none"/>
-            <text x="480" y="210" text-anchor="middle" fill="#bbf7d0" font-size="11" font-weight="700">5 ticks · $15 risk @6 contracts</text>
+            <text x="480" y="210" text-anchor="middle" fill="#bbf7d0" font-size="11" font-weight="700">0.5 pts · $15 risk @6 contracts</text>
             <text x="480" y="235" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">R:R ≈ 5:1</text>
             <text x="480" y="252" text-anchor="middle" fill="#bbf7d0" font-size="9" font-style="italic">risking $15 to make $90</text>
           </svg>
@@ -12423,7 +12427,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         </figure>
 
         <h3 class="plan-h3">The Risk-Reward Transformation</h3>
-        <p class="plan-prose">With a 6-tick stop and a measured move target of 30 ticks:</p>
+        <p class="plan-prose">With a 0.6-point stop and a measured move target of 3 points:</p>
         <ul class="plan-prose">
           <li>Risk-reward ratio: roughly <strong>5:1</strong></li>
           <li>Risking $18 to make $90</li>
@@ -12439,17 +12443,17 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <p class="plan-prose">The tighter stop WILL get stopped out more often. Some double bottom breakouts dip briefly below the neckline (a quick retest) and then continue. With a tight stop, you'd be shaken out.</p>
         <p class="plan-prose"><strong>Estimated impact:</strong> Neckline stop produces roughly 8–12% more stop-outs than W-bottom stop. But dollar savings per stop-out are so much smaller that total dollar outcome is far better.</p>
 
-        <h3 class="plan-h3">The 4–6 Tick Compromise</h3>
+        <h3 class="plan-h3">The 0.4–0.6 Point Compromise</h3>
         <ul class="plan-prose">
-          <li><strong>2–3 ticks below:</strong> Too tight, stopped out on normal noise</li>
+          <li><strong>0.2–0.3 pts below:</strong> Too tight, stopped out on normal noise</li>
           <li><strong>All the way to W bottom:</strong> Too loose, defeats the purpose of confirmation entry</li>
-          <li><strong>4–6 ticks below:</strong> Sweet spot — tiny breathing room for brief retest, still massively better risk than traditional</li>
+          <li><strong>0.4–0.6 pts below:</strong> Sweet spot — tiny breathing room for brief retest, still massively better risk than traditional</li>
         </ul>
 
         <h3 class="plan-h3">Critical Addition: Move Stop to Breakeven Fast</h3>
         <div class="plan-callout decision">
           <span class="plan-callout-label">✅ Critical Rule</span>
-          Once price moves 8–10 ticks above neckline, move stop to breakeven. Eliminates risk entirely. If trade comes back to entry, get out at zero. If it continues, ride it.
+          Once price moves 0.8–1.0 pts above neckline, move stop to breakeven. Eliminates risk entirely. If trade comes back to entry, get out at zero. If it continues, ride it.
         </div>
         <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
       </section>
@@ -12485,7 +12489,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <text x="625" y="110" fill="#fca5a5" font-size="10" font-weight="700">Height</text>
             <text x="625" y="175" fill="#fca5a5" font-size="10" font-weight="700">= Target</text>
           </svg>
-          <figcaption>The <strong>M</strong> shape: every DB rule flips. Stop goes 4–6 ticks <em>above</em> neckline. Grade the <em>lower</em> wick. Check the 15-min trend — shorting against uptrend bias requires extra care.</figcaption>
+          <figcaption>The <strong>M</strong> shape: every DB rule flips. Stop goes 0.4–0.6 pts <em>above</em> neckline. Grade the <em>lower</em> wick. Check the 15-min trend — shorting against uptrend bias requires extra care.</figcaption>
         </figure>
 
         <h3 class="plan-h3">All Same Rules, Mirrored</h3>
@@ -12494,7 +12498,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <li>Wait for candle to close BELOW neckline</li>
           <li>Grade breakdown candle wick percentage (lower wick for shorts)</li>
           <li>Enter short on open of next candle</li>
-          <li><strong>Stop 4–6 ticks ABOVE neckline</strong> (not at top of M)</li>
+          <li><strong>Stop 0.4–0.6 pts ABOVE neckline</strong> (not at top of M)</li>
         </ul>
 
         <h3 class="plan-h3">One Critical Addition for Double Tops: Higher Timeframe Filter</h3>
@@ -12639,15 +12643,15 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <h4 class="plan-h4">Traditional Teaching</h4>
         <p class="plan-prose">Stop below the flag's lowest point.</p>
         <h4 class="plan-h4">The Problem</h4>
-        <p class="plan-prose">Example: flag trendline at 2310, flag low at 2285, entry at 2311.<br>Traditional stop: 2283 = <strong>28-tick stop = $84 risk at 6 contracts.</strong></p>
+        <p class="plan-prose">Example: flag trendline at 2310, flag low at 2285, entry at 2311.<br>Traditional stop: 2283 = <strong>2.8-point stop = $84 risk at 6 contracts on M2K.</strong></p>
         <h4 class="plan-h4">The Insight Applied to Flags</h4>
         <p class="plan-prose">You entered on a CONFIRMED close above the flag trendline. That trendline was resistance; now it should act as support. If price closes back below the trendline, the breakout failed. No reason to sit through a full reversal all the way down to the flag low.</p>
 
         <div class="plan-callout decision">
           <span class="plan-callout-label">✅ The Better Stop</span>
-          <strong>Place stop 4–6 ticks BELOW the broken flag trendline</strong> (not at flag low).<br><br>
-          Same example: trendline at 2310, stop at 2305 (5 ticks below).<br>
-          New stop: <strong>5-tick stop = $15 risk at 6 contracts.</strong>
+          <strong>Place stop 0.4–0.6 pts BELOW the broken flag trendline</strong> (not at flag low).<br><br>
+          Same example: trendline at 2310, stop at 2309.5 (0.5 pts below).<br>
+          New stop: <strong>0.5-point stop = $15 risk at 6 contracts on M2K.</strong>
         </div>
 
         <h3 class="plan-h3">Research Confirmation</h3>
@@ -12665,14 +12669,14 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         </div>
 
         <h3 class="plan-h3">Risk-Reward Transformation</h3>
-        <p class="plan-prose">With 6-tick stop and 25–30 tick measured move target:</p>
+        <p class="plan-prose">With 0.6-point stop and 2.5–3.0 point measured move target:</p>
         <ul class="plan-prose">
           <li>Risk-reward: <strong>4:1 to 5:1</strong></li>
           <li>Risking $18 to make $90</li>
         </ul>
 
         <h3 class="plan-h3">Time Stop</h3>
-        <p class="plan-prose">If trade hasn't moved 5–6 ticks in your direction within 3 candles (6 minutes), exit. A real bull flag breakout shows follow-through quickly.</p>
+        <p class="plan-prose">If trade hasn't moved 0.5–0.6 pts in your direction within 3 candles (6 minutes), exit. A real bull flag breakout shows follow-through quickly.</p>
         <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
       </section>
 
@@ -12770,7 +12774,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         </div>
 
         <h3 class="plan-h3">Stop Placement for Bear Flags — Same Breakthrough</h3>
-        <p class="plan-prose"><strong>Traditional:</strong> Stop above the flag's highest point.<br><strong>Better:</strong> Stop 4–6 ticks ABOVE the broken flag trendline.</p>
+        <p class="plan-prose"><strong>Traditional:</strong> Stop above the flag's highest point.<br><strong>Better:</strong> Stop 0.4–0.6 pts ABOVE the broken flag trendline.</p>
         <div class="plan-callout pro">
           <span class="plan-callout-label">🎓 VT Markets Research</span>
           "For bear flags, place stops above the upper trendline."
@@ -12867,11 +12871,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
 
         <h2 class="plan-h2" id="research-v5-stops">🆕 v5 · Stop Placement Philosophy, Refined</h2>
-        <p class="plan-prose">The original playbook used "ticks below" language for stop placement. That's been updated to "points below" because:</p>
+        <p class="plan-prose">The playbook uses <strong>points</strong> as the single unit of stop-distance measurement across every instrument. Why points and not any other unit:</p>
         <ol class="plan-list">
-          <li><strong>Ticks mean different dollar amounts across instruments.</strong> 3 ticks on MES = $3.75/contract. 3 ticks on M2K = $1.50/contract. Same "3 ticks" rule produces different risk profiles.</li>
-          <li><strong>Ticks mean different distances across instruments.</strong> 3 ticks on MES = 0.75 points. 3 ticks on M2K = 0.30 points. Same rule produces wildly different chart distances.</li>
-          <li><strong>Point-based buffers are instrument-tuned.</strong> Each instrument gets a buffer calibrated to its actual noise floor (MNQ gets 1.5pt because it's twitchy, M2K gets 0.4pt because it's calmer).</li>
+          <li><strong>Points are the same scale everyone reads on the chart.</strong> "0.5 below the neckline" means the same thing visually whether you're on MES, MNQ, or M2K.</li>
+          <li><strong>Points translate directly to dollars through the instrument's $/point value.</strong> MES $5/pt · MNQ $2/pt · M2K $5/pt · ES $50/pt · NQ $20/pt · RTY $50/pt. Multiply and you know your risk.</li>
+          <li><strong>Point-based buffers are instrument-tuned.</strong> Each instrument gets a buffer calibrated to its actual noise floor (MNQ gets 1.5 pt because it's twitchy, M2K gets 0.4 pt because it's calmer).</li>
         </ol>
         <p class="plan-prose">The updated rule: a small buffer in points below the neckline / trendline / wick tip / star low. See each pattern's updated section 4b for exact values.</p>
         <a href="#research-plan-top" class="plan-back-top">↑ Back to top</a>
@@ -12922,7 +12926,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="pattern-plan-card long" id="plan-double-bottom">
         <div class="pattern-plan-header">
           <div class="pph-title">🟢 Double Bottom · LONG</div>
-          <div class="pph-meta">10 steps · 6 contracts · 5–6 tick stop</div>
+          <div class="pph-meta">10 steps · 6 contracts · 0.5–0.6 point stop</div>
         </div>
         <div class="pattern-plan-body">
           <div class="pattern-hero-chart">
@@ -12941,12 +12945,12 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <circle cx="455" cy="55" r="6" fill="#14b8a6" stroke="#fff" stroke-width="1.5"/>
               <text x="455" y="42" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="800">ENTRY ✓</text>
               <line x1="440" y1="97" x2="540" y2="97" stroke="#ef4444" stroke-width="1.8" stroke-dasharray="3 2"/>
-              <text x="490" y="112" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP (5 ticks)</text>
+              <text x="490" y="112" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP (0.5 pts)</text>
               <line x1="540" y1="15" x2="540" y2="90" stroke="#22c55e" stroke-width="1.8"/>
               <text x="528" y="55" text-anchor="end" fill="#86efac" font-size="9" font-weight="700">TARGET</text>
               <line x1="475" y1="75" x2="475" y2="90" stroke="#5eead4" stroke-width="1" stroke-dasharray="2 2"/>
               <circle cx="475" cy="75" r="3" fill="#5eead4"/>
-              <text x="475" y="30" text-anchor="middle" fill="#5eead4" font-size="8">BE@+10t</text>
+              <text x="475" y="30" text-anchor="middle" fill="#5eead4" font-size="8">BE@+1.0pt</text>
             </svg>
           </div>
 
@@ -13027,8 +13031,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="step-num">8</div>
             <div class="step-body">
               <div class="step-title">Place Your Stop</div>
-              <div class="step-text"><strong>4–6 ticks BELOW the neckline.</strong> NOT at the bottom of the W.</div>
-              <div class="step-note"><strong>Example:</strong> Neckline at 2300. Entry at 2301. Stop at 2295.<br>Risk = 6 ticks × 6 contracts × $0.50 = <strong>$18.</strong></div>
+              <div class="step-text"><strong>0.4–0.6 pts BELOW the neckline.</strong> NOT at the bottom of the W.</div>
+              <div class="step-note"><strong>Example (M2K):</strong> Neckline at 2300. Entry at 2301. Stop at 2299.4.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong></div>
             </div>
           </div>
 
@@ -13038,8 +13042,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <div class="step-title">Manage the Trade</div>
               <div class="step-text">
                 <ul>
-                  <li><strong>At +8–10 ticks:</strong> Move stop to breakeven</li>
-                  <li><strong>At 1:1 risk-reward</strong> (if stop was 6 ticks, at +6 ticks): Take 3 contracts off</li>
+                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
+                  <li><strong>At 1:1 risk-reward</strong> (if stop was 0.6 pts, at +0.6 pts): Take 3 contracts off</li>
                   <li><strong>Remaining 3 contracts:</strong> Ride toward measured move target (W height projected up from neckline). Trail stop behind each new higher low.</li>
                 </ul>
               </div>
@@ -13050,7 +13054,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="step-num">10</div>
             <div class="step-body">
               <div class="step-title">Time Stop</div>
-              <div class="step-text">If trade hasn't moved at least 5–6 ticks in your direction within <strong>3 candles (6 minutes)</strong> of entry → <strong>EXIT at scratch or small loss.</strong> Pattern has failed even if stop hasn't been hit.</div>
+              <div class="step-text">If trade hasn't moved at least 0.5–0.6 pts in your direction within <strong>3 candles (6 minutes)</strong> of entry → <strong>EXIT at scratch or small loss.</strong> Pattern has failed even if stop hasn't been hit.</div>
             </div>
           </div>
 
@@ -13080,7 +13084,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <circle cx="455" cy="125" r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
               <text x="455" y="145" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">ENTRY ✓</text>
               <line x1="440" y1="83" x2="540" y2="83" stroke="#fca5a5" stroke-width="1.8" stroke-dasharray="3 2"/>
-              <text x="490" y="77" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP (5 ticks)</text>
+              <text x="490" y="77" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700">STOP (0.5 pts)</text>
               <line x1="540" y1="90" x2="540" y2="165" stroke="#ef4444" stroke-width="1.8"/>
               <text x="528" y="130" text-anchor="end" fill="#fca5a5" font-size="9" font-weight="700">TARGET</text>
               <g transform="translate(10,12)">
@@ -13182,8 +13186,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="step-num">9</div>
             <div class="step-body">
               <div class="step-title">Place Your Stop</div>
-              <div class="step-text"><strong>4–6 ticks ABOVE the neckline.</strong> NOT at the top of the M.</div>
-              <div class="step-note"><strong>Example:</strong> Neckline at 2300. Entry at 2299. Stop at 2305.<br>Risk = 6 ticks × 6 contracts × $0.50 = <strong>$18.</strong></div>
+              <div class="step-text"><strong>0.4–0.6 pts ABOVE the neckline.</strong> NOT at the top of the M.</div>
+              <div class="step-note"><strong>Example (M2K):</strong> Neckline at 2300. Entry at 2299. Stop at 2300.6.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong></div>
             </div>
           </div>
 
@@ -13193,7 +13197,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <div class="step-title">Manage the Trade</div>
               <div class="step-text">
                 <ul>
-                  <li><strong>At +8–10 ticks:</strong> Move stop to breakeven</li>
+                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
                   <li><strong>At 1:1:</strong> Take 3 contracts off</li>
                   <li><strong>Remaining 3:</strong> Ride toward measured move target (M height projected down from neckline). Trail stop behind each new lower high.</li>
                 </ul>
@@ -13216,7 +13220,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="pattern-plan-card long" id="plan-bull-flag">
         <div class="pattern-plan-header">
           <div class="pph-title">🚩 Bull Flag · LONG</div>
-          <div class="pph-meta">11 steps · 6 contracts · Stop 4–6 ticks below trendline</div>
+          <div class="pph-meta">11 steps · 6 contracts · Stop 0.4–0.6 pts below trendline</div>
         </div>
         <div class="pattern-plan-body">
           <div class="pattern-hero-chart">
@@ -13356,8 +13360,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="step-num">9</div>
             <div class="step-body">
               <div class="step-title">Place Your Stop — THE KEY INSIGHT</div>
-              <div class="step-text"><strong>4–6 ticks BELOW the broken flag trendline.</strong> NOT at the flag low.</div>
-              <div class="step-note"><strong>Logic:</strong> You entered on a confirmed close above the trendline. That trendline was resistance; now support. If price closes back below, the breakout failed. No reason to ride it to the flag low.<br><br><strong>Example:</strong> Flag trendline at 2310. Entry at 2311. Stop at 2305.<br>Risk = 6 ticks × 6 contracts × $0.50 = <strong>$18.</strong><br><br>Compare old way: flag low at 2285, stop at 2283 = <strong>$84 risk.</strong> Nearly 5× less risk, same trade.</div>
+              <div class="step-text"><strong>0.4–0.6 pts BELOW the broken flag trendline.</strong> NOT at the flag low.</div>
+              <div class="step-note"><strong>Logic:</strong> You entered on a confirmed close above the trendline. That trendline was resistance; now support. If price closes back below, the breakout failed. No reason to ride it to the flag low.<br><br><strong>Example (M2K):</strong> Flag trendline at 2310. Entry at 2311. Stop at 2309.4.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong><br><br>Compare old way: flag low at 2285, stop at 2283 = <strong>$84 risk.</strong> Nearly 5× less risk, same trade.</div>
             </div>
           </div>
 
@@ -13367,7 +13371,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <div class="step-title">Manage the Trade</div>
               <div class="step-text">
                 <ul>
-                  <li><strong>At +8–10 ticks:</strong> Move stop to breakeven</li>
+                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
                   <li><strong>At 1:1:</strong> Take 3 contracts off</li>
                   <li><strong>Remaining 3:</strong> Ride toward measured move target (flagpole height projected up from breakout). Trail stop behind each higher low.</li>
                 </ul>
@@ -13548,8 +13552,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="step-num">10</div>
             <div class="step-body">
               <div class="step-title">Place Your Stop — SAME KEY INSIGHT</div>
-              <div class="step-text"><strong>4–6 ticks ABOVE the broken flag trendline.</strong> NOT at the flag high.</div>
-              <div class="step-note"><strong>Example:</strong> Flag trendline at 2290. Entry at 2289. Stop at 2295.<br>Risk = 6 ticks × 6 contracts × $0.50 = <strong>$18.</strong></div>
+              <div class="step-text"><strong>0.4–0.6 pts ABOVE the broken flag trendline.</strong> NOT at the flag high.</div>
+              <div class="step-note"><strong>Example (M2K):</strong> Flag trendline at 2290. Entry at 2289. Stop at 2290.6.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong></div>
             </div>
           </div>
 
@@ -13559,7 +13563,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <div class="step-title">Manage the Trade — FASTER THAN BULL FLAGS</div>
               <div class="step-text">Bear flags move faster and reverse more violently.
                 <ul>
-                  <li><strong>At +8–10 ticks:</strong> Move stop to breakeven</li>
+                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
                   <li><strong>At 1:1:</strong> Take 3 contracts off (don't get greedy)</li>
                   <li><strong>Remaining 3:</strong> Trail with TIGHTER stop than bull flags</li>
                 </ul>
@@ -13585,10 +13589,10 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <ol class="universal-rules-list">
           <li><strong>Always wait for the candle to CLOSE.</strong> No exceptions. Not with 10 seconds left. Not when it "looks impossible to fail."</li>
           <li><strong>Always grade the breakout candle wick.</strong> Under 20% = strong. 20–30% = decent. 30–40% = weak. Over 40% = skip.</li>
-          <li><strong>Always place stops based on the broken level, NOT the pattern extreme.</strong> 4–6 ticks below neckline (double bottoms/tops) or below/above broken trendline (flags). Never at the W bottom, M top, flag low, or flag high.</li>
+          <li><strong>Always place stops based on the broken level, NOT the pattern extreme.</strong> 0.4–0.6 pts below neckline (double bottoms/tops) or below/above broken trendline (flags). Never at the W bottom, M top, flag low, or flag high.</li>
           <li><strong>Always confirm with Stochastics 5,3,3.</strong> Momentum must align with trade direction.</li>
           <li><strong>Always check the 15-minute chart for shorts.</strong> Double tops and bear flags require the higher timeframe to NOT be in clear uptrend.</li>
-          <li><strong>Always move to breakeven at +8–10 ticks.</strong> Eliminate risk as soon as possible.</li>
+          <li><strong>Always move to breakeven at +0.8–1.0 pts.</strong> Eliminate risk as soon as possible.</li>
           <li><strong>Always take half off at 1:1.</strong> Bank real money on the first 3 contracts.</li>
           <li><strong>Always use a time stop.</strong> 3 candles (6 min) for double bottoms/tops/bull flags. 2 candles (4 min) for bear flags.</li>
           <li><strong>Always enter with a market order at the open of the next candle.</strong> No buy stops. No limit orders.</li>
@@ -13614,28 +13618,28 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <tr>
                 <td>Double Bottom</td>
                 <td>Market buy after close above neckline</td>
-                <td>4–6 ticks <strong>BELOW</strong> neckline</td>
+                <td>0.4–0.6 pts <strong>BELOW</strong> neckline</td>
                 <td>3 candles</td>
                 <td>Optional</td>
               </tr>
               <tr>
                 <td>Double Top</td>
                 <td>Market sell after close below neckline</td>
-                <td>4–6 ticks <strong>ABOVE</strong> neckline</td>
+                <td>0.4–0.6 pts <strong>ABOVE</strong> neckline</td>
                 <td>3 candles</td>
                 <td><strong>Mandatory</strong></td>
               </tr>
               <tr>
                 <td>Bull Flag</td>
                 <td>Market buy after close above trendline</td>
-                <td>4–6 ticks <strong>BELOW</strong> trendline</td>
+                <td>0.4–0.6 pts <strong>BELOW</strong> trendline</td>
                 <td>3 candles</td>
                 <td>Optional</td>
               </tr>
               <tr>
                 <td>Bear Flag</td>
                 <td>Market sell after close below trendline</td>
-                <td>4–6 ticks <strong>ABOVE</strong> trendline</td>
+                <td>0.4–0.6 pts <strong>ABOVE</strong> trendline</td>
                 <td><strong>2 candles</strong></td>
                 <td><strong>Mandatory</strong></td>
               </tr>
@@ -13643,7 +13647,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           </table>
         </div>
         <div class="quick-ref-footer">
-          <strong>All patterns:</strong> 6 contracts standard · Grade wick · Stochastics 5,3,3 filter · Breakeven at +8–10 · Half off at 1:1 · Trail remainder.
+          <strong>All patterns:</strong> 6 contracts standard · Grade wick · Stochastics 5,3,3 filter · Breakeven at +0.8–1.0 pts · Half off at 1:1 · Trail remainder.
         </div>
       </div>
 
@@ -13774,7 +13778,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <text x="345" y="124" fill="#fbbf24" font-size="10" font-weight="800">TIGHT STOP · below neckline · smaller $</text>
           <line x1="240" y1="180" x2="340" y2="180" stroke="#ef4444" stroke-width="2"/>
           <text x="345" y="184" fill="#fca5a5" font-size="10" font-weight="800">CLASSIC STOP · below trough 2 · safer</text>
-          <text x="170" y="210" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">Classic = ~12 ticks · Tight = ~4 ticks</text>
+          <text x="170" y="210" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">Classic = ~3 pts · Tight = ~1 pt</text>
           <text x="430" y="210" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">3× the size on tight, same $ risk</text>
         </svg>
         <figcaption>The two stop variants produce the same dollar risk at different contract counts. Tight stop lets you size up on stacked setups without breaking the daily cap.</figcaption>
@@ -13782,14 +13786,14 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
       <div class="plan-callout decision">
         <span class="plan-callout-label">📐 Point-based buffers — v5 update</span>
-        All stops are now measured in <strong>points</strong> (not ticks). Per-instrument buffer from the chosen stop anchor:
+        All stops are measured in <strong>points</strong>. Per-instrument buffer from the chosen stop anchor:
         <ul style="margin:8px 0 0 0;">
-          <li><strong>MES</strong> — 1.0 pt (= 4 ticks)</li>
-          <li><strong>MNQ</strong> — 1.5 pt (= 6 ticks)</li>
-          <li><strong>M2K</strong> — 0.4 pt (= 4 ticks)</li>
-          <li><strong>ES</strong> — 1.0 pt (= 4 ticks)</li>
-          <li><strong>NQ</strong> — 2.0 pt (= 8 ticks)</li>
-          <li><strong>RTY</strong> — 0.4 pt (= 4 ticks)</li>
+          <li><strong>MES</strong> — 1.0 pt</li>
+          <li><strong>MNQ</strong> — 1.5 pt</li>
+          <li><strong>M2K</strong> — 0.4 pt</li>
+          <li><strong>ES</strong> — 1.0 pt</li>
+          <li><strong>NQ</strong> — 2.0 pt</li>
+          <li><strong>RTY</strong> — 0.4 pt</li>
         </ul>
         Each pattern's section 4b shows the exact point calculation for both Classic and Tight variants.
       </div>
@@ -14216,7 +14220,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     if (count >= 5) {
       banner.classList.add('go');
       verdict.textContent = 'GO';
-      sub.textContent = count === 6 ? 'All 6 boxes ticked. A+ setup. Take it with full size.' : '5 of 6 boxes ticked. Take it with normal size.';
+      sub.textContent = count === 6 ? 'All 6 boxes checked. A+ setup. Take it with full size.' : '5 of 6 boxes checked. Take it with normal size.';
     } else if (count === 4) {
       banner.classList.add('marginal');
       verdict.textContent = 'MARGINAL';
@@ -14601,7 +14605,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     DB_TRUE.push(mkDB(true,'#12 — Bullish Divergence','Price made slightly lower second low, but momentum made higher low. Bullish divergence.','Price lower + RSI higher = reversal likely.',{between:9,secondOffset:-0.3,breakout:2.1,volProfile:[1.4,.3,.45,2.2]}));
     // 12 FALSE Double Bottoms
     DB_FALSE.push(mkDB(false,'#13 — Bear Flag Disguise','Prior downtrend only 5 candles. This is a bear flag continuation, not a DB reversal.','Real DBs need meaningful prior exhaustion.',{between:5,secondOffset:0.1,breakout:0.8,volProfile:[.7,.4,.5,.6],preTrend:5,drop:3,failAfter:true,failZone:{start:0,end:5}}));
-    DB_FALSE.push(mkDB(false,'#14 — Second Low Breaks First','Second low plunged well below first. Support is gone. Sellers still in control.','Second low below first by >few ticks = pattern DEAD.',{between:8,secondOffset:-2.5,breakout:1,volProfile:[1.2,.4,.8,1],failAfter:true,failZone:{start:13,end:18}}));
+    DB_FALSE.push(mkDB(false,'#14 — Second Low Breaks First','Second low plunged well below first. Support is gone. Sellers still in control.','Second low below first by more than a small point buffer = pattern DEAD.',{between:8,secondOffset:-2.5,breakout:1,volProfile:[1.2,.4,.8,1],failAfter:true,failZone:{start:13,end:18}}));
     DB_FALSE.push(mkDB(false,'#15 — Only 2 Candles Between','2 candles between lows. V-bounce, not DB.','Need 5+ candles minimum.',{between:2,secondOffset:0.1,breakout:1.2,volProfile:[.8,.5,.7,1],failAfter:true,postBreak:5,failZone:{start:7,end:11}}));
     DB_FALSE.push(mkDB(false,'#16 — No Prior Downtrend','Pattern in sideways chop. No downtrend = nothing to reverse.','No downtrend = no reversal.',{between:7,secondOffset:0.2,breakout:1,volProfile:[.6,.5,.6,.7],preTrend:8,drop:1.5,failAfter:true,failZone:{start:0,end:8}}));
     DB_FALSE.push(mkDB(false,'#17 — Doji Breakout, No Volume','Breakout candle is tiny doji with minimal volume. No conviction.','Doji breakout = warning, not buy signal.',{between:8,secondOffset:0.15,breakout:0.4,volProfile:[1.2,.3,.5,.5],failAfter:true,failZone:{start:18,end:22}}));
@@ -14735,13 +14739,13 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       id:'hs2', pattern:'🔨 Hammer / Shooting Star', type:'Stop Placement',
       q:"You just got long RTY on a hammer's confirmation candle. The hammer's low was 2352.0 and the confirmation candle closed at 2354.2. Per the v5 point-based rule, where does your <strong>classic</strong> stop go?",
       options:[
-        "2353.9 — 3 ticks below entry",
+        "2353.9 — 0.3 pts below entry",
         "2351.8 — 0.2 points below the hammer's low",
         "2351.6 — 0.4 points below the hammer's low (classic RTY buffer)",
         "2350.0 — round number"
       ],
       correct:2,
-      why:"RTY's classic point-based stop buffer in v5 is 0.4 pt. Stops go below the <em>invalidation level</em> (the hammer's low), not below the entry. 2352.0 − 0.4 = 2351.6. Using tick-based math (e.g. 3 ticks) is exactly the mistake the v5 stop rule replaces — count in points, not ticks."
+      why:"RTY's classic point-based stop buffer in v5 is 0.4 pt. Stops go below the <em>invalidation level</em> (the hammer's low), not below the entry. 2352.0 − 0.4 = 2351.6. A 0.3-pt buffer below entry is too tight and anchored to the wrong level — count in points <em>from the invalidation level</em>, not from entry."
     },
     {
       id:'hs3', pattern:'🔨 Hammer / Shooting Star', type:'Entry Trigger',
@@ -14774,12 +14778,12 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       q:"You short on a Bearish Engulfing at VWAP on MES. The engulfing candle's high is 6018.5. Per the v5 classic point-based rule for MES, where does your stop go?",
       options:[
         "6019.5 — 1.0 pt above the engulfing candle's high (classic MES)",
-        "6018.75 — 1 tick above",
+        "6018.75 — 0.25 pt above",
         "6020.0 — round number",
         "6024.5 — 6.0 pt above (Bollinger upper)"
       ],
       correct:0,
-      why:"MES classic point-based stop buffer in v5 is 1.0 pt. Stop sits above the invalidation level (the engulfing candle's high), so 6018.5 + 1.0 = 6019.5. A 1-tick buffer (6018.75) is too tight — algos routinely run stops 2–3 ticks beyond the level. The 1.0 pt buffer balances tightness with survival."
+      why:"MES classic point-based stop buffer in v5 is 1.0 pt. Stop sits above the invalidation level (the engulfing candle's high), so 6018.5 + 1.0 = 6019.5. A 0.25-pt buffer (6018.75) is too tight — algos routinely run stops 0.5–0.75 pts beyond the level. The 1.0 pt buffer balances tightness with survival."
     },
     {
       id:'en3', pattern:'🫂 Bullish / Bearish Engulfing', type:'Entry Trigger',
@@ -14812,7 +14816,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       q:"You go long on an Evening Star reversal — wait, that's a short signal. Let me re-ask: you go SHORT on a valid Evening Star at ORH on MES. The star's <strong>highest</strong> wick (across all 3 candles) is 6042.8. The classic v5 stop goes:",
       options:[
         "6043.8 — 1.0 pt above the highest wick of the 3-candle pattern",
-        "6042.9 — 1 tick above",
+        "6042.9 — 0.1 pt above",
         "Stop at the second candle's high only — the middle candle is irrelevant",
         "6040.0 — at the open of candle #1"
       ],
@@ -14916,15 +14920,13 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   window.calcTick = function() {
     const inst = document.getElementById('c-tc-inst').value;
     const I = INSTRUMENTS[inst];
-    const ticks = parseFloat(document.getElementById('c-tc-ticks').value) || 0;
+    const points = parseFloat(document.getElementById('c-tc-ticks').value) || 0;
     const contracts = parseFloat(document.getElementById('c-tc-contracts').value) || 1;
-    const dollars = ticks * I.dpt * contracts;
-    const pts = (ticks * I.tick).toFixed(2);
+    const dollars = points * I.dpp * contracts;
     document.getElementById('c-tc-result').innerHTML =
       '<div class="calc-result">' +
       '<div class="res-row"><span class="res-label">Dollar Value</span><span class="res-val big">$' + dollars.toFixed(2) + '</span></div>' +
-      '<div class="res-row"><span class="res-label">Breakdown</span><span class="res-val">' + ticks + ' × $' + I.dpt.toFixed(2) + ' × ' + contracts + '</span></div>' +
-      '<div class="res-row"><span class="res-label">Equivalent in Points</span><span class="res-val">' + pts + ' pts</span></div>' +
+      '<div class="res-row"><span class="res-label">Breakdown</span><span class="res-val">' + points + ' pts × $' + I.dpp.toFixed(2) + '/pt × ' + contracts + '</span></div>' +
       '</div>';
   };
 
@@ -14932,12 +14934,12 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     const inst = document.getElementById('c-ps-inst').value;
     const I = INSTRUMENTS[inst];
     const risk = parseFloat(document.getElementById('c-ps-risk').value) || 0;
-    const stopTicks = parseFloat(document.getElementById('c-ps-stop').value) || 0;
-    if (risk <= 0 || stopTicks <= 0) {
-      document.getElementById('c-ps-result').innerHTML = '<div class="calc-result"><span class="res-label">Enter max risk $ and stop ticks.</span></div>';
+    const stopPoints = parseFloat(document.getElementById('c-ps-stop').value) || 0;
+    if (risk <= 0 || stopPoints <= 0) {
+      document.getElementById('c-ps-result').innerHTML = '<div class="calc-result"><span class="res-label">Enter max risk $ and stop distance in points.</span></div>';
       return;
     }
-    const dollarRiskPerContract = stopTicks * I.dpt;
+    const dollarRiskPerContract = stopPoints * I.dpp;
     const maxContracts = Math.floor(risk / dollarRiskPerContract);
     const actualRisk = maxContracts * dollarRiskPerContract;
     document.getElementById('c-ps-result').innerHTML =
@@ -15156,7 +15158,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       verdict.textContent = '✅ All 25 confirmed — A+ SETUP · execute with confidence';
     } else {
       verdict.classList.add('incomplete');
-      verdict.textContent = '⚠ Incomplete — tick every box or skip the trade';
+      verdict.textContent = '⚠ Incomplete — check every box or skip the trade';
     }
   }
 
