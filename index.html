@@ -861,6 +861,438 @@
     margin-top: 2px;
   }
 
+  /* ============ MY TRADING DAY (Daily Reflection module) ============ */
+  .mtd-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 4px 60px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .mtd-hero {
+    text-align: center;
+    padding: 28px 20px 24px;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(94, 234, 212, 0.06) 100%);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    border-radius: 14px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mtd-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px 200px at 50% -80%, rgba(251, 191, 36, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .mtd-greeting {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #fbbf24;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .mtd-date-display {
+    font-size: 15px;
+    color: var(--ink);
+    opacity: 0.85;
+    margin-bottom: 10px;
+  }
+  .mtd-streak {
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 14px;
+    background: rgba(94, 234, 212, 0.08);
+    border: 1px solid rgba(94, 234, 212, 0.25);
+    color: #5eead4;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Calendar */
+  .mtd-calendar-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px 18px;
+    margin-bottom: 18px;
+  }
+  .mtd-cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .mtd-cal-nav {
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    color: #fbbf24;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.15s;
+  }
+  .mtd-cal-nav:hover { background: rgba(251, 191, 36, 0.16); }
+  .mtd-cal-month {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .mtd-cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .mtd-cal-weekdays > div {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    padding: 4px 0;
+  }
+  .mtd-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .mtd-cal-cell {
+    aspect-ratio: 1;
+    border: none;
+    background: transparent;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .mtd-cal-blank { cursor: default; }
+  .mtd-cal-day:hover:not(.is-future) {
+    background: rgba(251, 191, 36, 0.08);
+  }
+  .mtd-cal-day.is-today {
+    background: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.4);
+  }
+  .mtd-cal-day.is-selected {
+    background: #fbbf24;
+    color: #1a1208;
+    font-weight: 700;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.35);
+  }
+  .mtd-cal-day.is-future {
+    color: var(--ink-dim);
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .mtd-cal-day.has-entry .mtd-cal-dot {
+    position: absolute;
+    bottom: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #5eead4;
+  }
+  .mtd-cal-day.is-selected.has-entry .mtd-cal-dot {
+    background: #1a1208;
+  }
+  .mtd-cal-num { line-height: 1; }
+  .mtd-cal-legend {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 10px;
+    color: var(--ink-dim);
+    flex-wrap: wrap;
+  }
+  .mtd-leg { display: inline-flex; align-items: center; gap: 6px; letter-spacing: 0.02em; }
+  .mtd-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+  }
+  .mtd-dot-today { background: rgba(251, 191, 36, 0.15); box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.6); }
+  .mtd-dot-entry { background: transparent; box-shadow: inset 0 0 0 1px var(--line); position: relative; }
+  .mtd-dot-entry::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 1px;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #5eead4;
+  }
+  .mtd-dot-selected { background: #fbbf24; }
+
+  /* Snapshot stats */
+  .mtd-snapshot {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .mtd-stat {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .mtd-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 6px;
+  }
+  .mtd-stat-val {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .mtd-stat-val.pos { color: #34d399; }
+  .mtd-stat-val.neg { color: #f87171; }
+
+  /* Sections (wins / feel / focus) */
+  .mtd-section {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .mtd-section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  }
+  .mtd-section-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+  .mtd-section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .mtd-section-body {
+    padding: 16px 18px 18px;
+  }
+  .mtd-section-wins { border-left: 3px solid #34d399; }
+  .mtd-section-feel { border-left: 3px solid #60a5fa; }
+  .mtd-section-focus { border-left: 3px solid #fbbf24; }
+
+  /* Checklist */
+  .mtd-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+  .mtd-check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.12s;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .mtd-check-row:hover { background: rgba(52, 211, 153, 0.05); }
+  .mtd-check-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    accent-color: #34d399;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .mtd-check-row input:checked + .mtd-check-label {
+    color: #34d399;
+  }
+  .mtd-check-label { flex: 1; }
+
+  /* Textareas and inputs */
+  .mtd-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .mtd-textarea, .mtd-focus-input {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    resize: vertical;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .mtd-textarea:focus, .mtd-focus-input:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
+  }
+  .mtd-focus-input {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+  .mtd-focus-helper {
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-bottom: 10px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* Mood chips */
+  .mtd-moods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .mtd-mood-chip {
+    --mood-color: #94a3b8;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .mtd-mood-chip:hover {
+    border-color: var(--mood-color);
+    color: var(--mood-color);
+  }
+  .mtd-mood-chip.is-active {
+    background: color-mix(in srgb, var(--mood-color) 18%, transparent);
+    border-color: var(--mood-color);
+    color: var(--mood-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--mood-color) 25%, transparent);
+    font-weight: 700;
+  }
+
+  /* Save row */
+  .mtd-save-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px;
+    margin-top: 4px;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(52, 211, 153, 0.05));
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 12px;
+    flex-wrap: wrap;
+  }
+  .mtd-save-btn {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1a1208;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.25);
+  }
+  .mtd-save-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(251, 191, 36, 0.4);
+  }
+  .mtd-save-btn:active { transform: translateY(0); }
+  .mtd-save-status {
+    font-size: 12px;
+    color: var(--ink-dim);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .mtd-save-status.is-flash {
+    color: #34d399;
+    font-weight: 700;
+  }
+
+  .mtd-footer-quote {
+    margin-top: 26px;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-dim);
+    padding: 0 30px;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  /* Light mode overrides */
+  body.light-mode .mtd-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(20, 184, 166, 0.05));
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  body.light-mode .mtd-greeting { color: #d97706; }
+  body.light-mode .mtd-cal-day.is-today { color: #d97706; }
+  body.light-mode .mtd-cal-day.is-selected { background: #f59e0b; color: #fff; }
+  body.light-mode .mtd-save-btn { color: #fff; }
+
+  @media (max-width: 720px) {
+    .mtd-greeting { font-size: 22px; }
+    .mtd-date-display { font-size: 13px; }
+    .mtd-cal-cell { font-size: 11px; }
+    .mtd-stat-val { font-size: 20px; }
+    .mtd-section-title { font-size: 15px; }
+  }
+
   /* ============ PRINT STYLES ============ */
   @media print {
     @page { size: letter landscape; margin: 0.4in; }
@@ -4022,6 +4454,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <!-- REVIEW section -->
       <div class="nav-section review">
         <div class="nav-section-header"><span class="nav-icon">📊</span> Review</div>
+        <button class="tab-btn tab-review" data-tab="my-trading-day"><span class="tab-num">📔</span>My Trading Day</button>
         <button class="tab-btn tab-review" data-tab="journal"><span class="tab-num">📝</span>Trade Journal</button>
         <button class="tab-btn tab-review" data-tab="edge-dashboard"><span class="tab-num">📈</span>Edge Dashboard</button>
       </div>
@@ -11613,6 +12046,99 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     </div>
   </div>
 
+  <!-- ==================== TAB: MY TRADING DAY (REVIEW section) ==================== -->
+  <div class="tab-panel" id="tab-my-trading-day">
+    <div class="mtd-container">
+
+      <div class="mtd-hero">
+        <div class="mtd-greeting">Welcome back, Arnie.</div>
+        <div class="mtd-date-display" id="mtd-date-display">—</div>
+        <div class="mtd-streak" id="mtd-streak">Start your reflection streak today.</div>
+      </div>
+
+      <div class="mtd-calendar-card">
+        <div class="mtd-cal-header">
+          <button class="mtd-cal-nav" id="mtd-prev-month" type="button" aria-label="Previous month">‹</button>
+          <div class="mtd-cal-month" id="mtd-cal-month">—</div>
+          <button class="mtd-cal-nav" id="mtd-next-month" type="button" aria-label="Next month">›</button>
+        </div>
+        <div class="mtd-cal-weekdays">
+          <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+        </div>
+        <div class="mtd-cal-grid" id="mtd-cal-grid"></div>
+        <div class="mtd-cal-legend">
+          <span class="mtd-leg"><span class="mtd-dot mtd-dot-today"></span> Today</span>
+          <span class="mtd-leg"><span class="mtd-dot mtd-dot-entry"></span> Entry saved</span>
+          <span class="mtd-leg"><span class="mtd-dot mtd-dot-selected"></span> Viewing</span>
+        </div>
+      </div>
+
+      <div class="mtd-snapshot">
+        <div class="mtd-stat">
+          <div class="mtd-stat-label">Trades</div>
+          <div class="mtd-stat-val" id="mtd-stat-trades">0</div>
+        </div>
+        <div class="mtd-stat">
+          <div class="mtd-stat-label">P&amp;L</div>
+          <div class="mtd-stat-val" id="mtd-stat-pnl">—</div>
+        </div>
+        <div class="mtd-stat">
+          <div class="mtd-stat-label">Adherence</div>
+          <div class="mtd-stat-val" id="mtd-stat-adherence">—</div>
+        </div>
+        <div class="mtd-stat">
+          <div class="mtd-stat-label">Starting State</div>
+          <div class="mtd-stat-val" id="mtd-stat-state">—</div>
+        </div>
+      </div>
+
+      <div class="mtd-section mtd-section-wins">
+        <div class="mtd-section-header">
+          <span class="mtd-section-icon">🌱</span>
+          <span class="mtd-section-title">What I did well today</span>
+        </div>
+        <div class="mtd-section-body">
+          <div class="mtd-checklist" id="mtd-checklist"></div>
+          <label class="mtd-label" for="mtd-wins-notes">Anything else I did well today</label>
+          <textarea class="mtd-textarea" id="mtd-wins-notes" rows="3" placeholder="A moment I caught myself doing the right thing…"></textarea>
+        </div>
+      </div>
+
+      <div class="mtd-section mtd-section-feel">
+        <div class="mtd-section-header">
+          <span class="mtd-section-icon">💙</span>
+          <span class="mtd-section-title">How I felt today</span>
+        </div>
+        <div class="mtd-section-body">
+          <div class="mtd-moods" id="mtd-moods"></div>
+          <label class="mtd-label" for="mtd-feel-notes">End of day thoughts and feelings</label>
+          <textarea class="mtd-textarea" id="mtd-feel-notes" rows="4" placeholder="The calm I felt when I turned off NinjaTrader with profits in hand…"></textarea>
+        </div>
+      </div>
+
+      <div class="mtd-section mtd-section-focus">
+        <div class="mtd-section-header">
+          <span class="mtd-section-icon">🎯</span>
+          <span class="mtd-section-title">Tomorrow's one focus</span>
+        </div>
+        <div class="mtd-section-body">
+          <div class="mtd-focus-helper">One thing I'm going to practice tomorrow — not what I did wrong, just one thing I'm choosing to perfect.</div>
+          <input type="text" class="mtd-focus-input" id="mtd-focus-input" placeholder="e.g. Draw the R:R box in ECT before every entry" maxlength="160">
+        </div>
+      </div>
+
+      <div class="mtd-save-row">
+        <button class="mtd-save-btn" id="mtd-save-btn" type="button" onclick="saveReflection()">✓ Save Today's Reflection</button>
+        <div class="mtd-save-status" id="mtd-save-status"></div>
+      </div>
+
+      <div class="mtd-footer-quote">
+        "The market will be here tomorrow. You don't need to capture every move — you just need to capture your plan."
+      </div>
+
+    </div>
+  </div><!-- close tab-my-trading-day -->
+
   <!-- ==================== TAB: JOURNAL (REVIEW section) ==================== -->
   <div class="tab-panel" id="tab-journal">
   <div class="journal" id="journal">
@@ -15222,6 +15748,329 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
   updateScore('engulfing');
   updateScore('morning');
   updateScore('stack');
+
+  // ========== MY TRADING DAY (Daily Reflection Module) ==========
+  (function mtdInit() {
+    const MTD_PREFIX = 'playbook_reflection_';
+
+    const MOODS = [
+      { id: 'calm',         label: 'Calm',         color: '#5eead4' },
+      { id: 'focused',      label: 'Focused',      color: '#60a5fa' },
+      { id: 'patient',      label: 'Patient',      color: '#a78bfa' },
+      { id: 'disciplined',  label: 'Disciplined',  color: '#c084fc' },
+      { id: 'confident',    label: 'Confident',    color: '#34d399' },
+      { id: 'proud',        label: 'Proud',        color: '#fbbf24' },
+      { id: 'grateful',     label: 'Grateful',     color: '#fb7185' },
+      { id: 'tired',        label: 'Tired',        color: '#94a3b8' },
+      { id: 'shaky',        label: 'Shaky',        color: '#f59e0b' },
+      { id: 'frustrated',   label: 'Frustrated',   color: '#fb923c' },
+      { id: 'anxious',      label: 'Anxious',      color: '#f87171' },
+      { id: 'greedy',       label: 'Greedy',       color: '#ef4444' }
+    ];
+
+    const RULES = [
+      { id: 'waited_2min',    label: 'Waited for the 2-minute candle to close before entering' },
+      { id: 'checked_15min',  label: 'Checked the 15-minute chart for trend alignment' },
+      { id: 'big_chart',      label: 'Reviewed major levels on the big chart first' },
+      { id: 'used_rr',        label: 'Drew the R:R box in ECT before entering the trade' },
+      { id: 'sized_down',     label: 'Traded small size (one instrument, few contracts)' },
+      { id: 'lunch_lock',     label: 'Did not trade during lunch (11:30 AM – 1:30 PM)' },
+      { id: 'no_chat',        label: 'Did not listen to chat or noise that makes me impulsive' },
+      { id: 'max_3_trades',   label: 'Stayed at or under 3 trades for the day' },
+      { id: 'honored_stop',   label: 'Honored my stop when it hit — did not move it wider' },
+      { id: 'walked_away',    label: 'Turned off the platform after securing a good session' }
+    ];
+
+    let calViewDate = new Date();
+    let selectedDate = new Date();
+
+    function isoFor(d) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + dd;
+    }
+
+    function loadEntry(iso) {
+      try { return JSON.parse(localStorage.getItem(MTD_PREFIX + iso) || 'null'); }
+      catch { return null; }
+    }
+
+    function saveEntry(iso, data) {
+      localStorage.setItem(MTD_PREFIX + iso, JSON.stringify(data));
+    }
+
+    function getAllEntryDates() {
+      const set = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.indexOf(MTD_PREFIX) === 0) {
+          set[k.slice(MTD_PREFIX.length)] = true;
+        }
+      }
+      return set;
+    }
+
+    function tradesForDate(iso) {
+      try {
+        const all = JSON.parse(localStorage.getItem('playbook_trades') || '[]');
+        return all.filter(t => {
+          const d = (t.date || t.datetime || '').slice(0, 10);
+          return d === iso;
+        });
+      } catch { return []; }
+    }
+
+    function renderCalendar() {
+      const year = calViewDate.getFullYear();
+      const month = calViewDate.getMonth();
+      const monthNames = ['January','February','March','April','May','June',
+                          'July','August','September','October','November','December'];
+
+      const head = document.getElementById('mtd-cal-month');
+      if (head) head.textContent = monthNames[month] + ' ' + year;
+
+      const grid = document.getElementById('mtd-cal-grid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      const first = new Date(year, month, 1);
+      const firstDOW = first.getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const todayISO = isoFor(new Date());
+      const selectedISO = isoFor(selectedDate);
+      const now = new Date();
+      const entries = getAllEntryDates();
+
+      for (let i = 0; i < firstDOW; i++) {
+        const blank = document.createElement('div');
+        blank.className = 'mtd-cal-cell mtd-cal-blank';
+        grid.appendChild(blank);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const cellDate = new Date(year, month, d);
+        const cellISO = isoFor(cellDate);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'mtd-cal-cell mtd-cal-day';
+        if (cellISO === todayISO) btn.classList.add('is-today');
+        if (cellISO === selectedISO) btn.classList.add('is-selected');
+        if (entries[cellISO]) btn.classList.add('has-entry');
+        if (cellDate > now && cellISO !== todayISO) btn.classList.add('is-future');
+
+        const num = document.createElement('span');
+        num.className = 'mtd-cal-num';
+        num.textContent = d;
+        btn.appendChild(num);
+        if (entries[cellISO]) {
+          const dot = document.createElement('span');
+          dot.className = 'mtd-cal-dot';
+          btn.appendChild(dot);
+        }
+
+        btn.addEventListener('click', () => {
+          if (btn.classList.contains('is-future')) return;
+          selectedDate = cellDate;
+          loadSelected();
+          renderCalendar();
+        });
+        grid.appendChild(btn);
+      }
+    }
+
+    function renderChecklist() {
+      const wrap = document.getElementById('mtd-checklist');
+      if (!wrap) return;
+      const data = loadEntry(isoFor(selectedDate)) || {};
+      const rules = data.rules || {};
+      wrap.innerHTML = RULES.map(r => (
+        '<label class="mtd-check-row" data-rule="' + r.id + '">' +
+        '<input type="checkbox" ' + (rules[r.id] ? 'checked' : '') + '>' +
+        '<span class="mtd-check-label">' + r.label + '</span>' +
+        '</label>'
+      )).join('');
+    }
+
+    function renderMoods() {
+      const wrap = document.getElementById('mtd-moods');
+      if (!wrap) return;
+      const data = loadEntry(isoFor(selectedDate)) || {};
+      const selected = new Set(data.moods || []);
+      wrap.innerHTML = MOODS.map(m => (
+        '<button type="button" class="mtd-mood-chip' + (selected.has(m.id) ? ' is-active' : '') +
+        '" data-mood="' + m.id + '" style="--mood-color:' + m.color + '">' +
+        m.label + '</button>'
+      )).join('');
+    }
+
+    function renderSnapshot() {
+      const iso = isoFor(selectedDate);
+      const trades = tradesForDate(iso);
+      const data = loadEntry(iso) || {};
+
+      const tradesEl = document.getElementById('mtd-stat-trades');
+      if (tradesEl) tradesEl.textContent = trades.length;
+
+      const pnlEl = document.getElementById('mtd-stat-pnl');
+      if (pnlEl) {
+        if (trades.length === 0) {
+          pnlEl.textContent = '—';
+          pnlEl.className = 'mtd-stat-val';
+        } else {
+          const pnl = trades.reduce((s, t) => s + (parseFloat(t.pnl) || 0), 0);
+          pnlEl.textContent = (pnl >= 0 ? '+$' : '-$') + Math.abs(pnl).toFixed(0);
+          pnlEl.className = 'mtd-stat-val ' + (pnl > 0 ? 'pos' : pnl < 0 ? 'neg' : '');
+        }
+      }
+
+      const adhEl = document.getElementById('mtd-stat-adherence');
+      if (adhEl) {
+        const rules = data.rules || {};
+        const checked = Object.values(rules).filter(v => v).length;
+        adhEl.textContent = checked === 0 ? '—' : Math.round(checked / RULES.length * 100) + '%';
+      }
+
+      const stateEl = document.getElementById('mtd-stat-state');
+      if (stateEl) {
+        if (iso === isoFor(new Date()) && typeof getStoredState === 'function') {
+          const s = getStoredState();
+          stateEl.textContent = s ? s.name : '—';
+        } else {
+          stateEl.textContent = data.startingState || '—';
+        }
+      }
+    }
+
+    function renderStreak() {
+      const entries = getAllEntryDates();
+      let streak = 0;
+      const d = new Date();
+      while (entries[isoFor(d)]) {
+        streak++;
+        d.setDate(d.getDate() - 1);
+      }
+      const el = document.getElementById('mtd-streak');
+      if (!el) return;
+      if (streak === 0) el.textContent = 'Start your reflection streak today.';
+      else if (streak === 1) el.textContent = '🌱 Day 1 of your reflection streak.';
+      else el.textContent = '🔥 ' + streak + '-day reflection streak.';
+    }
+
+    function loadSelected() {
+      const iso = isoFor(selectedDate);
+      const data = loadEntry(iso) || {};
+      const dateEl = document.getElementById('mtd-date-display');
+      if (dateEl) {
+        dateEl.textContent = selectedDate.toLocaleDateString('en-US', {
+          weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+        });
+      }
+      const winsNotes = document.getElementById('mtd-wins-notes');
+      if (winsNotes) winsNotes.value = data.winsNotes || '';
+      const feelNotes = document.getElementById('mtd-feel-notes');
+      if (feelNotes) feelNotes.value = data.feelNotes || '';
+      const focusInput = document.getElementById('mtd-focus-input');
+      if (focusInput) focusInput.value = data.focus || '';
+
+      renderChecklist();
+      renderMoods();
+      renderSnapshot();
+      renderStreak();
+
+      const statusEl = document.getElementById('mtd-save-status');
+      if (statusEl) {
+        if (data.completedAt) {
+          const savedDate = new Date(data.completedAt);
+          const today = isoFor(new Date()) === iso;
+          const prefix = today ? 'Saved ' : 'Saved on ' + savedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' at ';
+          statusEl.textContent = prefix + savedDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+          statusEl.classList.remove('is-flash');
+        } else {
+          statusEl.textContent = '';
+          statusEl.classList.remove('is-flash');
+        }
+      }
+    }
+
+    window.saveReflection = function() {
+      const iso = isoFor(selectedDate);
+      const existing = loadEntry(iso) || {};
+
+      const rules = {};
+      document.querySelectorAll('#mtd-checklist .mtd-check-row').forEach(row => {
+        const id = row.dataset.rule;
+        const cb = row.querySelector('input');
+        rules[id] = !!(cb && cb.checked);
+      });
+
+      const moods = [];
+      document.querySelectorAll('#mtd-moods .mtd-mood-chip.is-active').forEach(c => {
+        moods.push(c.dataset.mood);
+      });
+
+      const winsNotes = (document.getElementById('mtd-wins-notes') || {}).value || '';
+      const feelNotes = (document.getElementById('mtd-feel-notes') || {}).value || '';
+      const focus     = (document.getElementById('mtd-focus-input') || {}).value || '';
+
+      let startingState = existing.startingState;
+      if (iso === isoFor(new Date()) && typeof getStoredState === 'function') {
+        const s = getStoredState();
+        if (s && s.name) startingState = s.name;
+      }
+
+      const data = {
+        date: iso,
+        rules: rules,
+        moods: moods,
+        winsNotes: winsNotes.trim(),
+        feelNotes: feelNotes.trim(),
+        focus: focus.trim(),
+        startingState: startingState,
+        completedAt: new Date().toISOString()
+      };
+
+      saveEntry(iso, data);
+      renderCalendar();
+      renderSnapshot();
+      renderStreak();
+
+      const statusEl = document.getElementById('mtd-save-status');
+      if (statusEl) {
+        statusEl.textContent = '✓ Saved at ' + new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        statusEl.classList.add('is-flash');
+        setTimeout(() => { statusEl.classList.remove('is-flash'); }, 1400);
+      }
+    };
+
+    const prevBtn = document.getElementById('mtd-prev-month');
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+      calViewDate.setMonth(calViewDate.getMonth() - 1);
+      renderCalendar();
+    });
+    const nextBtn = document.getElementById('mtd-next-month');
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+      calViewDate.setMonth(calViewDate.getMonth() + 1);
+      renderCalendar();
+    });
+
+    const moodsWrap = document.getElementById('mtd-moods');
+    if (moodsWrap) moodsWrap.addEventListener('click', (e) => {
+      const chip = e.target.closest('.mtd-mood-chip');
+      if (!chip) return;
+      chip.classList.toggle('is-active');
+    });
+
+    const checklistWrap = document.getElementById('mtd-checklist');
+    if (checklistWrap) checklistWrap.addEventListener('change', () => {
+      const checked = document.querySelectorAll('#mtd-checklist input:checked').length;
+      const adhEl = document.getElementById('mtd-stat-adherence');
+      if (adhEl) adhEl.textContent = checked === 0 ? '—' : Math.round(checked / RULES.length * 100) + '%';
+    });
+
+    renderCalendar();
+    loadSelected();
+  })();
 
   // ========== JOURNAL SYSTEM ==========
   const STORAGE_KEY = 'playbook_trades';
