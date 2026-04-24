@@ -26,6 +26,8 @@ https://arnie-double-top-bottom.netlify.app
 - Firebase Google Auth locked to `arnold.shapiro@gmail.com`
 
 ## Current Status
+**v5.2 — The 0.75R Breakeven Plan LOCKED (2026-04-24).** Final Trading Plan rewritten to the dual-instrument M2K/MES plan: 24 M2K (18 T1 / 6 T2) or 8 MES (6 T1 / 2 T2), 20-tick default stop (tighten only for structure), T1 @ +15 ticks (75% off), T2 @ +30 ticks (25% runner), auto-breakeven at T1, dollar risk $240 M2K / $200 MES. Two ATM templates: `M2K_075R_BE` and `MES_075R_BE`. New LEARN tab added: 📊 Cumulative Delta / Order Flow (filter indicator). **The numbers are permanent — do not modify.**
+
 **v5.1 LIVE (2026-04-22).** All 3 new candle-pattern tabs (Hammer/Star, Engulfing, Morning/Evening Star) rebuilt to full DB/DT teaching depth. Pattern Stacking expanded to 9 sections. v5 Appendix integrated into Final Trading Plan. TTS "Read this lesson" button now appears on ALL 29 tabs (was 15). Companion standalone Position Calculator v2 deployed at https://arnie-position-calculator.netlify.app and embedded in the Calculators tab.
 **v4.2 THE PLAN illustration pass (2026-04-21).** 16 inline SVG figures added across Research + Final Plan tabs.
 **v4.1 THE PLAN section added (2026-04-21).** Research Behind the Plan + Final Trading Plan tabs.

@@ -901,6 +901,60 @@
     margin-bottom: 18px;
   }
   .puc-intro strong { color: #fde68a; }
+  .puc-plan-table-wrap {
+    margin: 0 0 22px 0;
+    padding: 18px;
+    background: rgba(251, 191, 36, 0.06);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    border-radius: 12px;
+    overflow-x: auto;
+  }
+  .puc-plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .puc-plan-table thead th {
+    text-align: left;
+    padding: 10px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fbbf24;
+    border-bottom: 2px solid rgba(251, 191, 36, 0.45);
+    background: rgba(15, 23, 42, 0.35);
+  }
+  .puc-plan-table thead th:nth-child(2) { color: #86efac; }
+  .puc-plan-table thead th:nth-child(3) { color: #93c5fd; }
+  .puc-plan-table tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(251, 191, 36, 0.12);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .puc-plan-table tbody td:first-child { color: #fde68a; white-space: nowrap; }
+  .puc-plan-table tbody td strong { color: #fef3c7; }
+  .puc-plan-table tbody tr:last-child td { border-bottom: none; }
+  .puc-plan-table code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(251, 191, 36, 0.15);
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #fde68a;
+  }
+  .puc-plan-table-note {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: rgba(15, 23, 42, 0.35);
+    border-left: 3px solid #fbbf24;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+  }
+  .puc-plan-table-note strong { color: #fde68a; }
   .puc-rules {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -4769,6 +4823,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <button class="tab-btn" data-tab="pattern-quiz"><span class="tab-num">🎯</span>Pattern Quiz</button>
         <button class="tab-btn" data-tab="calculators"><span class="tab-num">🧮</span>Calculators</button>
         <button class="tab-btn" data-tab="ect-workflow"><span class="tab-num">🎬</span>ECT R:R Workflow</button>
+        <button class="tab-btn" data-tab="cumulative-delta"><span class="tab-num">📊</span>Cumulative Delta / Order Flow</button>
         <button class="tab-btn" data-tab="flashcards"><span class="tab-num">🃏</span>Flashcard Trainer</button>
       </div>
 
@@ -9661,8 +9716,8 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             </div>
             <div class="chk-list" data-section="risk">
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Entry price identified.</strong> Written down or typed into the order ticket — not "I'll figure it out when it hits."</span></div>
-              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop price identified.</strong> A small point buffer beyond the invalidation level (swing, band, neckline). Hard stop entered in platform.</span></div>
-              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop buffer uses the point-based rule.</strong> 1 pt MES/ES classic · 1.5 pt MNQ · 0.4 pt M2K/RTY · 2 pt NQ. Tight variants halve those. Always measure in points.</span></div>
+              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Stop price identified — 20 ticks default.</strong> 20 ticks = 2.0 pts M2K / 5.0 pts MES below (or above) entry. Hard stop entered in ATM template, not clicked in after entry.</span></div>
+              <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Structure check: tighten only if structure is closer than 20 ticks.</strong> If the neckline / broken trendline is 8–15 ticks away from entry, use THAT level + a small buffer. Never loosen past 20 ticks. Never drop all the way to the W bottom, M top, flag low, or flag high.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Target price(s) identified.</strong> At least Target 1. Ideally Target 2 for a runner.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>R:R ≥ 1.5:1 (ideally ≥ 2:1).</strong> Reward in points divided by risk in points. Math done BEFORE entry.</span></div>
               <div class="chk-item"><span class="chk-box"></span><span class="chk-label"><strong>Position size aligned with daily risk budget.</strong> Not oversized. Not undersized. Fixed rules for MES vs M2K contract count.</span></div>
@@ -11949,9 +12004,9 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="ect-step">
           <div class="ect-step-num">2</div>
           <div class="ect-step-body">
-            <div class="ect-step-title">Build the four presets</div>
+            <div class="ect-step-title">Build the two final-plan presets</div>
             <div class="ect-step-text">
-              These match your plan exactly — 6 contracts, 0.5 pt stop, scale-out 50% at +1R, remaining targets at measured move. Save each with a clear name.
+              These are the <strong>Final Plan (2026-04-24)</strong> presets — 20-tick default stop, 75% off at +15 ticks (0.75R), 25% runner to +30 ticks (1.5R), auto-breakeven the instant T1 fills. One preset per instrument — long or short is set at entry time, not baked into the preset.
             </div>
             <table class="ect-atm-table">
               <thead>
@@ -11959,43 +12014,32 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
                   <th>Preset Name</th>
                   <th>Qty</th>
                   <th>Stop</th>
-                  <th>Target 1 (50%)</th>
-                  <th>Target 2 (50%)</th>
+                  <th>Target 1 (75%)</th>
+                  <th>Target 2 (25% runner)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><code>M2K_LONG_6</code></td>
-                  <td>6</td>
-                  <td>0.5 pts</td>
-                  <td>+0.5 pts (3 contracts)</td>
-                  <td>+1.5 pts (3 contracts)</td>
+                  <td><code>M2K_075R_BE</code></td>
+                  <td>24</td>
+                  <td>20 ticks (2.0 pts)</td>
+                  <td>+15 ticks / 1.5 pts (18 contracts)</td>
+                  <td>+30 ticks / 3.0 pts (6 contracts)</td>
                 </tr>
                 <tr>
-                  <td><code>M2K_SHORT_6</code></td>
-                  <td>6</td>
-                  <td>0.5 pts</td>
-                  <td>+0.5 pts (3 contracts)</td>
-                  <td>+1.5 pts (3 contracts)</td>
-                </tr>
-                <tr>
-                  <td><code>MES_LONG_4</code></td>
-                  <td>4</td>
-                  <td>2 pts</td>
-                  <td>+2 pts (2 contracts)</td>
-                  <td>+6 pts (2 contracts)</td>
-                </tr>
-                <tr>
-                  <td><code>MES_SHORT_4</code></td>
-                  <td>4</td>
-                  <td>2 pts</td>
-                  <td>+2 pts (2 contracts)</td>
-                  <td>+6 pts (2 contracts)</td>
+                  <td><code>MES_075R_BE</code></td>
+                  <td>8</td>
+                  <td>20 ticks (5.0 pts)</td>
+                  <td>+15 ticks / 3.75 pts (6 contracts)</td>
+                  <td>+30 ticks / 7.5 pts (2 contracts)</td>
                 </tr>
               </tbody>
             </table>
             <div class="ect-step-tip">
-              <strong>Important:</strong> In the ATM dialog, under "Stop Strategy" set <strong>Auto-move to Breakeven</strong> = <code>+1 tick after Target 1 hits</code>. That is Rule 2 of the Plan Upgrade — automatic, no click required.
+              <strong>Critical:</strong> In the ATM dialog, under "Stop Strategy" set <strong>Auto-Breakeven Trigger</strong> = <code>+15 ticks, move stop to breakeven +1 tick (long) / −1 tick (short)</code>. That's Rule 2 of the final plan — the ATM does it automatically the instant T1 fills. You never touch the mouse after entry.
+            </div>
+            <div class="ect-step-tip" style="margin-top: 8px;">
+              <strong>Dollar risk at full stop:</strong> M2K = 2.0 pts × 24 × $5/pt = <code>$240</code>. MES = 5.0 pts × 8 × $5/pt = <code>$200</code>.
             </div>
           </div>
         </div>
@@ -12055,13 +12099,14 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="ect-step-body">
             <div class="ect-step-title">Click once to execute</div>
             <div class="ect-step-text">
-              At the open of the next candle, <strong>left-click</strong> where the entry line is. ECT fires all three orders at once:
+              At the open of the next candle, <strong>left-click</strong> where the entry line is. ECT fires all three orders at once using the <code>M2K_075R_BE</code> (or <code>MES_075R_BE</code>) preset:
               <ul>
-                <li>✅ <strong>Market buy 6 contracts</strong> (the entry)</li>
-                <li>✅ <strong>Stop-loss order</strong> at your stop line (0.5 pts below neckline)</li>
-                <li>✅ <strong>Two target orders</strong> — 3 contracts at +0.5 pts, 3 contracts at +1.5 pts</li>
+                <li>✅ <strong>Market buy 24 M2K (or 8 MES)</strong> contracts — the entry</li>
+                <li>✅ <strong>Stop-loss order</strong> at 20 ticks below entry (2.0 pts M2K / 5.0 pts MES)</li>
+                <li>✅ <strong>Target 1</strong> at +15 ticks — auto-closes 75% (18 M2K / 6 MES) AND moves remaining stop to breakeven</li>
+                <li>✅ <strong>Target 2</strong> at +30 ticks — auto-closes the 25% runner (6 M2K / 2 MES)</li>
               </ul>
-              All three are now live orders on the CME. You are in the trade, protected and targeted. Total elapsed: ~1 second.
+              All orders are now live on the CME. You are in the trade, protected, targeted, and on auto-pilot. Total elapsed: ~1 second.
             </div>
           </div>
         </div>
@@ -12071,10 +12116,10 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="ect-step-body">
             <div class="ect-step-title">Hands off the mouse</div>
             <div class="ect-step-text">
-              This is the part the tool cannot do for you. <strong>Physically move your hand off the mouse.</strong> The ATM is managing the trade now. Target 1 will hit → 3 contracts close automatically → stop moves to breakeven automatically. You do nothing. You watch.
+              This is the part the tool cannot do for you. <strong>Physically move your hand off the mouse.</strong> The ATM is managing the trade now. Target 1 hits at +15 ticks → 18 M2K (or 6 MES) close automatically → remaining stop snaps to breakeven automatically. Target 2 hits at +30 ticks → the last 6 M2K (or 2 MES) close automatically. You do nothing. You watch.
             </div>
             <div class="ect-step-tip">
-              <strong>The only allowed click</strong> between entry and Target 1 is the ECT <code>CLOSE</code> button if a red-flag event fires (news spike, obvious reversal pattern, lost framework). Otherwise — hands off.
+              <strong>The only allowed click</strong> between entry and Target 2 is the ECT <code>CLOSE</code> button if a red-flag event fires (news spike, obvious reversal pattern, lost framework). Otherwise — hands off.
             </div>
           </div>
         </div>
@@ -12097,10 +12142,10 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <line x1="170" y1="120" x2="460" y2="120" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
             <text x="150" y="117" text-anchor="end" fill="#fde68a" font-size="10" font-weight="700">Neckline</text>
 
-            <!-- ECT R:R box: GREEN reward zone -->
+            <!-- ECT R:R box: GREEN reward zone (T1 = +15 ticks / 1.5 pts, 75% off) -->
             <rect x="460" y="70" width="110" height="50" fill="#22c55e" fill-opacity="0.18" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <text x="515" y="98" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">REWARD</text>
-            <text x="515" y="112" text-anchor="middle" fill="#bbf7d0" font-size="9">+0.5 pts (3 off)</text>
+            <text x="515" y="98" text-anchor="middle" fill="#86efac" font-size="11" font-weight="800">T1 REWARD</text>
+            <text x="515" y="112" text-anchor="middle" fill="#bbf7d0" font-size="9">+15 ticks · 75% off</text>
 
             <!-- Entry line -->
             <line x1="450" y1="120" x2="570" y2="120" stroke="#14b8a6" stroke-width="2"/>
@@ -12113,14 +12158,14 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
 
             <!-- Second reward (extended target) -->
             <rect x="460" y="40" width="110" height="30" fill="#22c55e" fill-opacity="0.08" stroke="#22c55e" stroke-width="1" stroke-dasharray="2 2"/>
-            <text x="515" y="58" text-anchor="middle" fill="#86efac" font-size="10" font-weight="700">+1.5 pts (runner)</text>
+            <text x="515" y="58" text-anchor="middle" fill="#86efac" font-size="10" font-weight="700">T2: +30 ticks (25% runner)</text>
 
             <!-- Labels -->
             <text x="570" y="35" text-anchor="end" fill="#fbbf24" font-size="10" font-style="italic">← What ECT draws before you click</text>
 
             <!-- Step callout -->
             <g transform="translate(30,230)">
-              <text x="0" y="0" fill="#5eead4" font-size="11" font-weight="700">1 click on the entry line → 3 orders live on CME</text>
+              <text x="0" y="0" fill="#5eead4" font-size="11" font-weight="700">1 click → entry + 20-tick stop + T1 (75%) + T2 (25%) all live on CME</text>
             </g>
           </svg>
           <div class="ect-diagram-caption">The green/red boxes are ECT's live R:R overlay. Click the entry line once — ECT fires entry, stop, and scale-out targets simultaneously.</div>
@@ -12170,6 +12215,109 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="ect-cta-title">You already own the right tool</div>
         <div class="ect-cta-body">
           ECT does everything RiskRewardPlus does (drawing the R:R box on the chart) <strong>plus it executes the trade for you</strong>. RiskRewardPlus is drawing-only — you would still have to manually place the orders after visualizing. That's two tools doing what ECT does alone. <strong>Stick with ECT.</strong> The workflow above is the full training.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== TAB: CUMULATIVE DELTA / ORDER FLOW (added 2026-04-24) ==================== -->
+  <div class="tab-panel" id="tab-cumulative-delta">
+    <div class="ect-container">
+
+      <!-- Hero -->
+      <div class="ect-hero">
+        <div class="ect-hero-kicker">Filter Indicator · Final Plan (2026-04-24)</div>
+        <div class="ect-hero-title">📊 Cumulative Delta / Order Flow — The Hidden Conviction Read</div>
+        <div class="ect-hero-sub">
+          Price shows you <em>where</em> the market went. Cumulative Delta shows you <em>who won the fight</em> to get it there — real market-buy aggression vs. real market-sell aggression. When a setup forms at the edge of a level, Delta tells you whether there's conviction behind it or whether it's a fake-out waiting to reverse.
+        </div>
+      </div>
+
+      <!-- What it is -->
+      <div class="ect-why-card">
+        <div class="ect-why-title">What Cumulative Delta actually measures</div>
+        <div class="ect-why-body">
+          Every tick, one side is the <strong>aggressor</strong>. If a trader <em>hits the bid</em> (market sell) → that's a minus. If a trader <em>lifts the offer</em> (market buy) → that's a plus. Delta is the running sum of those plus/minus ticks.
+          <ul>
+            <li><strong>Positive Delta</strong> = more market buys than market sells hitting the book. Buyers are aggressive.</li>
+            <li><strong>Negative Delta</strong> = more market sells than market buys. Sellers are aggressive.</li>
+            <li><strong>Cumulative</strong> = total from session open — so you see the net flow of real aggression, not just raw volume.</li>
+          </ul>
+          <strong>Why this matters for price action:</strong> two candles can look identical on a price chart. One was driven by real aggression (Delta confirms it). The other was driven by passive orders filling at the bid while sellers keep hitting (Delta diverges from it). The second one fails. You only saw it on the Delta panel.
+        </div>
+      </div>
+
+      <!-- How it's used in the final plan -->
+      <div class="ect-section">
+        <div class="ect-section-header">
+          <div class="ect-section-badge">FILTER RULE</div>
+          <div class="ect-section-title">How the Final Plan uses Cumulative Delta</div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">1</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">It's a FILTER, not a trigger</div>
+            <div class="ect-step-text">
+              You <strong>do not enter trades off Delta.</strong> You still need the pattern (DB / DT / BF / BEF / Hammer / Engulfing / Star) to close above or below the level with a quality body. Delta is the <em>extra conviction check</em> that runs AFTER the pattern confirms but BEFORE you click.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">2</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">For long setups (DB · Bull Flag · Hammer · Bullish Engulfing · Morning Star)</div>
+            <div class="ect-step-text">
+              <ul>
+                <li><strong>Delta rising into the breakout close</strong> → CONFIRMATION. Real buyers are lifting offers into the level. Take the trade.</li>
+                <li><strong>Delta flat or falling into the breakout close</strong> → WARNING. Price went up but no one aggressively bought to make it happen. High chance of fake-out. Skip or size down.</li>
+                <li><strong>Delta diverging (price new high, Delta lower high)</strong> → HARD SKIP. Buyers are exhausted. The next move is often down.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">3</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">For short setups (DT · Bear Flag · Shooting Star · Bearish Engulfing · Evening Star)</div>
+            <div class="ect-step-text">
+              Mirror the above — exactly. For shorts you want Delta <em>falling</em> (sellers hitting bids) into the breakdown close. Flat/rising Delta on a breakdown = trap short.
+            </div>
+          </div>
+        </div>
+
+        <div class="ect-step">
+          <div class="ect-step-num">4</div>
+          <div class="ect-step-body">
+            <div class="ect-step-title">The one-glance rule before every click</div>
+            <div class="ect-step-text">
+              Add a Cumulative Delta subchart below your 2-min price chart. The instant the breakout candle closes, your eyes check: <strong>"Does the Delta panel agree with the price panel?"</strong>
+              <ul>
+                <li>Price up + Delta up → click.</li>
+                <li>Price down + Delta down → click.</li>
+                <li>Anything else → wait or skip.</li>
+              </ul>
+              This check is 1–2 seconds. It fits inside the 3–5 second entry window.
+            </div>
+            <div class="ect-step-tip">
+              <strong>Gotcha:</strong> Reset Cumulative Delta at the regular-hours open (9:30 ET) or at session open. Overnight Delta carries too much noise. Reset daily.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- When it lies -->
+      <div class="ect-why-card" style="border-color:#ef4444; background: rgba(239,68,68,0.06);">
+        <div class="ect-why-title" style="color:#fca5a5;">⚠️ When Delta lies (and what to do)</div>
+        <div class="ect-why-body">
+          <ul>
+            <li><strong>Big absorption:</strong> heavy passive orders sitting at a level soak up aggressive hits without moving price. Delta looks huge but price doesn't budge. Means institutions are defending the level. Wait for the break, don't front-run the absorption.</li>
+            <li><strong>Low-liquidity windows (lunch lock, pre-news):</strong> tiny volume makes Delta readings erratic. Respect the Clock Matrix. Delta is useless at 12:05 PM.</li>
+            <li><strong>Stop runs:</strong> sharp Delta spikes on a single 2-min candle are often stop-run sweeps, not real directional conviction. Wait for the NEXT candle's close to see whether Delta kept going or faded.</li>
+          </ul>
         </div>
       </div>
 
@@ -13509,7 +13657,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <div class="plan-callout warn">
           <span class="plan-callout-label">⚠️ The Math</span>
           <strong>Example:</strong> neckline at 2300, W bottom at 2270, entry at 2301 after confirmation close.<br>
-          Traditional stop: 2268 (below W bottom) = <strong>3.3-point stop = $99 risk at 6 contracts.</strong><br><br>
+          Traditional stop: 2268 (below W bottom) = <strong>3.3-point stop = $396 risk at 24 M2K contracts.</strong><br><br>
           If price breaks back below the neckline (back below 2300), the breakout has already failed. Do you really want to sit there holding a losing position from 2301 all the way down to 2268, hoping it bounces? In most cases, once the breakout fails and price closes back below the neckline, it's going lower, not recovering.
         </div>
 
@@ -13517,12 +13665,12 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <p class="plan-prose"><strong>If you entered using Method 1</strong> (on the break, before candle closes), your stop belongs below the W bottom — you don't yet have confirmation and the pattern needs room.</p>
         <p class="plan-prose"><strong>If you entered using Method 2</strong> (candle close confirmation), you already HAVE your confirmation. The candle closed above the neckline. The breakout IS confirmed. If price immediately reverses and the next candle closes back below the neckline, the confirmation was FALSE. No reason to give the pattern another 3 points to fail even harder.</p>
 
-        <h3 class="plan-h3">The Better Stop for Confirmation Entries</h3>
+        <h3 class="plan-h3">The Better Stop — The 20-Tick Default (Final Plan)</h3>
         <div class="plan-callout decision">
-          <span class="plan-callout-label">✅ The Better Way</span>
-          <strong>Place stop 0.4–0.6 pts BELOW the neckline</strong> (not at the W bottom).<br><br>
-          Same example: neckline at 2300, stop at 2299.5 (0.5 pts below).<br>
-          New stop: <strong>0.5-point stop = $15 risk at 6 contracts on M2K.</strong>
+          <span class="plan-callout-label">✅ The Final Plan</span>
+          <strong>Default stop = 20 ticks (2.0 pts M2K · 5.0 pts MES) below entry</strong> — tighten only if structure (neckline, W bottom) is CLOSER than 20 ticks.<br><br>
+          Same example: entry at 2301.0, default stop at 2299.0 (20 ticks / 2.0 pts).<br>
+          <strong>Risk = 2.0 pts × 24 contracts × $5/pt = $240 on M2K.</strong> On MES: 5.0 pts × 8 × $5 = <strong>$200</strong>.
         </div>
 
         <figure class="plan-illus gold">
@@ -13541,20 +13689,20 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <line x1="10" y1="230" x2="310" y2="230" stroke="#ef4444" stroke-width="2.5"/>
             <text x="160" y="248" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="800">STOP 2268 · below W bottom</text>
             <rect x="8" y="150" width="302" height="80" fill="#ef4444" fill-opacity="0.1" stroke="none"/>
-            <text x="160" y="195" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">3.3 pts · $99 risk @6 contracts</text>
+            <text x="160" y="195" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">3.3 pts · $396 risk @24 M2K</text>
             <text x="160" y="265" text-anchor="middle" fill="#fca5a5" font-size="10">R:R ≈ 1:1</text>
-            <text x="480" y="22" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">✅ NECKLINE STOP (0.4–0.6 pts)</text>
+            <text x="480" y="22" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">✅ 20-TICK DEFAULT (2.0 pts M2K)</text>
             <path d="M 340,90 L 370,110 L 400,150 L 430,220 L 460,190 L 490,150 L 520,180 L 550,220 L 580,180 L 610,130 L 620,75" stroke="#cbd5e1" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
             <line x1="330" y1="150" x2="630" y2="150" stroke="#eab308" stroke-width="2" stroke-dasharray="5 3"/>
             <text x="480" y="145" text-anchor="middle" fill="#eab308" font-size="10" font-weight="700">Neckline 2300</text>
             <circle cx="620" cy="75" r="6" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
             <text x="620" y="60" text-anchor="middle" fill="#86efac" font-size="9" font-weight="700">ENTRY 2301</text>
-            <line x1="330" y1="162" x2="630" y2="162" stroke="#22c55e" stroke-width="2.5"/>
-            <text x="480" y="180" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">STOP 2299.5 · 0.5 pts below neckline</text>
-            <rect x="328" y="150" width="302" height="12" fill="#22c55e" fill-opacity="0.18" stroke="none"/>
-            <text x="480" y="210" text-anchor="middle" fill="#bbf7d0" font-size="11" font-weight="700">0.5 pts · $15 risk @6 contracts</text>
-            <text x="480" y="235" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">R:R ≈ 5:1</text>
-            <text x="480" y="252" text-anchor="middle" fill="#bbf7d0" font-size="9" font-style="italic">risking $15 to make $90</text>
+            <line x1="330" y1="175" x2="630" y2="175" stroke="#22c55e" stroke-width="2.5"/>
+            <text x="480" y="193" text-anchor="middle" fill="#86efac" font-size="10" font-weight="800">STOP 2299.0 · 20 ticks (2.0 pts) below entry</text>
+            <rect x="328" y="150" width="302" height="25" fill="#22c55e" fill-opacity="0.18" stroke="none"/>
+            <text x="480" y="218" text-anchor="middle" fill="#bbf7d0" font-size="11" font-weight="700">2.0 pts · $240 risk @24 M2K</text>
+            <text x="480" y="240" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">75% off @ +15 ticks · runner to +30</text>
+            <text x="480" y="258" text-anchor="middle" fill="#bbf7d0" font-size="9" font-style="italic">ATM does all three exits automatically</text>
           </svg>
           <figcaption><strong>Same trade, two stop choices.</strong> The breakthrough: once your confirmation entry is already past the neckline, if price closes back below that neckline the breakout has <em>already failed</em> — no reason to let it prove it by draining all the way to the W bottom.</figcaption>
         </figure>
@@ -14055,46 +14203,100 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <strong>Companion document:</strong> See <em>"The Research Behind the Plan"</em> for the WHY behind every rule here.
       </div>
 
-      <!-- ============ PLAN UPGRADE CALLOUT — ATR stop + scale-out TP ============ -->
+      <!-- ============ PLAN UPGRADE CALLOUT — 0.75R Breakeven Plan (2026-04-24) ============ -->
       <div class="plan-upgrade-callout">
         <div class="puc-header">
-          <div class="puc-stamp">PLAN UPGRADE · 2026-04-23</div>
-          <div class="puc-title">The Two Rules That Stop Hurting You</div>
+          <div class="puc-stamp">PLAN UPGRADE · 2026-04-24 · FINAL</div>
+          <div class="puc-title">The 0.75R Breakeven Plan — Locked In</div>
         </div>
         <div class="puc-intro">
-          These two upgrades apply to <strong>every one of the four pattern cards below</strong>. They replace any conflicting stop or exit rule in the old plan. Read them once. Print them. Follow them forever. The step-by-step cards still tell you how to <em>enter</em>; these rules tell you how to <em>stay in the trade</em> and <em>get out right.</em>
+          This is <strong>the</strong> plan. It replaces every earlier stop/target/split rule in this app. Two targets. Two instruments. Same tick numbers on both. Take 75% off fast, move to breakeven, let the 25% runner ride. After T1 hits you literally cannot lose money on the trade. That is the whole point.
+        </div>
+
+        <!-- The Plan Table — M2K & MES side by side -->
+        <div class="puc-plan-table-wrap">
+          <table class="puc-plan-table">
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>M2K</th>
+                <th>MES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Total contracts</strong></td>
+                <td>24</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td><strong>Stop loss</strong></td>
+                <td>20 ticks · <strong>2.0 pts</strong></td>
+                <td>20 ticks · <strong>5.0 pts</strong></td>
+              </tr>
+              <tr>
+                <td><strong>T1 — 75% off (0.75R)</strong></td>
+                <td>15 ticks · <strong>1.5 pts</strong> / 18 contracts</td>
+                <td>15 ticks · <strong>3.75 pts</strong> / 6 contracts</td>
+              </tr>
+              <tr>
+                <td><strong>T2 — 25% runner (1.5R)</strong></td>
+                <td>30 ticks · <strong>3.0 pts</strong> / 6 contracts</td>
+                <td>30 ticks · <strong>7.5 pts</strong> / 2 contracts</td>
+              </tr>
+              <tr>
+                <td><strong>Auto breakeven trigger</strong></td>
+                <td>15 ticks (+1 tick)</td>
+                <td>15 ticks (+1 tick)</td>
+              </tr>
+              <tr>
+                <td><strong>Dollar risk</strong></td>
+                <td>$240 (24 × 2.0 × $5)</td>
+                <td>$200 (8 × 5.0 × $5)</td>
+              </tr>
+              <tr>
+                <td><strong>ATM template name</strong></td>
+                <td><code>M2K_075R_BE</code></td>
+                <td><code>MES_075R_BE</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="puc-plan-table-note">
+            $/point: <strong>M2K $5/pt ($0.50/tick)</strong> · <strong>MES $25/pt ($1.25/tick)</strong>. All three tick numbers (stop 20, T1 15, T2 30) are identical on both instruments — the dollar math differs because the contract sizes differ.
+          </div>
         </div>
 
         <div class="puc-rules">
-          <!-- Rule 1: ATR-gated stop -->
+          <!-- Rule 1: Fixed 20-tick stop -->
           <div class="puc-rule">
             <div class="puc-rule-num">RULE 1</div>
-            <div class="puc-rule-title">🎯 ATR-Gated Stop Placement</div>
+            <div class="puc-rule-title">🎯 20-Tick Default Stop · Tighten Only for Structure</div>
             <div class="puc-rule-body">
-              Before you enter, <strong>glance at the 2-min ATR(14) reading</strong> on your chart:
+              <strong>Default stop = 20 ticks</strong> on both M2K and MES. Before you enter, glance at the structure near your stop:
               <ul>
-                <li><strong>ATR ≤ 1.2 pts</strong> → use your tight stop (<code>0.4–0.6 pts</code> beyond the structure line) — this is the default.</li>
-                <li><strong>ATR &gt; 1.2 pts</strong> → market is too noisy for a tight stop. Widen to <code>ATR × 0.5</code>, cap at <code>1.0 pt</code>. Reduce contracts to keep dollar risk constant.</li>
+                <li><strong>Structure is farther than 20 ticks</strong> → keep the 20-tick default. Do not widen.</li>
+                <li><strong>Structure (support/resistance) is CLOSER than 20 ticks</strong> → <strong>tighten</strong> the stop to just beyond that structure. Your R:R improves automatically — that's a gift, take it.</li>
+                <li><strong>Never widen a stop mid-trade.</strong> Only tighten. Only before entry. Never fear-driven — only structure-driven.</li>
               </ul>
               <div class="puc-rule-example">
-                <strong>Example (M2K):</strong> ATR reads 1.5 pts. Stop becomes 0.75 pts. To keep $18 risk: drop from 6 contracts to 4 (0.75 × 4 × $5 = $15).
+                <strong>Example:</strong> NinjaTrader plops a 20-tick stop on M2K but strong support sits 13 ticks below entry. Tighten to 14 ticks. T1 stays at 15 ticks — the label jumps from 0.75R to ~1.07R. That's an <em>improvement</em>, not a problem. Contracts stay 24. Dollar risk drops.
               </div>
             </div>
           </div>
 
-          <!-- Rule 2: Scale-out TP -->
+          <!-- Rule 2: 75/25 Scale-Out with Auto Breakeven -->
           <div class="puc-rule">
             <div class="puc-rule-num">RULE 2</div>
-            <div class="puc-rule-title">💰 Scale-Out Take-Profit</div>
+            <div class="puc-rule-title">💰 75% Off at T1 (0.75R) · Runner to T2 (1.5R)</div>
             <div class="puc-rule-body">
-              <strong>Kills the panic-close problem.</strong> Half the trade becomes profit you cannot lose:
+              <strong>Kills the panic-close problem.</strong> Most of the trade becomes profit you cannot lose:
               <ul>
-                <li><strong>At +1R</strong> (profit equals risk) → exit <strong>50%</strong> of contracts.</li>
-                <li>At the same moment → <strong>move stop to breakeven</strong> on the remaining half.</li>
-                <li>Let the runners ride toward the <strong>measured move target</strong> or until the trend breaks.</li>
+                <li><strong>At T1 (15 ticks / 0.75R)</strong> → exit <strong>75%</strong> of contracts (18 on M2K, 6 on MES).</li>
+                <li><strong>Auto breakeven fires the instant T1 hits</strong> → remaining 25% has stop at entry + 1 tick. You cannot lose money on the trade anymore.</li>
+                <li><strong>At T2 (30 ticks / 1.5R)</strong> → exit the runner (6 on M2K, 2 on MES). Or let it trail if the move is unusually strong.</li>
               </ul>
               <div class="puc-rule-example">
-                <strong>Example (6 M2K):</strong> +0.6 pts → close 3 contracts ($9 locked), stop to BE on the other 3. Worst case: $9 profit. Best case: runners hit measured move (+2–3 pts).
+                <strong>Example (M2K · 24 contracts):</strong> Entry at 2300. Stop at 2298 (20 ticks = 2.0 pts). T1 at 2301.5 (15 ticks = 1.5 pts) → 18 contracts exit for $135. Stop jumps to 2300.1. T2 at 2303 (30 ticks = 3.0 pts) → remaining 6 contracts exit for $90. Best case total: $225. Worst case after T1: $135 locked + $3 on the runner breakeven = $138.
               </div>
             </div>
           </div>
@@ -14104,21 +14306,21 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
             <div class="puc-rule-num">RULE 3</div>
             <div class="puc-rule-title">🧘 Hands Off the Mouse</div>
             <div class="puc-rule-body">
-              Once ECT places the stop and first target, <strong>physically move your hand off the mouse.</strong>
+              Once ECT places the stop and both targets, <strong>physically move your hand off the mouse.</strong>
               <ul>
-                <li>No closing early at +0.3 pts because "it feels weak."</li>
+                <li>No closing early at +5 ticks because "it feels weak."</li>
                 <li>No moving the stop wider because "it's about to turn."</li>
-                <li>The only allowed click between entry and +1R is the <strong>emergency exit</strong> if a red-flag event fires (news spike, obvious reversal pattern against you, lost framework).</li>
+                <li>The only allowed click between entry and T1 is the <strong>emergency exit</strong> if a red-flag event fires (news spike, obvious reversal pattern against you, lost framework).</li>
               </ul>
               <div class="puc-rule-example">
-                <strong>Why:</strong> Your panic closes and wider-stop moves are the single biggest leak. Plan placed it. Plan manages it. You watch.
+                <strong>Why:</strong> Panic closes and wider-stop moves are your single biggest leak. The ATM placed the orders. The ATM manages them. You watch.
               </div>
             </div>
           </div>
         </div>
 
         <div class="puc-footer">
-          These three rules <strong>override</strong> any step in the pattern cards below that says "take 3 off at 1:1" (Rule 2 is the same idea, now unified) or implies you should manage manually (Rule 3 says you should not). The pattern cards teach you to <em>enter</em>. These rules teach you to <em>exit</em>.
+          These three rules <strong>override</strong> any earlier plan rule in this app that said "take 50% at 1R" or "use a 0.4–0.6 pt stop" or "6 contracts standard" or "T3 runner." The pattern cards below still teach you how to <em>enter</em>. These rules tell you how to <em>size, stop, and exit</em>. Same numbers every trade: 20 / 15 / 30 ticks. 24 M2K or 8 MES. 75% off at T1. Runner to T2.
         </div>
       </div>
 
@@ -14126,7 +14328,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="pattern-plan-card long" id="plan-double-bottom">
         <div class="pattern-plan-header">
           <div class="pph-title">🟢 Double Bottom · LONG</div>
-          <div class="pph-meta">10 steps · 6 contracts · 0.5–0.6 point stop</div>
+          <div class="pph-meta">24 M2K / 8 MES · 20-tick stop (2.0 pt M2K / 5.0 pt MES) · 75/25 split at 15 / 30 ticks</div>
         </div>
         <div class="pattern-plan-body">
           <div class="pattern-hero-chart">
@@ -14230,21 +14432,22 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="step-card">
             <div class="step-num">8</div>
             <div class="step-body">
-              <div class="step-title">Place Your Stop</div>
-              <div class="step-text"><strong>0.4–0.6 pts BELOW the neckline.</strong> NOT at the bottom of the W.</div>
-              <div class="step-note"><strong>Example (M2K):</strong> Neckline at 2300. Entry at 2301. Stop at 2299.4.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong></div>
+              <div class="step-title">Place Your Stop — 20 Ticks Default</div>
+              <div class="step-text"><strong>Default stop = 20 ticks (2.0 pts M2K · 5.0 pts MES) below entry.</strong> Only tighten if structure (neckline, W bottom) is closer than 20 ticks away — never loosen past 20.</div>
+              <div class="step-note"><strong>Example (M2K):</strong> Entry at 2301.0. Default stop at 2299.0 (20 ticks / 2.0 pts).<br>Risk = 2.0 pts × 24 contracts × $5/pt = <strong>$240.</strong></div>
+              <div class="step-note"><strong>Example (MES):</strong> Entry at 5800.00. Default stop at 5795.00 (20 ticks / 5.0 pts).<br>Risk = 5.0 pts × 8 contracts × $5/pt = <strong>$200.</strong> (Or: 20 ticks × 8 ct × $1.25/tick = $200.)</div>
             </div>
           </div>
 
           <div class="step-card">
             <div class="step-num">9</div>
             <div class="step-body">
-              <div class="step-title">Manage the Trade</div>
+              <div class="step-title">Manage the Trade — 75/25 Auto-Scale</div>
               <div class="step-text">
                 <ul>
-                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
-                  <li><strong>At 1:1 risk-reward</strong> (if stop was 0.6 pts, at +0.6 pts): Take 3 contracts off</li>
-                  <li><strong>Remaining 3 contracts:</strong> Ride toward measured move target (W height projected up from neckline). Trail stop behind each new higher low.</li>
+                  <li><strong>At +15 ticks (0.75R):</strong> ATM auto-scales 75% off (M2K: 18 of 24 · MES: 6 of 8) AND moves remaining stop to breakeven +1 tick.</li>
+                  <li><strong>At +30 ticks (1.5R):</strong> ATM auto-exits the 25% runner (M2K: 6 · MES: 2). Trade complete.</li>
+                  <li><strong>Hands off the mouse:</strong> The ATM template (<code>M2K_075R_BE</code> / <code>MES_075R_BE</code>) does all three exits automatically. You do not touch anything after entry.</li>
                 </ul>
               </div>
             </div>
@@ -14265,7 +14468,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="pattern-plan-card short" id="plan-double-top">
         <div class="pattern-plan-header">
           <div class="pph-title">🔴 Double Top · SHORT</div>
-          <div class="pph-meta">11 steps · 6 contracts · HTF filter mandatory</div>
+          <div class="pph-meta">24 M2K / 8 MES · 20-tick stop · 75/25 split at 15 / 30 ticks · HTF filter mandatory</div>
         </div>
         <div class="pattern-plan-body">
           <div class="pattern-hero-chart">
@@ -14385,21 +14588,22 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="step-card">
             <div class="step-num">9</div>
             <div class="step-body">
-              <div class="step-title">Place Your Stop</div>
-              <div class="step-text"><strong>0.4–0.6 pts ABOVE the neckline.</strong> NOT at the top of the M.</div>
-              <div class="step-note"><strong>Example (M2K):</strong> Neckline at 2300. Entry at 2299. Stop at 2300.6.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong></div>
+              <div class="step-title">Place Your Stop — 20 Ticks Default</div>
+              <div class="step-text"><strong>Default stop = 20 ticks (2.0 pts M2K · 5.0 pts MES) above entry.</strong> Only tighten if structure (neckline, M top) is closer than 20 ticks away — never loosen past 20.</div>
+              <div class="step-note"><strong>Example (M2K):</strong> Entry at 2299.0. Default stop at 2301.0 (20 ticks / 2.0 pts).<br>Risk = 2.0 pts × 24 contracts × $5/pt = <strong>$240.</strong></div>
+              <div class="step-note"><strong>Example (MES):</strong> Entry at 5800.00. Default stop at 5805.00 (20 ticks / 5.0 pts).<br>Risk = 5.0 pts × 8 contracts × $5/pt = <strong>$200.</strong></div>
             </div>
           </div>
 
           <div class="step-card">
             <div class="step-num">10</div>
             <div class="step-body">
-              <div class="step-title">Manage the Trade</div>
+              <div class="step-title">Manage the Trade — 75/25 Auto-Scale</div>
               <div class="step-text">
                 <ul>
-                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
-                  <li><strong>At 1:1:</strong> Take 3 contracts off</li>
-                  <li><strong>Remaining 3:</strong> Ride toward measured move target (M height projected down from neckline). Trail stop behind each new lower high.</li>
+                  <li><strong>At +15 ticks (0.75R):</strong> ATM auto-scales 75% off (M2K: 18 of 24 · MES: 6 of 8) AND moves remaining stop to breakeven −1 tick.</li>
+                  <li><strong>At +30 ticks (1.5R):</strong> ATM auto-exits the 25% runner (M2K: 6 · MES: 2). Trade complete.</li>
+                  <li><strong>Hands off the mouse:</strong> The ATM template (<code>M2K_075R_BE</code> / <code>MES_075R_BE</code>) does all three exits automatically.</li>
                 </ul>
               </div>
             </div>
@@ -14420,7 +14624,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="pattern-plan-card long" id="plan-bull-flag">
         <div class="pattern-plan-header">
           <div class="pph-title">🚩 Bull Flag · LONG</div>
-          <div class="pph-meta">11 steps · 6 contracts · Stop 0.4–0.6 pts below trendline</div>
+          <div class="pph-meta">24 M2K / 8 MES · 20-tick stop · 75/25 split at 15 / 30 ticks</div>
         </div>
         <div class="pattern-plan-body">
           <div class="pattern-hero-chart">
@@ -14559,21 +14763,21 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="step-card">
             <div class="step-num">9</div>
             <div class="step-body">
-              <div class="step-title">Place Your Stop — THE KEY INSIGHT</div>
-              <div class="step-text"><strong>0.4–0.6 pts BELOW the broken flag trendline.</strong> NOT at the flag low.</div>
-              <div class="step-note"><strong>Logic:</strong> You entered on a confirmed close above the trendline. That trendline was resistance; now support. If price closes back below, the breakout failed. No reason to ride it to the flag low.<br><br><strong>Example (M2K):</strong> Flag trendline at 2310. Entry at 2311. Stop at 2309.4.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong><br><br>Compare old way: flag low at 2285, stop at 2283 = <strong>$84 risk.</strong> Nearly 5× less risk, same trade.</div>
+              <div class="step-title">Place Your Stop — 20 Ticks Default</div>
+              <div class="step-text"><strong>Default stop = 20 ticks (2.0 pts M2K · 5.0 pts MES) below entry.</strong> Only tighten if the broken flag trendline is closer than 20 ticks away — never loosen past 20, and NEVER drop down to the flag low (that's the old way).</div>
+              <div class="step-note"><strong>Logic:</strong> The trendline was resistance; now support. If price closes back below, the breakout failed. No reason to ride it to the flag low.<br><br><strong>Example (M2K):</strong> Entry at 2311.0. Default stop at 2309.0 (20 ticks / 2.0 pts).<br>Risk = 2.0 pts × 24 contracts × $5/pt = <strong>$240.</strong><br><br><strong>Example (MES):</strong> Entry at 5800.00. Default stop at 5795.00 (20 ticks / 5.0 pts).<br>Risk = 5.0 pts × 8 contracts × $5/pt = <strong>$200.</strong></div>
             </div>
           </div>
 
           <div class="step-card">
             <div class="step-num">10</div>
             <div class="step-body">
-              <div class="step-title">Manage the Trade</div>
+              <div class="step-title">Manage the Trade — 75/25 Auto-Scale</div>
               <div class="step-text">
                 <ul>
-                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
-                  <li><strong>At 1:1:</strong> Take 3 contracts off</li>
-                  <li><strong>Remaining 3:</strong> Ride toward measured move target (flagpole height projected up from breakout). Trail stop behind each higher low.</li>
+                  <li><strong>At +15 ticks (0.75R):</strong> ATM auto-scales 75% off (M2K: 18 of 24 · MES: 6 of 8) AND moves remaining stop to breakeven +1 tick.</li>
+                  <li><strong>At +30 ticks (1.5R):</strong> ATM auto-exits the 25% runner (M2K: 6 · MES: 2). Trade complete.</li>
+                  <li><strong>Hands off the mouse:</strong> The ATM template (<code>M2K_075R_BE</code> / <code>MES_075R_BE</code>) does all three exits automatically.</li>
                 </ul>
               </div>
             </div>
@@ -14594,7 +14798,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
       <div class="pattern-plan-card short" id="plan-bear-flag">
         <div class="pattern-plan-header">
           <div class="pph-title">🏴 Bear Flag · SHORT</div>
-          <div class="pph-meta">12 steps · HTF filter mandatory · 2-candle time stop</div>
+          <div class="pph-meta">24 M2K / 8 MES · 20-tick stop · 75/25 split at 15 / 30 ticks · HTF filter mandatory · 2-candle time stop</div>
         </div>
         <div class="pattern-plan-body">
           <div class="pattern-hero-chart">
@@ -14751,21 +14955,22 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           <div class="step-card">
             <div class="step-num">10</div>
             <div class="step-body">
-              <div class="step-title">Place Your Stop — SAME KEY INSIGHT</div>
-              <div class="step-text"><strong>0.4–0.6 pts ABOVE the broken flag trendline.</strong> NOT at the flag high.</div>
-              <div class="step-note"><strong>Example (M2K):</strong> Flag trendline at 2290. Entry at 2289. Stop at 2290.6.<br>Risk = 0.6 pts × 6 contracts × $5/pt = <strong>$18.</strong></div>
+              <div class="step-title">Place Your Stop — 20 Ticks Default</div>
+              <div class="step-text"><strong>Default stop = 20 ticks (2.0 pts M2K · 5.0 pts MES) above entry.</strong> Only tighten if the broken flag trendline is closer than 20 ticks away — never loosen past 20, and NEVER float up to the flag high (that's the old way).</div>
+              <div class="step-note"><strong>Example (M2K):</strong> Entry at 2289.0. Default stop at 2291.0 (20 ticks / 2.0 pts).<br>Risk = 2.0 pts × 24 contracts × $5/pt = <strong>$240.</strong></div>
+              <div class="step-note"><strong>Example (MES):</strong> Entry at 5800.00. Default stop at 5805.00 (20 ticks / 5.0 pts).<br>Risk = 5.0 pts × 8 contracts × $5/pt = <strong>$200.</strong></div>
             </div>
           </div>
 
           <div class="step-card">
             <div class="step-num">11</div>
             <div class="step-body">
-              <div class="step-title">Manage the Trade — FASTER THAN BULL FLAGS</div>
-              <div class="step-text">Bear flags move faster and reverse more violently.
+              <div class="step-title">Manage the Trade — 75/25 Auto-Scale</div>
+              <div class="step-text">Bear flags move faster and reverse more violently. The ATM handles all exits automatically.
                 <ul>
-                  <li><strong>At +0.8–1.0 pts:</strong> Move stop to breakeven</li>
-                  <li><strong>At 1:1:</strong> Take 3 contracts off (don't get greedy)</li>
-                  <li><strong>Remaining 3:</strong> Trail with TIGHTER stop than bull flags</li>
+                  <li><strong>At +15 ticks (0.75R):</strong> ATM auto-scales 75% off (M2K: 18 of 24 · MES: 6 of 8) AND moves remaining stop to breakeven −1 tick.</li>
+                  <li><strong>At +30 ticks (1.5R):</strong> ATM auto-exits the 25% runner (M2K: 6 · MES: 2). Trade complete.</li>
+                  <li><strong>Hands off the mouse:</strong> Template <code>M2K_075R_BE</code> / <code>MES_075R_BE</code>. You do not touch anything after entry.</li>
                 </ul>
               </div>
             </div>
@@ -14789,11 +14994,11 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
         <ol class="universal-rules-list">
           <li><strong>Always wait for the candle to CLOSE.</strong> No exceptions. Not with 10 seconds left. Not when it "looks impossible to fail."</li>
           <li><strong>Always grade the breakout candle wick.</strong> Under 20% = strong. 20–30% = decent. 30–40% = weak. Over 40% = skip.</li>
-          <li><strong>Always place stops based on the broken level, NOT the pattern extreme.</strong> 0.4–0.6 pts below neckline (double bottoms/tops) or below/above broken trendline (flags). Never at the W bottom, M top, flag low, or flag high.</li>
+          <li><strong>Always use the 20-tick default stop.</strong> 20 ticks = 2.0 pts M2K / 5.0 pts MES. Tighten ONLY if structure (neckline, broken trendline) is closer than 20 ticks away. Never loosen past 20. Never at the W bottom, M top, flag low, or flag high.</li>
           <li><strong>Always confirm with Stochastics 5,3,3.</strong> Momentum must align with trade direction.</li>
           <li><strong>Always check the 15-minute chart for shorts.</strong> Double tops and bear flags require the higher timeframe to NOT be in clear uptrend.</li>
-          <li><strong>Always move to breakeven at +0.8–1.0 pts.</strong> Eliminate risk as soon as possible.</li>
-          <li><strong>Always take half off at 1:1.</strong> Bank real money on the first 3 contracts.</li>
+          <li><strong>Auto-breakeven at +15 ticks (0.75R).</strong> The ATM moves the runner stop to breakeven the instant T1 fills. You do not touch the mouse.</li>
+          <li><strong>Take 75% off at +15 ticks (T1 / 0.75R).</strong> M2K: 18 of 24 contracts. MES: 6 of 8 contracts. ATM fires it automatically.</li>
           <li><strong>Always use a time stop.</strong> 3 candles (6 min) for double bottoms/tops/bull flags. 2 candles (4 min) for bear flags.</li>
           <li><strong>Always enter with a market order at the open of the next candle.</strong> No buy stops. No limit orders.</li>
           <li><strong>Always screenshot every trade — wins AND losses.</strong> Review weekly.</li>
@@ -14818,28 +15023,28 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
               <tr>
                 <td>Double Bottom</td>
                 <td>Market buy after close above neckline</td>
-                <td>0.4–0.6 pts <strong>BELOW</strong> neckline</td>
+                <td>20 ticks <strong>BELOW</strong> entry (tighten if neckline closer)</td>
                 <td>3 candles</td>
                 <td>Optional</td>
               </tr>
               <tr>
                 <td>Double Top</td>
                 <td>Market sell after close below neckline</td>
-                <td>0.4–0.6 pts <strong>ABOVE</strong> neckline</td>
+                <td>20 ticks <strong>ABOVE</strong> entry (tighten if neckline closer)</td>
                 <td>3 candles</td>
                 <td><strong>Mandatory</strong></td>
               </tr>
               <tr>
                 <td>Bull Flag</td>
                 <td>Market buy after close above trendline</td>
-                <td>0.4–0.6 pts <strong>BELOW</strong> trendline</td>
+                <td>20 ticks <strong>BELOW</strong> entry (tighten if trendline closer)</td>
                 <td>3 candles</td>
                 <td>Optional</td>
               </tr>
               <tr>
                 <td>Bear Flag</td>
                 <td>Market sell after close below trendline</td>
-                <td>0.4–0.6 pts <strong>ABOVE</strong> trendline</td>
+                <td>20 ticks <strong>ABOVE</strong> entry (tighten if trendline closer)</td>
                 <td><strong>2 candles</strong></td>
                 <td><strong>Mandatory</strong></td>
               </tr>
@@ -14847,7 +15052,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
           </table>
         </div>
         <div class="quick-ref-footer">
-          <strong>All patterns:</strong> 6 contracts standard · Grade wick · Stochastics 5,3,3 filter · Breakeven at +0.8–1.0 pts · Half off at 1:1 · Trail remainder.
+          <strong>All patterns:</strong> M2K 24 (18/6 split) · MES 8 (6/2 split) · 20-tick default stop · T1 = +15 ticks (75% off) · T2 = +30 ticks (25% runner) · Auto-breakeven at T1 · ATM templates <code>M2K_075R_BE</code> / <code>MES_075R_BE</code>.
         </div>
       </div>
 
@@ -17152,7 +17357,7 @@ body.fb-locked>*:not(#fb-gate):not(script):not(style):not(link){display:none!imp
     'hammer-star','engulfing','morning-star',
     'failed-breakout','orb-retest','vwap-mr',
     'aggressive-entry','pattern-stacking','unified','masterclass',
-    'pattern-quiz','calculators','flashcards',
+    'pattern-quiz','calculators','ect-workflow','cumulative-delta','flashcards',
     // TRADE
     'red-flags','state-gate','premarket','clock-matrix','decision-tree',
     'checklist','live-checklist','daily-gates',

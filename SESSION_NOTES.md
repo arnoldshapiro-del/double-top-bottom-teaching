@@ -1,5 +1,63 @@
 # Session Notes — Arnie's Day Trading Setup Playbook
 
+## Session — 2026-04-24 — v5.2: The 0.75R Breakeven Plan locked in
+
+**What we did:**
+
+Arnie finalized his trading plan with Claude.ai on 2026-04-24. Study doc on Desktop: `Hey Claude code  study all of this from mu last chat with claude.ai.docx`. Key commitment: **the numbers of contracts, ticks, take profits, and stops are permanent. Do not touch them.**
+
+### The locked-in Final Plan (2026-04-24)
+
+| Setting | M2K | MES |
+|---|---|---|
+| Total contracts | 24 (18 T1 / 6 T2) | 8 (6 T1 / 2 T2) |
+| Stop loss | 20 ticks (2.0 pts) | 20 ticks (5.0 pts) |
+| T1 — 75% off (0.75R) | +15 ticks / 18 ct | +15 ticks / 6 ct |
+| T2 — 25% runner (1.5R) | +30 ticks / 6 ct | +30 ticks / 2 ct |
+| Auto-breakeven trigger | +15 ticks (± 1 tick) | +15 ticks (± 1 tick) |
+| Dollar risk | $240 | $200 |
+| ATM template | `M2K_075R_BE` | `MES_075R_BE` |
+
+### Branch and edits (all on `feature/final-plan-update-april-2026`)
+
+**Tier 1 — Final Trading Plan tab (authoritative):**
+- Rewrote PLAN UPGRADE callout with M2K/MES dual-instrument table and 3 locked rules (Rule 1: 20-tick default + tighten-only-for-structure; Rule 2: 75/25 auto-scale; Rule 3: Hands off the mouse).
+- Added new CSS classes: `.puc-plan-table-wrap`, `.puc-plan-table`, `.puc-plan-table code`, `.puc-plan-table-note`.
+- Updated 4 pattern card meta lines (DB, DT, BF, BEF) to "24 M2K / 8 MES · 20-tick stop · 75/25 split at 15 / 30 ticks".
+- Rewrote 4 pattern worked examples (DB step 8, DT step 9, BF step 9, BEF step 10) with new numbers — all show BOTH M2K ($240 @ 24 ct) and MES ($200 @ 8 ct) risk math.
+- Rewrote the "Breakthrough" SVG comparison: left side now shows Traditional W-bottom stop at $396/24 M2K, right side shows 20-tick default at $240/24 M2K with 75% off at +15 ticks.
+- Updated Part 5 prose to the final plan: "The 20-Tick Default" instead of "0.4–0.6 pts below neckline".
+- Updated Quick Reference table (all 4 patterns now "20 ticks + tighten if structure closer") and footer with ATM template names.
+- Rewrote 10 Universal Rules 3, 6, 7 with new stop + auto-breakeven + 75% scale rules.
+
+**Tier 2 — ECT R:R Workflow tab:**
+- Replaced ATM preset table: 4 old presets (`M2K_LONG_6`, `M2K_SHORT_6`, `MES_LONG_4`, `MES_SHORT_4`) → 2 new presets (`M2K_075R_BE` with 24 ct / 20-tick stop / +15 (18) / +30 (6); `MES_075R_BE` with 8 ct / 20-tick stop / +15 (6) / +30 (2)).
+- Updated step 3 execution text to fire the new presets with new quantities.
+- Updated step 4 hands-off text to mention +15 and +30 auto-exits.
+- Updated ECT SVG diagram labels: T1 REWARD / +15 ticks / 75% off / T2 +30 ticks (25% runner).
+
+**Tier 4 — Pre-Trade Checklist:**
+- Replaced two stop-buffer rows with: (1) "20 ticks default stop" and (2) "Structure check: tighten only if structure is closer than 20 ticks".
+
+**Tier 5 — New LEARN tab: Cumulative Delta / Order Flow:**
+- Added to sidebar nav as a LEARN tab (📊 icon).
+- New full tab panel (`#tab-cumulative-delta`): What it measures, how the final plan uses it as a filter (not a trigger), long vs short direction rules, one-glance rule before every click, "when Delta lies" cautions.
+- Added to TTS_READABLE_TABS set.
+
+**What's working:**
+- Branch `feature/final-plan-update-april-2026` contains all the above.
+- Plan is coherent end-to-end: Final Trading Plan tab, ECT Workflow, Checklist, Quick Reference, Universal Rules, and all pattern card examples all cite the exact same numbers.
+
+**What's next:**
+- Commit, merge to master, push, verify Netlify auto-deploy.
+- Consider adding: Stop-Tightening structure callout diagram, Pattern Stacking contract ladder refresh to new 24/8 sizing.
+
+**Important decisions:**
+- Numbers are LOCKED — do not adjust contracts / ticks / targets / stops going forward. Any future change requires Arnie's explicit sign-off.
+- Chose to preserve the teaching narrative in the "Breakthrough" section (Part 5) rather than rip it out — it now teaches the full evolution: traditional wide stop → neckline-based stop → final 20-tick default with structure-based tightening.
+
+---
+
 ## Session — 2026-04-22 — v5.1 + TTS everywhere + Position Calculator deployed
 
 **What we did:**
