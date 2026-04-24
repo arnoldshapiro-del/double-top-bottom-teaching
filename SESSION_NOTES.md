@@ -1,5 +1,27 @@
 # Session Notes — Arnie's Day Trading Setup Playbook
 
+## Session — 2026-04-24 (late) — v5.3: Final Plan override callouts across every pattern teaching tab
+
+**What we did:**
+
+Arnie pushed back after the v5.2 deploy — the pattern teaching tabs still showed the OLD execution numbers (1R / 1.5R / 2.5R / T3-runner / point-based stops / 4-6-8 M2K contract ladder). While those were left intact intentionally (they teach classical scale-out theory), they conflicted with the locked 0.75R Breakeven Plan at the execution level. Fixed by adding a gold "🏆 FINAL TRADING PLAN OVERRIDES THIS FOR EXECUTION" callout at the TOP of every pattern teaching tab. Callout makes it unambiguous: pattern tab tells you *whether to enter*; Final Trading Plan tab tells you *how to size, stop, and exit*.
+
+**Callouts added (6 tabs):**
+- 🔨 Hammer & Shooting Star (`tab-hammer-star`)
+- 🫂 Bullish & Bearish Engulfing (`tab-engulfing`)
+- ⭐ Morning & Evening Star (`tab-morning-star`)
+- 🌅 ORB with Retest (`tab-orb-retest`)
+- 🔗 Pattern Stacking (`tab-pattern-stacking`) — override specifically for the 4→6→8 contract size ladder; confirms contract size is constant (24 M2K / 8 MES) regardless of stack quality
+
+**Also fixed:**
+- Orphan `M2K_LONG_6` reference in ECT workflow step 1 → now `M2K_075R_BE` / `MES_075R_BE`
+
+**What's working:** All 6 pattern-tab override callouts live. Size ladder teaching preserved but clearly flagged as classical theory only. Orphan ATM reference cleaned up.
+
+**What's next:** Deploy to Netlify, verify live site contains "FINAL TRADING PLAN OVERRIDES" on the pattern tabs.
+
+---
+
 ## Session — 2026-04-24 — v5.2: The 0.75R Breakeven Plan locked in
 
 **What we did:**
